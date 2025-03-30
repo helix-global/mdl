@@ -1,0 +1,20 @@
+﻿using System;
+
+namespace BinaryStudio.Modeling.UnifiedModelingLanguage
+    {
+    /// <summary>
+    /// An <see cref="Abstraction"/> is a <see cref="Relationship"/> that relates two Elements or sets of Elements that represent the same concept at different levels of abstraction or from different viewpoints.
+    /// </summary>
+    /// xmi:id="Abstraction"
+    public interface Abstraction : Dependency
+        {
+        #region P:Mapping:OpaqueExpression
+        /// <summary>
+        /// An <see cref="OpaqueExpression"/> that states the abstraction relationship between the <see cref="Supplier"/>(s) and the <see cref="Client"/>(s). In some cases, such as derivation, it is usually formal and unidirectional; in other cases, such as trace, it is usually informal and bidirectional. The <see cref="Mapping"/> expression is optional and may be omitted if the precise relationship between the Elements is not specified.
+        /// </summary>
+        /// xmi:id="Abstraction-mapping"
+        /// xmi:aggregation="composite"
+        OpaqueExpression Mapping { get; }
+        #endregion
+        }
+    }

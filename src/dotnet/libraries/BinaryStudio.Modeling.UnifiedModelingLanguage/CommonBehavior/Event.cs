@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace BinaryStudio.Modeling.UnifiedModelingLanguage
+    {
+    /// <summary>
+    /// An <see cref="Event"/> is the specification of some occurrence that may potentially trigger effects by an object.
+    /// </summary>
+    /// xmi:id="Event"
+    public interface Event : PackageableElement
+        {
+        }
+    }

@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/dotnet
+/src/dotnet/libraries/BinaryStudio.Modeling.UnifiedModelingLanguage/bin
+/src/dotnet/libraries/BinaryStudio.Modeling.UnifiedModelingLanguage/obj
+/src/dotnet/pre/bin
+/src/dotnet/pre/obj
