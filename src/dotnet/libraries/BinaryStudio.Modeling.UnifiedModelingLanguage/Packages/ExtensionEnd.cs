@@ -59,6 +59,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ExtensionEnd-lowerBound"
         /// xmi:is-query="true"
         /// xmi:redefines="MultiplicityElement-lowerBound{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.MultiplicityElement.lowerBound"/>}"
+        [return: Multiplicity("0..1")]
         Integer lowerBound();
         #endregion
         }

@@ -133,6 +133,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Parameter-default.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         String @default();
         #endregion
         }

@@ -21,14 +21,22 @@ namespace pre
             r.Append($"{Type}");
             switch (multiplicity) {
                 case "1..1" :
+                    {
+                    r.Append(String.Empty);
+                    }
+                    break;
                 case "0..1" :
                     {
                     r.Append(String.Empty);
                     }
                     break;
+                case "0..*" :
+                    {
+                    r.Append("[]");
+                    }
+                    break;
                 case "1..*" :
                 case "2..*" :
-                case "0..*" :
                     {
                     r.Append("[]");
                     }

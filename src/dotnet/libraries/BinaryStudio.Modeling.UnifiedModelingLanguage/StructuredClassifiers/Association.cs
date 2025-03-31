@@ -111,6 +111,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Association-endType.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("1..*")]
         Type[] endType();
         #endregion
         }

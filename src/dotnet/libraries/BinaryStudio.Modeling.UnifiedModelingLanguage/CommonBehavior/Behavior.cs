@@ -130,6 +130,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Behavior-behavioredClassifier"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         BehavioredClassifier behavioredClassifier(Element from);
         #endregion
         #region M:context:BehavioredClassifier
@@ -154,6 +155,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Behavior-context.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         BehavioredClassifier context();
         #endregion
         #region M:inputParameters:Parameter[]

@@ -99,6 +99,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ActivityGroup-containingActivity"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Activity containingActivity();
         #endregion
         }

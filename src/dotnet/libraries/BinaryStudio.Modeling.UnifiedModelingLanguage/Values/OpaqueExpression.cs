@@ -143,6 +143,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="OpaqueExpression-result.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Parameter result();
         #endregion
         #region M:value:Integer

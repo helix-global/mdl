@@ -143,12 +143,31 @@ namespace pre
                 : null;
             }
         #endregion
+        #region M:ParamType(Parameter,{out}String):String
+        private static String ParamType(Parameter value, out String multiplicity) {
+            multiplicity = String.Empty;
+            if (value != null) {
+                multiplicity = MultiplicityToString(value.LowerValue,value.UpperValue);
+                switch (multiplicity) {
+                    case "1..1" :
+                    case "0..*" :
+                        {
+                        multiplicity = null;
+                        }
+                        break;
+                    }
+                return value.TypeWithMultiplicity;
+                }
+            return null;
+            }
+        #endregion
         #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer, String prefix) {
+            String multiplicity = null;
             var retparam = OwnedParameter.FirstOrDefault(i => i.Direction == "return");
             var ordparam = OwnedParameter.Where(i=>i.Direction != "return").ToArray();
             var retprfix = (retparam != null)
-                ? $":{ParamType(retparam)}"
+                ? $":{ParamType(retparam,out multiplicity)}"
                 : String.Empty;
             writer.Write($"{prefix}#region M:{Name}");
             if (ordparam.Length > 0)
@@ -176,7 +195,10 @@ namespace pre
                 var refopr = cls.DeclaredOperations[redefinedOperation.ReferencedIdentifier];
                 writer.Write($"{prefix}/// xmi:redefines=\"{redefinedOperation.ReferencedIdentifier}{{<see cref=\"M:{DefaultNamespace}.{refopr.Class.Name}.{refopr.Name}\"/>}}\"\n");
                 }
-    
+
+            if (!String.IsNullOrWhiteSpace(multiplicity)) {
+                writer.Write($"{prefix}[return: Multiplicity(\"{multiplicity}\")]\n");
+                }
             writer.Write((retparam != null) ? $"{prefix}{ParamType(retparam)}":"void");
             writer.Write($" {UpdateCSharpKeyword(Name)}");
             writer.Write($"(");

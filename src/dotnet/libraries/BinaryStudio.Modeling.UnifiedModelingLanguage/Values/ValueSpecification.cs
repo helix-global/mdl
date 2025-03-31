@@ -25,6 +25,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-booleanValue"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Boolean booleanValue();
         #endregion
         #region M:integerValue:Integer
@@ -39,6 +40,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-integerValue"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Integer integerValue();
         #endregion
         #region M:isCompatibleWith(ParameterableElement):Boolean
@@ -97,6 +99,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-realValue"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Real realValue();
         #endregion
         #region M:stringValue:String
@@ -111,6 +114,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-stringValue"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         String stringValue();
         #endregion
         #region M:unlimitedValue:UnlimitedNatural
@@ -125,6 +129,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-unlimitedValue"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         UnlimitedNatural unlimitedValue();
         #endregion
         }

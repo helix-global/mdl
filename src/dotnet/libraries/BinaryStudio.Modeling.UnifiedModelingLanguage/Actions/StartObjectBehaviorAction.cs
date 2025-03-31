@@ -60,6 +60,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StartObjectBehaviorAction-behavior"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Behavior behavior();
         #endregion
         #region M:inputParameters:Parameter[]

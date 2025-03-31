@@ -135,6 +135,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Package-containingProfile"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Profile containingProfile();
         #endregion
         #region M:makesVisible(NamedElement):Boolean

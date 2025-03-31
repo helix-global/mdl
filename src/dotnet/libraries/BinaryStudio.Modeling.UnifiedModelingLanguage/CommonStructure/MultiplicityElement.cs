@@ -182,6 +182,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="MultiplicityElement-lower.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Integer lower();
         #endregion
         #region M:lowerBound:Integer
@@ -210,6 +211,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="MultiplicityElement-upper.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         UnlimitedNatural upper();
         #endregion
         #region M:upperBound:UnlimitedNatural

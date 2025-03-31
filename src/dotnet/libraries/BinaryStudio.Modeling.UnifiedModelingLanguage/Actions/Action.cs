@@ -116,6 +116,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Action-containingBehavior"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Behavior containingBehavior();
         #endregion
         #region M:context:Classifier
@@ -135,6 +136,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Action-context.1"
         /// xmi:is-query="true"
+        [return: Multiplicity("0..1")]
         Classifier context();
         #endregion
         }

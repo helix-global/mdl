@@ -147,6 +147,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         /// xmi:redefines="ActivityGroup-containingActivity{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.containingActivity"/>}"
         /// xmi:redefines="ActivityNode-containingActivity{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.containingActivity"/>}"
+        [return: Multiplicity("0..1")]
         Activity containingActivity();
         #endregion
         #region M:sourceNodes:ActivityNode[]
