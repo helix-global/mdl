@@ -5,7 +5,7 @@ namespace pre
     {
     public class RedefinedOperation : ModelElement
         {
-        public ObjectIdentifier ReferencedIdentifier { get;private set; }
+        public String ReferencedIdentifier { get;private set; }
         public RedefinedOperation(ModelElement owner)
             : base(owner)
             {
@@ -15,7 +15,7 @@ namespace pre
             {
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             reader.MoveToContent();
-            ReferencedIdentifier = new ObjectIdentifier(reader.GetAttribute("idref",xmi));
+            ReferencedIdentifier = reader.GetAttribute("idref",xmi);
             }
         }
     }

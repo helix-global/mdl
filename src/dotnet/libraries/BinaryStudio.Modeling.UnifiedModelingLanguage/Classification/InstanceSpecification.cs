@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -34,13 +35,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="InstanceSpecification-deployment_target"
     /// </rule>
     /// xmi:id="InstanceSpecification"
-    public interface InstanceSpecification : DeploymentTarget,PackageableElement,DeployedArtifact
+    public interface InstanceSpecification : PackageableElement,DeployedArtifact,DeploymentTarget
         {
         #region P:Classifier:Classifier[]
         /// <summary>
         /// The <see cref="Classifier"/> or Classifiers of the represented instance. If multiple Classifiers are specified, the instance is classified by all of them.
         /// </summary>
         /// xmi:id="InstanceSpecification-classifier"
+        /// xmi:association="A_classifier_instanceSpecification"
         Classifier[] Classifier { get; }
         #endregion
         #region P:Slot:Slot[]
@@ -49,6 +51,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InstanceSpecification-slot"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_slot_owningInstance"
+        /// xmi:subsets="Element-ownedElement"
         Slot[] Slot { get; }
         #endregion
         #region P:Specification:ValueSpecification
@@ -57,6 +61,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InstanceSpecification-specification"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_specification_owningInstanceSpec"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification Specification { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -26,6 +27,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="InputPin"/> that provides the position of an existing link to be destroyed in an ordered, nonunique <see cref="Association"/> <see cref="End"/>. The type of the <see cref="DestroyAt"/> <see cref="InputPin"/> is UnlimitedNatural, but the <see cref="Value"/> cannot be zero or unlimited.
         /// </summary>
         /// xmi:id="LinkEndDestructionData-destroyAt"
+        /// xmi:association="A_destroyAt_linkEndDestructionData"
+        [Multiplicity("0..1")]
         InputPin DestroyAt { get; }
         #endregion
         #region P:IsDestroyDuplicates:Boolean

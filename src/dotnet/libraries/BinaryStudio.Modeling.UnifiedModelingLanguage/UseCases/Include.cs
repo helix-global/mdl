@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="UseCase"/> that is to be included.
         /// </summary>
         /// xmi:id="Include-addition"
+        /// xmi:association="A_addition_include"
+        /// xmi:subsets="DirectedRelationship-target"
         UseCase Addition { get; }
         #endregion
         #region P:IncludingCase:UseCase
@@ -20,6 +23,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="UseCase"/> which includes the <see cref="Addition"/> and owns the <see cref="Include"/> relationship.
         /// </summary>
         /// xmi:id="Include-includingCase"
+        /// xmi:association="A_include_includingCase"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="NamedElement-namespace"
         UseCase IncludingCase { get; }
         #endregion
         }

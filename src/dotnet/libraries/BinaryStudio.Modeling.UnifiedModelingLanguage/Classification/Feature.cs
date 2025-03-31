@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Classifiers that have this <see cref="Feature"/> as a feature.
         /// </summary>
         /// xmi:id="Feature-featuringClassifier"
+        /// xmi:association="A_feature_featuringClassifier"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="A_member_memberNamespace-memberNamespace"
+        [Multiplicity("0..1")][Union]
         Classifier FeaturingClassifier { get; }
         #endregion
         #region P:IsStatic:Boolean

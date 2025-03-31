@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// This property is used when the <see cref="Class"/> is acting as a metaclass. It references the Extensions that specify additional properties of the metaclass. The property is derived from the Extensions whose memberEnds are typed by the <see cref="Class"/>.
         /// </summary>
         /// xmi:id="Class-extension"
+        /// xmi:association="A_extension_metaclass"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Extension[] Extension { get; }
         #endregion
         #region P:IsAbstract:Boolean
@@ -44,6 +48,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Class-nestedClassifier"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_nestedClassifier_nestingClass"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Classifier[] NestedClassifier { get; }
         #endregion
         #region P:OwnedAttribute:Property[]
@@ -52,7 +60,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Class-ownedAttribute"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedAttribute_class"
         /// xmi:redefines="StructuredClassifier-ownedAttribute{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredClassifier.OwnedAttribute"/>}"
+        /// xmi:subsets="Classifier-attribute"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedOperation:Operation[]
@@ -61,6 +73,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Class-ownedOperation"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedOperation_class"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Operation[] OwnedOperation { get; }
         #endregion
         #region P:OwnedReception:Reception[]
@@ -69,6 +86,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Class-ownedReception"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedReception_class"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
         Reception[] OwnedReception { get; }
         #endregion
         #region P:SuperClass:Class[]
@@ -76,6 +96,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The superclasses of a <see cref="Class"/>, derived from its Generalizations.
         /// </summary>
         /// xmi:id="Class-superClass"
+        /// xmi:association="A_superClass_class"
+        /// xmi:is-derived="true"
         /// xmi:redefines="Classifier-general{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.General"/>}"
         Class[] SuperClass { get; }
         #endregion

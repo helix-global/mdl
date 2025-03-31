@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TimeObservation"/> is determined by the entering or exiting of the <see cref="Event"/> <see cref="Element"/> during execution.
         /// </summary>
         /// xmi:id="TimeObservation-event"
+        /// xmi:association="A_event_timeObservation"
         NamedElement Event { get; }
         #endregion
         #region P:FirstEvent:Boolean

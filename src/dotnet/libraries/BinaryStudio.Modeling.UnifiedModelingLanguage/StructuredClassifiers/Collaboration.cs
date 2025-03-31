@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -6,13 +7,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// A <see cref="Collaboration"/> describes a structure of collaborating elements (roles), each performing a specialized function, which collectively accomplish some desired functionality. 
     /// </summary>
     /// xmi:id="Collaboration"
-    public interface Collaboration : StructuredClassifier,BehavioredClassifier
+    public interface Collaboration : BehavioredClassifier,StructuredClassifier
         {
         #region P:CollaborationRole:ConnectableElement[]
         /// <summary>
         /// Represents the participants in the <see cref="Collaboration"/>.
         /// </summary>
         /// xmi:id="Collaboration-collaborationRole"
+        /// xmi:association="A_collaborationRole_collaboration"
+        /// xmi:subsets="StructuredClassifier-role"
         ConnectableElement[] CollaborationRole { get; }
         #endregion
         }

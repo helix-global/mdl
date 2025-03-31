@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -38,6 +39,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines the classifiers that will specify the structure and nature of the information. An information item represents all its <see cref="Represented"/> classifiers.
         /// </summary>
         /// xmi:id="InformationItem-represented"
+        /// xmi:association="A_represented_representation"
         Classifier[] Represented { get; }
         #endregion
         }

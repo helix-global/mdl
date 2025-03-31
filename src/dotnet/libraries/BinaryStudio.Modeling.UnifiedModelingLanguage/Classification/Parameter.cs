@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -57,6 +58,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A String that represents a value to be used when no argument is supplied for the <see cref="Parameter"/>.
         /// </summary>
         /// xmi:id="Parameter-default"
+        /// xmi:is-derived="true"
+        [Multiplicity("0..1")]
         String Default { get; }
         #endregion
         #region P:DefaultValue:ValueSpecification
@@ -65,6 +68,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Parameter-defaultValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_defaultValue_owningParameter"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification DefaultValue { get; }
         #endregion
         #region P:Direction:ParameterDirectionKind
@@ -79,6 +85,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Effect"/> that executions of the <see cref="Owner"/> of the <see cref="Parameter"/> have on objects passed in or out of the parameter.
         /// </summary>
         /// xmi:id="Parameter-effect"
+        [Multiplicity("0..1")]
         ParameterEffectKind Effect { get; }
         #endregion
         #region P:IsException:Boolean
@@ -100,6 +107,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Operation"/> owning this parameter.
         /// </summary>
         /// xmi:id="Parameter-operation"
+        /// xmi:association="A_ownedParameter_operation"
+        /// xmi:subsets="A_ownedParameter_ownerFormalParam-ownerFormalParam"
+        [Multiplicity("0..1")]
         Operation Operation { get; }
         #endregion
         #region P:ParameterSet:ParameterSet[]
@@ -107,6 +117,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The ParameterSets containing the parameter. See <see cref="ParameterSet"/>.
         /// </summary>
         /// xmi:id="Parameter-parameterSet"
+        /// xmi:association="A_parameterSet_parameter"
         ParameterSet[] ParameterSet { get; }
         #endregion
 

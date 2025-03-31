@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -82,6 +83,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> that is executed to provide an input to guard ValueSpecifications on ActivityEdges <see cref="Outgoing"/> from the <see cref="DecisionNode"/>.
         /// </summary>
         /// xmi:id="DecisionNode-decisionInput"
+        /// xmi:association="A_decisionInput_decisionNode"
+        [Multiplicity("0..1")]
         Behavior DecisionInput { get; }
         #endregion
         #region P:DecisionInputFlow:ObjectFlow
@@ -89,6 +92,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An additional <see cref="ActivityEdge"/> <see cref="Incoming"/> to the <see cref="DecisionNode"/> that provides a decision input value for the guards ValueSpecifications on ActivityEdges <see cref="Outgoing"/> from the <see cref="DecisionNode"/>.
         /// </summary>
         /// xmi:id="DecisionNode-decisionInputFlow"
+        /// xmi:association="A_decisionInputFlow_decisionNode"
+        [Multiplicity("0..1")]
         ObjectFlow DecisionInputFlow { get; }
         #endregion
         }

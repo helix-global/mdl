@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the <see cref="Operation"/> whose invocation raised the CalEvent.
         /// </summary>
         /// xmi:id="CallEvent-operation"
+        /// xmi:association="A_operation_callEvent"
         Operation Operation { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -17,19 +18,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DurationObservation"
     public interface DurationObservation : Observation
         {
-        #region P:Event:NamedElement /*[,2]*/
+        #region P:Event:NamedElement /*[1..2]*/
         /// <summary>
         /// The <see cref="DurationObservation"/> is determined as the duration between the entering or exiting of a single <see cref="Event"/> <see cref="Element"/> during execution, or the entering/exiting of one <see cref="Event"/> <see cref="Element"/> and the entering/exiting of a second.
         /// </summary>
         /// xmi:id="DurationObservation-event"
-        NamedElement /*[,2]*/ Event { get; }
+        /// xmi:association="A_event_durationObservation"
+        [Multiplicity("1..2")][Ordered]
+        NamedElement /*[1..2]*/ Event { get; }
         #endregion
-        #region P:FirstEvent:Boolean /*[,2]*/
+        #region P:FirstEvent:Boolean /*[0..2]*/
         /// <summary>
         /// The value of <see cref="FirstEvent"/>[i] is related to <see cref="Event"/>[i] (where i is 1 or 2). If <see cref="FirstEvent"/>[i] is true, then the corresponding observation <see cref="Event"/> is the first time instant the execution enters <see cref="Event"/>[i]. If <see cref="FirstEvent"/>[i] is false, then the corresponding observation <see cref="Event"/> is the time instant the execution exits <see cref="Event"/>[i].
         /// </summary>
         /// xmi:id="DurationObservation-firstEvent"
-        Boolean /*[,2]*/ FirstEvent { get; }
+        [Multiplicity("0..2")]
+        Boolean /*[0..2]*/ FirstEvent { get; }
         #endregion
         }
     }

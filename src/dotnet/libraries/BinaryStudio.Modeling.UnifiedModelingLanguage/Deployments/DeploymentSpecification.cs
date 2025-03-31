@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Deployment"/> with which the <see cref="DeploymentSpecification"/> is associated.
         /// </summary>
         /// xmi:id="DeploymentSpecification-deployment"
+        /// xmi:association="A_configuration_deployment"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")]
         Deployment Deployment { get; }
         #endregion
         #region P:DeploymentLocation:String
@@ -34,6 +38,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The location where an <see cref="Artifact"/> is deployed onto a <see cref="Node"/>. This is typically a 'directory' or 'memory address.'
         /// </summary>
         /// xmi:id="DeploymentSpecification-deploymentLocation"
+        [Multiplicity("0..1")]
         String DeploymentLocation { get; }
         #endregion
         #region P:ExecutionLocation:String
@@ -41,6 +46,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The location where a component <see cref="Artifact"/> executes. This may be a local or remote location.
         /// </summary>
         /// xmi:id="DeploymentSpecification-executionLocation"
+        [Multiplicity("0..1")]
         String ExecutionLocation { get; }
         #endregion
         }

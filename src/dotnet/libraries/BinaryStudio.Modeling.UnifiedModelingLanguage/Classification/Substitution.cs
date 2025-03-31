@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Contract"/> with which the substituting classifier complies.
         /// </summary>
         /// xmi:id="Substitution-contract"
+        /// xmi:association="A_contract_substitution"
+        /// xmi:subsets="Dependency-supplier"
         Classifier Contract { get; }
         #endregion
         #region P:SubstitutingClassifier:Classifier
@@ -20,6 +23,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Instances of the substituting classifier are runtime substitutable where instances of the <see cref="Contract"/> classifier are expected.
         /// </summary>
         /// xmi:id="Substitution-substitutingClassifier"
+        /// xmi:association="A_substitution_substitutingClassifier"
+        /// xmi:subsets="Dependency-client"
+        /// xmi:subsets="Element-owner"
         Classifier SubstitutingClassifier { get; }
         #endregion
         }

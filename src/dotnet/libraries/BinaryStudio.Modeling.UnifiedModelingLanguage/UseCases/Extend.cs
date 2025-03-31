@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Extend-condition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_condition_extend"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         Constraint Condition { get; }
         #endregion
         #region P:ExtendedCase:UseCase
@@ -28,6 +32,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="UseCase"/> that is being extended.
         /// </summary>
         /// xmi:id="Extend-extendedCase"
+        /// xmi:association="A_extendedCase_extend"
+        /// xmi:subsets="DirectedRelationship-target"
         UseCase ExtendedCase { get; }
         #endregion
         #region P:Extension:UseCase
@@ -35,6 +41,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="UseCase"/> that represents the <see cref="Extension"/> and owns the <see cref="Extend"/> relationship.
         /// </summary>
         /// xmi:id="Extend-extension"
+        /// xmi:association="A_extend_extension"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="NamedElement-namespace"
         UseCase Extension { get; }
         #endregion
         #region P:ExtensionLocation:ExtensionPoint[]
@@ -42,6 +51,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An ordered list of ExtensionPoints belonging to the extended <see cref="UseCase"/>, specifying where the respective behavioral fragments of the extending <see cref="UseCase"/> are to be inserted. The first fragment in the extending <see cref="UseCase"/> is associated with the first <see cref="Extension"/> point in the list, the second fragment with the second point, and so on. Note that, in most practical cases, the extending <see cref="UseCase"/> has just a single behavior fragment, so that the list of ExtensionPoints is trivial.
         /// </summary>
         /// xmi:id="Extend-extensionLocation"
+        /// xmi:association="A_extensionLocation_extension"
+        [Multiplicity("1..*")][Ordered]
         ExtensionPoint[] ExtensionLocation { get; }
         #endregion
         }

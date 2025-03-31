@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Association"/> to be cleared.
         /// </summary>
         /// xmi:id="ClearAssociationAction-association"
+        /// xmi:association="A_association_clearAssociationAction"
         Association Association { get; }
         #endregion
         #region P:Object:InputPin
@@ -35,6 +37,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ClearAssociationAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_clearAssociationAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         }

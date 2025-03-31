@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -38,6 +39,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReduceAction-collection"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_collection_reduceAction"
+        /// xmi:subsets="Action-input"
         InputPin Collection { get; }
         #endregion
         #region P:IsOrdered:Boolean
@@ -52,6 +55,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> that is repreatedly applied to two elements of the <see cref="Input"/> <see cref="Collection"/> to produce a value that is of the same type as elements of the <see cref="Collection"/>.
         /// </summary>
         /// xmi:id="ReduceAction-reducer"
+        /// xmi:association="A_reducer_reduceAction"
         Behavior Reducer { get; }
         #endregion
         #region P:Result:OutputPin
@@ -60,6 +64,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReduceAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_reduceAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

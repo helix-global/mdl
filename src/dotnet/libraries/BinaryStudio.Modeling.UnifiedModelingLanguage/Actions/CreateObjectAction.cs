@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -41,6 +42,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Classifier"/> to be instantiated.
         /// </summary>
         /// xmi:id="CreateObjectAction-classifier"
+        /// xmi:association="A_classifier_createObjectAction"
         Classifier Classifier { get; }
         #endregion
         #region P:Result:OutputPin
@@ -49,6 +51,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CreateObjectAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_createObjectAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

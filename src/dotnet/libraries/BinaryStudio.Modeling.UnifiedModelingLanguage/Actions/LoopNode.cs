@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -91,6 +92,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The OutputPins on Actions within the <see cref="BodyPart"/>, the values of which are moved to the <see cref="LoopVariable"/> OutputPins after the completion of each execution of the <see cref="BodyPart"/>, before the next iteration of the loop begins or before the loop exits.
         /// </summary>
         /// xmi:id="LoopNode-bodyOutput"
+        /// xmi:association="A_bodyOutput_loopNode"
+        [Ordered]
         OutputPin[] BodyOutput { get; }
         #endregion
         #region P:BodyPart:ExecutableNode[]
@@ -98,6 +101,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of ExecutableNodes that perform the repetitive computations of the loop. The <see cref="BodyPart"/> is executed as long as the <see cref="Test"/> section produces a true value.
         /// </summary>
         /// xmi:id="LoopNode-bodyPart"
+        /// xmi:association="A_bodyPart_loopNode"
         ExecutableNode[] BodyPart { get; }
         #endregion
         #region P:Decider:OutputPin
@@ -105,6 +109,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An <see cref="OutputPin"/> on an <see cref="Action"/> in the <see cref="Test"/> section whose Boolean value determines whether to continue executing the loop <see cref="BodyPart"/>.
         /// </summary>
         /// xmi:id="LoopNode-decider"
+        /// xmi:association="A_decider_loopNode"
         OutputPin Decider { get; }
         #endregion
         #region P:IsTestedFirst:Boolean
@@ -120,6 +125,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LoopNode-loopVariable"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_loopVariable_loopNode"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         OutputPin[] LoopVariable { get; }
         #endregion
         #region P:LoopVariableInput:InputPin[]
@@ -128,7 +136,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LoopNode-loopVariableInput"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_loopVariableInput_loopNode"
         /// xmi:redefines="StructuredActivityNode-structuredNodeInput{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeInput"/>}"
+        [Ordered]
         InputPin[] LoopVariableInput { get; }
         #endregion
         #region P:Result:OutputPin[]
@@ -137,7 +147,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LoopNode-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_loopNode"
         /// xmi:redefines="StructuredActivityNode-structuredNodeOutput{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeOutput"/>}"
+        [Ordered]
         OutputPin[] Result { get; }
         #endregion
         #region P:SetupPart:ExecutableNode[]
@@ -145,6 +157,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of ExecutableNodes executed before the first iteration of the loop, in order to initialize values or perform other setup computations.
         /// </summary>
         /// xmi:id="LoopNode-setupPart"
+        /// xmi:association="A_setupPart_loopNode"
         ExecutableNode[] SetupPart { get; }
         #endregion
         #region P:Test:ExecutableNode[]
@@ -152,6 +165,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of ExecutableNodes executed in order to provide the <see cref="Test"/> <see cref="Result"/> for the loop.
         /// </summary>
         /// xmi:id="LoopNode-test"
+        /// xmi:association="A_test_loopNode"
+        [Multiplicity("1..*")]
         ExecutableNode[] Test { get; }
         #endregion
 

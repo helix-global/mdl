@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -37,6 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="JoinNode-joinSpec"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_joinSpec_joinNode"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification JoinSpec { get; }
         #endregion
         }

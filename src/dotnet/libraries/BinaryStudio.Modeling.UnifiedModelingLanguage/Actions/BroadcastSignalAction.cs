@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -38,6 +39,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Signal"/> whose instances are to be sent.
         /// </summary>
         /// xmi:id="BroadcastSignalAction-signal"
+        /// xmi:association="A_signal_broadcastSignalAction"
         Signal Signal { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -63,6 +64,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// ActivityEdges immediately contained in the <see cref="ActivityPartition"/>.
         /// </summary>
         /// xmi:id="ActivityPartition-edge"
+        /// xmi:association="A_edge_inPartition"
+        /// xmi:subsets="ActivityGroup-containedEdge"
         ActivityEdge[] Edge { get; }
         #endregion
         #region P:IsDimension:Boolean
@@ -84,6 +87,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// ActivityNodes immediately contained in the <see cref="ActivityPartition"/>.
         /// </summary>
         /// xmi:id="ActivityPartition-node"
+        /// xmi:association="A_inPartition_node"
+        /// xmi:subsets="ActivityGroup-containedNode"
         ActivityNode[] Node { get; }
         #endregion
         #region P:Represents:Element
@@ -91,6 +96,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An <see cref="Element"/> represented by the functionality modeled within the <see cref="ActivityPartition"/>.
         /// </summary>
         /// xmi:id="ActivityPartition-represents"
+        /// xmi:association="A_represents_activityPartition"
+        [Multiplicity("0..1")]
         Element Represents { get; }
         #endregion
         #region P:Subpartition:ActivityPartition[]
@@ -99,6 +106,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityPartition-subpartition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_subpartition_superPartition"
+        /// xmi:subsets="ActivityGroup-subgroup"
         ActivityPartition[] Subpartition { get; }
         #endregion
         #region P:SuperPartition:ActivityPartition
@@ -106,6 +115,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Other ActivityPartitions immediately containing this <see cref="ActivityPartition"/> (as its superGroups).
         /// </summary>
         /// xmi:id="ActivityPartition-superPartition"
+        /// xmi:association="A_subpartition_superPartition"
+        /// xmi:subsets="ActivityGroup-superGroup"
+        [Multiplicity("0..1")]
         ActivityPartition SuperPartition { get; }
         #endregion
         }

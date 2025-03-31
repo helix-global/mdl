@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -71,6 +72,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The classifiers that constrain the argument that can be used for the parameter. If the <see cref="AllowSubstitutable"/> attribute is true, then any <see cref="Classifier"/> that is compatible with this constraining <see cref="Classifier"/> can be substituted; otherwise, it must be either this <see cref="Classifier"/> or one of its specializations. If this property is empty, there are no constraints on the <see cref="Classifier"/> that can be used as an argument.
         /// </summary>
         /// xmi:id="ClassifierTemplateParameter-constrainingClassifier"
+        /// xmi:association="A_constrainingClassifier_classifierTemplateParameter"
         Classifier[] ConstrainingClassifier { get; }
         #endregion
         #region P:ParameteredElement:Classifier
@@ -78,6 +80,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Classifier"/> exposed by this <see cref="ClassifierTemplateParameter"/>.
         /// </summary>
         /// xmi:id="ClassifierTemplateParameter-parameteredElement"
+        /// xmi:association="A_classifier_templateParameter_parameteredElement"
         /// xmi:redefines="TemplateParameter-parameteredElement{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>}"
         Classifier ParameteredElement { get; }
         #endregion

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -34,6 +35,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Signal"/> that this <see cref="Reception"/> handles.
         /// </summary>
         /// xmi:id="Reception-signal"
+        /// xmi:association="A_signal_reception"
         Signal Signal { get; }
         #endregion
         }

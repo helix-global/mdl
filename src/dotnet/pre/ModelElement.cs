@@ -66,8 +66,10 @@ namespace pre
         #endregion
         #region M:Equals(ValueSpecification,String):Boolean
         protected static Boolean Equals(ValueSpecification x,String y) {
-            if ((x == null) && (String.IsNullOrWhiteSpace(y))) { return true; }
-            return (x != null) && String.Equals(x.ToString(),y??String.Empty);
+            if ((x == null) && (y == null)) { return true; }
+            if (x == null) { return false; }
+            if (y == null) { return false; }
+            return String.Equals(x.ToString(),y);
             }
         #endregion
         #region M:UpperFirstLetter(String):String
@@ -93,6 +95,101 @@ namespace pre
                 case "is"      : return "@is";
                 }
             return value;
+            }
+        #endregion
+        #region M:FindModelElement(String):ModelElement
+        public virtual ModelElement FindModelElement(String idref) {
+            if (String.IsNullOrWhiteSpace(idref)) { throw new ArgumentOutOfRangeException(nameof(idref)); }
+            return null;
+            }
+        #endregion
+        #region M:GetValueAsBoolean(Object):Boolean?
+        protected static Boolean? GetValueAsBoolean(Object value) {
+            if ((value == null) || (value is DBNull)) { return null; }
+            if (value is Boolean B)  { return B; }
+            if (value is Int32 SI4)  { return SI4 != 0; }
+            if (value is Int64 SI8)  { return SI8 != 0; }
+            if (value is SByte SI1)  { return SI1 != 0; }
+            if (value is Int16 SI2)  { return SI2 != 0; }
+            if (value is Byte  UI1)  { return UI1 != 0; }
+            if (value is UInt16 UI2) { return UI2 != 0; }
+            if (value is UInt32 UI4) { return UI4 != 0; }
+            if (value is UInt64 UI8) { return UI8 != 0; }
+            var S = (value.ToString()).Trim();
+            if (String.IsNullOrEmpty(S)) { return null; }
+            Boolean r;
+            if (!Boolean.TryParse(S, out r)) {
+                var si8 = GetValueAsInt64(S);
+                if (si8 != null) { return si8.Value != 0; }
+                return null;
+                }
+            return r;
+            }
+        #endregion
+        #region M:GetValueAsBoolean(Object,Boolean):Boolean
+        protected static Boolean GetValueAsBoolean(Object value, Boolean defaultValue)
+            {
+            return GetValueAsBoolean(value).GetValueOrDefault(defaultValue);
+            }
+        #endregion
+        #region M:GetValueAsInt32(Object):Int32?
+        protected static Int32? GetValueAsInt32(Object value) {
+            if ((value == null) || (value is DBNull)) { return null; }
+            if (value is Int32 SI4)  { return SI4; }
+            if (value is Int64 SI8)  { return (Int32)SI8; }
+            if (value is SByte SI1)  { return SI1; }
+            if (value is Int16 SI2)  { return SI2; }
+            if (value is Boolean B)  { return B ? 1 : 0; }
+            var S = (value.ToString()).Trim();
+            if (String.IsNullOrEmpty(S)) { return null; }
+            Int32 r;
+            if (!Int32.TryParse(S, out r))
+                {
+                return null;
+                }
+            return r;
+            }
+        #endregion
+        #region M:GetValueAsInt32(Object,Int32):Int32
+        protected static Int32 GetValueAsInt32(Object value, Int32 defaultValue)
+            {
+            return GetValueAsInt32(value).GetValueOrDefault(defaultValue);
+            }
+        #endregion
+        #region M:GetValueAsInt64(Object):Int64?
+        protected static Int64? GetValueAsInt64(Object value) {
+            if ((value == null) || (value is DBNull)) { return null; }
+            if (value is Int32 SI4)  { return SI4; }
+            if (value is Int64 SI8)  { return SI8; }
+            if (value is SByte SI1)  { return SI1; }
+            if (value is Int16 SI2)  { return SI2; }
+            if (value is Boolean B)  { return B ? 1 : 0; }
+            var S = (value.ToString()).Trim();
+            if (String.IsNullOrEmpty(S)) { return null; }
+            Int64 r;
+            if (!Int64.TryParse(S, out r))
+                {
+                return null;
+                }
+            return r;
+            }
+        #endregion
+        #region M:GetValueAsInt64(Object,Int64):Int64
+        protected static Int64 GetValueAsInt64(Object value, Int64 defaultValue)
+            {
+            return GetValueAsInt64(value).GetValueOrDefault(defaultValue);
+            }
+        #endregion
+        #region M:MultiplicityToString(ValueSpecification,ValueSpecification):String
+        protected static String MultiplicityToString(ValueSpecification LowerValue,ValueSpecification UpperValue) {
+            if (Equals(LowerValue,null) && Equals(UpperValue,null)) { return "1..1"; }
+            if (Equals(LowerValue,"0")  && Equals(UpperValue,null)) { return "0..1"; }
+            if (Equals(LowerValue,"0")  && Equals(UpperValue,"*"))  { return "0..*"; }
+            if (Equals(LowerValue,"2")  && Equals(UpperValue,"*"))  { return "2..*"; }
+            if (Equals(LowerValue,null) && Equals(UpperValue,"*"))  { return "1..*"; }
+            if (Equals(LowerValue,"0")  && Equals(UpperValue,"2"))  { return "0..2"; }
+            if (Equals(LowerValue,null) && Equals(UpperValue,"2"))  { return "1..2"; }
+            return "???";
             }
         #endregion
         }

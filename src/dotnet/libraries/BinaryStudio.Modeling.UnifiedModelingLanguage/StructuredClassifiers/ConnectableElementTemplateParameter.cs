@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ConnectableElement"/> for this <see cref="ConnectableElementTemplateParameter"/>.
         /// </summary>
         /// xmi:id="ConnectableElementTemplateParameter-parameteredElement"
+        /// xmi:association="A_connectableElement_templateParameter_parameteredElement"
         /// xmi:redefines="TemplateParameter-parameteredElement{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>}"
         ConnectableElement ParameteredElement { get; }
         #endregion

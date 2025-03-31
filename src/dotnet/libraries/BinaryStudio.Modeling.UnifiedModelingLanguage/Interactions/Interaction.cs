@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interaction-action"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_action_interaction"
+        /// xmi:subsets="Element-ownedElement"
         Action[] Action { get; }
         #endregion
         #region P:FormalGate:Gate[]
@@ -29,6 +32,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interaction-formalGate"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_formalGate_interaction"
+        /// xmi:subsets="Namespace-ownedMember"
         Gate[] FormalGate { get; }
         #endregion
         #region P:Fragment:InteractionFragment[]
@@ -37,6 +42,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interaction-fragment"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_fragment_enclosingInteraction"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         InteractionFragment[] Fragment { get; }
         #endregion
         #region P:Lifeline:Lifeline[]
@@ -45,6 +53,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interaction-lifeline"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_lifeline_interaction"
+        /// xmi:subsets="Namespace-ownedMember"
         Lifeline[] Lifeline { get; }
         #endregion
         #region P:Message:Message[]
@@ -53,6 +63,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interaction-message"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_message_interaction"
+        /// xmi:subsets="Namespace-ownedMember"
         Message[] Message { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -35,6 +36,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Profile-metaclassReference"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_metaclassReference_profile"
+        /// xmi:subsets="Namespace-elementImport"
         ElementImport[] MetaclassReference { get; }
         #endregion
         #region P:MetamodelReference:PackageImport[]
@@ -43,6 +46,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Profile-metamodelReference"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_metamodelReference_profile"
+        /// xmi:subsets="Namespace-packageImport"
         PackageImport[] MetamodelReference { get; }
         #endregion
         }

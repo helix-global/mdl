@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Expression-operand"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_operand_expression"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         ValueSpecification[] Operand { get; }
         #endregion
         #region P:Symbol:String
@@ -21,6 +25,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Symbol"/> associated with this node in the expression tree.
         /// </summary>
         /// xmi:id="Expression-symbol"
+        [Multiplicity("0..1")]
         String Symbol { get; }
         #endregion
         }

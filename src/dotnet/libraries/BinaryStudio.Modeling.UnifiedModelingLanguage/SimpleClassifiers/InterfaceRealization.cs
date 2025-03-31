@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Interface"/> specifying the conformance <see cref="Contract"/>.
         /// </summary>
         /// xmi:id="InterfaceRealization-contract"
+        /// xmi:association="A_contract_interfaceRealization"
+        /// xmi:subsets="Dependency-supplier"
         Interface Contract { get; }
         #endregion
         #region P:ImplementingClassifier:BehavioredClassifier
@@ -20,6 +23,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="BehavioredClassifier"/> that owns this <see cref="InterfaceRealization"/>, i.e., the <see cref="BehavioredClassifier"/> that realizes the <see cref="Interface"/> to which it refers.
         /// </summary>
         /// xmi:id="InterfaceRealization-implementingClassifier"
+        /// xmi:association="A_interfaceRealization_implementingClassifier"
+        /// xmi:subsets="Dependency-client"
+        /// xmi:subsets="Element-owner"
         BehavioredClassifier ImplementingClassifier { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ExpansionRegion"/> for which the <see cref="ExpansionNode"/> is an input.
         /// </summary>
         /// xmi:id="ExpansionNode-regionAsInput"
+        /// xmi:association="A_inputElement_regionAsInput"
+        [Multiplicity("0..1")]
         ExpansionRegion RegionAsInput { get; }
         #endregion
         #region P:RegionAsOutput:ExpansionRegion
@@ -27,6 +30,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ExpansionRegion"/> for which the <see cref="ExpansionNode"/> is an output.
         /// </summary>
         /// xmi:id="ExpansionNode-regionAsOutput"
+        /// xmi:association="A_outputElement_regionAsOutput"
+        [Multiplicity("0..1")]
         ExpansionRegion RegionAsOutput { get; }
         #endregion
         }

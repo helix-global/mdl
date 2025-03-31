@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -51,6 +52,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CollaborationUse-roleBinding"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_roleBinding_collaborationUse"
+        /// xmi:subsets="Element-ownedElement"
         Dependency[] RoleBinding { get; }
         #endregion
         #region P:Type:Collaboration
@@ -58,6 +61,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Collaboration"/> which is used in this <see cref="CollaborationUse"/>. The <see cref="Collaboration"/> defines the cooperation between its roles which are mapped to ConnectableElements relating to the <see cref="Classifier"/> owning the <see cref="CollaborationUse"/>.
         /// </summary>
         /// xmi:id="CollaborationUse-type"
+        /// xmi:association="A_type_collaborationUse"
         Collaboration Type { get; }
         #endregion
         }

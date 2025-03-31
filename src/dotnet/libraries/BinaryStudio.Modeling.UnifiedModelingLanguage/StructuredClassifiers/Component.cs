@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -35,6 +36,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Component-packagedElement"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_packagedElement_component"
+        /// xmi:subsets="Namespace-ownedMember"
         PackageableElement[] PackagedElement { get; }
         #endregion
         #region P:Provided:Interface[]
@@ -42,6 +45,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Interfaces that the <see cref="Component"/> exposes to its environment. These Interfaces may be Realized by the <see cref="Component"/> or any of its realizingClassifiers, or they may be the Interfaces that are <see cref="Provided"/> by its public Ports.
         /// </summary>
         /// xmi:id="Component-provided"
+        /// xmi:association="A_provided_component"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Interface[] Provided { get; }
         #endregion
         #region P:Realization:ComponentRealization[]
@@ -50,6 +56,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Component-realization"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_realization_abstraction_component"
+        /// xmi:subsets="A_supplier_supplierDependency-supplierDependency"
+        /// xmi:subsets="Element-ownedElement"
         ComponentRealization[] Realization { get; }
         #endregion
         #region P:Required:Interface[]
@@ -57,6 +66,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Interfaces that the <see cref="Component"/> requires from other Components in its environment in order to be able to offer its full set of <see cref="Provided"/> functionality. These Interfaces may be used by the <see cref="Component"/> or any of its realizingClassifiers, or they may be the Interfaces that are <see cref="Required"/> by its public Ports.
         /// </summary>
         /// xmi:id="Component-required"
+        /// xmi:association="A_required_component"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Interface[] Required { get; }
         #endregion
 

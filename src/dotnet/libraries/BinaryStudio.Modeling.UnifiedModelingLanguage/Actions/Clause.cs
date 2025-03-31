@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -36,6 +37,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of ExecutableNodes that are executed if the <see cref="Test"/> evaluates to true and the <see cref="Clause"/> is chosen over other Clauses within the <see cref="ConditionalNode"/> that also have tests that evaluate to true.
         /// </summary>
         /// xmi:id="Clause-body"
+        /// xmi:association="A_body_clause"
         ExecutableNode[] Body { get; }
         #endregion
         #region P:BodyOutput:OutputPin[]
@@ -43,6 +45,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The OutputPins on Actions within the <see cref="Body"/> section whose values are moved to the result OutputPins of the containing <see cref="ConditionalNode"/> after execution of the <see cref="Body"/>.
         /// </summary>
         /// xmi:id="Clause-bodyOutput"
+        /// xmi:association="A_bodyOutput_clause"
+        [Ordered]
         OutputPin[] BodyOutput { get; }
         #endregion
         #region P:Decider:OutputPin
@@ -50,6 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An <see cref="OutputPin"/> on an <see cref="Action"/> in the <see cref="Test"/> section whose Boolean value determines the result of the <see cref="Test"/>.
         /// </summary>
         /// xmi:id="Clause-decider"
+        /// xmi:association="A_decider_clause"
         OutputPin Decider { get; }
         #endregion
         #region P:PredecessorClause:Clause[]
@@ -57,6 +62,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A set of Clauses whose tests must all evaluate to false before this <see cref="Clause"/> can evaluate its <see cref="Test"/>.
         /// </summary>
         /// xmi:id="Clause-predecessorClause"
+        /// xmi:association="A_predecessorClause_successorClause"
         Clause[] PredecessorClause { get; }
         #endregion
         #region P:SuccessorClause:Clause[]
@@ -64,6 +70,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A set of Clauses that may not evaluate their tests unless the <see cref="Test"/> for this <see cref="Clause"/> evaluates to false.
         /// </summary>
         /// xmi:id="Clause-successorClause"
+        /// xmi:association="A_predecessorClause_successorClause"
         Clause[] SuccessorClause { get; }
         #endregion
         #region P:Test:ExecutableNode[]
@@ -71,6 +78,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of ExecutableNodes that are executed in order to provide a <see cref="Test"/> result for the <see cref="Clause"/>.
         /// </summary>
         /// xmi:id="Clause-test"
+        /// xmi:association="A_test_clause"
+        [Multiplicity("1..*")]
         ExecutableNode[] Test { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Provides a textual specification of the functionality of the <see cref="Action"/>, in one or more languages other than UML.
         /// </summary>
         /// xmi:id="OpaqueAction-body"
+        [Ordered]
         String[] Body { get; }
         #endregion
         #region P:InputValue:InputPin[]
@@ -28,6 +30,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="OpaqueAction-inputValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_inputValue_opaqueAction"
+        /// xmi:subsets="Action-input"
         InputPin[] InputValue { get; }
         #endregion
         #region P:Language:String[]
@@ -35,6 +39,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// If provided, a specification of the <see cref="Language"/> used for each of the <see cref="Body"/> Strings.
         /// </summary>
         /// xmi:id="OpaqueAction-language"
+        [Ordered]
         String[] Language { get; }
         #endregion
         #region P:OutputValue:OutputPin[]
@@ -43,6 +48,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="OpaqueAction-outputValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_outputValue_opaqueAction"
+        /// xmi:subsets="Action-output"
         OutputPin[] OutputValue { get; }
         #endregion
         }

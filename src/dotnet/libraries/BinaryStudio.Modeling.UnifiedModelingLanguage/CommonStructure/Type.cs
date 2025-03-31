@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the owning <see cref="Package"/> of this <see cref="Type"/>, if any.
         /// </summary>
         /// xmi:id="Type-package"
+        /// xmi:association="A_ownedType_package"
+        /// xmi:subsets="A_packagedElement_owningPackage-owningPackage"
+        [Multiplicity("0..1")]
         Package Package { get; }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An <see cref="Activity"/> that owns the <see cref="Variable"/>.
         /// </summary>
         /// xmi:id="Variable-activityScope"
+        /// xmi:association="A_variable_activityScope"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         Activity ActivityScope { get; }
         #endregion
         #region P:Scope:StructuredActivityNode
@@ -20,6 +24,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="StructuredActivityNode"/> that owns the <see cref="Variable"/>.
         /// </summary>
         /// xmi:id="Variable-scope"
+        /// xmi:association="A_variable_scope"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         StructuredActivityNode Scope { get; }
         #endregion
 

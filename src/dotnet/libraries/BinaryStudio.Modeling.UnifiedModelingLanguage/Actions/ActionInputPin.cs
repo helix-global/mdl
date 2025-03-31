@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -37,6 +38,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActionInputPin-fromAction"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_fromAction_actionInputPin"
+        /// xmi:subsets="Element-ownedElement"
         Action FromAction { get; }
         #endregion
         }

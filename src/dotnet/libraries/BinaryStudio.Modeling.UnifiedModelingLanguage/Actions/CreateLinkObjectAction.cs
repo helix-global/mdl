@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -35,6 +36,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CreateLinkObjectAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_createLinkObjectAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

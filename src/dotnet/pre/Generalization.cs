@@ -5,30 +5,32 @@ namespace pre
     {
     public class Generalization : ModelElement
         {
-        public ObjectIdentifier General { get;private set; }
-        public ObjectIdentifier Identifier { get;private set; }
+        public String General { get;private set; }
+        public String Identifier { get;private set; }
 
         public Generalization(ModelElement owner)
             : base(owner)
             {
             }
 
+        #region M:ToString:String
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         public override String ToString()
             {
             return General.ToString();
             }
-
+        #endregion
+        #region M:ReadXml(XmlReader)
         /// <summary>Generates an object from its XML representation.</summary>
         /// <param name="reader">The <see cref="T:System.Xml.XmlReader" /> stream from which the object is deserialized.</param>
         public override void ReadXml(XmlReader reader)
             {
             reader.MoveToContent();
-            General = new ObjectIdentifier(reader.GetAttribute("general"));
-            Identifier = new ObjectIdentifier(reader.GetAttribute("id",xmi));
+            General = reader.GetAttribute("general");
+            Identifier = reader.GetAttribute("id",xmi);
             }
-
+        #endregion
         #region M:GetService(Type):Object
         /// <summary>Gets the service object of the specified type.</summary>
         /// <param name="service">An object that specifies the type of service object to get.</param>

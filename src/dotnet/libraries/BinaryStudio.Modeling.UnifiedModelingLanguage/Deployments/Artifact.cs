@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A concrete <see cref="Name"/> that is used to refer to the <see cref="Artifact"/> in a physical context. Example: file system <see cref="Name"/>, universal resource locator.
         /// </summary>
         /// xmi:id="Artifact-fileName"
+        [Multiplicity("0..1")]
         String FileName { get; }
         #endregion
         #region P:Manifestation:Manifestation[]
@@ -22,6 +24,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Artifact-manifestation"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_manifestation_artifact"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="NamedElement-clientDependency"
         Manifestation[] Manifestation { get; }
         #endregion
         #region P:NestedArtifact:Artifact[]
@@ -30,6 +35,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Artifact-nestedArtifact"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_nestedArtifact_artifact"
+        /// xmi:subsets="Namespace-ownedMember"
         Artifact[] NestedArtifact { get; }
         #endregion
         #region P:OwnedAttribute:Property[]
@@ -38,6 +45,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Artifact-ownedAttribute"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedAttribute_artifact"
+        /// xmi:subsets="Classifier-attribute"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedOperation:Operation[]
@@ -46,6 +57,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Artifact-ownedOperation"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedOperation_artifact"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Operation[] OwnedOperation { get; }
         #endregion
         }

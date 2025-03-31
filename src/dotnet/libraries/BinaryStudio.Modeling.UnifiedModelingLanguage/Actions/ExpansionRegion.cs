@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The ExpansionNodes that hold the <see cref="Input"/> collections for the <see cref="ExpansionRegion"/>.
         /// </summary>
         /// xmi:id="ExpansionRegion-inputElement"
+        /// xmi:association="A_inputElement_regionAsInput"
+        [Multiplicity("1..*")]
         ExpansionNode[] InputElement { get; }
         #endregion
         #region P:Mode:ExpansionKind
@@ -27,6 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The ExpansionNodes that form the <see cref="Output"/> collections of the <see cref="ExpansionRegion"/>.
         /// </summary>
         /// xmi:id="ExpansionRegion-outputElement"
+        /// xmi:association="A_outputElement_regionAsOutput"
         ExpansionNode[] OutputElement { get; }
         #endregion
         }

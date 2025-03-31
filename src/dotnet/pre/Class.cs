@@ -2,48 +2,49 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Xml;
 
 namespace pre
     {
-    public class Class : PackageableElement
+    public class Class : ModelElement
         {
         public String Name { get;private set; }
-        public ObjectIdentifier Identifier { get;private set; }
+        public String Identifier { get;private set; }
         public IList<Comment> OwnedComment { get; }
-        public IList<Property> OwnedAttribute { get; }
+        public IDictionary<String,Property> OwnedAttribute { get; }
+        public IDictionary<String,Generalization> Generalization { get; }
+        public IDictionary<String,Operation> OwnedOperation { get; }
         public IList<Constraint> OwnedRule { get; }
-        public IList<Generalization> Generalization { get; }
-        public IList<Operation> OwnedOperation { get; }
         public Boolean UseInteger { get;set; }
         public Boolean UseReal { get;set; }
 
-        #region P:DeclaredProperties:IDictionary<ObjectIdentifier,Property>
-        public IDictionary<ObjectIdentifier,Property> DeclaredProperties { get {
-            var r = new Dictionary<ObjectIdentifier,Property>();
-            foreach (var attr in OwnedAttribute) {
-                r[attr.Identifier] = attr;
+        #region P:DeclaredProperties:IDictionary<String,Property>
+        public IDictionary<String,Property> DeclaredProperties { get {
+            var r = new SortedDictionary<String,Property>();
+            foreach ((var id,var o) in OwnedAttribute) {
+                r[id] = o;
                 }
-            foreach (var generalization in Generalization) {
-                if (generalization.GetService(typeof(Class)) is Class cls) {
-                    foreach (var attr in cls.DeclaredProperties) {
-                        r[attr.Key] = attr.Value;
+            foreach (var g in Generalization) {
+                if (g.Value.GetService(typeof(Class)) is Class cls) {
+                    foreach ((var id, var o) in cls.DeclaredProperties) {
+                        r[id] = o;
                         }
                     }
                 }
             return r;
             }}
         #endregion
-        #region P:DeclaredOperations:IDictionary<ObjectIdentifier,Operation>
-        public IDictionary<ObjectIdentifier,Operation> DeclaredOperations { get {
-            var r = new Dictionary<ObjectIdentifier,Operation>();
-            foreach (var attr in OwnedOperation) {
-                r[attr.Identifier] = attr;
+        #region P:DeclaredOperations:IDictionary<String,Operation>
+        public IDictionary<String,Operation> DeclaredOperations { get {
+            var r = new Dictionary<String,Operation>();
+            foreach ((var id,var o) in OwnedOperation) {
+                r[id] = o;
                 }
-            foreach (var generalization in Generalization) {
-                if (generalization.GetService(typeof(Class)) is Class cls) {
-                    foreach (var attr in cls.DeclaredOperations) {
-                        r[attr.Key] = attr.Value;
+            foreach (var g in Generalization) {
+                if (g.Value.GetService(typeof(Class)) is Class cls) {
+                    foreach ((var id,var o) in cls.DeclaredOperations) {
+                        r[id] = o;
                         }
                     }
                 }
@@ -53,12 +54,12 @@ namespace pre
         #region P:PropertyNames:HashSet<String>
         public HashSet<String> PropertyNames { get{
             var r = new HashSet<String>();
-            foreach (var attr in OwnedAttribute) {
-                r.Add(attr.Name);
+            foreach (var i in OwnedAttribute) {
+                r.Add(i.Value.Name);
                 }
 
-            foreach (var generalization in Generalization) {
-                if (generalization.GetService(typeof(Class)) is Class cls) {
+            foreach (var o in Generalization) {
+                if (o.Value.GetService(typeof(Class)) is Class cls) {
                     r.UnionWith(cls.PropertyNames);
                     }
                 }
@@ -68,12 +69,12 @@ namespace pre
         #region P:OperationNames:HashSet<String>
         public HashSet<String> OperationNames { get{
             var r = new HashSet<String>();
-            foreach (var opr in OwnedOperation) {
-                r.Add(opr.Name);
+            foreach (var i in OwnedOperation) {
+                r.Add(i.Value.Name);
                 }
 
-            foreach (var generalization in Generalization) {
-                if (generalization.GetService(typeof(Class)) is Class cls) {
+            foreach (var g in Generalization) {
+                if (g.Value.GetService(typeof(Class)) is Class cls) {
                     r.UnionWith(cls.OperationNames);
                     }
                 }
@@ -85,10 +86,10 @@ namespace pre
             :base(owner)
             {
             OwnedComment = new List<Comment>();
-            OwnedAttribute = new List<Property>();
+            OwnedAttribute = new SortedDictionary<String,Property>();
+            Generalization = new SortedDictionary<String,Generalization>();
+            OwnedOperation = new SortedDictionary<String,Operation>();
             OwnedRule = new List<Constraint>();
-            Generalization = new List<Generalization>();
-            OwnedOperation = new List<Operation>();
             }
 
         #region M:ReadXml(XmlReader)
@@ -99,7 +100,7 @@ namespace pre
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             reader.MoveToContent();
             Name = reader.GetAttribute("name");
-            Identifier = new ObjectIdentifier(reader.GetAttribute("id",xmi));
+            Identifier = reader.GetAttribute("id",xmi);
             BaseModel.ClassNames.Add(Name??String.Empty);
             BaseModel.Classes.Add(Identifier,this);
             while (reader.Read()) {
@@ -128,7 +129,7 @@ namespace pre
                                     {
                                     o.ReadXml(r);
                                     }
-                                OwnedAttribute.Add(o);
+                                OwnedAttribute.Add(o.Identifier,o);
                                 }
                                 break;
                             #endregion
@@ -152,7 +153,7 @@ namespace pre
                                     {
                                     o.ReadXml(r);
                                     }
-                                Generalization.Add(o);
+                                Generalization.Add(o.Identifier,o);
                                 }
                                 break;
                             #endregion
@@ -164,7 +165,7 @@ namespace pre
                                     {
                                     o.ReadXml(r);
                                     }
-                                OwnedOperation.Add(o);
+                                OwnedOperation.Add(o.Identifier,o);
                                 }
                                 break;
                             #endregion
@@ -187,6 +188,7 @@ namespace pre
         #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer,String prefix) {
             writer.Write($"{prefix}using System;\n");
+            writer.Write($"{prefix}using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;\n");
             writer.Write($"{prefix}\n");
             writer.Write($"{prefix}namespace {DefaultNamespace}\n");
             writer.Write($"{prefix}    {{\n");
@@ -212,24 +214,40 @@ namespace pre
             writer.Write($"{prefix}    public interface {Name}");
             if (Generalization.Count > 0) {
                 writer.Write(" : ");
-                writer.Write(String.Join(",",Generalization));
+                writer.Write(String.Join(",",Generalization.Values.Select(i=>i.General)));
                 }
             writer.Write("\n");
             writer.Write($"{prefix}        {{\n");
 
             foreach (var o in OwnedAttribute) {
-                o.WriteCSharp(writer,$"{prefix}        ");
+                o.Value.WriteCSharp(writer,$"{prefix}        ");
                 }
 
             if (OwnedOperation.Count > 0) {
                 writer.Write("\n");
                 foreach (var o in OwnedOperation) {
-                    o.WriteCSharp(writer,$"{prefix}        ");
+                    o.Value.WriteCSharp(writer,$"{prefix}        ");
                     }
                 }
 
             writer.Write($"{prefix}        }}\n");
             writer.Write($"{prefix}    }}\n");
+            }
+        #endregion
+        #region M:FindModelElement(String):ModelElement
+        public override ModelElement FindModelElement(String idref) {
+            if (String.IsNullOrWhiteSpace(idref)) { throw new ArgumentOutOfRangeException(nameof(idref)); }
+            if (idref == Identifier) { return this; }
+            if (OwnedAttribute.TryGetValue(idref,out var p)) { return p; }
+            if (OwnedOperation.TryGetValue(idref,out var o)) { return o; }
+
+            foreach (var g in Generalization) {
+                var r = g.Value.FindModelElement(idref);
+                if (r != null) {
+                    return r;
+                    }
+                }
+            return null;
             }
         #endregion
         }

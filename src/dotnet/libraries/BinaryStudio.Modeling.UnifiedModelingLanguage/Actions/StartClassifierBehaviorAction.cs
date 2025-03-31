@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -29,6 +30,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StartClassifierBehaviorAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_startClassifierBehaviorAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         }

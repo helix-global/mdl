@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -55,6 +56,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Stereotype-icon"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_icon_stereotype"
+        /// xmi:subsets="Element-ownedElement"
         Image[] Icon { get; }
         #endregion
         #region P:Profile:Profile
@@ -62,6 +65,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Profile"/> that directly or indirectly contains this stereotype.
         /// </summary>
         /// xmi:id="Stereotype-profile"
+        /// xmi:association="A_profile_stereotype"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Profile Profile { get; }
         #endregion
 

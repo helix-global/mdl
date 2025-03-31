@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -46,6 +47,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProtocolStateMachine-conformance"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_conformance_specificMachine"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Element-ownedElement"
         ProtocolConformance[] Conformance { get; }
         #endregion
         }

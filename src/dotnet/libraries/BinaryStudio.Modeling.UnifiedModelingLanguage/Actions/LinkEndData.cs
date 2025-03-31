@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -48,6 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Association"/> <see cref="End"/> for which this <see cref="LinkEndData"/> specifies values.
         /// </summary>
         /// xmi:id="LinkEndData-end"
+        /// xmi:association="A_end_linkEndData"
         Property End { get; }
         #endregion
         #region P:Qualifier:QualifierValue[]
@@ -56,6 +58,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LinkEndData-qualifier"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_qualifier_linkEndData"
+        /// xmi:subsets="Element-ownedElement"
         QualifierValue[] Qualifier { get; }
         #endregion
         #region P:Value:InputPin
@@ -63,6 +67,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="InputPin"/> that provides the specified <see cref="Value"/> for the given <see cref="End"/>. This <see cref="InputPin"/> is omitted if the <see cref="LinkEndData"/> specifies the "open" <see cref="End"/> for a <see cref="ReadLinkAction"/>.
         /// </summary>
         /// xmi:id="LinkEndData-value"
+        /// xmi:association="A_value_linkEndData"
+        [Multiplicity("0..1")]
         InputPin Value { get; }
         #endregion
 

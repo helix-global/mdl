@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="PackageableElement-visibility"
         /// xmi:redefines="NamedElement-visibility{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Visibility"/>}"
+        [Multiplicity("0..1")]
         VisibilityKind Visibility { get; }
         #endregion
         }

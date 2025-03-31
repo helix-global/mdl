@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -70,6 +71,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An <see cref="ObjectNode"/> within the <see cref="HandlerBody"/>. When the <see cref="ExceptionHandler"/> catches an exception, the exception token is placed on this <see cref="ObjectNode"/>, causing the <see cref="HandlerBody"/> to execute.
         /// </summary>
         /// xmi:id="ExceptionHandler-exceptionInput"
+        /// xmi:association="A_exceptionInput_exceptionHandler"
         ObjectNode ExceptionInput { get; }
         #endregion
         #region P:ExceptionType:Classifier[]
@@ -77,6 +79,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Classifiers whose instances the <see cref="ExceptionHandler"/> catches as exceptions. If an exception occurs whose type is any <see cref="ExceptionType"/>, the <see cref="ExceptionHandler"/> catches the exception and executes the <see cref="HandlerBody"/>.
         /// </summary>
         /// xmi:id="ExceptionHandler-exceptionType"
+        /// xmi:association="A_exceptionType_exceptionHandler"
+        [Multiplicity("1..*")]
         Classifier[] ExceptionType { get; }
         #endregion
         #region P:HandlerBody:ExecutableNode
@@ -84,6 +88,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An <see cref="ExecutableNode"/> that is executed if the <see cref="ExceptionHandler"/> catches an exception.
         /// </summary>
         /// xmi:id="ExceptionHandler-handlerBody"
+        /// xmi:association="A_handlerBody_exceptionHandler"
         ExecutableNode HandlerBody { get; }
         #endregion
         #region P:ProtectedNode:ExecutableNode
@@ -91,6 +96,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ExecutableNode"/> protected by the <see cref="ExceptionHandler"/>. If an exception propagates out of the <see cref="ProtectedNode"/> and has a type matching one of the exceptionTypes, then it is caught by this <see cref="ExceptionHandler"/>.
         /// </summary>
         /// xmi:id="ExceptionHandler-protectedNode"
+        /// xmi:association="A_handler_protectedNode"
+        /// xmi:subsets="Element-owner"
         ExecutableNode ProtectedNode { get; }
         #endregion
         }

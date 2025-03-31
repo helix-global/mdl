@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -22,6 +23,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionOperand-fragment"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_fragment_enclosingOperand"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         InteractionFragment[] Fragment { get; }
         #endregion
         #region P:Guard:InteractionConstraint
@@ -30,6 +34,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionOperand-guard"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_guard_interactionOperand"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         InteractionConstraint Guard { get; }
         #endregion
         }

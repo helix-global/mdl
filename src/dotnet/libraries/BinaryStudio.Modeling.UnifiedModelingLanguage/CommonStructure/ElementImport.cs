@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the name that should be added to the importing <see cref="Namespace"/> in lieu of the name of the imported PackagableElement. The <see cref="Alias"/> must not clash with any other member in the importing <see cref="Namespace"/>. By default, no <see cref="Alias"/> is used.
         /// </summary>
         /// xmi:id="ElementImport-alias"
+        [Multiplicity("0..1")]
         String Alias { get; }
         #endregion
         #region P:ImportedElement:PackageableElement
@@ -34,6 +36,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="PackageableElement"/> whose name is to be added to a <see cref="Namespace"/>.
         /// </summary>
         /// xmi:id="ElementImport-importedElement"
+        /// xmi:association="A_importedElement_import"
+        /// xmi:subsets="DirectedRelationship-target"
         PackageableElement ImportedElement { get; }
         #endregion
         #region P:ImportingNamespace:Namespace
@@ -41,6 +45,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Namespace"/> that imports a <see cref="PackageableElement"/> from another <see cref="Namespace"/>.
         /// </summary>
         /// xmi:id="ElementImport-importingNamespace"
+        /// xmi:association="A_elementImport_importingNamespace"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="Element-owner"
         Namespace ImportingNamespace { get; }
         #endregion
         #region P:Visibility:VisibilityKind

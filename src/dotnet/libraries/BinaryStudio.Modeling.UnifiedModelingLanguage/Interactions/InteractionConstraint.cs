@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -56,6 +57,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionConstraint-maxint"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_maxint_interactionConstraint"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification Maxint { get; }
         #endregion
         #region P:Minint:ValueSpecification
@@ -64,6 +68,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionConstraint-minint"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_minint_interactionConstraint"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification Minint { get; }
         #endregion
         }

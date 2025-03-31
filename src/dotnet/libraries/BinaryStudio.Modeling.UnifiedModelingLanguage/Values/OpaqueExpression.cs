@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -38,6 +39,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Behavior"/> of the <see cref="OpaqueExpression"/> as a UML <see cref="Behavior"/>.
         /// </summary>
         /// xmi:id="OpaqueExpression-behavior"
+        /// xmi:association="A_behavior_opaqueExpression"
+        [Multiplicity("0..1")]
         Behavior Behavior { get; }
         #endregion
         #region P:Body:String[]
@@ -45,6 +48,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A textual definition of the <see cref="Behavior"/> of the <see cref="OpaqueExpression"/>, possibly in multiple languages.
         /// </summary>
         /// xmi:id="OpaqueExpression-body"
+        [Ordered]
         String[] Body { get; }
         #endregion
         #region P:Language:String[]
@@ -52,6 +56,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the languages used to express the textual bodies of the <see cref="OpaqueExpression"/>.  Languages are matched to <see cref="Body"/> Strings by order. The interpretation of the <see cref="Body"/> depends on the languages. If the languages are unspecified, they may be implicit from the expression <see cref="Body"/> or the context.
         /// </summary>
         /// xmi:id="OpaqueExpression-language"
+        [Ordered]
         String[] Language { get; }
         #endregion
         #region P:Result:Parameter
@@ -59,6 +64,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// If an <see cref="OpaqueExpression"/> is specified using a UML <see cref="Behavior"/>, then this refers to the single required return <see cref="Parameter"/> of that <see cref="Behavior"/>. When the <see cref="Behavior"/> completes execution, the values on this <see cref="Parameter"/> give the <see cref="Result"/> of evaluating the <see cref="OpaqueExpression"/>.
         /// </summary>
         /// xmi:id="OpaqueExpression-result"
+        /// xmi:association="A_result_opaqueExpression"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         Parameter Result { get; }
         #endregion
 

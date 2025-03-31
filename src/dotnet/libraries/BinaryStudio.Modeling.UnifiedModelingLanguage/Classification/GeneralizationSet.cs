@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -29,6 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the instances of <see cref="Generalization"/> that are members of this <see cref="GeneralizationSet"/>.
         /// </summary>
         /// xmi:id="GeneralizationSet-generalization"
+        /// xmi:association="A_generalizationSet_generalization"
         Generalization[] Generalization { get; }
         #endregion
         #region P:IsCovering:Boolean
@@ -50,6 +52,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the <see cref="Classifier"/> that is defined as the power type for the associated <see cref="GeneralizationSet"/>, if there is one.
         /// </summary>
         /// xmi:id="GeneralizationSet-powertype"
+        /// xmi:association="A_powertypeExtent_powertype"
+        [Multiplicity("0..1")]
         Classifier Powertype { get; }
         #endregion
         }

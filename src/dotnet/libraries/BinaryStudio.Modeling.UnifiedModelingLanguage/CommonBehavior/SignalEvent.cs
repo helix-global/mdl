@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The specific <see cref="Signal"/> that is associated with this <see cref="SignalEvent"/>.
         /// </summary>
         /// xmi:id="SignalEvent-signal"
+        /// xmi:association="A_signal_signalEvent"
         Signal Signal { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Execution"/> specification describing the <see cref="Execution"/> that is started or finished at this <see cref="Execution"/> event.
         /// </summary>
         /// xmi:id="ExecutionOccurrenceSpecification-execution"
+        /// xmi:association="A_execution_executionOccurrenceSpecification"
         ExecutionSpecification Execution { get; }
         #endregion
         }

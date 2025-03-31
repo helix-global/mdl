@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -53,6 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Parameter"/> for which the <see cref="ActivityParameterNode"/> will be accepting or providing values.
         /// </summary>
         /// xmi:id="ActivityParameterNode-parameter"
+        /// xmi:association="A_parameter_activityParameterNode"
         Parameter Parameter { get; }
         #endregion
         }

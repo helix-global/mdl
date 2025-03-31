@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml;
 
@@ -8,13 +9,14 @@ namespace pre
     internal class Program
         {
         private const String xmischema = "http://www.omg.org/spec/XMI/20131001";
+        private const String RootPath = @"C:\TFS";
 
         #region M:Main(String[])
         private static void Main(String[] args)
             {
-            var reader = new ModelReader(@"C:\TFS\mdl\docs\ptc-18-01-01.xmi");
+            var reader = new ModelReader(Path.Combine(RootPath,@"mdl\docs\ptc-18-01-01.xmi"));
             var writer = new ModelWriter();
-            writer.WriteTo(reader.Model,@"C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage");
+            writer.WriteTo(reader.Model,Path.Combine(RootPath,@"mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage"));
             return;
             }
         #endregion

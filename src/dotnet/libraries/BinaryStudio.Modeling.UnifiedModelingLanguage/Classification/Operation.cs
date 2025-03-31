@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -22,7 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="Operation-only_body_for_query"
     /// </rule>
     /// xmi:id="Operation"
-    public interface Operation : TemplateableElement,ParameterableElement,BehavioralFeature
+    public interface Operation : ParameterableElement,BehavioralFeature,TemplateableElement
         {
         #region P:BodyCondition:Constraint
         /// <summary>
@@ -30,6 +31,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Operation-bodyCondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_bodyCondition_bodyContext"
+        /// xmi:subsets="Namespace-ownedRule"
+        [Multiplicity("0..1")]
         Constraint BodyCondition { get; }
         #endregion
         #region P:Class:Class
@@ -37,6 +41,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Class"/> that owns this operation, if any.
         /// </summary>
         /// xmi:id="Operation-class"
+        /// xmi:association="A_ownedOperation_class"
+        /// xmi:subsets="Feature-featuringClassifier"
+        /// xmi:subsets="NamedElement-namespace"
+        /// xmi:subsets="RedefinableElement-redefinitionContext"
+        [Multiplicity("0..1")]
         Class Class { get; }
         #endregion
         #region P:Datatype:DataType
@@ -44,6 +53,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="DataType"/> that owns this <see cref="Operation"/>, if any.
         /// </summary>
         /// xmi:id="Operation-datatype"
+        /// xmi:association="A_ownedOperation_datatype"
+        /// xmi:subsets="Feature-featuringClassifier"
+        /// xmi:subsets="NamedElement-namespace"
+        /// xmi:subsets="RedefinableElement-redefinitionContext"
+        [Multiplicity("0..1")]
         DataType Datatype { get; }
         #endregion
         #region P:Interface:Interface
@@ -51,6 +65,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Interface"/> that owns this <see cref="Operation"/>, if any.
         /// </summary>
         /// xmi:id="Operation-interface"
+        /// xmi:association="A_ownedOperation_interface"
+        /// xmi:subsets="Feature-featuringClassifier"
+        /// xmi:subsets="NamedElement-namespace"
+        /// xmi:subsets="RedefinableElement-redefinitionContext"
+        [Multiplicity("0..1")]
         Interface Interface { get; }
         #endregion
         #region P:IsOrdered:Boolean
@@ -58,6 +77,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether the return parameter is ordered or not, if present.  This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-isOrdered"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsOrdered { get; }
         #endregion
         #region P:IsQuery:Boolean
@@ -72,6 +93,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether the return parameter is unique or not, if present. This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-isUnique"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsUnique { get; }
         #endregion
         #region P:Lower:Integer
@@ -79,6 +102,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Lower"/> multiplicity of the return parameter, if present. This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-lower"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         Integer Lower { get; }
         #endregion
         #region P:OwnedParameter:Parameter[]
@@ -87,7 +113,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Operation-ownedParameter"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameter_operation"
         /// xmi:redefines="BehavioralFeature-ownedParameter{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioralFeature.OwnedParameter"/>}"
+        [Ordered]
         Parameter[] OwnedParameter { get; }
         #endregion
         #region P:Postcondition:Constraint[]
@@ -96,6 +124,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Operation-postcondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_postcondition_postContext"
+        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Postcondition { get; }
         #endregion
         #region P:Precondition:Constraint[]
@@ -104,6 +134,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Operation-precondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_precondition_preContext"
+        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Precondition { get; }
         #endregion
         #region P:RaisedException:Type[]
@@ -111,6 +143,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Types representing exceptions that may be raised during an invocation of this operation.
         /// </summary>
         /// xmi:id="Operation-raisedException"
+        /// xmi:association="A_raisedException_operation"
         /// xmi:redefines="BehavioralFeature-raisedException{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioralFeature.RaisedException"/>}"
         Type[] RaisedException { get; }
         #endregion
@@ -119,6 +152,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Operations that are redefined by this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-redefinedOperation"
+        /// xmi:association="A_redefinedOperation_operation"
+        /// xmi:subsets="RedefinableElement-redefinedElement"
         Operation[] RedefinedOperation { get; }
         #endregion
         #region P:TemplateParameter:OperationTemplateParameter
@@ -126,7 +161,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="OperationTemplateParameter"/> that exposes this element as a formal parameter.
         /// </summary>
         /// xmi:id="Operation-templateParameter"
+        /// xmi:association="A_operation_templateParameter_parameteredElement"
         /// xmi:redefines="ParameterableElement-templateParameter{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>}"
+        [Multiplicity("0..1")]
         OperationTemplateParameter TemplateParameter { get; }
         #endregion
         #region P:Type:Type
@@ -134,6 +171,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The return <see cref="Type"/> of the operation, if present. This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-type"
+        /// xmi:association="A_type_operation"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         Type Type { get; }
         #endregion
         #region P:Upper:UnlimitedNatural
@@ -141,6 +182,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Upper"/> multiplicity of the return parameter, if present. This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-upper"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         UnlimitedNatural Upper { get; }
         #endregion
 

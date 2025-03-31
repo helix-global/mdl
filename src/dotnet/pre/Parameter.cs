@@ -16,26 +16,25 @@ namespace pre
         public IList<Comment> OwnedComment { get; }
         public String Direction { get;private set; }
         public String TypeWithMultiplicity { get {
+            var multiplicity = MultiplicityToString(LowerValue,UpperValue);
             var r = new StringBuilder();
             r.Append($"{Type}");
-                 if (Equals(LowerValue,"0")  && Equals(UpperValue,"*"))  { r.Append("[]");         }
-            else if (Equals(LowerValue,null) && Equals(UpperValue,"*"))  { r.Append("[]");         }
-            else if (Equals(LowerValue,null) && Equals(UpperValue,null)) { r.Append(String.Empty); }
-            else
-                {
-                r.Append(" /*[");
-                if (LowerValue != null)
+            switch (multiplicity) {
+                case "1..1" :
+                case "0..1" :
                     {
-                    r.Append(LowerValue);
+                    r.Append(String.Empty);
                     }
-                r.Append(",");
-                if (UpperValue != null)
+                    break;
+                case "1..*" :
+                case "2..*" :
+                case "0..*" :
                     {
-                    r.Append(UpperValue);
+                    r.Append("[]");
                     }
-                r.Append("]*/");
+                    break;
+                default: r.Append($" /*[{multiplicity}]*/"); break;
                 }
-
             return r.ToString();
             }}
 
@@ -144,16 +143,18 @@ namespace pre
                 }
             }
         #endregion
-
+        #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer, String prefix)
             {
             writer.Write($"{prefix}{TypeWithMultiplicity}");
             writer.Write($" {Name}");
             }
-
+        #endregion
+        #region M:ToString:String
         public override String ToString()
             {
             return $"{TypeWithMultiplicity} {Name}";
             }
+        #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -99,7 +100,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="Property-qualified_is_association_end"
     /// </rule>
     /// xmi:id="Property"
-    public interface Property : ConnectableElement,DeploymentTarget,StructuralFeature
+    public interface Property : ConnectableElement,StructuralFeature,DeploymentTarget
         {
         #region P:Aggregation:AggregationKind
         /// <summary>
@@ -113,6 +114,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Association"/> of which this <see cref="Property"/> is a member, if any.
         /// </summary>
         /// xmi:id="Property-association"
+        /// xmi:association="A_memberEnd_association"
+        /// xmi:subsets="A_member_memberNamespace-memberNamespace"
+        [Multiplicity("0..1")]
         Association Association { get; }
         #endregion
         #region P:AssociationEnd:Property
@@ -120,6 +124,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the optional <see cref="Association"/> <see cref="End"/> that owns a <see cref="Qualifier"/> attribute.
         /// </summary>
         /// xmi:id="Property-associationEnd"
+        /// xmi:association="A_qualifier_associationEnd"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")]
         Property AssociationEnd { get; }
         #endregion
         #region P:Class:Class
@@ -127,6 +134,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Class"/> that owns this <see cref="Property"/>, if any.
         /// </summary>
         /// xmi:id="Property-class"
+        /// xmi:association="A_ownedAttribute_class"
+        /// xmi:subsets="A_attribute_classifier-classifier"
+        /// xmi:subsets="A_ownedAttribute_structuredClassifier-structuredClassifier"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         Class Class { get; }
         #endregion
         #region P:Datatype:DataType
@@ -134,6 +146,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="DataType"/> that owns this <see cref="Property"/>, if any.
         /// </summary>
         /// xmi:id="Property-datatype"
+        /// xmi:association="A_ownedAttribute_datatype"
+        /// xmi:subsets="A_attribute_classifier-classifier"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         DataType Datatype { get; }
         #endregion
         #region P:DefaultValue:ValueSpecification
@@ -142,6 +158,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Property-defaultValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_defaultValue_owningProperty"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification DefaultValue { get; }
         #endregion
         #region P:Interface:Interface
@@ -149,6 +168,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Interface"/> that owns this <see cref="Property"/>, if any.
         /// </summary>
         /// xmi:id="Property-interface"
+        /// xmi:association="A_ownedAttribute_interface"
+        /// xmi:subsets="A_attribute_classifier-classifier"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         Interface Interface { get; }
         #endregion
         #region P:IsComposite:Boolean
@@ -156,6 +179,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// If <see cref="IsComposite"/> is true, the object containing the attribute is a container for the object or value contained in the attribute. This is a derived value, indicating whether the <see cref="Aggregation"/> of the <see cref="Property"/> is composite or not.
         /// </summary>
         /// xmi:id="Property-isComposite"
+        /// xmi:is-derived="true"
         Boolean IsComposite { get; }
         #endregion
         #region P:IsDerived:Boolean
@@ -184,6 +208,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// In the case where the <see cref="Property"/> is one <see cref="End"/> of a binary <see cref="Association"/> this gives the other <see cref="End"/>.
         /// </summary>
         /// xmi:id="Property-opposite"
+        /// xmi:association="A_opposite_property"
+        /// xmi:is-derived="true"
+        [Multiplicity("0..1")]
         Property Opposite { get; }
         #endregion
         #region P:OwningAssociation:Association
@@ -191,6 +218,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The owning <see cref="Association"/> of this property, if any.
         /// </summary>
         /// xmi:id="Property-owningAssociation"
+        /// xmi:association="A_ownedEnd_owningAssociation"
+        /// xmi:subsets="Feature-featuringClassifier"
+        /// xmi:subsets="NamedElement-namespace"
+        /// xmi:subsets="Property-association"
+        /// xmi:subsets="RedefinableElement-redefinitionContext"
+        [Multiplicity("0..1")]
         Association OwningAssociation { get; }
         #endregion
         #region P:Qualifier:Property[]
@@ -199,6 +232,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Property-qualifier"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_qualifier_associationEnd"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         Property[] Qualifier { get; }
         #endregion
         #region P:RedefinedProperty:Property[]
@@ -206,6 +242,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The properties that are redefined by this property, if any.
         /// </summary>
         /// xmi:id="Property-redefinedProperty"
+        /// xmi:association="A_redefinedProperty_property"
+        /// xmi:subsets="RedefinableElement-redefinedElement"
         Property[] RedefinedProperty { get; }
         #endregion
         #region P:SubsettedProperty:Property[]
@@ -213,6 +251,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The properties of which this <see cref="Property"/> is constrained to be a subset, if any.
         /// </summary>
         /// xmi:id="Property-subsettedProperty"
+        /// xmi:association="A_subsettedProperty_property"
         Property[] SubsettedProperty { get; }
         #endregion
 

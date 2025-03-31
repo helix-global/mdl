@@ -4,26 +4,26 @@ using System.Xml;
 
 namespace pre
     {
-    public class Package : PackageableElement
+    public class Package : ModelElement
         {
         public String Name { get;private set; }
         public ObjectIdentifier Identifier { get;private set; }
-        public IList<Package> NestedPackages { get; }
-        public IList<Class> NestedClasses { get; }
-        public IList<Enumeration> NestedEnumeration { get; }
-        public IList<Association> Associations { get; }
-        public Package Owner { get; }
+        public IList<Package> OwnedPackage { get; }
+        public IList<Class> OwnedClass { get; }
+        public IList<Enumeration> OwnedEnumeration { get; }
+        public IDictionary<String,Association> OwnedAssociation { get; }
+        public Package PackageOwner { get; }
         public override Model BaseModel { get{ return Owner?.BaseModel; }}
 
         #region ctor
         public Package(Package owner)
             :base(owner)
             {
-            Owner = owner;
-            NestedPackages = new List<Package>();
-            NestedClasses = new List<Class>();
-            NestedEnumeration = new List<Enumeration>();
-            Associations = new List<Association>();
+            PackageOwner = owner;
+            OwnedPackage = new List<Package>();
+            OwnedClass = new List<Class>();
+            OwnedEnumeration = new List<Enumeration>();
+            OwnedAssociation = new Dictionary<String,Association>();
             }
         #endregion
 
@@ -49,7 +49,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                NestedPackages.Add(o);
+                                OwnedPackage.Add(o);
                                 }
                                 break;
                             #endregion
@@ -60,7 +60,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                NestedClasses.Add(o);
+                                OwnedClass.Add(o);
                                 }
                                 break;
                                 #endregion
@@ -71,7 +71,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                NestedEnumeration.Add(o);
+                                OwnedEnumeration.Add(o);
                                 }
                                 break;
                                 #endregion
@@ -82,7 +82,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                Associations.Add(o);
+                                OwnedAssociation.Add(o.Identifier,o);
                                 }
                                 break;
                             #endregion

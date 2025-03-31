@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the Profiles that are applied to a <see cref="Package"/> through this <see cref="ProfileApplication"/>.
         /// </summary>
         /// xmi:id="ProfileApplication-appliedProfile"
+        /// xmi:association="A_appliedProfile_profileApplication"
+        /// xmi:subsets="DirectedRelationship-target"
         Profile AppliedProfile { get; }
         #endregion
         #region P:ApplyingPackage:Package
@@ -20,6 +23,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The package that owns the profile application.
         /// </summary>
         /// xmi:id="ProfileApplication-applyingPackage"
+        /// xmi:association="A_profileApplication_applyingPackage"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="Element-owner"
         Package ApplyingPackage { get; }
         #endregion
         #region P:IsStrict:Boolean

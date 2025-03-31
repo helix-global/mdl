@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -47,6 +48,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="UseCase-extend"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_extend_extension"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Namespace-ownedMember"
         Extend[] Extend { get; }
         #endregion
         #region P:ExtensionPoint:ExtensionPoint[]
@@ -55,6 +59,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="UseCase-extensionPoint"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_extensionPoint_useCase"
+        /// xmi:subsets="Namespace-ownedMember"
         ExtensionPoint[] ExtensionPoint { get; }
         #endregion
         #region P:Include:Include[]
@@ -63,6 +69,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="UseCase-include"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_include_includingCase"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Namespace-ownedMember"
         Include[] Include { get; }
         #endregion
         #region P:Subject:Classifier[]
@@ -70,6 +79,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The subjects to which this <see cref="UseCase"/> applies. Each <see cref="Subject"/> or its parts realize all the UseCases that apply to it.
         /// </summary>
         /// xmi:id="UseCase-subject"
+        /// xmi:association="A_subject_useCase"
         Classifier[] Subject { get; }
         #endregion
 

@@ -8,14 +8,14 @@ namespace pre
         {
         public override Model BaseModel { get{ return this; }}
         public ISet<String> ClassNames { get; }
-        public IDictionary<ObjectIdentifier,Class> Classes { get; }
+        public IDictionary<String,Class> Classes { get; }
 
         #region ctor
         public Model()
             :base(null)
             {
             ClassNames = new SortedSet<String>();
-            Classes = new Dictionary<ObjectIdentifier,Class>();
+            Classes = new Dictionary<String,Class>();
             }
         #endregion
 
@@ -36,7 +36,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                NestedPackages.Add(o);
+                                OwnedPackage.Add(o);
                                 }
                                 break;
                             }

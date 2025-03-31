@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -51,6 +52,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-connection"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_connection_state"
+        /// xmi:subsets="Namespace-ownedMember"
         ConnectionPointReference[] Connection { get; }
         #endregion
         #region P:ConnectionPoint:Pseudostate[]
@@ -59,6 +62,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-connectionPoint"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_connectionPoint_state"
+        /// xmi:subsets="Namespace-ownedMember"
         Pseudostate[] ConnectionPoint { get; }
         #endregion
         #region P:DeferrableTrigger:Trigger[]
@@ -67,6 +72,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-deferrableTrigger"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_deferrableTrigger_state"
+        /// xmi:subsets="Element-ownedElement"
         Trigger[] DeferrableTrigger { get; }
         #endregion
         #region P:DoActivity:Behavior
@@ -75,6 +82,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-doActivity"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_doActivity_state"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         Behavior DoActivity { get; }
         #endregion
         #region P:Entry:Behavior
@@ -83,6 +93,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-entry"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_entry_state"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         Behavior Entry { get; }
         #endregion
         #region P:Exit:Behavior
@@ -91,6 +104,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-exit"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_exit_state"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         Behavior Exit { get; }
         #endregion
         #region P:IsComposite:Boolean
@@ -98,6 +114,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A state with <see cref="IsComposite"/>=true is said to be a composite <see cref="State"/>. A composite <see cref="State"/> is a <see cref="State"/> that contains at least one <see cref="Region"/>.
         /// </summary>
         /// xmi:id="State-isComposite"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsComposite { get; }
         #endregion
         #region P:IsOrthogonal:Boolean
@@ -105,6 +123,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="State"/> with <see cref="IsOrthogonal"/>=true is said to be an orthogonal composite <see cref="State"/> An orthogonal composite <see cref="State"/> contains two or more Regions.
         /// </summary>
         /// xmi:id="State-isOrthogonal"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsOrthogonal { get; }
         #endregion
         #region P:IsSimple:Boolean
@@ -112,6 +132,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="State"/> with <see cref="IsSimple"/>=true is said to be a simple <see cref="State"/> A simple <see cref="State"/> does not have any Regions and it does not refer to any <see cref="Submachine"/> <see cref="StateMachine"/>.
         /// </summary>
         /// xmi:id="State-isSimple"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsSimple { get; }
         #endregion
         #region P:IsSubmachineState:Boolean
@@ -119,6 +141,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="State"/> with <see cref="IsSubmachineState"/>=true is said to be a <see cref="Submachine"/> <see cref="State"/> Such a <see cref="State"/> refers to another <see cref="StateMachine"/>(<see cref="Submachine"/>).
         /// </summary>
         /// xmi:id="State-isSubmachineState"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsSubmachineState { get; }
         #endregion
         #region P:Region:Region[]
@@ -127,6 +151,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-region"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_region_state"
+        /// xmi:subsets="Namespace-ownedMember"
         Region[] Region { get; }
         #endregion
         #region P:StateInvariant:Constraint
@@ -135,6 +161,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="State-stateInvariant"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_stateInvariant_owningState"
+        /// xmi:subsets="Namespace-ownedRule"
+        [Multiplicity("0..1")]
         Constraint StateInvariant { get; }
         #endregion
         #region P:Submachine:StateMachine
@@ -142,6 +171,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="StateMachine"/> that is to be inserted in place of the (<see cref="Submachine"/>) <see cref="State"/>.
         /// </summary>
         /// xmi:id="State-submachine"
+        /// xmi:association="A_submachineState_submachine"
+        [Multiplicity("0..1")]
         StateMachine Submachine { get; }
         #endregion
 

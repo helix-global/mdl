@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -42,6 +43,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StateMachine-connectionPoint"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_connectionPoint_stateMachine"
+        /// xmi:subsets="Namespace-ownedMember"
         Pseudostate[] ConnectionPoint { get; }
         #endregion
         #region P:ExtendedStateMachine:StateMachine[]
@@ -49,6 +52,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The StateMachines of which this is an <see cref="Extension"/>.
         /// </summary>
         /// xmi:id="StateMachine-extendedStateMachine"
+        /// xmi:association="A_extendedStateMachine_stateMachine"
         /// xmi:redefines="Behavior-redefinedBehavior{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Behavior.RedefinedBehavior"/>}"
         StateMachine[] ExtendedStateMachine { get; }
         #endregion
@@ -58,6 +62,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StateMachine-region"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_region_stateMachine"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Multiplicity("1..*")]
         Region[] Region { get; }
         #endregion
         #region P:SubmachineState:State[]
@@ -65,31 +72,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the submachine(s) in case of a submachine <see cref="State"/>. Multiple machines are referenced in case of a concurrent <see cref="State"/>.
         /// </summary>
         /// xmi:id="StateMachine-submachineState"
+        /// xmi:association="A_submachineState_submachine"
         State[] SubmachineState { get; }
         #endregion
 
-        #region M:LCA(Vertex,Vertex):Region
-        /// <summary>
-        /// The operation LCA(s1,s2) returns the <see cref="Region"/> that is the least common ancestor of Vertices s1 and s2, based on the <see cref="StateMachine"/> containment hierarchy.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (if ancestor(s1, s2) then 
-        ///         s2.container
-        ///     else
-        ///     	if ancestor(s2, s1) then
-        ///     	    s1.container 
-        ///     	else 
-        ///     	    LCA(s1.container.state, s2.container.state)
-        ///     	endif
-        ///     endif)
-        ///   ]]>
-        ///   xmi:id="StateMachine-LCA-spec"
-        /// </rule>
-        /// xmi:id="StateMachine-LCA"
-        /// xmi:is-query="true"
-        Region LCA(Vertex s1,Vertex s2);
-        #endregion
         #region M:ancestor(Vertex,Vertex):Boolean
         /// <summary>
         /// The query ancestor(s1, s2) checks whether <see cref="Vertex"/> s2 is an ancestor of <see cref="Vertex"/> s1.
@@ -152,6 +138,28 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         /// xmi:redefines="RedefinableElement-isRedefinitionContextValid{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isRedefinitionContextValid"/>}"
         Boolean isRedefinitionContextValid(RedefinableElement redefinedElement);
+        #endregion
+        #region M:LCA(Vertex,Vertex):Region
+        /// <summary>
+        /// The operation LCA(s1,s2) returns the <see cref="Region"/> that is the least common ancestor of Vertices s1 and s2, based on the <see cref="StateMachine"/> containment hierarchy.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (if ancestor(s1, s2) then 
+        ///         s2.container
+        ///     else
+        ///     	if ancestor(s2, s1) then
+        ///     	    s1.container 
+        ///     	else 
+        ///     	    LCA(s1.container.state, s2.container.state)
+        ///     	endif
+        ///     endif)
+        ///   ]]>
+        ///   xmi:id="StateMachine-LCA-spec"
+        /// </rule>
+        /// xmi:id="StateMachine-LCA"
+        /// xmi:is-query="true"
+        Region LCA(Vertex s1,Vertex s2);
         #endregion
         #region M:LCAState(Vertex,Vertex):State
         /// <summary>

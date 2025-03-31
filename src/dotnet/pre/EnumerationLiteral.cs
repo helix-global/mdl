@@ -17,13 +17,14 @@ namespace pre
             OwnedComment = new List<Comment>();
             }
 
+        #region M:ToString:String
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         public override String ToString()
             {
             return Name;
             }
-
+        #endregion
         #region M:ReadXml(XmlReader)
         /// <summary>Generates an object from its XML representation.</summary>
         /// <param name="reader">The <see cref="T:System.Xml.XmlReader" /> stream from which the object is deserialized.</param>
@@ -59,6 +60,7 @@ namespace pre
                 }
             }
         #endregion
+        #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer, String prefix)
             {
             if (OwnedComment.Count > 0) {
@@ -71,5 +73,6 @@ namespace pre
             writer.Write($"{prefix}/// xmi:id=\"{Identifier}\"\n");
             writer.Write($"{prefix}{UpperFirstLetter(Name)}");
             }
+        #endregion
         }
     }

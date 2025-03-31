@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -55,6 +56,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An optional <see cref="ProtocolStateMachine"/> which describes valid interactions at this interaction point.
         /// </summary>
         /// xmi:id="Port-protocol"
+        /// xmi:association="A_protocol_port"
+        [Multiplicity("0..1")]
         ProtocolStateMachine Protocol { get; }
         #endregion
         #region P:Provided:Interface[]
@@ -62,6 +65,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCclassifier offers to its environment via this <see cref="Port"/>, and which it will handle either directly or by forwarding it to a part of its internal structure. This <see cref="Association"/> is derived according to the value of <see cref="IsConjugated"/>. If <see cref="IsConjugated"/> is false, <see cref="Provided"/> is derived as the union of the sets of Interfaces realized by the <see cref="Type"/> of the port and its supertypes, or directly from the <see cref="Type"/> of the <see cref="Port"/> if the <see cref="Port"/> is typed by an <see cref="Interface"/>. If <see cref="IsConjugated"/> is true, it is derived as the union of the sets of Interfaces used by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes.
         /// </summary>
         /// xmi:id="Port-provided"
+        /// xmi:association="A_provided_port"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Interface[] Provided { get; }
         #endregion
         #region P:RedefinedPort:Port[]
@@ -69,6 +75,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Port"/> may be redefined when its containing <see cref="EncapsulatedClassifier"/> is specialized. The redefining <see cref="Port"/> may have additional Interfaces to those that are associated with the redefined <see cref="Port"/> or it may replace an <see cref="Interface"/> by one of its subtypes.
         /// </summary>
         /// xmi:id="Port-redefinedPort"
+        /// xmi:association="A_redefinedPort_port"
+        /// xmi:subsets="Property-redefinedProperty"
         Port[] RedefinedPort { get; }
         #endregion
         #region P:Required:Interface[]
@@ -76,37 +84,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCassifier expects its environment to handle via this port. This <see cref="Association"/> is derived according to the value of <see cref="IsConjugated"/>. If <see cref="IsConjugated"/> is false, <see cref="Required"/> is derived as the union of the sets of Interfaces used by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes. If <see cref="IsConjugated"/> is true, it is derived as the union of the sets of Interfaces realized by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes, or directly from the <see cref="Type"/> of the <see cref="Port"/> if the <see cref="Port"/> is typed by an <see cref="Interface"/>.
         /// </summary>
         /// xmi:id="Port-required"
+        /// xmi:association="A_required_port"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Interface[] Required { get; }
         #endregion
 
-        #region M:provided:Interface[]
-        /// <summary>
-        /// Derivation for <see cref="Port"/>::/<see cref="Provided"/>
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (if isConjugated then basicRequired() else basicProvided() endif)
-        ///   ]]>
-        ///   xmi:id="Port-provided.1-spec"
-        /// </rule>
-        /// xmi:id="Port-provided.1"
-        /// xmi:is-query="true"
-        Interface[] provided();
-        #endregion
-        #region M:required:Interface[]
-        /// <summary>
-        /// Derivation for <see cref="Port"/>::/<see cref="Required"/>
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (if isConjugated then basicProvided() else basicRequired() endif)
-        ///   ]]>
-        ///   xmi:id="Port-required.1-spec"
-        /// </rule>
-        /// xmi:id="Port-required.1"
-        /// xmi:is-query="true"
-        Interface[] required();
-        #endregion
         #region M:basicProvided:Interface[]
         /// <summary>
         /// The union of the sets of Interfaces realized by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes, or directly the <see cref="Type"/> of the <see cref="Port"/> if the <see cref="Port"/> is typed by an <see cref="Interface"/>.
@@ -137,6 +120,34 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Port-basicRequired"
         /// xmi:is-query="true"
         Interface[] basicRequired();
+        #endregion
+        #region M:provided:Interface[]
+        /// <summary>
+        /// Derivation for <see cref="Port"/>::/<see cref="Provided"/>
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (if isConjugated then basicRequired() else basicProvided() endif)
+        ///   ]]>
+        ///   xmi:id="Port-provided.1-spec"
+        /// </rule>
+        /// xmi:id="Port-provided.1"
+        /// xmi:is-query="true"
+        Interface[] provided();
+        #endregion
+        #region M:required:Interface[]
+        /// <summary>
+        /// Derivation for <see cref="Port"/>::/<see cref="Required"/>
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (if isConjugated then basicProvided() else basicRequired() endif)
+        ///   ]]>
+        ///   xmi:id="Port-required.1-spec"
+        /// </rule>
+        /// xmi:id="Port-required.1"
+        /// xmi:is-query="true"
+        Interface[] required();
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The entryPoint Pseudostates corresponding to this connection point.
         /// </summary>
         /// xmi:id="ConnectionPointReference-entry"
+        /// xmi:association="A_entry_connectionPointReference"
         Pseudostate[] Entry { get; }
         #endregion
         #region P:Exit:Pseudostate[]
@@ -34,6 +36,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The exitPoints kind Pseudostates corresponding to this connection point.
         /// </summary>
         /// xmi:id="ConnectionPointReference-exit"
+        /// xmi:association="A_exit_connectionPointReference"
         Pseudostate[] Exit { get; }
         #endregion
         #region P:State:State
@@ -41,6 +44,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="State"/> in which the <see cref="ConnectionPointReference"/> is defined.
         /// </summary>
         /// xmi:id="ConnectionPointReference-state"
+        /// xmi:association="A_connection_state"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         State State { get; }
         #endregion
 

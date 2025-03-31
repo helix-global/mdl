@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -15,6 +16,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Deployment-configuration"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_configuration_deployment"
+        /// xmi:subsets="Element-ownedElement"
         DeploymentSpecification[] Configuration { get; }
         #endregion
         #region P:DeployedArtifact:DeployedArtifact[]
@@ -22,6 +25,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Artifacts that are deployed onto a <see cref="Node"/>. This association specializes the <see cref="Supplier"/> association.
         /// </summary>
         /// xmi:id="Deployment-deployedArtifact"
+        /// xmi:association="A_deployedArtifact_deploymentForArtifact"
+        /// xmi:subsets="Dependency-supplier"
         DeployedArtifact[] DeployedArtifact { get; }
         #endregion
         #region P:Location:DeploymentTarget
@@ -29,6 +34,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The DeployedTarget which is the <see cref="Target"/> of a <see cref="Deployment"/>.
         /// </summary>
         /// xmi:id="Deployment-location"
+        /// xmi:association="A_deployment_location"
+        /// xmi:subsets="Dependency-client"
+        /// xmi:subsets="Element-owner"
         DeploymentTarget Location { get; }
         #endregion
         }

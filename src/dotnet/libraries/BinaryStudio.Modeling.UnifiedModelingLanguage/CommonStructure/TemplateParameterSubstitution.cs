@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ParameterableElement"/> that is the <see cref="Actual"/> parameter for this <see cref="TemplateParameterSubstitution"/>.
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-actual"
+        /// xmi:association="A_actual_templateParameterSubstitution"
         ParameterableElement Actual { get; }
         #endregion
         #region P:Formal:TemplateParameter
@@ -27,6 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Formal"/> <see cref="TemplateParameter"/> that is associated with this <see cref="TemplateParameterSubstitution"/>.
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-formal"
+        /// xmi:association="A_formal_templateParameterSubstitution"
         TemplateParameter Formal { get; }
         #endregion
         #region P:OwnedActual:ParameterableElement
@@ -35,6 +38,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-ownedActual"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedActual_owningTemplateParameterSubstitution"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="TemplateParameterSubstitution-actual"
+        [Multiplicity("0..1")]
         ParameterableElement OwnedActual { get; }
         #endregion
         #region P:TemplateBinding:TemplateBinding
@@ -42,6 +49,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TemplateBinding"/> that owns this <see cref="TemplateParameterSubstitution"/>.
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-templateBinding"
+        /// xmi:association="A_parameterSubstitution_templateBinding"
+        /// xmi:subsets="Element-owner"
         TemplateBinding TemplateBinding { get; }
         #endregion
         }

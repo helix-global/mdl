@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Signal-ownedAttribute"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedAttribute_owningSignal"
+        /// xmi:subsets="Classifier-attribute"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interface-nestedClassifier"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_nestedClassifier_interface"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Classifier[] NestedClassifier { get; }
         #endregion
         #region P:OwnedAttribute:Property[]
@@ -29,6 +34,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interface-ownedAttribute"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedAttribute_interface"
+        /// xmi:subsets="Classifier-attribute"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedOperation:Operation[]
@@ -37,6 +46,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interface-ownedOperation"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedOperation_interface"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Operation[] OwnedOperation { get; }
         #endregion
         #region P:OwnedReception:Reception[]
@@ -45,6 +59,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interface-ownedReception"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedReception_interface"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
         Reception[] OwnedReception { get; }
         #endregion
         #region P:Protocol:ProtocolStateMachine
@@ -53,6 +70,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interface-protocol"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_protocol_interface"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Multiplicity("0..1")]
         ProtocolStateMachine Protocol { get; }
         #endregion
         #region P:RedefinedInterface:Interface[]
@@ -60,6 +80,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References all the Interfaces redefined by this <see cref="Interface"/>.
         /// </summary>
         /// xmi:id="Interface-redefinedInterface"
+        /// xmi:association="A_redefinedInterface_interface"
+        /// xmi:subsets="Classifier-redefinedClassifier"
         Interface[] RedefinedInterface { get; }
         #endregion
         }

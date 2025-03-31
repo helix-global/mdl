@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -22,6 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Operation"/> being invoked.
         /// </summary>
         /// xmi:id="CallOperationAction-operation"
+        /// xmi:association="A_operation_callOperationAction"
         Operation Operation { get; }
         #endregion
         #region P:Target:InputPin
@@ -30,24 +32,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CallOperationAction-target"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_target_callOperationAction"
+        /// xmi:subsets="Action-input"
         InputPin Target { get; }
         #endregion
 
-        #region M:outputParameters:Parameter[]
-        /// <summary>
-        /// Return the inout, out and return ownedParameters of the <see cref="Operation"/> being called.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (operation.outputParameters())
-        ///   ]]>
-        ///   xmi:id="CallOperationAction-outputParameters-spec"
-        /// </rule>
-        /// xmi:id="CallOperationAction-outputParameters"
-        /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-outputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>}"
-        Parameter[] outputParameters();
-        #endregion
         #region M:inputParameters:Parameter[]
         /// <summary>
         /// Return the in and inout ownedParameters of the <see cref="Operation"/> being called.
@@ -62,6 +51,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         /// xmi:redefines="CallAction-inputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>}"
         Parameter[] inputParameters();
+        #endregion
+        #region M:outputParameters:Parameter[]
+        /// <summary>
+        /// Return the inout, out and return ownedParameters of the <see cref="Operation"/> being called.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (operation.outputParameters())
+        ///   ]]>
+        ///   xmi:id="CallOperationAction-outputParameters-spec"
+        /// </rule>
+        /// xmi:id="CallOperationAction-outputParameters"
+        /// xmi:is-query="true"
+        /// xmi:redefines="CallAction-outputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>}"
+        Parameter[] outputParameters();
         #endregion
         }
     }

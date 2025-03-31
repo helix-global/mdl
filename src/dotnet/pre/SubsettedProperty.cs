@@ -12,11 +12,19 @@ namespace pre
             {
             }
 
+        #region M:ReadXml(XmlReader)
         public override void ReadXml(XmlReader reader)
             {
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             reader.MoveToContent();
             ReferencedIdentifier = new ObjectIdentifier(reader.GetAttribute("idref",xmi));
             }
+        #endregion
+        #region M:ToString:String
+        public override String ToString()
+            {
+            return ReferencedIdentifier.ToString();
+            }
+        #endregion
         }
     }

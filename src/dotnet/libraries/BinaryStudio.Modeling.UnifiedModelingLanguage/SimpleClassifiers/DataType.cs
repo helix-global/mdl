@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DataType-ownedAttribute"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedAttribute_datatype"
+        /// xmi:subsets="Classifier-attribute"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedOperation:Operation[]
@@ -22,6 +27,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DataType-ownedOperation"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedOperation_datatype"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Operation[] OwnedOperation { get; }
         #endregion
         }

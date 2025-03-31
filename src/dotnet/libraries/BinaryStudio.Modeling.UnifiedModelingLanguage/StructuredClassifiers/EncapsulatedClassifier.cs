@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="EncapsulatedClassifier-ownedPort"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedPort_encapsulatedClassifier"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="StructuredClassifier-ownedAttribute"
         Port[] OwnedPort { get; }
         #endregion
 

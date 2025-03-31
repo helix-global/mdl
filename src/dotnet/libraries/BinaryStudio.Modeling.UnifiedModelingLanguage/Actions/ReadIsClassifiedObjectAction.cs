@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -41,6 +42,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Classifier"/> against which the classification of the <see cref="Input"/> <see cref="Object"/> is tested.
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-classifier"
+        /// xmi:association="A_classifier_readIsClassifiedObjectAction"
         Classifier Classifier { get; }
         #endregion
         #region P:IsDirect:Boolean
@@ -56,6 +58,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_readIsClassifiedObjectAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Result:OutputPin
@@ -64,6 +68,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_readIsClassifiedObjectAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -63,6 +64,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ConditionalNode-clause"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_clause_conditionalNode"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("1..*")]
         Clause[] Clause { get; }
         #endregion
         #region P:IsAssured:Boolean
@@ -85,7 +89,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ConditionalNode-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_conditionalNode"
         /// xmi:redefines="StructuredActivityNode-structuredNodeOutput{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeOutput"/>}"
+        [Ordered]
         OutputPin[] Result { get; }
         #endregion
 

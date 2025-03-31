@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -65,6 +66,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Lower"/> bound of the multiplicity interval.
         /// </summary>
         /// xmi:id="MultiplicityElement-lower"
+        /// xmi:is-derived="true"
         Integer Lower { get; }
         #endregion
         #region P:LowerValue:ValueSpecification
@@ -73,6 +75,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="MultiplicityElement-lowerValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_lowerValue_owningLower"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification LowerValue { get; }
         #endregion
         #region P:Upper:UnlimitedNatural
@@ -80,6 +85,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Upper"/> bound of the multiplicity interval.
         /// </summary>
         /// xmi:id="MultiplicityElement-upper"
+        /// xmi:is-derived="true"
         UnlimitedNatural Upper { get; }
         #endregion
         #region P:UpperValue:ValueSpecification
@@ -88,6 +94,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="MultiplicityElement-upperValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_upperValue_owningUpper"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification UpperValue { get; }
         #endregion
 

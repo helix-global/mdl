@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Classifier"/> whose instances are to be retrieved.
         /// </summary>
         /// xmi:id="ReadExtentAction-classifier"
+        /// xmi:association="A_classifier_readExtentAction"
         Classifier Classifier { get; }
         #endregion
         #region P:Result:OutputPin
@@ -35,6 +37,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadExtentAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_readExtentAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

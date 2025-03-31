@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -54,6 +55,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StructuralFeatureAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_structuralFeatureAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:StructuralFeature:StructuralFeature
@@ -61,6 +64,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="StructuralFeature"/> to be read or written.
         /// </summary>
         /// xmi:id="StructuralFeatureAction-structuralFeature"
+        /// xmi:association="A_structuralFeature_structuralFeatureAction"
         StructuralFeature StructuralFeature { get; }
         #endregion
         }

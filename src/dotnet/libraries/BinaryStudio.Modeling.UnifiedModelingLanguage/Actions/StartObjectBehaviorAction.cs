@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -35,39 +36,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StartObjectBehaviorAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_startObjectBehaviorAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
 
-        #region M:outputParameters:Parameter[]
-        /// <summary>
-        /// Return the inout, out and return ownedParameters of the <see cref="Behavior"/> being called.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (self.behavior().outputParameters())
-        ///   ]]>
-        ///   xmi:id="StartObjectBehaviorAction-outputParameters-spec"
-        /// </rule>
-        /// xmi:id="StartObjectBehaviorAction-outputParameters"
-        /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-outputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>}"
-        Parameter[] outputParameters();
-        #endregion
-        #region M:inputParameters:Parameter[]
-        /// <summary>
-        /// Return the in and inout ownedParameters of the <see cref="Behavior"/> being called.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (self.behavior().inputParameters())
-        ///   ]]>
-        ///   xmi:id="StartObjectBehaviorAction-inputParameters-spec"
-        /// </rule>
-        /// xmi:id="StartObjectBehaviorAction-inputParameters"
-        /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-inputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>}"
-        Parameter[] inputParameters();
-        #endregion
         #region M:behavior:Behavior
         /// <summary>
         /// If the type of the <see cref="Object"/> <see cref="InputPin"/> is a <see cref="Behavior"/>, then that <see cref="Behavior"/>. Otherwise, if the type of the <see cref="Object"/> <see cref="InputPin"/> is a <see cref="BehavioredClassifier"/>, then the classifierBehavior of that <see cref="BehavioredClassifier"/>.
@@ -88,6 +61,36 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StartObjectBehaviorAction-behavior"
         /// xmi:is-query="true"
         Behavior behavior();
+        #endregion
+        #region M:inputParameters:Parameter[]
+        /// <summary>
+        /// Return the in and inout ownedParameters of the <see cref="Behavior"/> being called.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (self.behavior().inputParameters())
+        ///   ]]>
+        ///   xmi:id="StartObjectBehaviorAction-inputParameters-spec"
+        /// </rule>
+        /// xmi:id="StartObjectBehaviorAction-inputParameters"
+        /// xmi:is-query="true"
+        /// xmi:redefines="CallAction-inputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>}"
+        Parameter[] inputParameters();
+        #endregion
+        #region M:outputParameters:Parameter[]
+        /// <summary>
+        /// Return the inout, out and return ownedParameters of the <see cref="Behavior"/> being called.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (self.behavior().outputParameters())
+        ///   ]]>
+        ///   xmi:id="StartObjectBehaviorAction-outputParameters-spec"
+        /// </rule>
+        /// xmi:id="StartObjectBehaviorAction-outputParameters"
+        /// xmi:is-query="true"
+        /// xmi:redefines="CallAction-outputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>}"
+        Parameter[] outputParameters();
         #endregion
         }
     }

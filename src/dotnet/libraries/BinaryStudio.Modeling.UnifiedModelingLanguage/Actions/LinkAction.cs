@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -29,13 +30,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="LinkAction"
     public interface LinkAction : Action
         {
-        #region P:EndData:LinkEndData /*[2,*]*/
+        #region P:EndData:LinkEndData[]
         /// <summary>
         /// The <see cref="LinkEndData"/> identifying the values on the ends of the links acting on by this <see cref="LinkAction"/>.
         /// </summary>
         /// xmi:id="LinkAction-endData"
         /// xmi:aggregation="composite"
-        LinkEndData /*[2,*]*/ EndData { get; }
+        /// xmi:association="A_endData_linkAction"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("2..*")]
+        LinkEndData[] EndData { get; }
         #endregion
         #region P:InputValue:InputPin[]
         /// <summary>
@@ -43,6 +47,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LinkAction-inputValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_inputValue_linkAction"
+        /// xmi:subsets="Action-input"
+        [Multiplicity("1..*")]
         InputPin[] InputValue { get; }
         #endregion
 

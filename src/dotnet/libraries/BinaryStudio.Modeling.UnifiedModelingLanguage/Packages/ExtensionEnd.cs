@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -30,7 +31,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// This redefinition changes the default multiplicity of <see cref="Association"/> ends, since model elements are usually extended by 0 or 1 instance of the extension stereotype.
         /// </summary>
         /// xmi:id="ExtensionEnd-lower"
+        /// xmi:is-derived="true"
         /// xmi:redefines="MultiplicityElement-lower{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.MultiplicityElement.Lower"/>}"
+        [Multiplicity("0..1")]
         Integer Lower { get; }
         #endregion
         #region P:Type:Stereotype
@@ -38,6 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Type"/> of the <see cref="ExtensionEnd"/>. Note that this <see cref="Association"/> restricts the possible types of an <see cref="ExtensionEnd"/> to only be Stereotypes.
         /// </summary>
         /// xmi:id="ExtensionEnd-type"
+        /// xmi:association="A_type_extensionEnd"
         /// xmi:redefines="TypedElement-type{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TypedElement.Type"/>}"
         Stereotype Type { get; }
         #endregion

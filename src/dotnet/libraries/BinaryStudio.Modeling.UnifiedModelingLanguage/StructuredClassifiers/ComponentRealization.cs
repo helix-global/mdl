@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Component"/> that owns this <see cref="ComponentRealization"/> and which is implemented by its realizing Classifiers.
         /// </summary>
         /// xmi:id="ComponentRealization-abstraction"
+        /// xmi:association="A_realization_abstraction_component"
+        /// xmi:subsets="Dependency-supplier"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")]
         Component Abstraction { get; }
         #endregion
         #region P:RealizingClassifier:Classifier[]
@@ -20,6 +25,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Classifiers that are involved in the implementation of the <see cref="Component"/> that owns this <see cref="Realization"/>.
         /// </summary>
         /// xmi:id="ComponentRealization-realizingClassifier"
+        /// xmi:association="A_realizingClassifier_componentRealization"
+        /// xmi:subsets="Dependency-client"
+        [Multiplicity("1..*")]
         Classifier[] RealizingClassifier { get; }
         #endregion
         }

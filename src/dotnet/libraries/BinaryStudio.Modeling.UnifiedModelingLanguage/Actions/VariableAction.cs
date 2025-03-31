@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Variable"/> to be read or written.
         /// </summary>
         /// xmi:id="VariableAction-variable"
+        /// xmi:association="A_variable_variableAction"
         Variable Variable { get; }
         #endregion
         }

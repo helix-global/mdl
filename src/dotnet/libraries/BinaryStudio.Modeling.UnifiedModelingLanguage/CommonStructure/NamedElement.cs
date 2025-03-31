@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -35,6 +36,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates the Dependencies that reference this <see cref="NamedElement"/> as a client.
         /// </summary>
         /// xmi:id="NamedElement-clientDependency"
+        /// xmi:association="A_clientDependency_client"
+        /// xmi:is-derived="true"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
         Dependency[] ClientDependency { get; }
         #endregion
         #region P:Name:String
@@ -42,6 +46,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Name"/> of the <see cref="NamedElement"/>.
         /// </summary>
         /// xmi:id="NamedElement-name"
+        [Multiplicity("0..1")]
         String Name { get; }
         #endregion
         #region P:NameExpression:StringExpression
@@ -50,6 +55,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="NamedElement-nameExpression"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_nameExpression_namedElement"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         StringExpression NameExpression { get; }
         #endregion
         #region P:Namespace:Namespace
@@ -57,6 +65,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Namespace"/> that owns the <see cref="NamedElement"/>.
         /// </summary>
         /// xmi:id="NamedElement-namespace"
+        /// xmi:association="A_ownedMember_namespace"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="A_member_memberNamespace-memberNamespace"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")][Union]
         Namespace Namespace { get; }
         #endregion
         #region P:QualifiedName:String
@@ -64,6 +78,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Name"/> that allows the <see cref="NamedElement"/> to be identified within a hierarchy of nested Namespaces. It is constructed from the names of the containing Namespaces starting at the root of the hierarchy and ending with the <see cref="Name"/> of the <see cref="NamedElement"/> itself.
         /// </summary>
         /// xmi:id="NamedElement-qualifiedName"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         String QualifiedName { get; }
         #endregion
         #region P:Visibility:VisibilityKind
@@ -71,6 +88,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines whether and how the <see cref="NamedElement"/> is visible outside its owning <see cref="Namespace"/>.
         /// </summary>
         /// xmi:id="NamedElement-visibility"
+        [Multiplicity("0..1")]
         VisibilityKind Visibility { get; }
         #endregion
 
@@ -118,6 +136,17 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="NamedElement-allOwningPackages"
         /// xmi:is-query="true"
         Package[] allOwningPackages();
+        #endregion
+        #region M:clientDependency:Dependency[]
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (Dependency.allInstances()->select(d | d.client->includes(self)))
+        ///   ]]>
+        ///   xmi:id="NamedElement-clientDependency.1-spec"
+        /// </rule>
+        /// xmi:id="NamedElement-clientDependency.1"
+        /// xmi:is-query="true"
+        Dependency[] clientDependency();
         #endregion
         #region M:isDistinguishableFrom(NamedElement,Namespace):Boolean
         /// <summary>
@@ -167,17 +196,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="NamedElement-separator"
         /// xmi:is-query="true"
         String separator();
-        #endregion
-        #region M:clientDependency:Dependency[]
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (Dependency.allInstances()->select(d | d.client->includes(self)))
-        ///   ]]>
-        ///   xmi:id="NamedElement-clientDependency.1-spec"
-        /// </rule>
-        /// xmi:id="NamedElement-clientDependency.1"
-        /// xmi:is-query="true"
-        Dependency[] clientDependency();
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Classifier"/> of this <see cref="EnumerationLiteral"/> derived to be equal to its <see cref="Enumeration"/>.
         /// </summary>
         /// xmi:id="EnumerationLiteral-classifier"
+        /// xmi:association="A_classifier_enumerationLiteral"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         /// xmi:redefines="InstanceSpecification-classifier{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InstanceSpecification.Classifier"/>}"
         Enumeration Classifier { get; }
         #endregion
@@ -21,6 +25,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Enumeration"/> that this <see cref="EnumerationLiteral"/> is a member of.
         /// </summary>
         /// xmi:id="EnumerationLiteral-enumeration"
+        /// xmi:association="A_ownedLiteral_enumeration"
+        /// xmi:subsets="NamedElement-namespace"
         Enumeration Enumeration { get; }
         #endregion
 

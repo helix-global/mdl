@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of messages that apply to this fragment.
         /// </summary>
         /// xmi:id="ConsiderIgnoreFragment-message"
+        /// xmi:association="A_message_considerIgnoreFragment"
         NamedElement[] Message { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -40,6 +41,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CombinedFragment-cfragmentGate"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_cfragmentGate_combinedFragment"
+        /// xmi:subsets="Element-ownedElement"
         Gate[] CfragmentGate { get; }
         #endregion
         #region P:InteractionOperator:InteractionOperatorKind
@@ -55,6 +58,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CombinedFragment-operand"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_operand_combinedFragment"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("1..*")][Ordered]
         InteractionOperand[] Operand { get; }
         #endregion
         }

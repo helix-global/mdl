@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="RaiseExceptionAction-exception"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_exception_raiseExceptionAction"
+        /// xmi:subsets="Action-input"
         InputPin Exception { get; }
         #endregion
         }

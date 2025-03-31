@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,13 +14,28 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Activity"/> containing the <see cref="ActivityNode"/>, if it is directly owned by an <see cref="Activity"/>.
         /// </summary>
         /// xmi:id="ActivityNode-activity"
+        /// xmi:association="A_node_activity"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")]
         Activity Activity { get; }
+        #endregion
+        #region P:Incoming:ActivityEdge[]
+        /// <summary>
+        /// ActivityEdges that have the <see cref="ActivityNode"/> as their target.
+        /// </summary>
+        /// xmi:id="ActivityNode-incoming"
+        /// xmi:association="A_incoming_target_node"
+        ActivityEdge[] Incoming { get; }
         #endregion
         #region P:InGroup:ActivityGroup[]
         /// <summary>
         /// ActivityGroups containing the <see cref="ActivityNode"/>.
         /// </summary>
         /// xmi:id="ActivityNode-inGroup"
+        /// xmi:association="A_containedNode_inGroup"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Union]
         ActivityGroup[] InGroup { get; }
         #endregion
         #region P:InInterruptibleRegion:InterruptibleActivityRegion[]
@@ -27,6 +43,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// InterruptibleActivityRegions containing the <see cref="ActivityNode"/>.
         /// </summary>
         /// xmi:id="ActivityNode-inInterruptibleRegion"
+        /// xmi:association="A_inInterruptibleRegion_node"
+        /// xmi:subsets="ActivityNode-inGroup"
         InterruptibleActivityRegion[] InInterruptibleRegion { get; }
         #endregion
         #region P:InPartition:ActivityPartition[]
@@ -34,6 +52,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// ActivityPartitions containing the <see cref="ActivityNode"/>.
         /// </summary>
         /// xmi:id="ActivityNode-inPartition"
+        /// xmi:association="A_inPartition_node"
+        /// xmi:subsets="ActivityNode-inGroup"
         ActivityPartition[] InPartition { get; }
         #endregion
         #region P:InStructuredNode:StructuredActivityNode
@@ -41,20 +61,18 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="StructuredActivityNode"/> containing the ActvityNode, if it is directly owned by a <see cref="StructuredActivityNode"/>.
         /// </summary>
         /// xmi:id="ActivityNode-inStructuredNode"
+        /// xmi:association="A_node_inStructuredNode"
+        /// xmi:subsets="ActivityNode-inGroup"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")]
         StructuredActivityNode InStructuredNode { get; }
-        #endregion
-        #region P:Incoming:ActivityEdge[]
-        /// <summary>
-        /// ActivityEdges that have the <see cref="ActivityNode"/> as their target.
-        /// </summary>
-        /// xmi:id="ActivityNode-incoming"
-        ActivityEdge[] Incoming { get; }
         #endregion
         #region P:Outgoing:ActivityEdge[]
         /// <summary>
         /// ActivityEdges that have the <see cref="ActivityNode"/> as their source.
         /// </summary>
         /// xmi:id="ActivityNode-outgoing"
+        /// xmi:association="A_outgoing_source_node"
         ActivityEdge[] Outgoing { get; }
         #endregion
         #region P:RedefinedNode:ActivityNode[]
@@ -62,6 +80,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// ActivityNodes from a generalization of the <see cref="Activity"/> containining this <see cref="ActivityNode"/> that are redefined by this <see cref="ActivityNode"/>.
         /// </summary>
         /// xmi:id="ActivityNode-redefinedNode"
+        /// xmi:association="A_redefinedNode_activityNode"
+        /// xmi:subsets="RedefinableElement-redefinedElement"
         ActivityNode[] RedefinedNode { get; }
         #endregion
 

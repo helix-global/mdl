@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Name"/> of the <see cref="Viewpoint"/> that is expressed by a model (this <see cref="Name"/> may refer to a profile definition).
         /// </summary>
         /// xmi:id="Model-viewpoint"
+        [Multiplicity("0..1")]
         String Viewpoint { get; }
         #endregion
         }

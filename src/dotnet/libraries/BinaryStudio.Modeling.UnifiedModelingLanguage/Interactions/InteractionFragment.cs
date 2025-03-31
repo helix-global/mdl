@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the Lifelines that the <see cref="InteractionFragment"/> involves.
         /// </summary>
         /// xmi:id="InteractionFragment-covered"
+        /// xmi:association="A_covered_coveredBy"
         Lifeline[] Covered { get; }
         #endregion
         #region P:EnclosingInteraction:Interaction
@@ -20,6 +22,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Interaction"/> enclosing this <see cref="InteractionFragment"/>.
         /// </summary>
         /// xmi:id="InteractionFragment-enclosingInteraction"
+        /// xmi:association="A_fragment_enclosingInteraction"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         Interaction EnclosingInteraction { get; }
         #endregion
         #region P:EnclosingOperand:InteractionOperand
@@ -27,6 +32,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The operand enclosing this <see cref="InteractionFragment"/> (they may nest recursively).
         /// </summary>
         /// xmi:id="InteractionFragment-enclosingOperand"
+        /// xmi:association="A_fragment_enclosingOperand"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         InteractionOperand EnclosingOperand { get; }
         #endregion
         #region P:GeneralOrdering:GeneralOrdering[]
@@ -35,6 +43,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionFragment-generalOrdering"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_generalOrdering_interactionFragment"
+        /// xmi:subsets="Element-ownedElement"
         GeneralOrdering[] GeneralOrdering { get; }
         #endregion
         }

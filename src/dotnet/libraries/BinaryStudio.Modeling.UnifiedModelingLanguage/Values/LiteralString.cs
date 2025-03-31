@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The specified String <see cref="Value"/>.
         /// </summary>
         /// xmi:id="LiteralString-value"
+        [Multiplicity("0..1")]
         String Value { get; }
         #endregion
 

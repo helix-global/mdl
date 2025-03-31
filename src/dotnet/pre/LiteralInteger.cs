@@ -5,7 +5,7 @@ namespace pre
     {
     public class LiteralInteger : LiteralSpecification
         {
-        public Int32? Value { get;private set; }
+        public Int32 Value { get;private set; }
         public LiteralInteger(ModelElement owner)
             : base(owner)
             {
@@ -15,20 +15,13 @@ namespace pre
         /// <param name="reader">The <see cref="T:System.Xml.XmlReader" /> stream from which the object is deserialized.</param>
         public override void ReadXml(XmlReader reader) {
             base.ReadXml(reader);
-            var value = reader.GetAttribute("value");
-            if (!String.IsNullOrWhiteSpace(value)) {
-                if (Int32.TryParse(value,out var r)) {
-                    Value = r;
-                    }
-                }
+            Value = GetValueAsInt32(reader.GetAttribute("value"),0);
             }
 
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         public override String ToString() {
-            return Value.HasValue
-                ? Value.ToString()
-                : String.Empty;
+            return Value.ToString();
             }
         }
     }

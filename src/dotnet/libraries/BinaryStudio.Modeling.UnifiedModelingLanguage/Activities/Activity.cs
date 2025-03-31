@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -38,6 +39,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Activity-edge"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_edge_activity"
+        /// xmi:subsets="Element-ownedElement"
         ActivityEdge[] Edge { get; }
         #endregion
         #region P:Group:ActivityGroup[]
@@ -46,6 +49,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Activity-group"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_group_inActivity"
+        /// xmi:subsets="Element-ownedElement"
         ActivityGroup[] Group { get; }
         #endregion
         #region P:IsReadOnly:Boolean
@@ -68,6 +73,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Activity-node"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_node_activity"
+        /// xmi:subsets="Element-ownedElement"
         ActivityNode[] Node { get; }
         #endregion
         #region P:Partition:ActivityPartition[]
@@ -75,6 +82,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Top-level ActivityPartitions in the <see cref="Activity"/>.
         /// </summary>
         /// xmi:id="Activity-partition"
+        /// xmi:association="A_partition_activity"
+        /// xmi:subsets="Activity-group"
         ActivityPartition[] Partition { get; }
         #endregion
         #region P:StructuredNode:StructuredActivityNode[]
@@ -83,6 +92,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Activity-structuredNode"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_structuredNode_activity"
+        /// xmi:subsets="Activity-group"
+        /// xmi:subsets="Activity-node"
         StructuredActivityNode[] StructuredNode { get; }
         #endregion
         #region P:Variable:Variable[]
@@ -91,6 +103,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Activity-variable"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_variable_activityScope"
+        /// xmi:subsets="Namespace-ownedMember"
         Variable[] Variable { get; }
         #endregion
         }

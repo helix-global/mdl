@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Enumeration-ownedLiteral"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedLiteral_enumeration"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         EnumerationLiteral[] OwnedLiteral { get; }
         #endregion
         }

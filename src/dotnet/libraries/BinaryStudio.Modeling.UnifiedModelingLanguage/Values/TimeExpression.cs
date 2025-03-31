@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TimeExpression-expr"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_expr_timeExpression"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification Expr { get; }
         #endregion
         #region P:Observation:Observation[]
@@ -28,6 +32,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Refers to the Observations that are involved in the computation of the <see cref="TimeExpression"/> value.
         /// </summary>
         /// xmi:id="TimeExpression-observation"
+        /// xmi:association="A_observation_timeExpression"
         Observation[] Observation { get; }
         #endregion
         }

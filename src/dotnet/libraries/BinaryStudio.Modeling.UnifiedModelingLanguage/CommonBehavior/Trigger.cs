@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Event"/> that detected by the <see cref="Trigger"/>.
         /// </summary>
         /// xmi:id="Trigger-event"
+        /// xmi:association="A_event_trigger"
         Event Event { get; }
         #endregion
         #region P:Port:Port[]
@@ -27,6 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A optional <see cref="Port"/> of through which the given effect is detected.
         /// </summary>
         /// xmi:id="Trigger-port"
+        /// xmi:association="A_port_trigger"
         Port[] Port { get; }
         #endregion
         }

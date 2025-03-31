@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -33,13 +34,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="ObjectNode-object_flow_edges"
     /// </rule>
     /// xmi:id="ObjectNode"
-    public interface ObjectNode : TypedElement,ActivityNode
+    public interface ObjectNode : ActivityNode,TypedElement
         {
         #region P:InState:State[]
         /// <summary>
         /// The States required to be associated with the values held by tokens on this <see cref="ObjectNode"/>.
         /// </summary>
         /// xmi:id="ObjectNode-inState"
+        /// xmi:association="A_inState_objectNode"
         State[] InState { get; }
         #endregion
         #region P:IsControlType:Boolean
@@ -61,6 +63,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> used to select tokens to be offered on <see cref="Outgoing"/> ActivityEdges.
         /// </summary>
         /// xmi:id="ObjectNode-selection"
+        /// xmi:association="A_selection_objectNode"
+        [Multiplicity("0..1")]
         Behavior Selection { get; }
         #endregion
         #region P:UpperBound:ValueSpecification
@@ -69,6 +73,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ObjectNode-upperBound"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_upperBound_objectNode"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification UpperBound { get; }
         #endregion
         }

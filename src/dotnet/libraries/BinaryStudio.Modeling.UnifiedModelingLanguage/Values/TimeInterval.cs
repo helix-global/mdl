@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Refers to the <see cref="TimeExpression"/> denoting the maximum value of the range.
         /// </summary>
         /// xmi:id="TimeInterval-max"
+        /// xmi:association="A_max_timeInterval"
         /// xmi:redefines="Interval-max{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Interval.Max"/>}"
         TimeExpression Max { get; }
         #endregion
@@ -21,6 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Refers to the <see cref="TimeExpression"/> denoting the minimum value of the range.
         /// </summary>
         /// xmi:id="TimeInterval-min"
+        /// xmi:association="A_min_timeInterval"
         /// xmi:redefines="Interval-min{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Interval.Min"/>}"
         TimeExpression Min { get; }
         #endregion

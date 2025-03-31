@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -81,6 +82,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the InteractionFragments in which this <see cref="Lifeline"/> takes part.
         /// </summary>
         /// xmi:id="Lifeline-coveredBy"
+        /// xmi:association="A_covered_coveredBy"
         InteractionFragment[] CoveredBy { get; }
         #endregion
         #region P:DecomposedAs:PartDecomposition
@@ -88,6 +90,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Interaction"/> that <see cref="Represents"/> the decomposition.
         /// </summary>
         /// xmi:id="Lifeline-decomposedAs"
+        /// xmi:association="A_decomposedAs_lifeline"
+        [Multiplicity("0..1")]
         PartDecomposition DecomposedAs { get; }
         #endregion
         #region P:Interaction:Interaction
@@ -95,6 +99,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Interaction"/> enclosing this <see cref="Lifeline"/>.
         /// </summary>
         /// xmi:id="Lifeline-interaction"
+        /// xmi:association="A_lifeline_interaction"
+        /// xmi:subsets="NamedElement-namespace"
         Interaction Interaction { get; }
         #endregion
         #region P:Represents:ConnectableElement
@@ -102,6 +108,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="ConnectableElement"/> within the classifier that contains the enclosing <see cref="Interaction"/>.
         /// </summary>
         /// xmi:id="Lifeline-represents"
+        /// xmi:association="A_represents_lifeline"
+        [Multiplicity("0..1")]
         ConnectableElement Represents { get; }
         #endregion
         #region P:Selector:ValueSpecification
@@ -110,6 +118,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Lifeline-selector"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_selector_lifeline"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification Selector { get; }
         #endregion
         }

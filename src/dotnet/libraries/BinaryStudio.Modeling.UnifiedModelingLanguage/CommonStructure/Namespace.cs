@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -35,6 +36,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Namespace-elementImport"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_elementImport_importingNamespace"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Element-ownedElement"
         ElementImport[] ElementImport { get; }
         #endregion
         #region P:ImportedMember:PackageableElement[]
@@ -42,6 +46,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the PackageableElements that are members of this <see cref="Namespace"/> as a result of either PackageImports or ElementImports.
         /// </summary>
         /// xmi:id="Namespace-importedMember"
+        /// xmi:association="A_importedMember_namespace"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Namespace-member"
         PackageableElement[] ImportedMember { get; }
         #endregion
         #region P:Member:NamedElement[]
@@ -49,6 +57,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A collection of NamedElements identifiable within the <see cref="Namespace"/>, either by being owned or by being introduced by importing or inheritance.
         /// </summary>
         /// xmi:id="Namespace-member"
+        /// xmi:association="A_member_memberNamespace"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Union]
         NamedElement[] Member { get; }
         #endregion
         #region P:OwnedMember:NamedElement[]
@@ -57,6 +69,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Namespace-ownedMember"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedMember_namespace"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="Namespace-member"
+        [Union]
         NamedElement[] OwnedMember { get; }
         #endregion
         #region P:OwnedRule:Constraint[]
@@ -65,6 +83,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Namespace-ownedRule"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedRule_context"
+        /// xmi:subsets="Namespace-ownedMember"
         Constraint[] OwnedRule { get; }
         #endregion
         #region P:PackageImport:PackageImport[]
@@ -73,6 +93,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Namespace-packageImport"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_packageImport_importingNamespace"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Element-ownedElement"
         PackageImport[] PackageImport { get; }
         #endregion
 
@@ -113,20 +136,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         String[] getNamesOfMember(NamedElement element);
         #endregion
-        #region M:importMembers(PackageableElement[]):PackageableElement[]
-        /// <summary>
-        /// The query <see cref="importMembers"/> defines which of a set of PackageableElements are actually imported into the <see cref="Namespace"/>. This excludes hidden ones, i.e., those which have names that conflict with names of ownedMembers, and it also excludes PackageableElements that would have the indistinguishable names when imported.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
-        ///   ]]>
-        ///   xmi:id="Namespace-importMembers-spec"
-        /// </rule>
-        /// xmi:id="Namespace-importMembers"
-        /// xmi:is-query="true"
-        PackageableElement[] importMembers(PackageableElement[] imps);
-        #endregion
         #region M:importedMember:PackageableElement[]
         /// <summary>
         /// The <see cref="ImportedMember"/> property is derived as the PackageableElements that are members of this <see cref="Namespace"/> as a result of either PackageImports or ElementImports.
@@ -140,6 +149,20 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Namespace-importedMember.1"
         /// xmi:is-query="true"
         PackageableElement[] importedMember();
+        #endregion
+        #region M:importMembers(PackageableElement[]):PackageableElement[]
+        /// <summary>
+        /// The query <see cref="importMembers"/> defines which of a set of PackageableElements are actually imported into the <see cref="Namespace"/>. This excludes hidden ones, i.e., those which have names that conflict with names of ownedMembers, and it also excludes PackageableElements that would have the indistinguishable names when imported.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
+        ///   ]]>
+        ///   xmi:id="Namespace-importMembers-spec"
+        /// </rule>
+        /// xmi:id="Namespace-importMembers"
+        /// xmi:is-query="true"
+        PackageableElement[] importMembers(PackageableElement[] imps);
         #endregion
         #region M:membersAreDistinguishable:Boolean
         /// <summary>

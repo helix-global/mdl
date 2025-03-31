@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -50,6 +51,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Classifiers that are used as types of the ends of the <see cref="Association"/>.
         /// </summary>
         /// xmi:id="Association-endType"
+        /// xmi:association="A_endType_association"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Relationship-relatedElement"
+        [Multiplicity("1..*")]
         Type[] EndType { get; }
         #endregion
         #region P:IsDerived:Boolean
@@ -59,18 +65,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Association-isDerived"
         Boolean IsDerived { get; }
         #endregion
-        #region P:MemberEnd:Property /*[2,*]*/
+        #region P:MemberEnd:Property[]
         /// <summary>
         /// Each end represents participation of instances of the <see cref="Classifier"/> connected to the end in links of the <see cref="Association"/>.
         /// </summary>
         /// xmi:id="Association-memberEnd"
-        Property /*[2,*]*/ MemberEnd { get; }
+        /// xmi:association="A_memberEnd_association"
+        /// xmi:subsets="Namespace-member"
+        [Multiplicity("2..*")][Ordered]
+        Property[] MemberEnd { get; }
         #endregion
         #region P:NavigableOwnedEnd:Property[]
         /// <summary>
         /// The navigable ends that are owned by the <see cref="Association"/> itself.
         /// </summary>
         /// xmi:id="Association-navigableOwnedEnd"
+        /// xmi:association="A_navigableOwnedEnd_association"
+        /// xmi:subsets="Association-ownedEnd"
         Property[] NavigableOwnedEnd { get; }
         #endregion
         #region P:OwnedEnd:Property[]
@@ -79,6 +90,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Association-ownedEnd"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedEnd_owningAssociation"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Association-memberEnd"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Property[] OwnedEnd { get; }
         #endregion
 

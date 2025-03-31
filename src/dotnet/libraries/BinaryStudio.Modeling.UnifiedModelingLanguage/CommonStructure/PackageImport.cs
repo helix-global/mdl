@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Package"/> whose members are imported into a <see cref="Namespace"/>.
         /// </summary>
         /// xmi:id="PackageImport-importedPackage"
+        /// xmi:association="A_importedPackage_packageImport"
+        /// xmi:subsets="DirectedRelationship-target"
         Package ImportedPackage { get; }
         #endregion
         #region P:ImportingNamespace:Namespace
@@ -27,6 +30,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Namespace"/> that imports the members from a <see cref="Package"/>.
         /// </summary>
         /// xmi:id="PackageImport-importingNamespace"
+        /// xmi:association="A_packageImport_importingNamespace"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="Element-owner"
         Namespace ImportingNamespace { get; }
         #endregion
         #region P:Visibility:VisibilityKind

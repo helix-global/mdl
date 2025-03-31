@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -40,6 +41,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ParameterSet-condition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_condition_parameterSet"
+        /// xmi:subsets="Element-ownedElement"
         Constraint[] Condition { get; }
         #endregion
         #region P:Parameter:Parameter[]
@@ -47,6 +50,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Parameters in the <see cref="ParameterSet"/>.
         /// </summary>
         /// xmi:id="ParameterSet-parameter"
+        /// xmi:association="A_parameterSet_parameter"
+        [Multiplicity("1..*")]
         Parameter[] Parameter { get; }
         #endregion
         }

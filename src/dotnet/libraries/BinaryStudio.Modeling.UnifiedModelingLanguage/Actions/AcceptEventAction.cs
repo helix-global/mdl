@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -72,6 +73,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="AcceptEventAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_acceptEventAction"
+        /// xmi:subsets="Action-output"
+        [Ordered]
         OutputPin[] Result { get; }
         #endregion
         #region P:Trigger:Trigger[]
@@ -80,6 +84,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="AcceptEventAction-trigger"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_trigger_acceptEventAction"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("1..*")]
         Trigger[] Trigger { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -42,6 +43,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A derived property referencing the corresponding end on the <see cref="Association"/> which types the <see cref="Connector"/> owing this <see cref="ConnectorEnd"/>, if any. It is derived by selecting the end at the same place in the ordering of <see cref="Association"/> ends as this <see cref="ConnectorEnd"/>.
         /// </summary>
         /// xmi:id="ConnectorEnd-definingEnd"
+        /// xmi:association="A_definingEnd_connectorEnd"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         Property DefiningEnd { get; }
         #endregion
         #region P:PartWithPort:Property
@@ -49,6 +54,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates the <see cref="Role"/> of the internal structure of a <see cref="Classifier"/> with the <see cref="Port"/> to which the <see cref="ConnectorEnd"/> is attached.
         /// </summary>
         /// xmi:id="ConnectorEnd-partWithPort"
+        /// xmi:association="A_partWithPort_connectorEnd"
+        [Multiplicity("0..1")]
         Property PartWithPort { get; }
         #endregion
         #region P:Role:ConnectableElement
@@ -56,6 +63,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ConnectableElement"/> attached at this <see cref="ConnectorEnd"/>. When an instance of the containing <see cref="Classifier"/> is created, a link may (depending on the multiplicities) be created to an instance of the <see cref="Classifier"/> that types this <see cref="ConnectableElement"/>.
         /// </summary>
         /// xmi:id="ConnectorEnd-role"
+        /// xmi:association="A_end_role"
         ConnectableElement Role { get; }
         #endregion
 

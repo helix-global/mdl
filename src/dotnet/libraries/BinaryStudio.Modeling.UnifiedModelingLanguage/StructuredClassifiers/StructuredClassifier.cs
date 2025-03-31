@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StructuredClassifier-ownedAttribute"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedAttribute_structuredClassifier"
+        /// xmi:subsets="Classifier-attribute"
+        /// xmi:subsets="Namespace-ownedMember"
+        /// xmi:subsets="StructuredClassifier-role"
+        [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedConnector:Connector[]
@@ -22,6 +28,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StructuredClassifier-ownedConnector"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedConnector_structuredClassifier"
+        /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
+        /// xmi:subsets="Classifier-feature"
+        /// xmi:subsets="Namespace-ownedMember"
         Connector[] OwnedConnector { get; }
         #endregion
         #region P:Part:Property[]
@@ -29,6 +39,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Properties specifying instances that the <see cref="StructuredClassifier"/> owns by composition. This collection is derived, selecting those owned Properties where isComposite is true.
         /// </summary>
         /// xmi:id="StructuredClassifier-part"
+        /// xmi:association="A_part_structuredClassifier"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Property[] Part { get; }
         #endregion
         #region P:Role:ConnectableElement[]
@@ -36,23 +49,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The roles that instances may play in this <see cref="StructuredClassifier"/>.
         /// </summary>
         /// xmi:id="StructuredClassifier-role"
+        /// xmi:association="A_role_structuredClassifier"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Namespace-member"
+        [Union]
         ConnectableElement[] Role { get; }
         #endregion
 
-        #region M:part:Property[]
-        /// <summary>
-        /// Derivation for <see cref="StructuredClassifier"/>::/<see cref="Part"/>
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (ownedAttribute->select(isComposite))
-        ///   ]]>
-        ///   xmi:id="StructuredClassifier-part.1-spec"
-        /// </rule>
-        /// xmi:id="StructuredClassifier-part.1"
-        /// xmi:is-query="true"
-        Property[] part();
-        #endregion
         #region M:allRoles:ConnectableElement[]
         /// <summary>
         /// All features of type <see cref="ConnectableElement"/>, equivalent to all direct and inherited roles.
@@ -66,6 +70,20 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredClassifier-allRoles"
         /// xmi:is-query="true"
         ConnectableElement[] allRoles();
+        #endregion
+        #region M:part:Property[]
+        /// <summary>
+        /// Derivation for <see cref="StructuredClassifier"/>::/<see cref="Part"/>
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (ownedAttribute->select(isComposite))
+        ///   ]]>
+        ///   xmi:id="StructuredClassifier-part.1-spec"
+        /// </rule>
+        /// xmi:id="StructuredClassifier-part.1"
+        /// xmi:is-query="true"
+        Property[] part();
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -28,6 +29,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The ordered set of Elements referenced by this <see cref="Constraint"/>.
         /// </summary>
         /// xmi:id="Constraint-constrainedElement"
+        /// xmi:association="A_constrainedElement_constraint"
+        [Ordered]
         Element[] ConstrainedElement { get; }
         #endregion
         #region P:Context:Namespace
@@ -35,6 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="Namespace"/> that owns the <see cref="Constraint"/>.
         /// </summary>
         /// xmi:id="Constraint-context"
+        /// xmi:association="A_ownedRule_context"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         Namespace Context { get; }
         #endregion
         #region P:Specification:ValueSpecification
@@ -43,6 +49,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Constraint-specification"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_specification_owningConstraint"
+        /// xmi:subsets="Element-ownedElement"
         ValueSpecification Specification { get; }
         #endregion
         }

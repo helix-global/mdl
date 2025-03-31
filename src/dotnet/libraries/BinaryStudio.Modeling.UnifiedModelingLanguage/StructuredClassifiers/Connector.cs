@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -33,21 +34,27 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of Behaviors that specify the valid interaction patterns across the <see cref="Connector"/>.
         /// </summary>
         /// xmi:id="Connector-contract"
+        /// xmi:association="A_contract_connector"
         Behavior[] Contract { get; }
         #endregion
-        #region P:End:ConnectorEnd /*[2,*]*/
+        #region P:End:ConnectorEnd[]
         /// <summary>
         /// A <see cref="Connector"/> has at least two ConnectorEnds, each representing the participation of instances of the Classifiers typing the ConnectableElements attached to the <see cref="End"/>. The set of ConnectorEnds is ordered.
         /// </summary>
         /// xmi:id="Connector-end"
         /// xmi:aggregation="composite"
-        ConnectorEnd /*[2,*]*/ End { get; }
+        /// xmi:association="A_end_connector"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("2..*")][Ordered]
+        ConnectorEnd[] End { get; }
         #endregion
         #region P:Kind:ConnectorKind
         /// <summary>
         /// Indicates the <see cref="Kind"/> of <see cref="Connector"/>. This is derived: a <see cref="Connector"/> with one or more ends connected to a <see cref="Port"/> which is not on a Part and which is not a behavior port is a delegation; otherwise it is an assembly.
         /// </summary>
         /// xmi:id="Connector-kind"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         ConnectorKind Kind { get; }
         #endregion
         #region P:RedefinedConnector:Connector[]
@@ -55,6 +62,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Connector"/> may be redefined when its containing <see cref="Classifier"/> is specialized. The redefining <see cref="Connector"/> may have a <see cref="Type"/> that specializes the <see cref="Type"/> of the redefined <see cref="Connector"/>. The types of the ConnectorEnds of the redefining <see cref="Connector"/> may specialize the types of the ConnectorEnds of the redefined <see cref="Connector"/>. The properties of the ConnectorEnds of the redefining <see cref="Connector"/> may be replaced.
         /// </summary>
         /// xmi:id="Connector-redefinedConnector"
+        /// xmi:association="A_redefinedConnector_connector"
+        /// xmi:subsets="RedefinableElement-redefinedElement"
         Connector[] RedefinedConnector { get; }
         #endregion
         #region P:Type:Association
@@ -62,6 +71,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// An optional <see cref="Association"/> that classifies links corresponding to this <see cref="Connector"/>.
         /// </summary>
         /// xmi:id="Connector-type"
+        /// xmi:association="A_type_connector"
+        [Multiplicity("0..1")]
         Association Type { get; }
         #endregion
 

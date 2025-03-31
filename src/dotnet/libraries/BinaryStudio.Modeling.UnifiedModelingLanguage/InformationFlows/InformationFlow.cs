@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -45,6 +46,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the information items that may circulate on this information flow.
         /// </summary>
         /// xmi:id="InformationFlow-conveyed"
+        /// xmi:association="A_conveyed_conveyingFlow"
+        [Multiplicity("1..*")]
         Classifier[] Conveyed { get; }
         #endregion
         #region P:InformationSource:NamedElement[]
@@ -52,6 +55,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Defines from which <see cref="Source"/> the <see cref="Conveyed"/> InformationItems are initiated.
         /// </summary>
         /// xmi:id="InformationFlow-informationSource"
+        /// xmi:association="A_informationSource_informationFlow"
+        /// xmi:subsets="DirectedRelationship-source"
+        [Multiplicity("1..*")]
         NamedElement[] InformationSource { get; }
         #endregion
         #region P:InformationTarget:NamedElement[]
@@ -59,6 +65,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Defines to which <see cref="Target"/> the <see cref="Conveyed"/> InformationItems are directed.
         /// </summary>
         /// xmi:id="InformationFlow-informationTarget"
+        /// xmi:association="A_informationTarget_informationFlow"
+        /// xmi:subsets="DirectedRelationship-target"
+        [Multiplicity("1..*")]
         NamedElement[] InformationTarget { get; }
         #endregion
         #region P:Realization:Relationship[]
@@ -66,6 +75,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines which <see cref="Relationship"/> will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realization"
+        /// xmi:association="A_realization_abstraction_flow"
         Relationship[] Realization { get; }
         #endregion
         #region P:RealizingActivityEdge:ActivityEdge[]
@@ -73,6 +83,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines which ActivityEdges will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realizingActivityEdge"
+        /// xmi:association="A_realizingActivityEdge_informationFlow"
         ActivityEdge[] RealizingActivityEdge { get; }
         #endregion
         #region P:RealizingConnector:Connector[]
@@ -80,6 +91,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines which Connectors will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realizingConnector"
+        /// xmi:association="A_realizingConnector_informationFlow"
         Connector[] RealizingConnector { get; }
         #endregion
         #region P:RealizingMessage:Message[]
@@ -87,6 +99,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines which Messages will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realizingMessage"
+        /// xmi:association="A_realizingMessage_informationFlow"
         Message[] RealizingMessage { get; }
         #endregion
         }

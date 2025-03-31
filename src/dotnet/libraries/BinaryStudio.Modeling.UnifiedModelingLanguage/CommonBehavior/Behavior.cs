@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -34,6 +35,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="BehavioredClassifier"/> that is the <see cref="Context"/> for the execution of the <see cref="Behavior"/>. A <see cref="Behavior"/> that is directly owned as a <see cref="NestedClassifier"/> does not have a <see cref="Context"/>. Otherwise, to determine the <see cref="Context"/> of a <see cref="Behavior"/>, find the first <see cref="BehavioredClassifier"/> reached by following the chain of <see cref="Owner"/> relationships from the <see cref="Behavior"/>, if any. If there is such a <see cref="BehavioredClassifier"/>, then it is the <see cref="Context"/>, unless it is itself a <see cref="Behavior"/> with a non-empty <see cref="Context"/>, in which case that is also the <see cref="Context"/> for the original <see cref="Behavior"/>. For example, following this algorithm, the <see cref="Context"/> of an entry <see cref="Behavior"/> in a <see cref="StateMachine"/> is the <see cref="BehavioredClassifier"/> that owns the <see cref="StateMachine"/>. The features of the <see cref="Context"/> <see cref="BehavioredClassifier"/> as well as the Elements visible to the <see cref="Context"/> <see cref="Classifier"/> are visible to the <see cref="Behavior"/>.
         /// </summary>
         /// xmi:id="Behavior-context"
+        /// xmi:association="A_context_behavior"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="RedefinableElement-redefinitionContext"
+        [Multiplicity("0..1")]
         BehavioredClassifier Context { get; }
         #endregion
         #region P:IsReentrant:Boolean
@@ -49,6 +55,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Behavior-ownedParameter"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameter_behavior"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Parameter[] OwnedParameter { get; }
         #endregion
         #region P:OwnedParameterSet:ParameterSet[]
@@ -57,6 +66,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Behavior-ownedParameterSet"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameterSet_behavior"
+        /// xmi:subsets="Namespace-ownedMember"
         ParameterSet[] OwnedParameterSet { get; }
         #endregion
         #region P:Postcondition:Constraint[]
@@ -65,6 +76,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Behavior-postcondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_postcondition_behavior"
+        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Postcondition { get; }
         #endregion
         #region P:Precondition:Constraint[]
@@ -73,23 +86,52 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Behavior-precondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_precondition_behavior"
+        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Precondition { get; }
-        #endregion
-        #region P:Specification:BehavioralFeature
-        /// <summary>
-        /// Designates a <see cref="BehavioralFeature"/> that the <see cref="Behavior"/> implements. The <see cref="BehavioralFeature"/> must be owned by the <see cref="BehavioredClassifier"/> that owns the <see cref="Behavior"/> or be inherited by it. The Parameters of the <see cref="BehavioralFeature"/> and the implementing <see cref="Behavior"/> must match. A <see cref="Behavior"/> does not need to have a <see cref="Specification"/>, in which case it either is the <see cref="ClassifierBehavior"/> of a <see cref="BehavioredClassifier"/> or it can only be invoked by another <see cref="Behavior"/> of the <see cref="Classifier"/>.
-        /// </summary>
-        /// xmi:id="Behavior-specification"
-        BehavioralFeature Specification { get; }
         #endregion
         #region P:RedefinedBehavior:Behavior[]
         /// <summary>
         /// References the <see cref="Behavior"/> that this <see cref="Behavior"/> redefines. A subtype of <see cref="Behavior"/> may redefine any other subtype of <see cref="Behavior"/>. If the <see cref="Behavior"/> implements a <see cref="BehavioralFeature"/>, it replaces the redefined <see cref="Behavior"/>. If the <see cref="Behavior"/> is a <see cref="ClassifierBehavior"/>, it extends the redefined <see cref="Behavior"/>.
         /// </summary>
         /// xmi:id="Behavior-redefinedBehavior"
+        /// xmi:association="A_redefinedBehavior_behavior"
+        /// xmi:subsets="Classifier-redefinedClassifier"
         Behavior[] RedefinedBehavior { get; }
         #endregion
+        #region P:Specification:BehavioralFeature
+        /// <summary>
+        /// Designates a <see cref="BehavioralFeature"/> that the <see cref="Behavior"/> implements. The <see cref="BehavioralFeature"/> must be owned by the <see cref="BehavioredClassifier"/> that owns the <see cref="Behavior"/> or be inherited by it. The Parameters of the <see cref="BehavioralFeature"/> and the implementing <see cref="Behavior"/> must match. A <see cref="Behavior"/> does not need to have a <see cref="Specification"/>, in which case it either is the <see cref="ClassifierBehavior"/> of a <see cref="BehavioredClassifier"/> or it can only be invoked by another <see cref="Behavior"/> of the <see cref="Classifier"/>.
+        /// </summary>
+        /// xmi:id="Behavior-specification"
+        /// xmi:association="A_method_specification"
+        [Multiplicity("0..1")]
+        BehavioralFeature Specification { get; }
+        #endregion
 
+        #region M:behavioredClassifier(Element):BehavioredClassifier
+        /// <summary>
+        /// The first <see cref="BehavioredClassifier"/> reached by following the chain of <see cref="Owner"/> relationships from the <see cref="Behavior"/>, if any.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     if from.oclIsKindOf(BehavioredClassifier) then
+        ///         from.oclAsType(BehavioredClassifier)
+        ///     else if from.owner = null then
+        ///         null
+        ///     else
+        ///         self.behavioredClassifier(from.owner)
+        ///     endif
+        ///     endif
+        ///         
+        ///   ]]>
+        ///   xmi:id="Behavior-behavioredClassifier-spec"
+        ///   xmi:is-postcondition="true"
+        /// </rule>
+        /// xmi:id="Behavior-behavioredClassifier"
+        /// xmi:is-query="true"
+        BehavioredClassifier behavioredClassifier(Element from);
+        #endregion
         #region M:context:BehavioredClassifier
         /// <summary>
         /// A <see cref="Behavior"/> that is directly owned as a <see cref="NestedClassifier"/> does not have a <see cref="Context"/>. Otherwise, to determine the <see cref="Context"/> of a <see cref="Behavior"/>, find the first <see cref="BehavioredClassifier"/> reached by following the chain of <see cref="Owner"/> relationships from the <see cref="Behavior"/>, if any. If there is such a <see cref="BehavioredClassifier"/>, then it is the <see cref="Context"/>, unless it is itself a <see cref="Behavior"/> with a non-empty <see cref="Context"/>, in which case that is also the <see cref="Context"/> for the original <see cref="Behavior"/>. 
@@ -113,29 +155,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Behavior-context.1"
         /// xmi:is-query="true"
         BehavioredClassifier context();
-        #endregion
-        #region M:behavioredClassifier(Element):BehavioredClassifier
-        /// <summary>
-        /// The first <see cref="BehavioredClassifier"/> reached by following the chain of <see cref="Owner"/> relationships from the <see cref="Behavior"/>, if any.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     if from.oclIsKindOf(BehavioredClassifier) then
-        ///         from.oclAsType(BehavioredClassifier)
-        ///     else if from.owner = null then
-        ///         null
-        ///     else
-        ///         self.behavioredClassifier(from.owner)
-        ///     endif
-        ///     endif
-        ///         
-        ///   ]]>
-        ///   xmi:id="Behavior-behavioredClassifier-spec"
-        ///   xmi:is-postcondition="true"
-        /// </rule>
-        /// xmi:id="Behavior-behavioredClassifier"
-        /// xmi:is-query="true"
-        BehavioredClassifier behavioredClassifier(Element from);
         #endregion
         #region M:inputParameters:Parameter[]
         /// <summary>

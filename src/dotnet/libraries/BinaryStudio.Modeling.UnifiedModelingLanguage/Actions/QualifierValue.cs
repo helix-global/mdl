@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -34,6 +35,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Qualifier"/> <see cref="Property"/> for which the <see cref="Value"/> is to be specified.
         /// </summary>
         /// xmi:id="QualifierValue-qualifier"
+        /// xmi:association="A_qualifier_qualifierValue"
         Property Qualifier { get; }
         #endregion
         #region P:Value:InputPin
@@ -41,6 +43,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="InputPin"/> from which the specified <see cref="Value"/> for the <see cref="Qualifier"/> is taken.
         /// </summary>
         /// xmi:id="QualifierValue-value"
+        /// xmi:association="A_value_qualifierValue"
         InputPin Value { get; }
         #endregion
         }

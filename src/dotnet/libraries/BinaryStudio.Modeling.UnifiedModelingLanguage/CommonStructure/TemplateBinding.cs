@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TemplateableElement"/> that is bound by this <see cref="TemplateBinding"/>.
         /// </summary>
         /// xmi:id="TemplateBinding-boundElement"
+        /// xmi:association="A_templateBinding_boundElement"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="Element-owner"
         TemplateableElement BoundElement { get; }
         #endregion
         #region P:ParameterSubstitution:TemplateParameterSubstitution[]
@@ -35,6 +39,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateBinding-parameterSubstitution"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_parameterSubstitution_templateBinding"
+        /// xmi:subsets="Element-ownedElement"
         TemplateParameterSubstitution[] ParameterSubstitution { get; }
         #endregion
         #region P:Signature:TemplateSignature
@@ -42,6 +48,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TemplateSignature"/> for the template that is the <see cref="Target"/> of this <see cref="TemplateBinding"/>.
         /// </summary>
         /// xmi:id="TemplateBinding-signature"
+        /// xmi:association="A_signature_templateBinding"
+        /// xmi:subsets="DirectedRelationship-target"
         TemplateSignature Signature { get; }
         #endregion
         }

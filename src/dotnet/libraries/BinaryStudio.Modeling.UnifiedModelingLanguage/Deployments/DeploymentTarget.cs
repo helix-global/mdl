@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The set of elements that are manifested in an <see cref="Artifact"/> that is involved in <see cref="Deployment"/> to a <see cref="DeploymentTarget"/>.
         /// </summary>
         /// xmi:id="DeploymentTarget-deployedElement"
+        /// xmi:association="A_deployedElement_deploymentTarget"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         PackageableElement[] DeployedElement { get; }
         #endregion
         #region P:Deployment:Deployment[]
@@ -21,6 +25,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DeploymentTarget-deployment"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_deployment_location"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="NamedElement-clientDependency"
         Deployment[] Deployment { get; }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -79,6 +80,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> used to select tokens from a <see cref="Source"/> <see cref="ObjectNode"/>.
         /// </summary>
         /// xmi:id="ObjectFlow-selection"
+        /// xmi:association="A_selection_objectFlow"
+        [Multiplicity("0..1")]
         Behavior Selection { get; }
         #endregion
         #region P:Transformation:Behavior
@@ -86,6 +89,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> used to change or replace object tokens flowing along the <see cref="ObjectFlow"/>.
         /// </summary>
         /// xmi:id="ObjectFlow-transformation"
+        /// xmi:association="A_transformation_objectFlow"
+        [Multiplicity("0..1")]
         Behavior Transformation { get; }
         #endregion
         }

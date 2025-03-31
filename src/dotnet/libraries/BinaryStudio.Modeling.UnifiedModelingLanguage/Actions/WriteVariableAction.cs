@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -28,6 +29,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="WriteVariableAction-value"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_value_writeVariableAction"
+        /// xmi:subsets="Action-input"
+        [Multiplicity("0..1")]
         InputPin Value { get; }
         #endregion
         }

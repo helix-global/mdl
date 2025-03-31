@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -41,6 +42,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A set of Classifiers to be added to the Classifiers of the given <see cref="Object"/>.
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-newClassifier"
+        /// xmi:association="A_newClassifier_reclassifyObjectAction"
         Classifier[] NewClassifier { get; }
         #endregion
         #region P:Object:InputPin
@@ -49,6 +51,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_reclassifyObjectAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:OldClassifier:Classifier[]
@@ -56,6 +60,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A set of Classifiers to be removed from the Classifiers of the given <see cref="Object"/>.
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-oldClassifier"
+        /// xmi:association="A_oldClassifier_reclassifyObjectAction"
         Classifier[] OldClassifier { get; }
         #endregion
         }

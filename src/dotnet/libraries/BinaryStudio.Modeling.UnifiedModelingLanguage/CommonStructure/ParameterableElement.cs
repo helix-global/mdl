@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The formal <see cref="TemplateParameter"/> that owns this <see cref="ParameterableElement"/>.
         /// </summary>
         /// xmi:id="ParameterableElement-owningTemplateParameter"
+        /// xmi:association="A_ownedParameteredElement_owningTemplateParameter"
+        /// xmi:subsets="Element-owner"
+        /// xmi:subsets="ParameterableElement-templateParameter"
+        [Multiplicity("0..1")]
         TemplateParameter OwningTemplateParameter { get; }
         #endregion
         #region P:TemplateParameter:TemplateParameter
@@ -20,6 +25,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TemplateParameter"/> that exposes this <see cref="ParameterableElement"/> as a formal parameter.
         /// </summary>
         /// xmi:id="ParameterableElement-templateParameter"
+        /// xmi:association="A_parameteredElement_templateParameter"
+        [Multiplicity("0..1")]
         TemplateParameter TemplateParameter { get; }
         #endregion
 

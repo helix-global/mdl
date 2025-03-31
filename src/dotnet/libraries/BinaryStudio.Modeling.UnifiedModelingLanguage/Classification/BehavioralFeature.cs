@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -34,6 +35,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> that implements the <see cref="BehavioralFeature"/>. There may be at most one <see cref="Behavior"/> for a particular pairing of a <see cref="Classifier"/> (as <see cref="Owner"/> of the <see cref="Behavior"/>) and a <see cref="BehavioralFeature"/> (as specification of the <see cref="Behavior"/>).
         /// </summary>
         /// xmi:id="BehavioralFeature-method"
+        /// xmi:association="A_method_specification"
         Behavior[] Method { get; }
         #endregion
         #region P:OwnedParameter:Parameter[]
@@ -42,6 +44,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="BehavioralFeature-ownedParameter"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameter_ownerFormalParam"
+        /// xmi:subsets="Namespace-ownedMember"
+        [Ordered]
         Parameter[] OwnedParameter { get; }
         #endregion
         #region P:OwnedParameterSet:ParameterSet[]
@@ -50,6 +55,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="BehavioralFeature-ownedParameterSet"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameterSet_behavioralFeature"
+        /// xmi:subsets="Namespace-ownedMember"
         ParameterSet[] OwnedParameterSet { get; }
         #endregion
         #region P:RaisedException:Type[]
@@ -57,9 +64,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The Types representing exceptions that may be raised during an invocation of this <see cref="BehavioralFeature"/>.
         /// </summary>
         /// xmi:id="BehavioralFeature-raisedException"
+        /// xmi:association="A_raisedException_behavioralFeature"
         Type[] RaisedException { get; }
         #endregion
 
+        #region M:inputParameters:Parameter[]
+        /// <summary>
+        /// The ownedParameters with direction in and inout.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
+        ///   ]]>
+        ///   xmi:id="BehavioralFeature-inputParameters-spec"
+        /// </rule>
+        /// xmi:id="BehavioralFeature-inputParameters"
+        /// xmi:is-query="true"
+        Parameter[] inputParameters();
+        #endregion
         #region M:isDistinguishableFrom(NamedElement,Namespace):Boolean
         /// <summary>
         /// The query <see cref="isDistinguishableFrom"/> determines whether two BehavioralFeatures may coexist in the same <see cref="Namespace"/>. It specifies that they must have different signatures.
@@ -78,20 +100,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         /// xmi:redefines="NamedElement-isDistinguishableFrom{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>}"
         Boolean isDistinguishableFrom(NamedElement n,Namespace ns);
-        #endregion
-        #region M:inputParameters:Parameter[]
-        /// <summary>
-        /// The ownedParameters with direction in and inout.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
-        ///   ]]>
-        ///   xmi:id="BehavioralFeature-inputParameters-spec"
-        /// </rule>
-        /// xmi:id="BehavioralFeature-inputParameters"
-        /// xmi:is-query="true"
-        Parameter[] inputParameters();
         #endregion
         #region M:outputParameters:Parameter[]
         /// <summary>

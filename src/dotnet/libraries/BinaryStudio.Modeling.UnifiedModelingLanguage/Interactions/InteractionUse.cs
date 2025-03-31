@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -71,6 +72,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionUse-actualGate"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_actualGate_interactionUse"
+        /// xmi:subsets="Element-ownedElement"
         Gate[] ActualGate { get; }
         #endregion
         #region P:Argument:ValueSpecification[]
@@ -79,6 +82,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionUse-argument"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_argument_interactionUse"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         ValueSpecification[] Argument { get; }
         #endregion
         #region P:RefersTo:Interaction
@@ -86,6 +92,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Refers to the <see cref="Interaction"/> that defines its meaning.
         /// </summary>
         /// xmi:id="InteractionUse-refersTo"
+        /// xmi:association="A_refersTo_interactionUse"
         Interaction RefersTo { get; }
         #endregion
         #region P:ReturnValue:ValueSpecification
@@ -94,6 +101,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionUse-returnValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_returnValue_interactionUse"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         ValueSpecification ReturnValue { get; }
         #endregion
         #region P:ReturnValueRecipient:Property
@@ -101,6 +111,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The recipient of the return value.
         /// </summary>
         /// xmi:id="InteractionUse-returnValueRecipient"
+        /// xmi:association="A_returnValueRecipient_interactionUse"
+        [Multiplicity("0..1")]
         Property ReturnValueRecipient { get; }
         #endregion
         }

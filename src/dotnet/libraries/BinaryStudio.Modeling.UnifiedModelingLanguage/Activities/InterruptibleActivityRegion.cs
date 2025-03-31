@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -21,6 +22,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The ActivityEdges leaving the <see cref="InterruptibleActivityRegion"/> on which a traversing token will result in the termination of other tokens flowing in the <see cref="InterruptibleActivityRegion"/>.
         /// </summary>
         /// xmi:id="InterruptibleActivityRegion-interruptingEdge"
+        /// xmi:association="A_interruptingEdge_interrupts"
         ActivityEdge[] InterruptingEdge { get; }
         #endregion
         #region P:Node:ActivityNode[]
@@ -28,6 +30,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// ActivityNodes immediately contained in the <see cref="InterruptibleActivityRegion"/>.
         /// </summary>
         /// xmi:id="InterruptibleActivityRegion-node"
+        /// xmi:association="A_inInterruptibleRegion_node"
+        /// xmi:subsets="ActivityGroup-containedNode"
         ActivityNode[] Node { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Context"/> <see cref="Classifier"/> of the <see cref="Behavior"/> that contains this <see cref="Action"/>, or the <see cref="Behavior"/> itself if it has no <see cref="Context"/>.
         /// </summary>
         /// xmi:id="Action-context"
+        /// xmi:association="A_context_action"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")]
         Classifier Context { get; }
         #endregion
         #region P:Input:InputPin[]
@@ -21,6 +26,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Action-input"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_input_action"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered][Union]
         InputPin[] Input { get; }
         #endregion
         #region P:IsLocallyReentrant:Boolean
@@ -36,6 +46,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Action-localPostcondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_localPostcondition_action"
+        /// xmi:subsets="Element-ownedElement"
         Constraint[] LocalPostcondition { get; }
         #endregion
         #region P:LocalPrecondition:Constraint[]
@@ -44,6 +56,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Action-localPrecondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_localPrecondition_action"
+        /// xmi:subsets="Element-ownedElement"
         Constraint[] LocalPrecondition { get; }
         #endregion
         #region P:Output:OutputPin[]
@@ -52,28 +66,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Action-output"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_output_action"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered][Union]
         OutputPin[] Output { get; }
         #endregion
 
-        #region M:context:Classifier
-        /// <summary>
-        /// The derivation for the <see cref="Context"/> property.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (let behavior: Behavior = self.containingBehavior() in
-        ///     if behavior=null then null
-        ///     else if behavior._'context' = null then behavior
-        ///     else behavior._'context'
-        ///     endif
-        ///     endif)
-        ///   ]]>
-        ///   xmi:id="Action-context.1-spec"
-        /// </rule>
-        /// xmi:id="Action-context.1"
-        /// xmi:is-query="true"
-        Classifier context();
-        #endregion
         #region M:allActions:Action[]
         /// <summary>
         /// Return this <see cref="Action"/> and all Actions contained directly or indirectly in it. By default only the <see cref="Action"/> itself is returned, but the operation is overridden for StructuredActivityNodes.
@@ -117,6 +117,25 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Action-containingBehavior"
         /// xmi:is-query="true"
         Behavior containingBehavior();
+        #endregion
+        #region M:context:Classifier
+        /// <summary>
+        /// The derivation for the <see cref="Context"/> property.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (let behavior: Behavior = self.containingBehavior() in
+        ///     if behavior=null then null
+        ///     else if behavior._'context' = null then behavior
+        ///     else behavior._'context'
+        ///     endif
+        ///     endif)
+        ///   ]]>
+        ///   xmi:id="Action-context.1-spec"
+        /// </rule>
+        /// xmi:id="Action-context.1"
+        /// xmi:is-query="true"
+        Classifier context();
         #endregion
         }
     }

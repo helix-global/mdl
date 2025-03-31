@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="OccurrenceSpecification"/> referenced comes <see cref="After"/> the <see cref="OccurrenceSpecification"/> referenced by <see cref="Before"/>.
         /// </summary>
         /// xmi:id="GeneralOrdering-after"
+        /// xmi:association="A_toBefore_after"
         OccurrenceSpecification After { get; }
         #endregion
         #region P:Before:OccurrenceSpecification
@@ -27,6 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="OccurrenceSpecification"/> referenced comes <see cref="Before"/> the <see cref="OccurrenceSpecification"/> referenced by <see cref="After"/>.
         /// </summary>
         /// xmi:id="GeneralOrdering-before"
+        /// xmi:association="A_before_toAfter"
         OccurrenceSpecification Before { get; }
         #endregion
         }

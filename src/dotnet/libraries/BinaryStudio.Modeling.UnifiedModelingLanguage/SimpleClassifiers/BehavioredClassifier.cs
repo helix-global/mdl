@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// A <see cref="Behavior"/> that specifies the behavior of the <see cref="BehavioredClassifier"/> itself.
         /// </summary>
         /// xmi:id="BehavioredClassifier-classifierBehavior"
+        /// xmi:association="A_classifierBehavior_behavioredClassifier"
+        /// xmi:subsets="BehavioredClassifier-ownedBehavior"
+        [Multiplicity("0..1")]
         Behavior ClassifierBehavior { get; }
         #endregion
         #region P:InterfaceRealization:InterfaceRealization[]
@@ -28,6 +32,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="BehavioredClassifier-interfaceRealization"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_interfaceRealization_implementingClassifier"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="NamedElement-clientDependency"
         InterfaceRealization[] InterfaceRealization { get; }
         #endregion
         #region P:OwnedBehavior:Behavior[]
@@ -36,6 +43,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="BehavioredClassifier-ownedBehavior"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedBehavior_behavioredClassifier"
+        /// xmi:subsets="Namespace-ownedMember"
         Behavior[] OwnedBehavior { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="UseCase"/> that owns this <see cref="ExtensionPoint"/>.
         /// </summary>
         /// xmi:id="ExtensionPoint-useCase"
+        /// xmi:association="A_extensionPoint_useCase"
+        /// xmi:subsets="NamedElement-namespace"
         UseCase UseCase { get; }
         #endregion
         }

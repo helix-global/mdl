@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The model element that is utilized in the manifestation in an <see cref="Artifact"/>.
         /// </summary>
         /// xmi:id="Manifestation-utilizedElement"
+        /// xmi:association="A_utilizedElement_manifestation"
+        /// xmi:subsets="Dependency-supplier"
         PackageableElement UtilizedElement { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -103,6 +104,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="State"/> that owns this <see cref="Pseudostate"/> and in which it appears.
         /// </summary>
         /// xmi:id="Pseudostate-state"
+        /// xmi:association="A_connectionPoint_state"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         State State { get; }
         #endregion
         #region P:StateMachine:StateMachine
@@ -110,6 +114,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="StateMachine"/> in which this <see cref="Pseudostate"/> is defined. This only applies to Pseudostates of the <see cref="Kind"/> entryPoint or exitPoint.
         /// </summary>
         /// xmi:id="Pseudostate-stateMachine"
+        /// xmi:association="A_connectionPoint_stateMachine"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         StateMachine StateMachine { get; }
         #endregion
 

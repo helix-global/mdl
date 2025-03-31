@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -62,6 +63,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Association"/> <see cref="End"/> to be read.
         /// </summary>
         /// xmi:id="ReadLinkObjectEndAction-end"
+        /// xmi:association="A_end_readLinkObjectEndAction"
         Property End { get; }
         #endregion
         #region P:Object:InputPin
@@ -70,6 +72,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadLinkObjectEndAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_readLinkObjectEndAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Result:OutputPin
@@ -78,6 +82,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadLinkObjectEndAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_readLinkObjectEndAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

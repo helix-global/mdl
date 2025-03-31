@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -27,6 +28,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates whether an instance of the extending stereotype must be created when an instance of the extended class is created. The <see cref="Attribute"/> value is derived from the value of the lower property of the <see cref="ExtensionEnd"/> referenced by <see cref="Extension"/>::<see cref="OwnedEnd"/>; a lower value of 1 means that <see cref="IsRequired"/> is true, but otherwise it is false. Since the default value of <see cref="ExtensionEnd"/>::lower is 0, the default value of <see cref="IsRequired"/> is false.
         /// </summary>
         /// xmi:id="Extension-isRequired"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Boolean IsRequired { get; }
         #endregion
         #region P:Metaclass:Class
@@ -34,6 +37,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Class"/> that is extended through an <see cref="Extension"/>. The property is derived from the type of the <see cref="MemberEnd"/> that is not the <see cref="OwnedEnd"/>.
         /// </summary>
         /// xmi:id="Extension-metaclass"
+        /// xmi:association="A_extension_metaclass"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Class Metaclass { get; }
         #endregion
         #region P:OwnedEnd:ExtensionEnd
@@ -42,6 +48,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Extension-ownedEnd"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedEnd_extension"
         /// xmi:redefines="Association-ownedEnd{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Association.OwnedEnd"/>}"
         ExtensionEnd OwnedEnd { get; }
         #endregion

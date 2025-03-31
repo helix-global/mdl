@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the elements related by the <see cref="Relationship"/>.
         /// </summary>
         /// xmi:id="Relationship-relatedElement"
+        /// xmi:association="A_relatedElement_relationship"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("1..*")][Union]
         Element[] RelatedElement { get; }
         #endregion
         }

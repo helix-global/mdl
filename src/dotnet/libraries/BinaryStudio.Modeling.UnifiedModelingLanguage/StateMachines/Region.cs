@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -47,6 +48,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The region of which this region is an extension.
         /// </summary>
         /// xmi:id="Region-extendedRegion"
+        /// xmi:association="A_extendedRegion_region"
+        /// xmi:subsets="RedefinableElement-redefinedElement"
+        [Multiplicity("0..1")]
         Region ExtendedRegion { get; }
         #endregion
         #region P:RedefinitionContext:Classifier
@@ -54,6 +58,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Classifier"/> in which context this element may be redefined.
         /// </summary>
         /// xmi:id="Region-redefinitionContext"
+        /// xmi:association="A_redefinitionContext_region"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         /// xmi:redefines="RedefinableElement-redefinitionContext{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>}"
         Classifier RedefinitionContext { get; }
         #endregion
@@ -62,6 +69,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="State"/> that owns the <see cref="Region"/>. If a <see cref="Region"/> is owned by a <see cref="State"/>, then it cannot also be owned by a <see cref="StateMachine"/>.
         /// </summary>
         /// xmi:id="Region-state"
+        /// xmi:association="A_region_state"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         State State { get; }
         #endregion
         #region P:StateMachine:StateMachine
@@ -69,6 +79,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="StateMachine"/> that owns the <see cref="Region"/>. If a <see cref="Region"/> is owned by a <see cref="StateMachine"/>, then it cannot also be owned by a <see cref="State"/>.
         /// </summary>
         /// xmi:id="Region-stateMachine"
+        /// xmi:association="A_region_stateMachine"
+        /// xmi:subsets="NamedElement-namespace"
+        [Multiplicity("0..1")]
         StateMachine StateMachine { get; }
         #endregion
         #region P:Subvertex:Vertex[]
@@ -77,6 +90,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Region-subvertex"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_subvertex_container"
+        /// xmi:subsets="Namespace-ownedMember"
         Vertex[] Subvertex { get; }
         #endregion
         #region P:Transition:Transition[]
@@ -85,6 +100,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Region-transition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_transition_container"
+        /// xmi:subsets="Namespace-ownedMember"
         Transition[] Transition { get; }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -23,6 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Operation"/> exposed by this <see cref="OperationTemplateParameter"/>.
         /// </summary>
         /// xmi:id="OperationTemplateParameter-parameteredElement"
+        /// xmi:association="A_operation_templateParameter_parameteredElement"
         /// xmi:redefines="TemplateParameter-parameteredElement{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>}"
         Operation ParameteredElement { get; }
         #endregion

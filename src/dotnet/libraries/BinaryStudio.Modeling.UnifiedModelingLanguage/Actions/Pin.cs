@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,7 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="Pin-not_unique"
     /// </rule>
     /// xmi:id="Pin"
-    public interface Pin : ObjectNode,MultiplicityElement
+    public interface Pin : MultiplicityElement,ObjectNode
         {
         #region P:IsControl:Boolean
         /// <summary>

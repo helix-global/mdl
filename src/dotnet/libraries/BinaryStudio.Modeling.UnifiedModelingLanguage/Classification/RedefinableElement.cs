@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -41,6 +42,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="RedefinableElement"/> that is being redefined by this element.
         /// </summary>
         /// xmi:id="RedefinableElement-redefinedElement"
+        /// xmi:association="A_redefinedElement_redefinableElement"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Union]
         RedefinableElement[] RedefinedElement { get; }
         #endregion
         #region P:RedefinitionContext:Classifier[]
@@ -48,6 +53,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The contexts that this element may be redefined from.
         /// </summary>
         /// xmi:id="RedefinableElement-redefinitionContext"
+        /// xmi:association="A_redefinitionContext_redefinableElement"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Union]
         Classifier[] RedefinitionContext { get; }
         #endregion
 

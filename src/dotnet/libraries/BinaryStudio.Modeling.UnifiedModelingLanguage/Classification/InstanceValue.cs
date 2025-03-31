@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="InstanceSpecification"/> that represents the specified value.
         /// </summary>
         /// xmi:id="InstanceValue-instance"
+        /// xmi:association="A_instance_instanceValue"
         InstanceSpecification Instance { get; }
         #endregion
         }

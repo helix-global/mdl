@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ParameterableElement"/> that is the <see cref="Default"/> for this formal <see cref="TemplateParameter"/>.
         /// </summary>
         /// xmi:id="TemplateParameter-default"
+        /// xmi:association="A_default_templateParameter"
+        [Multiplicity("0..1")]
         ParameterableElement Default { get; }
         #endregion
         #region P:OwnedDefault:ParameterableElement
@@ -28,6 +31,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameter-ownedDefault"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedDefault_templateParameter"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="TemplateParameter-default"
+        [Multiplicity("0..1")]
         ParameterableElement OwnedDefault { get; }
         #endregion
         #region P:OwnedParameteredElement:ParameterableElement
@@ -36,6 +43,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameter-ownedParameteredElement"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameteredElement_owningTemplateParameter"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="TemplateParameter-parameteredElement"
+        [Multiplicity("0..1")]
         ParameterableElement OwnedParameteredElement { get; }
         #endregion
         #region P:ParameteredElement:ParameterableElement
@@ -43,6 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="ParameterableElement"/> exposed by this <see cref="TemplateParameter"/>.
         /// </summary>
         /// xmi:id="TemplateParameter-parameteredElement"
+        /// xmi:association="A_parameteredElement_templateParameter"
         ParameterableElement ParameteredElement { get; }
         #endregion
         #region P:Signature:TemplateSignature
@@ -50,6 +62,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TemplateSignature"/> that owns this <see cref="TemplateParameter"/>.
         /// </summary>
         /// xmi:id="TemplateParameter-signature"
+        /// xmi:association="A_ownedParameter_signature"
+        /// xmi:subsets="A_parameter_templateSignature-templateSignature"
+        /// xmi:subsets="Element-owner"
         TemplateSignature Signature { get; }
         #endregion
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="IntervalConstraint-specification"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_specification_intervalConstraint"
         /// xmi:redefines="Constraint-specification{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Constraint.Specification"/>}"
         Interval Specification { get; }
         #endregion

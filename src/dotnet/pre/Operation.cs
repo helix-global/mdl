@@ -10,7 +10,7 @@ namespace pre
     public class Operation : ModelElement
         {
         public String Name { get;private set; }
-        public ObjectIdentifier Identifier { get;private set; }
+        public String Identifier { get;private set; }
         public IList<Comment> OwnedComment { get; }
         public IList<Constraint> OwnedRule { get; }
         public IList<Parameter> OwnedParameter { get; }
@@ -39,7 +39,7 @@ namespace pre
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             reader.MoveToContent();
             Name = reader.GetAttribute("name");
-            Identifier = new ObjectIdentifier(reader.GetAttribute("id",xmi));
+            Identifier = reader.GetAttribute("id",xmi);
             IsQuery = reader.GetAttribute("isQuery");
             while (reader.Read()) {
                 switch (reader.NodeType) {
@@ -143,7 +143,7 @@ namespace pre
                 : null;
             }
         #endregion
-
+        #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer, String prefix) {
             var retparam = OwnedParameter.FirstOrDefault(i => i.Direction == "return");
             var ordparam = OwnedParameter.Where(i=>i.Direction != "return").ToArray();
@@ -184,5 +184,6 @@ namespace pre
             writer.Write($");\n");
             writer.Write($"{prefix}#endregion\n");
             }
+        #endregion
         }
     }

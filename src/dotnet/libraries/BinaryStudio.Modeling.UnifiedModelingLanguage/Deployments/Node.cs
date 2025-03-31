@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,7 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="Node-internal_structure"
     /// </rule>
     /// xmi:id="Node"
-    public interface Node : Class,DeploymentTarget
+    public interface Node : DeploymentTarget,Class
         {
         #region P:NestedNode:Node[]
         /// <summary>
@@ -21,6 +22,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Node-nestedNode"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_nestedNode_node"
+        /// xmi:subsets="Namespace-ownedMember"
         Node[] NestedNode { get; }
         #endregion
         }

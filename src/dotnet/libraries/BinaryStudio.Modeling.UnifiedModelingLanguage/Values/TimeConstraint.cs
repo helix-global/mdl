@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The value of <see cref="FirstEvent"/> is related to the <see cref="ConstrainedElement"/>. If <see cref="FirstEvent"/> is true, then the corresponding observation event is the first time instant the execution enters the <see cref="ConstrainedElement"/>. If <see cref="FirstEvent"/> is false, then the corresponding observation event is the last time instant the execution is within the <see cref="ConstrainedElement"/>.
         /// </summary>
         /// xmi:id="TimeConstraint-firstEvent"
+        [Multiplicity("0..1")]
         Boolean FirstEvent { get; }
         #endregion
         #region P:Specification:TimeInterval
@@ -28,6 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TimeConstraint-specification"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_specification_timeConstraint"
         /// xmi:redefines="IntervalConstraint-specification{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.IntervalConstraint.Specification"/>}"
         TimeInterval Specification { get; }
         #endregion

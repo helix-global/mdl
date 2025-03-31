@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,6 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="OccurrenceSpecification"/> that designates the <see cref="Finish"/> of the <see cref="Action"/> or <see cref="Behavior"/>.
         /// </summary>
         /// xmi:id="ExecutionSpecification-finish"
+        /// xmi:association="A_finish_executionSpecification"
         OccurrenceSpecification Finish { get; }
         #endregion
         #region P:Start:OccurrenceSpecification
@@ -27,6 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="OccurrenceSpecification"/> that designates the <see cref="Start"/> of the <see cref="Action"/> or <see cref="Behavior"/>.
         /// </summary>
         /// xmi:id="ExecutionSpecification-start"
+        /// xmi:association="A_start_executionSpecification"
         OccurrenceSpecification Start { get; }
         #endregion
         }

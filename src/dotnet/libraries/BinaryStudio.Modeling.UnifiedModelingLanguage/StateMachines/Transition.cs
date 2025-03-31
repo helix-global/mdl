@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -91,6 +92,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the <see cref="Region"/> that owns this <see cref="Transition"/>.
         /// </summary>
         /// xmi:id="Transition-container"
+        /// xmi:association="A_transition_container"
+        /// xmi:subsets="NamedElement-namespace"
         Region Container { get; }
         #endregion
         #region P:Effect:Behavior
@@ -99,6 +102,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Transition-effect"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_effect_transition"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         Behavior Effect { get; }
         #endregion
         #region P:Guard:Constraint
@@ -107,6 +113,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Transition-guard"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_guard_transition"
+        /// xmi:subsets="Namespace-ownedRule"
+        [Multiplicity("0..1")]
         Constraint Guard { get; }
         #endregion
         #region P:Kind:TransitionKind
@@ -121,6 +130,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Transition"/> that is redefined by this <see cref="Transition"/>.
         /// </summary>
         /// xmi:id="Transition-redefinedTransition"
+        /// xmi:association="A_redefinedTransition_transition"
+        /// xmi:subsets="RedefinableElement-redefinedElement"
+        [Multiplicity("0..1")]
         Transition RedefinedTransition { get; }
         #endregion
         #region P:RedefinitionContext:Classifier
@@ -128,6 +140,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Classifier"/> in which context this element may be redefined.
         /// </summary>
         /// xmi:id="Transition-redefinitionContext"
+        /// xmi:association="A_redefinitionContext_transition"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         /// xmi:redefines="RedefinableElement-redefinitionContext{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>}"
         Classifier RedefinitionContext { get; }
         #endregion
@@ -136,6 +151,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the originating <see cref="Vertex"/> (<see cref="State"/> or <see cref="Pseudostate"/>) of the <see cref="Transition"/>.
         /// </summary>
         /// xmi:id="Transition-source"
+        /// xmi:association="A_outgoing_source_vertex"
         Vertex Source { get; }
         #endregion
         #region P:Target:Vertex
@@ -143,6 +159,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Designates the <see cref="Target"/> <see cref="Vertex"/> that is reached when the <see cref="Transition"/> is taken.
         /// </summary>
         /// xmi:id="Transition-target"
+        /// xmi:association="A_incoming_target_vertex"
         Vertex Target { get; }
         #endregion
         #region P:Trigger:Trigger[]
@@ -151,6 +168,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Transition-trigger"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_trigger_transition"
+        /// xmi:subsets="Element-ownedElement"
         Trigger[] Trigger { get; }
         #endregion
 

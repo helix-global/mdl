@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -28,6 +29,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TimeEvent-when"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_when_timeEvent"
+        /// xmi:subsets="Element-ownedElement"
         TimeExpression When { get; }
         #endregion
         }

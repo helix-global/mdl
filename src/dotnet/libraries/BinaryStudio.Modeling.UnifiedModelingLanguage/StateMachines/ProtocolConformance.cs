@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="ProtocolStateMachine"/> to which the specific <see cref="ProtocolStateMachine"/> conforms.
         /// </summary>
         /// xmi:id="ProtocolConformance-generalMachine"
+        /// xmi:association="A_generalMachine_protocolConformance"
+        /// xmi:subsets="DirectedRelationship-target"
         ProtocolStateMachine GeneralMachine { get; }
         #endregion
         #region P:SpecificMachine:ProtocolStateMachine
@@ -20,6 +23,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the <see cref="ProtocolStateMachine"/> which conforms to the general <see cref="ProtocolStateMachine"/>.
         /// </summary>
         /// xmi:id="ProtocolConformance-specificMachine"
+        /// xmi:association="A_conformance_specificMachine"
+        /// xmi:subsets="DirectedRelationship-source"
+        /// xmi:subsets="Element-owner"
         ProtocolStateMachine SpecificMachine { get; }
         #endregion
         }

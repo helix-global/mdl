@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -53,6 +54,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="UnmarshallAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_unmarshallAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Result:OutputPin[]
@@ -61,6 +64,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="UnmarshallAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_unmarshallAction"
+        /// xmi:subsets="Action-output"
+        [Multiplicity("1..*")][Ordered]
         OutputPin[] Result { get; }
         #endregion
         #region P:UnmarshallType:Classifier
@@ -68,6 +74,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The type of the <see cref="Object"/> to be unmarshalled.
         /// </summary>
         /// xmi:id="UnmarshallAction-unmarshallType"
+        /// xmi:association="A_unmarshallType_unmarshallAction"
         Classifier UnmarshallType { get; }
         #endregion
         }

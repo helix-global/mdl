@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Type"/> of the <see cref="TypedElement"/>.
         /// </summary>
         /// xmi:id="TypedElement-type"
+        /// xmi:association="A_type_typedElement"
+        [Multiplicity("0..1")]
         Type Type { get; }
         #endregion
         }

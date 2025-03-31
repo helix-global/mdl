@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -28,6 +29,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Element-ownedComment"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedComment_owningElement"
+        /// xmi:subsets="Element-ownedElement"
         Comment[] OwnedComment { get; }
         #endregion
         #region P:OwnedElement:Element[]
@@ -36,6 +39,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Element-ownedElement"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedElement_owner"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Union]
         Element[] OwnedElement { get; }
         #endregion
         #region P:Owner:Element
@@ -43,6 +50,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Element"/> that owns this <see cref="Element"/>.
         /// </summary>
         /// xmi:id="Element-owner"
+        /// xmi:association="A_ownedElement_owner"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        [Multiplicity("0..1")][Union]
         Element Owner { get; }
         #endregion
 

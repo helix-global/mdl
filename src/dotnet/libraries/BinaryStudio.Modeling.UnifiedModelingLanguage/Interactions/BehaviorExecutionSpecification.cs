@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// <see cref="Behavior"/> whose execution is occurring.
         /// </summary>
         /// xmi:id="BehaviorExecutionSpecification-behavior"
+        /// xmi:association="A_behavior_behaviorExecutionSpecification"
+        [Multiplicity("0..1")]
         Behavior Behavior { get; }
         #endregion
         }

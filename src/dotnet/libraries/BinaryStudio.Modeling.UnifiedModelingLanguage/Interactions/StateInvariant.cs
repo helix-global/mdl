@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Lifeline"/> on which the <see cref="StateInvariant"/> appears.
         /// </summary>
         /// xmi:id="StateInvariant-covered"
+        /// xmi:association="A_covered_stateInvariant"
         /// xmi:redefines="InteractionFragment-covered{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InteractionFragment.Covered"/>}"
         Lifeline Covered { get; }
         #endregion
@@ -22,6 +24,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StateInvariant-invariant"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_invariant_stateInvariant"
+        /// xmi:subsets="Element-ownedElement"
         Constraint Invariant { get; }
         #endregion
         }

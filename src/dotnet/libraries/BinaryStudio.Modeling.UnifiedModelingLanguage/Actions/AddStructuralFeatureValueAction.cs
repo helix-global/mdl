@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -34,6 +35,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="AddStructuralFeatureValueAction-insertAt"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_insertAt_addStructuralFeatureValueAction"
+        /// xmi:subsets="Action-input"
+        [Multiplicity("0..1")]
         InputPin InsertAt { get; }
         #endregion
         #region P:IsReplaceAll:Boolean

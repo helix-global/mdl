@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -32,6 +33,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Trigger"/> specifying the <see cref="Operation"/> whose call is being replied to.
         /// </summary>
         /// xmi:id="ReplyAction-replyToCall"
+        /// xmi:association="A_replyToCall_replyAction"
         Trigger ReplyToCall { get; }
         #endregion
         #region P:ReplyValue:InputPin[]
@@ -40,6 +42,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReplyAction-replyValue"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_replyValue_replyAction"
+        /// xmi:subsets="Action-input"
+        [Ordered]
         InputPin[] ReplyValue { get; }
         #endregion
         #region P:ReturnInformation:InputPin
@@ -48,6 +53,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReplyAction-returnInformation"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_returnInformation_replyAction"
+        /// xmi:subsets="Action-input"
         InputPin ReturnInformation { get; }
         #endregion
         }

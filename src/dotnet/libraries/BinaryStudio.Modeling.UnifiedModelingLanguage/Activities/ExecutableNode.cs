@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExecutableNode-handler"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_handler_protectedNode"
+        /// xmi:subsets="Element-ownedElement"
         ExceptionHandler[] Handler { get; }
         #endregion
         }

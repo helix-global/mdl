@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -26,6 +27,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// For ordered <see cref="Association"/> ends, the <see cref="InputPin"/> that provides the position where the new link should be inserted or where an existing link should be moved to. The type of the <see cref="InsertAt"/> <see cref="InputPin"/> is UnlimitedNatural, but the input cannot be zero. It is omitted for <see cref="Association"/> ends that are not ordered.
         /// </summary>
         /// xmi:id="LinkEndCreationData-insertAt"
+        /// xmi:association="A_insertAt_linkEndCreationData"
+        [Multiplicity("0..1")]
         InputPin InsertAt { get; }
         #endregion
         #region P:IsReplaceAll:Boolean

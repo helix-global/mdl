@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -29,6 +30,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateSignature-ownedParameter"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedParameter_signature"
+        /// xmi:subsets="Element-ownedElement"
+        /// xmi:subsets="TemplateSignature-parameter"
+        [Ordered]
         TemplateParameter[] OwnedParameter { get; }
         #endregion
         #region P:Parameter:TemplateParameter[]
@@ -36,6 +41,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The ordered set of all formal TemplateParameters for this <see cref="TemplateSignature"/>.
         /// </summary>
         /// xmi:id="TemplateSignature-parameter"
+        /// xmi:association="A_parameter_templateSignature"
+        [Multiplicity("1..*")][Ordered]
         TemplateParameter[] Parameter { get; }
         #endregion
         #region P:Template:TemplateableElement
@@ -43,6 +50,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="TemplateableElement"/> that owns this <see cref="TemplateSignature"/>.
         /// </summary>
         /// xmi:id="TemplateSignature-template"
+        /// xmi:association="A_ownedTemplateSignature_template"
+        /// xmi:subsets="Element-owner"
         TemplateableElement Template { get; }
         #endregion
         }

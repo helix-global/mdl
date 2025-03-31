@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -70,6 +71,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadLinkObjectEndQualifierAction-object"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_object_readLinkObjectEndQualifierAction"
+        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Qualifier:Property
@@ -77,6 +80,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Qualifier"/> <see cref="Property"/> to be read.
         /// </summary>
         /// xmi:id="ReadLinkObjectEndQualifierAction-qualifier"
+        /// xmi:association="A_qualifier_readLinkObjectEndQualifierAction"
         Property Qualifier { get; }
         #endregion
         #region P:Result:OutputPin
@@ -85,6 +89,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadLinkObjectEndQualifierAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_readLinkObjectEndQualifierAction"
+        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

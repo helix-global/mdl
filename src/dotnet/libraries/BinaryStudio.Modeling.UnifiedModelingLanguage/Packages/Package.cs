@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -15,21 +16,17 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="Package-elements_public_or_private"
     /// </rule>
     /// xmi:id="Package"
-    public interface Package : PackageableElement,TemplateableElement,Namespace
+    public interface Package : TemplateableElement,Namespace,PackageableElement
         {
-        #region P:URI:String
-        /// <summary>
-        /// Provides an identifier for the package that can be used for many purposes. A <see cref="URI"/> is the universally unique identification of the package following the IETF <see cref="URI"/> specification, RFC 2396 http://www.ietf.org/rfc/rfc2396.txt and it must comply with those syntax rules.
-        /// </summary>
-        /// xmi:id="Package-URI"
-        String URI { get; }
-        #endregion
         #region P:NestedPackage:Package[]
         /// <summary>
         /// References the packaged elements that are Packages.
         /// </summary>
         /// xmi:id="Package-nestedPackage"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_nestedPackage_nestingPackage"
+        /// xmi:is-derived="true"
+        /// xmi:subsets="Package-packagedElement"
         Package[] NestedPackage { get; }
         #endregion
         #region P:NestingPackage:Package
@@ -37,6 +34,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the <see cref="Package"/> that owns this <see cref="Package"/>.
         /// </summary>
         /// xmi:id="Package-nestingPackage"
+        /// xmi:association="A_nestedPackage_nestingPackage"
+        /// xmi:subsets="A_packagedElement_owningPackage-owningPackage"
+        [Multiplicity("0..1")]
         Package NestingPackage { get; }
         #endregion
         #region P:OwnedStereotype:Stereotype[]
@@ -45,6 +45,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Package-ownedStereotype"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedStereotype_owningPackage"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
+        /// xmi:subsets="Package-packagedElement"
         Stereotype[] OwnedStereotype { get; }
         #endregion
         #region P:OwnedType:Type[]
@@ -53,15 +57,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Package-ownedType"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedType_package"
+        /// xmi:is-derived="true"
+        /// xmi:subsets="Package-packagedElement"
         Type[] OwnedType { get; }
-        #endregion
-        #region P:PackageMerge:PackageMerge[]
-        /// <summary>
-        /// References the PackageMerges that are owned by this <see cref="Package"/>.
-        /// </summary>
-        /// xmi:id="Package-packageMerge"
-        /// xmi:aggregation="composite"
-        PackageMerge[] PackageMerge { get; }
         #endregion
         #region P:PackagedElement:PackageableElement[]
         /// <summary>
@@ -69,7 +68,20 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Package-packagedElement"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_packagedElement_owningPackage"
+        /// xmi:subsets="Namespace-ownedMember"
         PackageableElement[] PackagedElement { get; }
+        #endregion
+        #region P:PackageMerge:PackageMerge[]
+        /// <summary>
+        /// References the PackageMerges that are owned by this <see cref="Package"/>.
+        /// </summary>
+        /// xmi:id="Package-packageMerge"
+        /// xmi:aggregation="composite"
+        /// xmi:association="A_packageMerge_receivingPackage"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Element-ownedElement"
+        PackageMerge[] PackageMerge { get; }
         #endregion
         #region P:ProfileApplication:ProfileApplication[]
         /// <summary>
@@ -77,7 +89,18 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Package-profileApplication"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_profileApplication_applyingPackage"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Element-ownedElement"
         ProfileApplication[] ProfileApplication { get; }
+        #endregion
+        #region P:URI:String
+        /// <summary>
+        /// Provides an identifier for the package that can be used for many purposes. A <see cref="URI"/> is the universally unique identification of the package following the IETF <see cref="URI"/> specification, RFC 2396 http://www.ietf.org/rfc/rfc2396.txt and it must comply with those syntax rules.
+        /// </summary>
+        /// xmi:id="Package-URI"
+        [Multiplicity("0..1")]
+        String URI { get; }
         #endregion
 
         #region M:allApplicableStereotypes:Stereotype[]

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,7 +15,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="SequenceNode-executableNode"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_executableNode_sequenceNode"
         /// xmi:redefines="StructuredActivityNode-node{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.Node"/>}"
+        [Ordered]
         ExecutableNode[] ExecutableNode { get; }
         #endregion
         }

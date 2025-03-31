@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -52,6 +53,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CallAction-result"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_result_callAction"
+        /// xmi:subsets="Action-output"
+        [Ordered]
         OutputPin[] Result { get; }
         #endregion
 

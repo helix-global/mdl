@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -20,13 +21,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     ///   xmi:id="StringExpression-subexpressions"
     /// </rule>
     /// xmi:id="StringExpression"
-    public interface StringExpression : TemplateableElement,Expression
+    public interface StringExpression : Expression,TemplateableElement
         {
         #region P:OwningExpression:StringExpression
         /// <summary>
         /// The <see cref="StringExpression"/> of which this <see cref="StringExpression"/> is a <see cref="SubExpression"/>.
         /// </summary>
         /// xmi:id="StringExpression-owningExpression"
+        /// xmi:association="A_subExpression_owningExpression"
+        /// xmi:subsets="Element-owner"
+        [Multiplicity("0..1")]
         StringExpression OwningExpression { get; }
         #endregion
         #region P:SubExpression:StringExpression[]
@@ -35,6 +39,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StringExpression-subExpression"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_subExpression_owningExpression"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         StringExpression[] SubExpression { get; }
         #endregion
 

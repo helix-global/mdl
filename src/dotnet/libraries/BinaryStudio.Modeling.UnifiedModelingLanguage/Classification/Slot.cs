@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="StructuralFeature"/> that specifies the values that may be held by the <see cref="Slot"/>.
         /// </summary>
         /// xmi:id="Slot-definingFeature"
+        /// xmi:association="A_definingFeature_slot"
         StructuralFeature DefiningFeature { get; }
         #endregion
         #region P:OwningInstance:InstanceSpecification
@@ -20,6 +22,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="InstanceSpecification"/> that owns this <see cref="Slot"/>.
         /// </summary>
         /// xmi:id="Slot-owningInstance"
+        /// xmi:association="A_slot_owningInstance"
+        /// xmi:subsets="Element-owner"
         InstanceSpecification OwningInstance { get; }
         #endregion
         #region P:Value:ValueSpecification[]
@@ -28,6 +32,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Slot-value"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_value_owningSlot"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         ValueSpecification[] Value { get; }
         #endregion
         }

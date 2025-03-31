@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -37,6 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProtocolTransition-postCondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_postCondition_owningTransition"
+        /// xmi:subsets="Namespace-ownedRule"
+        [Multiplicity("0..1")]
         Constraint PostCondition { get; }
         #endregion
         #region P:PreCondition:Constraint
@@ -45,6 +49,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProtocolTransition-preCondition"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_preCondition_protocolTransition"
+        /// xmi:subsets="Transition-guard"
+        [Multiplicity("0..1")]
         Constraint PreCondition { get; }
         #endregion
         #region P:Referred:Operation[]
@@ -52,6 +59,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// This association refers to the associated <see cref="Operation"/>. It is derived from the <see cref="Operation"/> of the <see cref="CallEvent"/> <see cref="Trigger"/> when applicable.
         /// </summary>
         /// xmi:id="ProtocolTransition-referred"
+        /// xmi:association="A_referred_protocolTransition"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         Operation[] Referred { get; }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -105,6 +106,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Message-argument"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_argument_message"
+        /// xmi:subsets="Element-ownedElement"
+        [Ordered]
         ValueSpecification[] Argument { get; }
         #endregion
         #region P:Connector:Connector
@@ -112,6 +116,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Connector"/> on which this <see cref="Message"/> is sent.
         /// </summary>
         /// xmi:id="Message-connector"
+        /// xmi:association="A_connector_message"
+        [Multiplicity("0..1")]
         Connector Connector { get; }
         #endregion
         #region P:Interaction:Interaction
@@ -119,6 +125,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The enclosing <see cref="Interaction"/> owning the <see cref="Message"/>.
         /// </summary>
         /// xmi:id="Message-interaction"
+        /// xmi:association="A_message_interaction"
+        /// xmi:subsets="NamedElement-namespace"
         Interaction Interaction { get; }
         #endregion
         #region P:MessageKind:MessageKind
@@ -126,6 +134,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The derived kind of the <see cref="Message"/> (complete, lost, found, or unknown).
         /// </summary>
         /// xmi:id="Message-messageKind"
+        /// xmi:is-derived="true"
+        /// xmi:is-readonly="true"
         MessageKind MessageKind { get; }
         #endregion
         #region P:MessageSort:MessageSort
@@ -140,6 +150,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the Receiving of the <see cref="Message"/>.
         /// </summary>
         /// xmi:id="Message-receiveEvent"
+        /// xmi:association="A_receiveEvent_endMessage"
+        /// xmi:subsets="A_message_messageEnd-messageEnd"
+        [Multiplicity("0..1")]
         MessageEnd ReceiveEvent { get; }
         #endregion
         #region P:SendEvent:MessageEnd
@@ -147,6 +160,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// References the Sending of the <see cref="Message"/>.
         /// </summary>
         /// xmi:id="Message-sendEvent"
+        /// xmi:association="A_sendEvent_endMessage"
+        /// xmi:subsets="A_message_messageEnd-messageEnd"
+        [Multiplicity("0..1")]
         MessageEnd SendEvent { get; }
         #endregion
         #region P:Signature:NamedElement
@@ -154,23 +170,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The <see cref="Signature"/> of the <see cref="Message"/> is the specification of its content. It refers either an <see cref="Operation"/> or a <see cref="Signal"/>.
         /// </summary>
         /// xmi:id="Message-signature"
+        /// xmi:association="A_signature_message"
+        [Multiplicity("0..1")]
         NamedElement Signature { get; }
         #endregion
 
-        #region M:messageKind:MessageKind
-        /// <summary>
-        /// This query returns the <see cref="MessageKind"/> value for this <see cref="Message"/>.
-        /// </summary>
-        /// <rule language="OCL">
-        ///   <![CDATA[
-        ///     result = (messageKind)
-        ///   ]]>
-        ///   xmi:id="Message-messageKind.1-spec"
-        /// </rule>
-        /// xmi:id="Message-messageKind.1"
-        /// xmi:is-query="true"
-        MessageKind messageKind();
-        #endregion
         #region M:isDistinguishableFrom(NamedElement,Namespace):Boolean
         /// <summary>
         /// The query <see cref="isDistinguishableFrom"/> specifies that any two Messages may coexist in the same <see cref="Namespace"/>, regardless of their names.
@@ -185,6 +189,20 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         /// xmi:redefines="NamedElement-isDistinguishableFrom{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>}"
         Boolean isDistinguishableFrom(NamedElement n,Namespace ns);
+        #endregion
+        #region M:messageKind:MessageKind
+        /// <summary>
+        /// This query returns the <see cref="MessageKind"/> value for this <see cref="Message"/>.
+        /// </summary>
+        /// <rule language="OCL">
+        ///   <![CDATA[
+        ///     result = (messageKind)
+        ///   ]]>
+        ///   xmi:id="Message-messageKind.1-spec"
+        /// </rule>
+        /// xmi:id="Message-messageKind.1"
+        /// xmi:is-query="true"
+        MessageKind messageKind();
         #endregion
         }
     }

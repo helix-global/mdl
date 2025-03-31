@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     {
@@ -14,6 +15,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateableElement-ownedTemplateSignature"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_ownedTemplateSignature_template"
+        /// xmi:subsets="Element-ownedElement"
+        [Multiplicity("0..1")]
         TemplateSignature OwnedTemplateSignature { get; }
         #endregion
         #region P:TemplateBinding:TemplateBinding[]
@@ -22,6 +26,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateableElement-templateBinding"
         /// xmi:aggregation="composite"
+        /// xmi:association="A_templateBinding_boundElement"
+        /// xmi:subsets="A_source_directedRelationship-directedRelationship"
+        /// xmi:subsets="Element-ownedElement"
         TemplateBinding[] TemplateBinding { get; }
         #endregion
 
