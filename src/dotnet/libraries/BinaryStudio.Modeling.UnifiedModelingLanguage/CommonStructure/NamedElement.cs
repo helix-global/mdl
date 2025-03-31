@@ -83,13 +83,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         [Multiplicity("0..1")]
         String QualifiedName { get; }
         #endregion
-        #region P:Visibility:VisibilityKind
+        #region P:Visibility:VisibilityKind?
         /// <summary>
         /// Determines whether and how the <see cref="NamedElement"/> is visible outside its owning <see cref="Namespace"/>.
         /// </summary>
         /// xmi:id="NamedElement-visibility"
-        [Multiplicity("0..1")]
-        VisibilityKind Visibility { get; }
+        VisibilityKind? Visibility { get; }
         #endregion
 
         #region M:allNamespaces:Namespace[]

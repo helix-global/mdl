@@ -15,7 +15,6 @@ namespace pre
         public const String mofext = "http://www.omg.org/spec/MOF/20131001";
         public virtual Model BaseModel { get { return Owner?.BaseModel; }}
         public virtual ModelElement Owner {get;}
-        protected Boolean UpdateReferencesCompleted { get;set; }
 
         public ModelElement(ModelElement owner)
             {
@@ -58,10 +57,9 @@ namespace pre
                 }
             }
         #endregion
-        #region M:UpdateReferences
-        public virtual void UpdateReferences()
+        #region M:OnAfterLoadModel
+        public virtual void OnAfterLoadModel()
             {
-            UpdateReferencesCompleted = true;
             }
         #endregion
         #region M:Equals(ValueSpecification,String):Boolean

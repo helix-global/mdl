@@ -13,7 +13,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     public interface ValueSpecification : TypedElement,PackageableElement
         {
 
-        #region M:booleanValue:Boolean
+        #region M:booleanValue:Boolean?
         /// <summary>
         /// The query <see cref="booleanValue"/> gives a single Boolean value when one can be computed.
         /// </summary>
@@ -25,10 +25,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-booleanValue"
         /// xmi:is-query="true"
-        [return: Multiplicity("0..1")]
-        Boolean booleanValue();
+        Boolean? booleanValue();
         #endregion
-        #region M:integerValue:Integer
+        #region M:integerValue:Integer?
         /// <summary>
         /// The query <see cref="integerValue"/> gives a single Integer value when one can be computed.
         /// </summary>
@@ -40,8 +39,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-integerValue"
         /// xmi:is-query="true"
-        [return: Multiplicity("0..1")]
-        Integer integerValue();
+        Integer? integerValue();
         #endregion
         #region M:isCompatibleWith(ParameterableElement):Boolean
         /// <summary>
@@ -87,7 +85,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         Boolean isNull();
         #endregion
-        #region M:realValue:Real
+        #region M:realValue:Real?
         /// <summary>
         /// The query <see cref="realValue"/> gives a single Real value when one can be computed.
         /// </summary>
@@ -99,8 +97,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-realValue"
         /// xmi:is-query="true"
-        [return: Multiplicity("0..1")]
-        Real realValue();
+        Real? realValue();
         #endregion
         #region M:stringValue:String
         /// <summary>
@@ -117,7 +114,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         [return: Multiplicity("0..1")]
         String stringValue();
         #endregion
-        #region M:unlimitedValue:UnlimitedNatural
+        #region M:unlimitedValue:UnlimitedNatural?
         /// <summary>
         /// The query <see cref="unlimitedValue"/> gives a single UnlimitedNatural value when one can be computed.
         /// </summary>
@@ -129,8 +126,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-unlimitedValue"
         /// xmi:is-query="true"
-        [return: Multiplicity("0..1")]
-        UnlimitedNatural unlimitedValue();
+        UnlimitedNatural? unlimitedValue();
         #endregion
         }
     }

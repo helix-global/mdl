@@ -26,13 +26,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_generalizationSet_generalization"
         GeneralizationSet[] GeneralizationSet { get; }
         #endregion
-        #region P:IsSubstitutable:Boolean
+        #region P:IsSubstitutable:Boolean?
         /// <summary>
         /// Indicates whether the <see cref="Specific"/> <see cref="Classifier"/> can be used wherever the <see cref="General"/> <see cref="Classifier"/> can be used. If true, the execution traces of the <see cref="Specific"/> <see cref="Classifier"/> shall be a superset of the execution traces of the <see cref="General"/> <see cref="Classifier"/>. If false, there is no such constraint on execution traces. If unset, the modeler has not stated whether there is such a constraint or not.
         /// </summary>
         /// xmi:id="Generalization-isSubstitutable"
-        [Multiplicity("0..1")]
-        Boolean IsSubstitutable { get; }
+        Boolean? IsSubstitutable { get; }
         #endregion
         #region P:Specific:Classifier
         /// <summary>

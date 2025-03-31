@@ -15,34 +15,14 @@ namespace pre
         public ObjectIdentifier Identifier { get;private set; }
         public IList<Comment> OwnedComment { get; }
         public String Direction { get;private set; }
+        public String Multiplicity { get;private set; }
+        public String TypeMultiplicitySuffix { get;private set; }
+        public String MultiplicityAttribute { get;private set; }
+
         public String TypeWithMultiplicity { get {
-            var multiplicity = MultiplicityToString(LowerValue,UpperValue);
             var r = new StringBuilder();
             r.Append($"{Type}");
-            switch (multiplicity) {
-                case "1..1" :
-                    {
-                    r.Append(String.Empty);
-                    }
-                    break;
-                case "0..1" :
-                    {
-                    r.Append(String.Empty);
-                    }
-                    break;
-                case "0..*" :
-                    {
-                    r.Append("[]");
-                    }
-                    break;
-                case "1..*" :
-                case "2..*" :
-                    {
-                    r.Append("[]");
-                    }
-                    break;
-                default: r.Append($" /*[{multiplicity}]*/"); break;
-                }
+            r.Append($"{TypeMultiplicitySuffix}");
             return r.ToString();
             }}
 
@@ -152,9 +132,15 @@ namespace pre
             }
         #endregion
         #region M:WriteCSharp(TextWriter,String)
-        public override void WriteCSharp(TextWriter writer, String prefix)
-            {
-            writer.Write($"{prefix}{TypeWithMultiplicity}");
+        public override void WriteCSharp(TextWriter writer, String prefix) {
+            if (String.IsNullOrWhiteSpace(MultiplicityAttribute))
+                {
+                writer.Write($"{prefix}{TypeWithMultiplicity}");
+                }
+            else
+                {
+                writer.Write($"{prefix}[{MultiplicityAttribute}]{TypeWithMultiplicity}");
+                }
             writer.Write($" {Name}");
             }
         #endregion
@@ -162,6 +148,65 @@ namespace pre
         public override String ToString()
             {
             return $"{TypeWithMultiplicity} {Name}";
+            }
+        #endregion
+        #region M:OnAfterLoadModel
+        public override void OnAfterLoadModel()
+            {
+            Multiplicity = MultiplicityToString(LowerValue,UpperValue);
+            switch (Multiplicity) {
+                case "1..1" :
+                    {
+                    TypeMultiplicitySuffix=String.Empty;
+                    MultiplicityAttribute=String.Empty;
+                    }
+                    break;
+                case "0..1" :
+                    {
+                    TypeMultiplicitySuffix=String.Empty;
+                    switch (Type) {
+                        case "Integer":
+                        case "Real":
+                        case "Boolean":
+                        case "UnlimitedNatural":
+                            {
+                            MultiplicityAttribute=String.Empty;
+                            TypeMultiplicitySuffix="?";
+                            }
+                            break;
+                        default:
+                            {
+                            if (BaseModel.Enumerations.ContainsKey(Type))
+                                {
+                                MultiplicityAttribute=String.Empty;
+                                TypeMultiplicitySuffix="?";
+                                }
+                            else
+                                {
+                                MultiplicityAttribute=$"Multiplicity(\"{Multiplicity}\")";
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    break;
+                case "0..*" :
+                    {
+                    TypeMultiplicitySuffix="[]";
+                    MultiplicityAttribute=String.Empty;
+                    }
+                    break;
+                case "1..*" :
+                case "0..2" :
+                case "1..2" :
+                case "2..*" :
+                    {
+                    TypeMultiplicitySuffix="[]";
+                    MultiplicityAttribute=$"Multiplicity(\"{Multiplicity}\")";
+                    }
+                    break;
+                default: throw new NotSupportedException();
+                }
             }
         #endregion
         }

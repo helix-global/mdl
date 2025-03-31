@@ -25,13 +25,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DurationConstraint"
     public interface DurationConstraint : IntervalConstraint
         {
-        #region P:FirstEvent:Boolean /*[0..2]*/
+        #region P:FirstEvent:Boolean[]
         /// <summary>
         /// The value of <see cref="FirstEvent"/>[i] is related to <see cref="ConstrainedElement"/>[i] (where i is 1 or 2). If <see cref="FirstEvent"/>[i] is true, then the corresponding observation event is the first time instant the execution enters <see cref="ConstrainedElement"/>[i]. If <see cref="FirstEvent"/>[i] is false, then the corresponding observation event is the last time instant the execution is within <see cref="ConstrainedElement"/>[i].
         /// </summary>
         /// xmi:id="DurationConstraint-firstEvent"
         [Multiplicity("0..2")]
-        Boolean /*[0..2]*/ FirstEvent { get; }
+        Boolean[] FirstEvent { get; }
         #endregion
         #region P:Specification:DurationInterval
         /// <summary>

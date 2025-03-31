@@ -97,15 +97,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-readonly="true"
         Boolean IsUnique { get; }
         #endregion
-        #region P:Lower:Integer
+        #region P:Lower:Integer?
         /// <summary>
         /// Specifies the <see cref="Lower"/> multiplicity of the return parameter, if present. This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-lower"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        [Multiplicity("0..1")]
-        Integer Lower { get; }
+        Integer? Lower { get; }
         #endregion
         #region P:OwnedParameter:Parameter[]
         /// <summary>
@@ -177,15 +176,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         [Multiplicity("0..1")]
         Type Type { get; }
         #endregion
-        #region P:Upper:UnlimitedNatural
+        #region P:Upper:UnlimitedNatural?
         /// <summary>
         /// The <see cref="Upper"/> multiplicity of the return parameter, if present. This information is derived from the return result for this <see cref="Operation"/>.
         /// </summary>
         /// xmi:id="Operation-upper"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        [Multiplicity("0..1")]
-        UnlimitedNatural Upper { get; }
+        UnlimitedNatural? Upper { get; }
         #endregion
 
         #region M:isConsistentWith(RedefinableElement):Boolean

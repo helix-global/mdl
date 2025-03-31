@@ -170,7 +170,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         Boolean isMultivalued();
         #endregion
-        #region M:lower:Integer
+        #region M:lower:Integer?
         /// <summary>
         /// The derived <see cref="Lower"/> attribute must equal the lowerBound.
         /// </summary>
@@ -182,8 +182,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="MultiplicityElement-lower.1"
         /// xmi:is-query="true"
-        [return: Multiplicity("0..1")]
-        Integer lower();
+        Integer? lower();
         #endregion
         #region M:lowerBound:Integer
         /// <summary>
@@ -199,7 +198,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-query="true"
         Integer lowerBound();
         #endregion
-        #region M:upper:UnlimitedNatural
+        #region M:upper:UnlimitedNatural?
         /// <summary>
         /// The derived <see cref="Upper"/> attribute must equal the upperBound.
         /// </summary>
@@ -211,8 +210,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="MultiplicityElement-upper.1"
         /// xmi:is-query="true"
-        [return: Multiplicity("0..1")]
-        UnlimitedNatural upper();
+        UnlimitedNatural? upper();
         #endregion
         #region M:upperBound:UnlimitedNatural
         /// <summary>

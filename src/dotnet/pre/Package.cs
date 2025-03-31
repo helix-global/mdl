@@ -104,5 +104,14 @@ namespace pre
             return $"{Name}";
             }
         #endregion
+        #region M:OnAfterLoadModel
+        public override void OnAfterLoadModel()
+            {
+            foreach (var i in OwnedEnumeration) { i.OnAfterLoadModel();       }
+            foreach (var i in OwnedClass)       { i.OnAfterLoadModel();       }
+            foreach (var i in OwnedAssociation) { i.Value.OnAfterLoadModel(); }
+            foreach (var i in OwnedPackage)     { i.OnAfterLoadModel();       }
+            }
+        #endregion
         }
     }

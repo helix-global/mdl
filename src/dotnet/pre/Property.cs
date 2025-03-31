@@ -24,6 +24,15 @@ namespace pre
         public String Association { get;private set; }
         public String IsReadOnly { get;private set; }
         public Boolean? IsOrdered { get;private set; }
+        public String Multiplicity { get;private set; }
+        public String TypeMultiplicitySuffix { get;private set; }
+        public String MultiplicityAttribute { get;private set; }
+        public String TypeWithMultiplicity { get {
+            var r = new StringBuilder();
+            r.Append($"{Type}");
+            r.Append($"{TypeMultiplicitySuffix}");
+            return r.ToString();
+            }}
 
         private Property(ModelElement owner)
             : base(owner)
@@ -187,39 +196,8 @@ namespace pre
         public override void WriteCSharp(TextWriter writer, String prefix)
             {
             var attributes = new StringBuilder();
-            var builder = new StringBuilder();
-            var multiplicity = MultiplicityToString(LowerValue,UpperValue);
-            builder.Append($"{Type}");
-            switch (multiplicity)
-                {
-                case "1..1" :
-                    {
-                    builder.Append(String.Empty);
-                    multiplicity = null;
-                    }
-                    break;
-                case "0..1" :
-                    {
-                    builder.Append(String.Empty);
-                    }
-                    break;
-                case "0..*" :
-                    {
-                    builder.Append("[]");
-                    multiplicity = null;
-                    }
-                    break;
-                case "1..*" :
-                case "2..*" :
-                    {
-                    builder.Append("[]");
-                    }
-                    break;
-                default: builder.Append($" /*[{multiplicity}]*/"); break;
-                }
 
-            var TypeSpec = builder.ToString();
-            writer.Write($"{prefix}#region P:{UpperFirstLetter(Name)}:{TypeSpec}\n");
+            writer.Write($"{prefix}#region P:{UpperFirstLetter(Name)}:{TypeWithMultiplicity}\n");
             if (OwnedComment.Count > 0) {
                 writer.Write($"{prefix}/// <summary>\n");
                 foreach (var comment in OwnedComment) {
@@ -233,7 +211,7 @@ namespace pre
             if (!String.IsNullOrWhiteSpace(IsDerived))      { writer.Write($"{prefix}/// xmi:is-derived=\"true\"\n"); }
             if (!String.IsNullOrWhiteSpace(IsReadOnly))     { writer.Write($"{prefix}/// xmi:is-readonly=\"true\"\n"); }
 
-            if (!String.IsNullOrWhiteSpace(multiplicity)) { attributes.Append($"[Multiplicity(\"{multiplicity}\")]"); }
+            if (!String.IsNullOrWhiteSpace(MultiplicityAttribute)) { attributes.Append($"[{MultiplicityAttribute}]"); }
             if (IsOrdered == true)      { attributes.Append("[Ordered]"); }
             if (IsDerivedUnion == true) { attributes.Append("[Union]");   }
 
@@ -248,9 +226,68 @@ namespace pre
                 }
 
             if (attributes.Length > 0) { writer.Write($"{prefix}{attributes}\n"); }
-            writer.Write($"{prefix}{TypeSpec}");
+            writer.Write($"{prefix}{TypeWithMultiplicity}");
             writer.Write($" {UpperFirstLetter(Name)} {{ get; }}\n");
             writer.Write($"{prefix}#endregion\n");
+            }
+        #endregion
+        #region M:OnAfterLoadModel
+        public override void OnAfterLoadModel()
+            {
+            Multiplicity = MultiplicityToString(LowerValue,UpperValue);
+            switch (Multiplicity) {
+                case "1..1" :
+                    {
+                    TypeMultiplicitySuffix=String.Empty;
+                    MultiplicityAttribute=String.Empty;
+                    }
+                    break;
+                case "0..1" :
+                    {
+                    TypeMultiplicitySuffix=String.Empty;
+                    switch (Type) {
+                        case "Integer":
+                        case "Real":
+                        case "Boolean":
+                        case "UnlimitedNatural":
+                            {
+                            MultiplicityAttribute=String.Empty;
+                            TypeMultiplicitySuffix="?";
+                            }
+                            break;
+                        default:
+                            {
+                            if (BaseModel.Enumerations.ContainsKey(Type))
+                                {
+                                MultiplicityAttribute=String.Empty;
+                                TypeMultiplicitySuffix="?";
+                                }
+                            else
+                                {
+                                MultiplicityAttribute=$"Multiplicity(\"{Multiplicity}\")";
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    break;
+                case "0..*" :
+                    {
+                    TypeMultiplicitySuffix="[]";
+                    MultiplicityAttribute=String.Empty;
+                    }
+                    break;
+                case "1..*" :
+                case "0..2" :
+                case "1..2" :
+                case "2..*" :
+                    {
+                    TypeMultiplicitySuffix="[]";
+                    MultiplicityAttribute=$"Multiplicity(\"{Multiplicity}\")";
+                    }
+                    break;
+                default: throw new NotSupportedException();
+                }
             }
         #endregion
         }

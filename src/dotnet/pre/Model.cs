@@ -9,6 +9,7 @@ namespace pre
         public override Model BaseModel { get{ return this; }}
         public ISet<String> ClassNames { get; }
         public IDictionary<String,Class> Classes { get; }
+        public IDictionary<String,Enumeration> Enumerations { get; }
 
         #region ctor
         public Model()
@@ -16,6 +17,7 @@ namespace pre
             {
             ClassNames = new SortedSet<String>();
             Classes = new Dictionary<String,Class>();
+            Enumerations = new Dictionary<String,Enumeration>();
             }
         #endregion
 
@@ -44,6 +46,8 @@ namespace pre
                         break;
                     }
                 }
+
+            OnAfterLoadModel();
             }
         #endregion
         #region M:ToString:String

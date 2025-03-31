@@ -8,7 +8,7 @@ namespace pre
     public class Enumeration : ModelElement
         {
         public String Name { get;private set; }
-        public ObjectIdentifier Identifier { get;private set; }
+        public String Identifier { get;private set; }
         public IList<Comment> OwnedComment { get; }
         public IList<EnumerationLiteral> OwnedLiteral { get; }
 
@@ -34,8 +34,9 @@ namespace pre
             {
             reader.MoveToContent();
             Name = reader.GetAttribute("name");
-            Identifier = new ObjectIdentifier(reader.GetAttribute("id",xmi));
+            Identifier = reader.GetAttribute("id",xmi);
             BaseModel.ClassNames.Add(Name??String.Empty);
+            BaseModel.Enumerations.Add(Name,this);
             while (reader.Read()) {
                 switch (reader.NodeType) {
                     case XmlNodeType.Element:

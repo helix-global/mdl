@@ -16,14 +16,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="PackageableElement"
     public interface PackageableElement : ParameterableElement,NamedElement
         {
-        #region P:Visibility:VisibilityKind
+        #region P:Visibility:VisibilityKind?
         /// <summary>
         /// A <see cref="PackageableElement"/> must have a <see cref="Visibility"/> specified if it is owned by a <see cref="Namespace"/>. The default <see cref="Visibility"/> is public.
         /// </summary>
         /// xmi:id="PackageableElement-visibility"
         /// xmi:redefines="NamedElement-visibility{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Visibility"/>}"
-        [Multiplicity("0..1")]
-        VisibilityKind Visibility { get; }
+        VisibilityKind? Visibility { get; }
         #endregion
         }
     }

@@ -49,7 +49,7 @@ namespace pre
                         break;
                     }
                 }
-            Model?.UpdateReferences();
+            Model?.OnAfterLoadModel();
             }
         #endregion
         }

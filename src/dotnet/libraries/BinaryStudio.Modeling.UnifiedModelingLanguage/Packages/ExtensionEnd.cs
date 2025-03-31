@@ -26,15 +26,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ExtensionEnd"
     public interface ExtensionEnd : Property
         {
-        #region P:Lower:Integer
+        #region P:Lower:Integer?
         /// <summary>
         /// This redefinition changes the default multiplicity of <see cref="Association"/> ends, since model elements are usually extended by 0 or 1 instance of the extension stereotype.
         /// </summary>
         /// xmi:id="ExtensionEnd-lower"
         /// xmi:is-derived="true"
         /// xmi:redefines="MultiplicityElement-lower{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.MultiplicityElement.Lower"/>}"
-        [Multiplicity("0..1")]
-        Integer Lower { get; }
+        Integer? Lower { get; }
         #endregion
         #region P:Type:Stereotype
         /// <summary>
@@ -46,7 +45,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         Stereotype Type { get; }
         #endregion
 
-        #region M:lowerBound:Integer
+        #region M:lowerBound:Integer?
         /// <summary>
         /// The query <see cref="lowerBound"/> returns the <see cref="Lower"/> bound of the multiplicity as an Integer. This is a redefinition of the default <see cref="Lower"/> bound, which normally, for MultiplicityElements, evaluates to 1 if empty.
         /// </summary>
@@ -59,8 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ExtensionEnd-lowerBound"
         /// xmi:is-query="true"
         /// xmi:redefines="MultiplicityElement-lowerBound{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.MultiplicityElement.lowerBound"/>}"
-        [return: Multiplicity("0..1")]
-        Integer lowerBound();
+        Integer? lowerBound();
         #endregion
         }
     }

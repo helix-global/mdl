@@ -80,13 +80,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Parameter-direction"
         ParameterDirectionKind Direction { get; }
         #endregion
-        #region P:Effect:ParameterEffectKind
+        #region P:Effect:ParameterEffectKind?
         /// <summary>
         /// Specifies the <see cref="Effect"/> that executions of the <see cref="Owner"/> of the <see cref="Parameter"/> have on objects passed in or out of the parameter.
         /// </summary>
         /// xmi:id="Parameter-effect"
-        [Multiplicity("0..1")]
-        ParameterEffectKind Effect { get; }
+        ParameterEffectKind? Effect { get; }
         #endregion
         #region P:IsException:Boolean
         /// <summary>

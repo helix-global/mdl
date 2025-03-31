@@ -144,18 +144,10 @@ namespace pre
             }
         #endregion
         #region M:ParamType(Parameter,{out}String):String
-        private static String ParamType(Parameter value, out String multiplicity) {
-            multiplicity = String.Empty;
+        private static String ParamType(Parameter value, out String ParameterMultiplicityAttribute) {
+            ParameterMultiplicityAttribute = String.Empty;
             if (value != null) {
-                multiplicity = MultiplicityToString(value.LowerValue,value.UpperValue);
-                switch (multiplicity) {
-                    case "1..1" :
-                    case "0..*" :
-                        {
-                        multiplicity = null;
-                        }
-                        break;
-                    }
+                ParameterMultiplicityAttribute = value.MultiplicityAttribute;
                 return value.TypeWithMultiplicity;
                 }
             return null;
@@ -163,11 +155,11 @@ namespace pre
         #endregion
         #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer, String prefix) {
-            String multiplicity = null;
+            String ParameterMultiplicityAttribute = null;
             var retparam = OwnedParameter.FirstOrDefault(i => i.Direction == "return");
             var ordparam = OwnedParameter.Where(i=>i.Direction != "return").ToArray();
             var retprfix = (retparam != null)
-                ? $":{ParamType(retparam,out multiplicity)}"
+                ? $":{ParamType(retparam,out ParameterMultiplicityAttribute)}"
                 : String.Empty;
             writer.Write($"{prefix}#region M:{Name}");
             if (ordparam.Length > 0)
@@ -196,8 +188,8 @@ namespace pre
                 writer.Write($"{prefix}/// xmi:redefines=\"{redefinedOperation.ReferencedIdentifier}{{<see cref=\"M:{DefaultNamespace}.{refopr.Class.Name}.{refopr.Name}\"/>}}\"\n");
                 }
 
-            if (!String.IsNullOrWhiteSpace(multiplicity)) {
-                writer.Write($"{prefix}[return: Multiplicity(\"{multiplicity}\")]\n");
+            if (!String.IsNullOrWhiteSpace(ParameterMultiplicityAttribute)) {
+                writer.Write($"{prefix}[return: {ParameterMultiplicityAttribute}]\n");
                 }
             writer.Write((retparam != null) ? $"{prefix}{ParamType(retparam)}":"void");
             writer.Write($" {UpdateCSharpKeyword(Name)}");
@@ -205,6 +197,12 @@ namespace pre
             writer.Write(String.Join(",",ordparam.Select(i=>i)));
             writer.Write($");\n");
             writer.Write($"{prefix}#endregion\n");
+            }
+        #endregion
+        #region M:OnAfterLoadModel
+        public override void OnAfterLoadModel()
+            {
+            foreach (var i in OwnedParameter) { i.OnAfterLoadModel(); }
             }
         #endregion
         }

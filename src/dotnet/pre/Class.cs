@@ -18,6 +18,7 @@ namespace pre
         public IList<Constraint> OwnedRule { get; }
         public Boolean UseInteger { get;set; }
         public Boolean UseReal { get;set; }
+        public Package PackageOwner { get; }
 
         #region P:DeclaredProperties:IDictionary<String,Property>
         public IDictionary<String,Property> DeclaredProperties { get {
@@ -82,9 +83,10 @@ namespace pre
             }}
         #endregion
 
-        public Class(ModelElement owner)
+        public Class(Package owner)
             :base(owner)
             {
+            PackageOwner = owner;
             OwnedComment = new List<Comment>();
             OwnedAttribute = new SortedDictionary<String,Property>();
             Generalization = new SortedDictionary<String,Generalization>();
@@ -248,6 +250,14 @@ namespace pre
                     }
                 }
             return null;
+            }
+        #endregion
+        #region M:OnAfterLoadModel
+        public override void OnAfterLoadModel()
+            {
+            foreach (var i in Generalization) { i.Value.OnAfterLoadModel(); }
+            foreach (var i in OwnedAttribute) { i.Value.OnAfterLoadModel(); }
+            foreach (var i in OwnedOperation) { i.Value.OnAfterLoadModel(); }
             }
         #endregion
         }
