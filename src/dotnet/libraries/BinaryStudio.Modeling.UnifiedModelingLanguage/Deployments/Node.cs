@@ -19,11 +19,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:NestedNode:Node[]
         /// <summary>
         /// The Nodes that are defined (nested) within the <see cref="Node"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Node-nestedNode"
         /// xmi:aggregation="composite"
         /// xmi:association="A_nestedNode_node"
-        /// xmi:subsets="Namespace-ownedMember"
         Node[] NestedNode { get; }
         #endregion
         }

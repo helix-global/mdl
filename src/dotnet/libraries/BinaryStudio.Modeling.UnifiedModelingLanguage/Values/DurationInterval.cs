@@ -12,19 +12,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Max:Duration
         /// <summary>
         /// Refers to the <see cref="Duration"/> denoting the maximum value of the range.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Interval.Max"/>"
         /// </summary>
         /// xmi:id="DurationInterval-max"
         /// xmi:association="A_max_durationInterval"
-        /// xmi:redefines="Interval-max{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Interval.Max"/>}"
         Duration Max { get; }
         #endregion
         #region P:Min:Duration
         /// <summary>
         /// Refers to the <see cref="Duration"/> denoting the minimum value of the range.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Interval.Min"/>"
         /// </summary>
         /// xmi:id="DurationInterval-min"
         /// xmi:association="A_min_durationInterval"
-        /// xmi:redefines="Interval-min{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Interval.Min"/>}"
         Duration Min { get; }
         #endregion
         }

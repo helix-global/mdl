@@ -26,11 +26,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedComment:Comment[]
         /// <summary>
         /// The Comments owned by this <see cref="Element"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Element-ownedComment"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedComment_owningElement"
-        /// xmi:subsets="Element-ownedElement"
         Comment[] OwnedComment { get; }
         #endregion
         #region P:OwnedElement:Element[]

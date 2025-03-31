@@ -26,11 +26,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Value:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that gives the <see cref="Value"/> to be added or removed from the <see cref="Variable"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="WriteVariableAction-value"
         /// xmi:aggregation="composite"
         /// xmi:association="A_value_writeVariableAction"
-        /// xmi:subsets="Action-input"
         [Multiplicity("0..1")]
         InputPin Value { get; }
         #endregion

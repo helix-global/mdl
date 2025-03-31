@@ -38,11 +38,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Condition:Constraint[]
         /// <summary>
         /// A constraint that should be satisfied for the <see cref="Owner"/> of the Parameters in an input <see cref="ParameterSet"/> to start execution using the values provided for those Parameters, or the <see cref="Owner"/> of the Parameters in an output <see cref="ParameterSet"/> to end execution providing the values for those Parameters, if all preconditions and conditions on input ParameterSets were satisfied.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ParameterSet-condition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_condition_parameterSet"
-        /// xmi:subsets="Element-ownedElement"
         Constraint[] Condition { get; }
         #endregion
         #region P:Parameter:Parameter[]

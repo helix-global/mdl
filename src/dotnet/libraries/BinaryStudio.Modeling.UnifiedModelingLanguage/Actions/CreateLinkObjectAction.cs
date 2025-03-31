@@ -33,11 +33,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="Output"/> pin on which the newly created link object is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="CreateLinkObjectAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_createLinkObjectAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

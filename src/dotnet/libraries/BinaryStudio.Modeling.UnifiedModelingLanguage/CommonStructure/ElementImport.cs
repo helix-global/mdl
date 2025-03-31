@@ -34,20 +34,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ImportedElement:PackageableElement
         /// <summary>
         /// Specifies the <see cref="PackageableElement"/> whose name is to be added to a <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="ElementImport-importedElement"
         /// xmi:association="A_importedElement_import"
-        /// xmi:subsets="DirectedRelationship-target"
         PackageableElement ImportedElement { get; }
         #endregion
         #region P:ImportingNamespace:Namespace
         /// <summary>
         /// Specifies the <see cref="Namespace"/> that imports a <see cref="PackageableElement"/> from another <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ElementImport-importingNamespace"
         /// xmi:association="A_elementImport_importingNamespace"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="Element-owner"
         Namespace ImportingNamespace { get; }
         #endregion
         #region P:Visibility:VisibilityKind

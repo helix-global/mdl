@@ -33,11 +33,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// An <see cref="InputPin"/> that holds the <see cref="Object"/> that is either a <see cref="Behavior"/> to be started or has a classifierBehavior to be started.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="StartObjectBehaviorAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_startObjectBehaviorAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
 
@@ -66,6 +67,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:inputParameters:Parameter[]
         /// <summary>
         /// Return the in and inout ownedParameters of the <see cref="Behavior"/> being called.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -75,12 +78,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StartObjectBehaviorAction-inputParameters"
         /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-inputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>}"
         Parameter[] inputParameters();
         #endregion
         #region M:outputParameters:Parameter[]
         /// <summary>
         /// Return the inout, out and return ownedParameters of the <see cref="Behavior"/> being called.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -90,7 +94,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StartObjectBehaviorAction-outputParameters"
         /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-outputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>}"
         Parameter[] outputParameters();
         #endregion
         }

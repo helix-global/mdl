@@ -55,21 +55,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that holds the <see cref="Object"/> whose classification is to be tested.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_readIsClassifiedObjectAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> that holds the Boolean <see cref="Result"/> of the test.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readIsClassifiedObjectAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

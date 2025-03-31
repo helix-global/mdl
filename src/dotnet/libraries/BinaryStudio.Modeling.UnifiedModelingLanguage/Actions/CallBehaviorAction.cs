@@ -28,6 +28,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:inputParameters:Parameter[]
         /// <summary>
         /// Return the in and inout ownedParameters of the <see cref="Behavior"/> being called.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -37,12 +39,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="CallBehaviorAction-inputParameters"
         /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-inputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.inputParameters"/>}"
         Parameter[] inputParameters();
         #endregion
         #region M:outputParameters:Parameter[]
         /// <summary>
         /// Return the inout, out and return ownedParameters of the <see cref="Behavior"/> being called.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -52,7 +55,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="CallBehaviorAction-outputParameters"
         /// xmi:is-query="true"
-        /// xmi:redefines="CallAction-outputParameters{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.CallAction.outputParameters"/>}"
         Parameter[] outputParameters();
         #endregion
         }

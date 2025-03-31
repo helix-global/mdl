@@ -35,11 +35,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:FromAction:Action
         /// <summary>
         /// The <see cref="Action"/> used to provide the values of the <see cref="ActionInputPin"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ActionInputPin-fromAction"
         /// xmi:aggregation="composite"
         /// xmi:association="A_fromAction_actionInputPin"
-        /// xmi:subsets="Element-ownedElement"
         Action FromAction { get; }
         #endregion
         }

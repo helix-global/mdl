@@ -70,22 +70,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin[]
         /// <summary>
         /// OutputPins holding the values received from an <see cref="Event"/> occurrence.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="AcceptEventAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_acceptEventAction"
-        /// xmi:subsets="Action-output"
         [Ordered]
         OutputPin[] Result { get; }
         #endregion
         #region P:Trigger:Trigger[]
         /// <summary>
         /// The Triggers specifying the Events of which the <see cref="AcceptEventAction"/> waits for occurrences.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="AcceptEventAction-trigger"
         /// xmi:aggregation="composite"
         /// xmi:association="A_trigger_acceptEventAction"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("1..*")]
         Trigger[] Trigger { get; }
         #endregion

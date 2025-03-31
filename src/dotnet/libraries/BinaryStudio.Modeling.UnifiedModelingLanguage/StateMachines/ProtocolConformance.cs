@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:GeneralMachine:ProtocolStateMachine
         /// <summary>
         /// Specifies the <see cref="ProtocolStateMachine"/> to which the specific <see cref="ProtocolStateMachine"/> conforms.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="ProtocolConformance-generalMachine"
         /// xmi:association="A_generalMachine_protocolConformance"
-        /// xmi:subsets="DirectedRelationship-target"
         ProtocolStateMachine GeneralMachine { get; }
         #endregion
         #region P:SpecificMachine:ProtocolStateMachine
         /// <summary>
         /// Specifies the <see cref="ProtocolStateMachine"/> which conforms to the general <see cref="ProtocolStateMachine"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ProtocolConformance-specificMachine"
         /// xmi:association="A_conformance_specificMachine"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="Element-owner"
         ProtocolStateMachine SpecificMachine { get; }
         #endregion
         }

@@ -133,6 +133,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// <summary>
         /// The query <see cref="isDistinguishableFrom"/> specifies that two Gates may coexist in the same <see cref="Namespace"/>, without an explicit <see cref="Name"/> property. The association end formalGate subsets <see cref="OwnedElement"/>, and since the <see cref="Gate"/> <see cref="Name"/> attribute
         /// is optional, it is allowed to have two formal gates without an explicit <see cref="Name"/>, but having derived names which are distinct.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -142,7 +144,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Gate-isDistinguishableFrom"
         /// xmi:is-query="true"
-        /// xmi:redefines="NamedElement-isDistinguishableFrom{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>}"
         Boolean isDistinguishableFrom(NamedElement n,Namespace ns);
         #endregion
         #region M:isFormal:Boolean

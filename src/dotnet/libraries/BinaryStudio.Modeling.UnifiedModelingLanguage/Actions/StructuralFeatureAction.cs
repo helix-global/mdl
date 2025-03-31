@@ -52,11 +52,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> from which the <see cref="Object"/> whose <see cref="StructuralFeature"/> is to be read or written is obtained.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="StructuralFeatureAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_structuralFeatureAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:StructuralFeature:StructuralFeature

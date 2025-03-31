@@ -97,10 +97,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Interaction:Interaction
         /// <summary>
         /// References the <see cref="Interaction"/> enclosing this <see cref="Lifeline"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Lifeline-interaction"
         /// xmi:association="A_lifeline_interaction"
-        /// xmi:subsets="NamedElement-namespace"
         Interaction Interaction { get; }
         #endregion
         #region P:Represents:ConnectableElement
@@ -115,11 +116,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Selector:ValueSpecification
         /// <summary>
         /// If the referenced <see cref="ConnectableElement"/> is multivalued, then this specifies the specific individual part within that set.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Lifeline-selector"
         /// xmi:aggregation="composite"
         /// xmi:association="A_selector_lifeline"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification Selector { get; }
         #endregion

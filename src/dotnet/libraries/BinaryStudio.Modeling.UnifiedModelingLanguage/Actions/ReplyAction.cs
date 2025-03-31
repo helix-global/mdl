@@ -39,22 +39,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ReplyValue:InputPin[]
         /// <summary>
         /// A list of InputPins providing the values for the <see cref="Output"/> (inout, out, and return) Parameters of the <see cref="Operation"/>. These values are returned to the caller.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReplyAction-replyValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_replyValue_replyAction"
-        /// xmi:subsets="Action-input"
         [Ordered]
         InputPin[] ReplyValue { get; }
         #endregion
         #region P:ReturnInformation:InputPin
         /// <summary>
         /// An <see cref="InputPin"/> that holds the return information value produced by an earlier <see cref="AcceptCallAction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReplyAction-returnInformation"
         /// xmi:aggregation="composite"
         /// xmi:association="A_returnInformation_replyAction"
-        /// xmi:subsets="Action-input"
         InputPin ReturnInformation { get; }
         #endregion
         }

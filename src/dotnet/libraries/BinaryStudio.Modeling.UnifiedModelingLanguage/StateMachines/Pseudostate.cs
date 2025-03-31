@@ -102,20 +102,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:State:State
         /// <summary>
         /// The <see cref="State"/> that owns this <see cref="Pseudostate"/> and in which it appears.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Pseudostate-state"
         /// xmi:association="A_connectionPoint_state"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         State State { get; }
         #endregion
         #region P:StateMachine:StateMachine
         /// <summary>
         /// The <see cref="StateMachine"/> in which this <see cref="Pseudostate"/> is defined. This only applies to Pseudostates of the <see cref="Kind"/> entryPoint or exitPoint.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Pseudostate-stateMachine"
         /// xmi:association="A_connectionPoint_stateMachine"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         StateMachine StateMachine { get; }
         #endregion
@@ -123,6 +125,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query <see cref="isConsistentWith"/> specifies a <see cref="Pseudostate"/> can only be redefined by a <see cref="Pseudostate"/> of the same <see cref="Kind"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -140,7 +144,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Pseudostate-isConsistentWith"
         /// xmi:is-query=""
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         }

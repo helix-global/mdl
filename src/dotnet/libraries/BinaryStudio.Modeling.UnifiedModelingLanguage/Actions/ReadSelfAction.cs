@@ -41,11 +41,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> on which the <see cref="Context"/> object is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ReadSelfAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readSelfAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

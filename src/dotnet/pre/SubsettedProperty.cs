@@ -3,9 +3,9 @@ using System.Xml;
 
 namespace pre
     {
-    public class SubsettedProperty : ModelElement
+    internal class SubsettedProperty : ModelElement
         {
-        public ObjectIdentifier ReferencedIdentifier { get;private set; }
+        public String ReferencedIdentifier { get;private set; }
 
         public SubsettedProperty(ModelElement owner)
             : base(owner)
@@ -17,7 +17,7 @@ namespace pre
             {
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             reader.MoveToContent();
-            ReferencedIdentifier = new ObjectIdentifier(reader.GetAttribute("idref",xmi));
+            ReferencedIdentifier = reader.GetAttribute("idref",xmi);
             }
         #endregion
         #region M:ToString:String

@@ -33,11 +33,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:PackagedElement:PackageableElement[]
         /// <summary>
         /// The set of PackageableElements that a <see cref="Component"/> owns. In the <see cref="Namespace"/> of a <see cref="Component"/>, all model elements that are involved in or related to its definition may be owned or imported explicitly. These may include e.g., Classes, Interfaces, Components, Packages, UseCases, Dependencies (e.g., mappings), and Artifacts.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Component-packagedElement"
         /// xmi:aggregation="composite"
         /// xmi:association="A_packagedElement_component"
-        /// xmi:subsets="Namespace-ownedMember"
         PackageableElement[] PackagedElement { get; }
         #endregion
         #region P:Provided:Interface[]
@@ -53,12 +54,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Realization:ComponentRealization[]
         /// <summary>
         /// The set of Realizations owned by the <see cref="Component"/>. Realizations reference the Classifiers of which the <see cref="Component"/> is an abstraction; i.e., that realize its behavior.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Component-realization"
         /// xmi:aggregation="composite"
         /// xmi:association="A_realization_abstraction_component"
         /// xmi:subsets="A_supplier_supplierDependency-supplierDependency"
-        /// xmi:subsets="Element-ownedElement"
         ComponentRealization[] Realization { get; }
         #endregion
         #region P:Required:Interface[]

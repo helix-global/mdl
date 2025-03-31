@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Covered:Lifeline
         /// <summary>
         /// References the <see cref="Lifeline"/> on which the <see cref="StateInvariant"/> appears.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InteractionFragment.Covered"/>"
         /// </summary>
         /// xmi:id="StateInvariant-covered"
         /// xmi:association="A_covered_stateInvariant"
-        /// xmi:redefines="InteractionFragment-covered{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InteractionFragment.Covered"/>}"
         Lifeline Covered { get; }
         #endregion
         #region P:Invariant:Constraint
         /// <summary>
         /// A <see cref="Constraint"/> that should hold at runtime for this <see cref="StateInvariant"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="StateInvariant-invariant"
         /// xmi:aggregation="composite"
         /// xmi:association="A_invariant_stateInvariant"
-        /// xmi:subsets="Element-ownedElement"
         Constraint Invariant { get; }
         #endregion
         }

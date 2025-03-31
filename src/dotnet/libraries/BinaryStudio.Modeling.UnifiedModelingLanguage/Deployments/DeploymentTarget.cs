@@ -22,12 +22,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Deployment:Deployment[]
         /// <summary>
         /// The set of Deployments for a <see cref="DeploymentTarget"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.ClientDependency"/>"
         /// </summary>
         /// xmi:id="DeploymentTarget-deployment"
         /// xmi:aggregation="composite"
         /// xmi:association="A_deployment_location"
-        /// xmi:subsets="Element-ownedElement"
-        /// xmi:subsets="NamedElement-clientDependency"
         Deployment[] Deployment { get; }
         #endregion
 

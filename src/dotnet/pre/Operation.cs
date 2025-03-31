@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Operation : ModelElement
+    internal class Operation : ModelElement
         {
         public String Name { get;private set; }
         public String Identifier { get;private set; }
@@ -169,24 +169,25 @@ namespace pre
                 writer.Write(")");
                 }
             writer.Write($"{retprfix}\n");
-            if (OwnedComment.Count > 0) {
-                writer.Write($"{prefix}/// <summary>\n");
-                foreach (var comment in OwnedComment) {
-                    comment.WriteCSharp(writer,$"{prefix}/// ");
-                    }
-                writer.Write($"{prefix}/// </summary>\n");
+            writer.Write($"{prefix}/// <summary>\n");
+            foreach (var comment in OwnedComment) {
+                comment.WriteCSharp(writer,$"{prefix}/// ");
                 }
+            if (RedefinedOperations.Count > 0) {
+                writer.Write($"{prefix}/// Redefines:\n");
+                var cls = Class;
+                foreach (var o in RedefinedOperations) {
+                    var refopr = cls.DeclaredOperations[o.ReferencedIdentifier];
+                    writer.Write($"{prefix}///   <see cref=\"M:{DefaultNamespace}.{refopr.Class.Name}.{refopr.Name}\"/>\"\n");
+                    }
+                }
+            writer.Write($"{prefix}/// </summary>\n");
             foreach (var rule in OwnedRule) {
                 rule.WriteCSharp(writer,$"{prefix}/// ");
                 }
             writer.Write($"{prefix}/// xmi:id=\"{Identifier}\"\n");
             writer.Write($"{prefix}/// xmi:is-query=\"{IsQuery}\"\n");
 
-            var cls = Class;
-            foreach (var redefinedOperation in RedefinedOperations) {
-                var refopr = cls.DeclaredOperations[redefinedOperation.ReferencedIdentifier];
-                writer.Write($"{prefix}/// xmi:redefines=\"{redefinedOperation.ReferencedIdentifier}{{<see cref=\"M:{DefaultNamespace}.{refopr.Class.Name}.{refopr.Name}\"/>}}\"\n");
-                }
 
             if (!String.IsNullOrWhiteSpace(ParameterMultiplicityAttribute)) {
                 writer.Write($"{prefix}[return: {ParameterMultiplicityAttribute}]\n");

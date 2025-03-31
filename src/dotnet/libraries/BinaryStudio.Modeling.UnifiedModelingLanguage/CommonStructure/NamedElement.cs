@@ -34,6 +34,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ClientDependency:Dependency[]
         /// <summary>
         /// Indicates the Dependencies that reference this <see cref="NamedElement"/> as a client.
+        /// Subsets:
         /// </summary>
         /// xmi:id="NamedElement-clientDependency"
         /// xmi:association="A_clientDependency_client"
@@ -52,24 +53,26 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:NameExpression:StringExpression
         /// <summary>
         /// The <see cref="StringExpression"/> used to define the <see cref="Name"/> of this <see cref="NamedElement"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="NamedElement-nameExpression"
         /// xmi:aggregation="composite"
         /// xmi:association="A_nameExpression_namedElement"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         StringExpression NameExpression { get; }
         #endregion
         #region P:Namespace:Namespace
         /// <summary>
         /// Specifies the <see cref="Namespace"/> that owns the <see cref="NamedElement"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="NamedElement-namespace"
         /// xmi:association="A_ownedMember_namespace"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         /// xmi:subsets="A_member_memberNamespace-memberNamespace"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")][Union]
         Namespace Namespace { get; }
         #endregion
@@ -137,6 +140,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         Package[] allOwningPackages();
         #endregion
         #region M:clientDependency:Dependency[]
+        /// <summary>
+        /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
         ///     result = (Dependency.allInstances()->select(d | d.client->includes(self)))

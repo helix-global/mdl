@@ -103,11 +103,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Argument:ValueSpecification[]
         /// <summary>
         /// The arguments of the <see cref="Message"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Message-argument"
         /// xmi:aggregation="composite"
         /// xmi:association="A_argument_message"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         ValueSpecification[] Argument { get; }
         #endregion
@@ -123,10 +124,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Interaction:Interaction
         /// <summary>
         /// The enclosing <see cref="Interaction"/> owning the <see cref="Message"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Message-interaction"
         /// xmi:association="A_message_interaction"
-        /// xmi:subsets="NamedElement-namespace"
         Interaction Interaction { get; }
         #endregion
         #region P:MessageKind:MessageKind
@@ -148,6 +150,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ReceiveEvent:MessageEnd
         /// <summary>
         /// References the Receiving of the <see cref="Message"/>.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Message-receiveEvent"
         /// xmi:association="A_receiveEvent_endMessage"
@@ -158,6 +161,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:SendEvent:MessageEnd
         /// <summary>
         /// References the Sending of the <see cref="Message"/>.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Message-sendEvent"
         /// xmi:association="A_sendEvent_endMessage"
@@ -178,6 +182,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isDistinguishableFrom(NamedElement,Namespace):Boolean
         /// <summary>
         /// The query <see cref="isDistinguishableFrom"/> specifies that any two Messages may coexist in the same <see cref="Namespace"/>, regardless of their names.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -187,7 +193,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Message-isDistinguishableFrom"
         /// xmi:is-query="true"
-        /// xmi:redefines="NamedElement-isDistinguishableFrom{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>}"
         Boolean isDistinguishableFrom(NamedElement n,Namespace ns);
         #endregion
         #region M:messageKind:MessageKind

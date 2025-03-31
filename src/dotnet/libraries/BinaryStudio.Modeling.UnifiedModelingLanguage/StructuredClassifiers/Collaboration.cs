@@ -12,10 +12,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:CollaborationRole:ConnectableElement[]
         /// <summary>
         /// Represents the participants in the <see cref="Collaboration"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredClassifier.Role"/>"
         /// </summary>
         /// xmi:id="Collaboration-collaborationRole"
         /// xmi:association="A_collaborationRole_collaboration"
-        /// xmi:subsets="StructuredClassifier-role"
         ConnectableElement[] CollaborationRole { get; }
         #endregion
         }

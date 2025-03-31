@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class EnumerationLiteral : ModelElement
+    internal class EnumerationLiteral : ModelElement
         {
         public String Name { get;private set; }
         public ObjectIdentifier Identifier { get;private set; }

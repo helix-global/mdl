@@ -78,10 +78,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ParameteredElement:Classifier
         /// <summary>
         /// The <see cref="Classifier"/> exposed by this <see cref="ClassifierTemplateParameter"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>"
         /// </summary>
         /// xmi:id="ClassifierTemplateParameter-parameteredElement"
         /// xmi:association="A_classifier_templateParameter_parameteredElement"
-        /// xmi:redefines="TemplateParameter-parameteredElement{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>}"
         Classifier ParameteredElement { get; }
         #endregion
         }

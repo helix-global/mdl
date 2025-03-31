@@ -22,10 +22,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ParameteredElement:Operation
         /// <summary>
         /// The <see cref="Operation"/> exposed by this <see cref="OperationTemplateParameter"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>"
         /// </summary>
         /// xmi:id="OperationTemplateParameter-parameteredElement"
         /// xmi:association="A_operation_templateParameter_parameteredElement"
-        /// xmi:redefines="TemplateParameter-parameteredElement{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameter.ParameteredElement"/>}"
         Operation ParameteredElement { get; }
         #endregion
         }

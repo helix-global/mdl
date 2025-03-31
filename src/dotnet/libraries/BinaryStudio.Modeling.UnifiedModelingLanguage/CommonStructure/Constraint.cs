@@ -36,21 +36,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Context:Namespace
         /// <summary>
         /// Specifies the <see cref="Namespace"/> that owns the <see cref="Constraint"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Constraint-context"
         /// xmi:association="A_ownedRule_context"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         Namespace Context { get; }
         #endregion
         #region P:Specification:ValueSpecification
         /// <summary>
         /// A condition that must be true when evaluated in order for the <see cref="Constraint"/> to be satisfied.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Constraint-specification"
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_owningConstraint"
-        /// xmi:subsets="Element-ownedElement"
         ValueSpecification Specification { get; }
         #endregion
         }

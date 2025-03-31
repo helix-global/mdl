@@ -26,30 +26,33 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:BoundElement:TemplateableElement
         /// <summary>
         /// The <see cref="TemplateableElement"/> that is bound by this <see cref="TemplateBinding"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="TemplateBinding-boundElement"
         /// xmi:association="A_templateBinding_boundElement"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="Element-owner"
         TemplateableElement BoundElement { get; }
         #endregion
         #region P:ParameterSubstitution:TemplateParameterSubstitution[]
         /// <summary>
         /// The TemplateParameterSubstitutions owned by this <see cref="TemplateBinding"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="TemplateBinding-parameterSubstitution"
         /// xmi:aggregation="composite"
         /// xmi:association="A_parameterSubstitution_templateBinding"
-        /// xmi:subsets="Element-ownedElement"
         TemplateParameterSubstitution[] ParameterSubstitution { get; }
         #endregion
         #region P:Signature:TemplateSignature
         /// <summary>
         /// The <see cref="TemplateSignature"/> for the template that is the <see cref="Target"/> of this <see cref="TemplateBinding"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="TemplateBinding-signature"
         /// xmi:association="A_signature_templateBinding"
-        /// xmi:subsets="DirectedRelationship-target"
         TemplateSignature Signature { get; }
         #endregion
         }

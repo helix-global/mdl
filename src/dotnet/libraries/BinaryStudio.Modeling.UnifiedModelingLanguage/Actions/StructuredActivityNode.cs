@@ -34,23 +34,25 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Activity:Activity
         /// <summary>
         /// The <see cref="Activity"/> immediately containing the <see cref="StructuredActivityNode"/>, if it is not contained in another <see cref="StructuredActivityNode"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.InActivity"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.Activity"/>"
         /// </summary>
         /// xmi:id="StructuredActivityNode-activity"
         /// xmi:association="A_structuredNode_activity"
-        /// xmi:redefines="ActivityGroup-inActivity{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.InActivity"/>}"
-        /// xmi:redefines="ActivityNode-activity{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.Activity"/>}"
         [Multiplicity("0..1")]
         Activity Activity { get; }
         #endregion
         #region P:Edge:ActivityEdge[]
         /// <summary>
         /// The ActivityEdges immediately contained in the <see cref="StructuredActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.ContainedEdge"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="StructuredActivityNode-edge"
         /// xmi:aggregation="composite"
         /// xmi:association="A_edge_inStructuredNode"
-        /// xmi:subsets="ActivityGroup-containedEdge"
-        /// xmi:subsets="Element-ownedElement"
         ActivityEdge[] Edge { get; }
         #endregion
         #region P:MustIsolate:Boolean
@@ -64,48 +66,54 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Node:ActivityNode[]
         /// <summary>
         /// The ActivityNodes immediately contained in the <see cref="StructuredActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.ContainedNode"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="StructuredActivityNode-node"
         /// xmi:aggregation="composite"
         /// xmi:association="A_node_inStructuredNode"
-        /// xmi:subsets="ActivityGroup-containedNode"
-        /// xmi:subsets="Element-ownedElement"
         ActivityNode[] Node { get; }
         #endregion
         #region P:StructuredNodeInput:InputPin[]
         /// <summary>
         /// The InputPins owned by the <see cref="StructuredActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="StructuredActivityNode-structuredNodeInput"
         /// xmi:aggregation="composite"
         /// xmi:association="A_structuredNodeInput_structuredActivityNode"
-        /// xmi:subsets="Action-input"
         InputPin[] StructuredNodeInput { get; }
         #endregion
         #region P:StructuredNodeOutput:OutputPin[]
         /// <summary>
         /// The OutputPins owned by the <see cref="StructuredActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="StructuredActivityNode-structuredNodeOutput"
         /// xmi:aggregation="composite"
         /// xmi:association="A_structuredNodeOutput_structuredActivityNode"
-        /// xmi:subsets="Action-output"
         OutputPin[] StructuredNodeOutput { get; }
         #endregion
         #region P:Variable:Variable[]
         /// <summary>
         /// The Variables defined in the scope of the <see cref="StructuredActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="StructuredActivityNode-variable"
         /// xmi:aggregation="composite"
         /// xmi:association="A_variable_scope"
-        /// xmi:subsets="Namespace-ownedMember"
         Variable[] Variable { get; }
         #endregion
 
         #region M:allActions:Action[]
         /// <summary>
         /// Returns this <see cref="StructuredActivityNode"/> and all Actions contained in it.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allActions"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -115,12 +123,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StructuredActivityNode-allActions"
         /// xmi:is-query="true"
-        /// xmi:redefines="Action-allActions{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allActions"/>}"
         Action[] allActions();
         #endregion
         #region M:allOwnedNodes:ActivityNode[]
         /// <summary>
         /// Returns all the ActivityNodes contained directly or indirectly within this <see cref="StructuredActivityNode"/>, in addition to the Pins of the <see cref="StructuredActivityNode"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allOwnedNodes"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -130,12 +139,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StructuredActivityNode-allOwnedNodes"
         /// xmi:is-query="true"
-        /// xmi:redefines="Action-allOwnedNodes{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allOwnedNodes"/>}"
         ActivityNode[] allOwnedNodes();
         #endregion
         #region M:containingActivity:Activity
         /// <summary>
         /// The <see cref="Activity"/> that directly or indirectly contains this <see cref="StructuredActivityNode"/> (considered as an <see cref="Action"/>).
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.containingActivity"/>"
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.containingActivity"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -145,8 +156,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StructuredActivityNode-containingActivity"
         /// xmi:is-query="true"
-        /// xmi:redefines="ActivityGroup-containingActivity{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.containingActivity"/>}"
-        /// xmi:redefines="ActivityNode-containingActivity{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.containingActivity"/>}"
         [return: Multiplicity("0..1")]
         Activity containingActivity();
         #endregion

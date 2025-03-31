@@ -26,21 +26,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwningExpression:StringExpression
         /// <summary>
         /// The <see cref="StringExpression"/> of which this <see cref="StringExpression"/> is a <see cref="SubExpression"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="StringExpression-owningExpression"
         /// xmi:association="A_subExpression_owningExpression"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         StringExpression OwningExpression { get; }
         #endregion
         #region P:SubExpression:StringExpression[]
         /// <summary>
         /// The StringExpressions that constitute this <see cref="StringExpression"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="StringExpression-subExpression"
         /// xmi:aggregation="composite"
         /// xmi:association="A_subExpression_owningExpression"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         StringExpression[] SubExpression { get; }
         #endregion
@@ -48,6 +50,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:stringValue:String
         /// <summary>
         /// The query <see cref="stringValue"/> returns the String resulting from concatenating, in order, all the component String values of all the operands or subExpressions that are part of the <see cref="StringExpression"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.stringValue"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -60,7 +64,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StringExpression-stringValue"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-stringValue{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.stringValue"/>}"
         String stringValue();
         #endregion
         }

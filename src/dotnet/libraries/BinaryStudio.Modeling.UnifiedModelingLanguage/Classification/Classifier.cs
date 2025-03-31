@@ -43,35 +43,38 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Attribute:Property[]
         /// <summary>
         /// All of the Properties that are direct (i.e., not inherited or imported) attributes of the <see cref="Classifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Feature"/>"
         /// </summary>
         /// xmi:id="Classifier-attribute"
         /// xmi:association="A_attribute_classifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
-        /// xmi:subsets="Classifier-feature"
         [Ordered][Union]
         Property[] Attribute { get; }
         #endregion
         #region P:CollaborationUse:CollaborationUse[]
         /// <summary>
         /// The CollaborationUses owned by the <see cref="Classifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Classifier-collaborationUse"
         /// xmi:aggregation="composite"
         /// xmi:association="A_collaborationUse_classifier"
-        /// xmi:subsets="Element-ownedElement"
         CollaborationUse[] CollaborationUse { get; }
         #endregion
         #region P:Feature:Feature[]
         /// <summary>
         /// Specifies each <see cref="Feature"/> directly defined in the classifier. Note that there may be members of the <see cref="Classifier"/> that are of the type <see cref="Feature"/> but are not included, e.g., inherited features.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.Member"/>"
         /// </summary>
         /// xmi:id="Classifier-feature"
         /// xmi:association="A_feature_featuringClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Namespace-member"
         [Union]
         Feature[] Feature { get; }
         #endregion
@@ -87,23 +90,25 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Generalization:Generalization[]
         /// <summary>
         /// The <see cref="Generalization"/> relationships for this <see cref="Classifier"/>. These Generalizations navigate to more <see cref="General"/> Classifiers in the <see cref="Generalization"/> hierarchy.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Classifier-generalization"
         /// xmi:aggregation="composite"
         /// xmi:association="A_generalization_specific"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         Generalization[] Generalization { get; }
         #endregion
         #region P:InheritedMember:NamedElement[]
         /// <summary>
         /// All elements inherited by this <see cref="Classifier"/> from its <see cref="General"/> Classifiers.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.Member"/>"
         /// </summary>
         /// xmi:id="Classifier-inheritedMember"
         /// xmi:association="A_inheritedMember_inheritingClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Namespace-member"
         NamedElement[] InheritedMember { get; }
         #endregion
         #region P:IsAbstract:Boolean
@@ -123,11 +128,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedTemplateSignature:RedefinableTemplateSignature
         /// <summary>
         /// The optional <see cref="RedefinableTemplateSignature"/> specifying the formal template parameters.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateableElement.OwnedTemplateSignature"/>"
+        /// Subsets:
         /// </summary>
         /// xmi:id="Classifier-ownedTemplateSignature"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedTemplateSignature_classifier"
-        /// xmi:redefines="TemplateableElement-ownedTemplateSignature{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateableElement.OwnedTemplateSignature"/>}"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Multiplicity("0..1")]
         RedefinableTemplateSignature OwnedTemplateSignature { get; }
@@ -135,11 +142,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedUseCase:UseCase[]
         /// <summary>
         /// The UseCases owned by this classifier.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Classifier-ownedUseCase"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedUseCase_classifier"
-        /// xmi:subsets="Namespace-ownedMember"
         UseCase[] OwnedUseCase { get; }
         #endregion
         #region P:PowertypeExtent:GeneralizationSet[]
@@ -153,40 +161,44 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RedefinedClassifier:Classifier[]
         /// <summary>
         /// The Classifiers redefined by this <see cref="Classifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="Classifier-redefinedClassifier"
         /// xmi:association="A_redefinedClassifier_classifier"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         Classifier[] RedefinedClassifier { get; }
         #endregion
         #region P:Representation:CollaborationUse
         /// <summary>
         /// A <see cref="CollaborationUse"/> which indicates the <see cref="Collaboration"/> that represents this <see cref="Classifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.CollaborationUse"/>"
         /// </summary>
         /// xmi:id="Classifier-representation"
         /// xmi:association="A_representation_classifier"
-        /// xmi:subsets="Classifier-collaborationUse"
         [Multiplicity("0..1")]
         CollaborationUse Representation { get; }
         #endregion
         #region P:Substitution:Substitution[]
         /// <summary>
         /// The Substitutions owned by this <see cref="Classifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.ClientDependency"/>"
         /// </summary>
         /// xmi:id="Classifier-substitution"
         /// xmi:aggregation="composite"
         /// xmi:association="A_substitution_substitutingClassifier"
-        /// xmi:subsets="Element-ownedElement"
-        /// xmi:subsets="NamedElement-clientDependency"
         Substitution[] Substitution { get; }
         #endregion
         #region P:TemplateParameter:ClassifierTemplateParameter
         /// <summary>
         /// TheClassifierTemplateParameter that exposes this element as a formal parameter.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>"
         /// </summary>
         /// xmi:id="Classifier-templateParameter"
         /// xmi:association="A_classifier_templateParameter_parameteredElement"
-        /// xmi:redefines="ParameterableElement-templateParameter{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>}"
         [Multiplicity("0..1")]
         ClassifierTemplateParameter TemplateParameter { get; }
         #endregion
@@ -289,6 +301,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:conformsTo(Type):Boolean
         /// <summary>
         /// The query <see cref="conformsTo"/> gives true for a <see cref="Classifier"/> that defines a type that conforms to another. This is used, for example, in the specification of signature conformance for operations.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Type.conformsTo"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -303,7 +317,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Classifier-conformsTo"
         /// xmi:is-query="true"
-        /// xmi:redefines="Type-conformsTo{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Type.conformsTo"/>}"
         Boolean conformsTo(Type other);
         #endregion
         #region M:directlyRealizedInterfaces:Interface[]
@@ -427,6 +440,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         NamedElement[] inheritedMember();
         #endregion
         #region M:isSubstitutableFor(Classifier):Boolean
+        /// <summary>
+        /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
         ///     result = (substitution.contract->includes(contract))
@@ -440,6 +455,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isTemplate:Boolean
         /// <summary>
         /// The query <see cref="isTemplate"/> returns whether this <see cref="Classifier"/> is actually a template.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateableElement.isTemplate"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -449,7 +466,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Classifier-isTemplate"
         /// xmi:is-query="true"
-        /// xmi:redefines="TemplateableElement-isTemplate{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateableElement.isTemplate"/>}"
         Boolean isTemplate();
         #endregion
         #region M:maySpecializeType(Classifier):Boolean

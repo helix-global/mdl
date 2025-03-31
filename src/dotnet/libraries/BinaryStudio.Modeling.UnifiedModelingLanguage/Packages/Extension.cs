@@ -45,11 +45,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedEnd:ExtensionEnd
         /// <summary>
         /// References the end of the extension that is typed by a <see cref="Stereotype"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Association.OwnedEnd"/>"
         /// </summary>
         /// xmi:id="Extension-ownedEnd"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedEnd_extension"
-        /// xmi:redefines="Association-ownedEnd{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Association.OwnedEnd"/>}"
         ExtensionEnd OwnedEnd { get; }
         #endregion
 

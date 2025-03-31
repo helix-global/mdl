@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Association : ModelElement
+    internal class Association : ModelElement,IPackageableElement
         {
         public String Name { get;private set; }
         public String Identifier { get;private set; }
@@ -13,6 +13,7 @@ namespace pre
         public IList<Generalization> Generalization { get; }
         public IList<Comment> OwnedComment { get; }
         public Package PackageOwner { get; }
+        IPackage IPackageableElement.Package { get { return PackageOwner; }}
 
         public Association(Package owner)
             : base(owner)
@@ -41,6 +42,7 @@ namespace pre
             reader.MoveToContent();
             Name = reader.GetAttribute("name");
             Identifier = reader.GetAttribute("id",xmi);
+            BaseModel.Associations.Add(Identifier,this);
             while (reader.Read()) {
                 switch (reader.NodeType) {
                     case XmlNodeType.Element:
@@ -101,6 +103,20 @@ namespace pre
                         break;
                     }
                 }
+            }
+        #endregion
+        #region M:FindModelElement(String):ModelElement
+        public override ModelElement FindModelElement(String idref) {
+            if (String.IsNullOrWhiteSpace(idref)) { throw new ArgumentOutOfRangeException(nameof(idref)); }
+            foreach (var value in OwnedEnd) {
+                if (value.Identifier == idref) { return value; }
+                var r = value.FindModelElement(idref);
+                if (r != null)
+                    {
+                    return r;
+                    }
+                }
+            return null;
             }
         #endregion
         }

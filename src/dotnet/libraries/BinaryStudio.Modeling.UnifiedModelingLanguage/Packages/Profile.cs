@@ -33,21 +33,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:MetaclassReference:ElementImport[]
         /// <summary>
         /// References a metaclass that may be extended.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.ElementImport"/>"
         /// </summary>
         /// xmi:id="Profile-metaclassReference"
         /// xmi:aggregation="composite"
         /// xmi:association="A_metaclassReference_profile"
-        /// xmi:subsets="Namespace-elementImport"
         ElementImport[] MetaclassReference { get; }
         #endregion
         #region P:MetamodelReference:PackageImport[]
         /// <summary>
         /// References a package containing (directly or indirectly) metaclasses that may be extended.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.PackageImport"/>"
         /// </summary>
         /// xmi:id="Profile-metamodelReference"
         /// xmi:aggregation="composite"
         /// xmi:association="A_metamodelReference_profile"
-        /// xmi:subsets="Namespace-packageImport"
         PackageImport[] MetamodelReference { get; }
         #endregion
         }

@@ -40,11 +40,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:End:ConnectorEnd[]
         /// <summary>
         /// A <see cref="Connector"/> has at least two ConnectorEnds, each representing the participation of instances of the Classifiers typing the ConnectableElements attached to the <see cref="End"/>. The set of ConnectorEnds is ordered.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Connector-end"
         /// xmi:aggregation="composite"
         /// xmi:association="A_end_connector"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("2..*")][Ordered]
         ConnectorEnd[] End { get; }
         #endregion
@@ -60,10 +61,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RedefinedConnector:Connector[]
         /// <summary>
         /// A <see cref="Connector"/> may be redefined when its containing <see cref="Classifier"/> is specialized. The redefining <see cref="Connector"/> may have a <see cref="Type"/> that specializes the <see cref="Type"/> of the redefined <see cref="Connector"/>. The types of the ConnectorEnds of the redefining <see cref="Connector"/> may specialize the types of the ConnectorEnds of the redefined <see cref="Connector"/>. The properties of the ConnectorEnds of the redefining <see cref="Connector"/> may be replaced.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="Connector-redefinedConnector"
         /// xmi:association="A_redefinedConnector_connector"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         Connector[] RedefinedConnector { get; }
         #endregion
         #region P:Type:Association

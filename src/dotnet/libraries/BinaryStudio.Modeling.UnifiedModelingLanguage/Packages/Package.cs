@@ -21,17 +21,19 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:NestedPackage:Package[]
         /// <summary>
         /// References the packaged elements that are Packages.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Package.PackagedElement"/>"
         /// </summary>
         /// xmi:id="Package-nestedPackage"
         /// xmi:aggregation="composite"
         /// xmi:association="A_nestedPackage_nestingPackage"
         /// xmi:is-derived="true"
-        /// xmi:subsets="Package-packagedElement"
         Package[] NestedPackage { get; }
         #endregion
         #region P:NestingPackage:Package
         /// <summary>
         /// References the <see cref="Package"/> that owns this <see cref="Package"/>.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Package-nestingPackage"
         /// xmi:association="A_nestedPackage_nestingPackage"
@@ -42,56 +44,61 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedStereotype:Stereotype[]
         /// <summary>
         /// References the Stereotypes that are owned by the <see cref="Package"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Package.PackagedElement"/>"
         /// </summary>
         /// xmi:id="Package-ownedStereotype"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedStereotype_owningPackage"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Package-packagedElement"
         Stereotype[] OwnedStereotype { get; }
         #endregion
         #region P:OwnedType:Type[]
         /// <summary>
         /// References the packaged elements that are Types.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Package.PackagedElement"/>"
         /// </summary>
         /// xmi:id="Package-ownedType"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedType_package"
         /// xmi:is-derived="true"
-        /// xmi:subsets="Package-packagedElement"
         Type[] OwnedType { get; }
         #endregion
         #region P:PackagedElement:PackageableElement[]
         /// <summary>
         /// Specifies the packageable elements that are owned by this <see cref="Package"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Package-packagedElement"
         /// xmi:aggregation="composite"
         /// xmi:association="A_packagedElement_owningPackage"
-        /// xmi:subsets="Namespace-ownedMember"
         PackageableElement[] PackagedElement { get; }
         #endregion
         #region P:PackageMerge:PackageMerge[]
         /// <summary>
         /// References the PackageMerges that are owned by this <see cref="Package"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Package-packageMerge"
         /// xmi:aggregation="composite"
         /// xmi:association="A_packageMerge_receivingPackage"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         PackageMerge[] PackageMerge { get; }
         #endregion
         #region P:ProfileApplication:ProfileApplication[]
         /// <summary>
         /// References the ProfileApplications that indicate which profiles have been applied to the <see cref="Package"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Package-profileApplication"
         /// xmi:aggregation="composite"
         /// xmi:association="A_profileApplication_applyingPackage"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         ProfileApplication[] ProfileApplication { get; }
         #endregion
         #region P:URI:String
@@ -164,6 +171,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:mustBeOwned:Boolean
         /// <summary>
         /// The query <see cref="mustBeOwned"/> indicates whether elements of this type must have an <see cref="Owner"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.mustBeOwned"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -173,7 +182,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Package-mustBeOwned"
         /// xmi:is-query="true"
-        /// xmi:redefines="Element-mustBeOwned{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.mustBeOwned"/>}"
         Boolean mustBeOwned();
         #endregion
         #region M:nestedPackage:Package[]

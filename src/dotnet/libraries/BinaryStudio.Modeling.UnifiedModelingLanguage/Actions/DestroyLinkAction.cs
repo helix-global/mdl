@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:EndData:LinkEndDestructionData[]
         /// <summary>
         /// The <see cref="LinkEndData"/> that the values of the <see cref="Association"/> ends for the links to be destroyed.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.LinkAction.EndData"/>"
         /// </summary>
         /// xmi:id="DestroyLinkAction-endData"
         /// xmi:aggregation="composite"
         /// xmi:association="A_endData_destroyLinkAction"
-        /// xmi:redefines="LinkAction-endData{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.LinkAction.EndData"/>}"
         [Multiplicity("2..*")]
         LinkEndDestructionData[] EndData { get; }
         #endregion

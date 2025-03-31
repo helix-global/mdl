@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class LiteralInteger : LiteralSpecification
+    internal class LiteralInteger : LiteralSpecification
         {
         public Int32 Value { get;private set; }
         public LiteralInteger(ModelElement owner)

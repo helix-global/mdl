@@ -54,22 +54,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Maxint:ValueSpecification
         /// <summary>
         /// The maximum number of iterations of a loop
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionConstraint-maxint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_maxint_interactionConstraint"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification Maxint { get; }
         #endregion
         #region P:Minint:ValueSpecification
         /// <summary>
         /// The minimum number of iterations of a loop
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionConstraint-minint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_minint_interactionConstraint"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification Minint { get; }
         #endregion

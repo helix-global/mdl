@@ -22,10 +22,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:TemplateParameter:ConnectableElementTemplateParameter
         /// <summary>
         /// The <see cref="ConnectableElementTemplateParameter"/> for this <see cref="ConnectableElement"/> parameter.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>"
         /// </summary>
         /// xmi:id="ConnectableElement-templateParameter"
         /// xmi:association="A_connectableElement_templateParameter_parameteredElement"
-        /// xmi:redefines="ParameterableElement-templateParameter{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>}"
         [Multiplicity("0..1")]
         ConnectableElementTemplateParameter TemplateParameter { get; }
         #endregion

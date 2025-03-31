@@ -19,31 +19,34 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Condition:Constraint
         /// <summary>
         /// References the <see cref="Condition"/> that must hold when the first <see cref="ExtensionPoint"/> is reached for the <see cref="Extension"/> to take place. If no constraint is associated with the <see cref="Extend"/> relationship, the <see cref="Extension"/> is unconditional.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Extend-condition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_condition_extend"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         Constraint Condition { get; }
         #endregion
         #region P:ExtendedCase:UseCase
         /// <summary>
         /// The <see cref="UseCase"/> that is being extended.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="Extend-extendedCase"
         /// xmi:association="A_extendedCase_extend"
-        /// xmi:subsets="DirectedRelationship-target"
         UseCase ExtendedCase { get; }
         #endregion
         #region P:Extension:UseCase
         /// <summary>
         /// The <see cref="UseCase"/> that represents the <see cref="Extension"/> and owns the <see cref="Extend"/> relationship.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Extend-extension"
         /// xmi:association="A_extend_extension"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="NamedElement-namespace"
         UseCase Extension { get; }
         #endregion
         #region P:ExtensionLocation:ExtensionPoint[]

@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Contract:Classifier
         /// <summary>
         /// The <see cref="Contract"/> with which the substituting classifier complies.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Supplier"/>"
         /// </summary>
         /// xmi:id="Substitution-contract"
         /// xmi:association="A_contract_substitution"
-        /// xmi:subsets="Dependency-supplier"
         Classifier Contract { get; }
         #endregion
         #region P:SubstitutingClassifier:Classifier
         /// <summary>
         /// Instances of the substituting classifier are runtime substitutable where instances of the <see cref="Contract"/> classifier are expected.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Client"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="Substitution-substitutingClassifier"
         /// xmi:association="A_substitution_substitutingClassifier"
-        /// xmi:subsets="Dependency-client"
-        /// xmi:subsets="Element-owner"
         Classifier SubstitutingClassifier { get; }
         #endregion
         }

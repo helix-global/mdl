@@ -19,11 +19,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Expr:ValueSpecification
         /// <summary>
         /// A <see cref="ValueSpecification"/> that evaluates to the value of the <see cref="Duration"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Duration-expr"
         /// xmi:aggregation="composite"
         /// xmi:association="A_expr_duration"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification Expr { get; }
         #endregion

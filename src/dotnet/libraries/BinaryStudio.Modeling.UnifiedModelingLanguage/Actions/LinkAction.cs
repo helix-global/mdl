@@ -33,22 +33,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:EndData:LinkEndData[]
         /// <summary>
         /// The <see cref="LinkEndData"/> identifying the values on the ends of the links acting on by this <see cref="LinkAction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="LinkAction-endData"
         /// xmi:aggregation="composite"
         /// xmi:association="A_endData_linkAction"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("2..*")]
         LinkEndData[] EndData { get; }
         #endregion
         #region P:InputValue:InputPin[]
         /// <summary>
         /// InputPins used by the <see cref="LinkEndData"/> of the <see cref="LinkAction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="LinkAction-inputValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_inputValue_linkAction"
-        /// xmi:subsets="Action-input"
         [Multiplicity("1..*")]
         InputPin[] InputValue { get; }
         #endregion

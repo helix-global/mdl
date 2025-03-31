@@ -19,20 +19,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ImportedPackage:Package
         /// <summary>
         /// Specifies the <see cref="Package"/> whose members are imported into a <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="PackageImport-importedPackage"
         /// xmi:association="A_importedPackage_packageImport"
-        /// xmi:subsets="DirectedRelationship-target"
         Package ImportedPackage { get; }
         #endregion
         #region P:ImportingNamespace:Namespace
         /// <summary>
         /// Specifies the <see cref="Namespace"/> that imports the members from a <see cref="Package"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="PackageImport-importingNamespace"
         /// xmi:association="A_packageImport_importingNamespace"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="Element-owner"
         Namespace ImportingNamespace { get; }
         #endregion
         #region P:Visibility:VisibilityKind

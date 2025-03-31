@@ -36,11 +36,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Specification:DurationInterval
         /// <summary>
         /// The <see cref="DurationInterval"/> constraining the duration.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.IntervalConstraint.Specification"/>"
         /// </summary>
         /// xmi:id="DurationConstraint-specification"
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_durationConstraint"
-        /// xmi:redefines="IntervalConstraint-specification{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.IntervalConstraint.Specification"/>}"
         DurationInterval Specification { get; }
         #endregion
         }

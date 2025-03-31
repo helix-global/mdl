@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Handler:ExceptionHandler[]
         /// <summary>
         /// A set of ExceptionHandlers that are examined if an exception propagates out of the ExceptionNode.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ExecutableNode-handler"
         /// xmi:aggregation="composite"
         /// xmi:association="A_handler_protectedNode"
-        /// xmi:subsets="Element-ownedElement"
         ExceptionHandler[] Handler { get; }
         #endregion
         }

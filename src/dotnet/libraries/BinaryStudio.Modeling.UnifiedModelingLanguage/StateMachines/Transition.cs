@@ -90,31 +90,34 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Container:Region
         /// <summary>
         /// Designates the <see cref="Region"/> that owns this <see cref="Transition"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Transition-container"
         /// xmi:association="A_transition_container"
-        /// xmi:subsets="NamedElement-namespace"
         Region Container { get; }
         #endregion
         #region P:Effect:Behavior
         /// <summary>
         /// Specifies an optional behavior to be performed when the <see cref="Transition"/> fires.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Transition-effect"
         /// xmi:aggregation="composite"
         /// xmi:association="A_effect_transition"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         Behavior Effect { get; }
         #endregion
         #region P:Guard:Constraint
         /// <summary>
         /// A <see cref="Guard"/> is a <see cref="Constraint"/> that provides a fine-grained control over the firing of the <see cref="Transition"/>. The <see cref="Guard"/> is evaluated when an <see cref="Event"/> occurrence is dispatched by the <see cref="StateMachine"/>. If the <see cref="Guard"/> is true at that time, the <see cref="Transition"/> may be enabled, otherwise, it is disabled. Guards should be pure expressions without side effects. Guard expressions with side effects are ill formed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="Transition-guard"
         /// xmi:aggregation="composite"
         /// xmi:association="A_guard_transition"
-        /// xmi:subsets="Namespace-ownedRule"
         [Multiplicity("0..1")]
         Constraint Guard { get; }
         #endregion
@@ -128,22 +131,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RedefinedTransition:Transition
         /// <summary>
         /// The <see cref="Transition"/> that is redefined by this <see cref="Transition"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="Transition-redefinedTransition"
         /// xmi:association="A_redefinedTransition_transition"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         [Multiplicity("0..1")]
         Transition RedefinedTransition { get; }
         #endregion
         #region P:RedefinitionContext:Classifier
         /// <summary>
         /// References the <see cref="Classifier"/> in which context this element may be redefined.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Transition-redefinitionContext"
         /// xmi:association="A_redefinitionContext_transition"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:redefines="RedefinableElement-redefinitionContext{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>}"
         Classifier RedefinitionContext { get; }
         #endregion
         #region P:Source:Vertex
@@ -165,11 +170,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Trigger:Trigger[]
         /// <summary>
         /// Specifies the Triggers that may fire the transition.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Transition-trigger"
         /// xmi:aggregation="composite"
         /// xmi:association="A_trigger_transition"
-        /// xmi:subsets="Element-ownedElement"
         Trigger[] Trigger { get; }
         #endregion
 
@@ -190,6 +196,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query isConsistentWith specifies that a redefining <see cref="Transition"/> is consistent with a redefined <see cref="Transition"/> provided that the <see cref="Source"/> <see cref="Vertex"/> of the redefining <see cref="Transition"/> redefines the <see cref="Source"/> <see cref="Vertex"/> of the redefined <see cref="Transition"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -207,7 +215,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Transition-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:redefinitionContext:Classifier

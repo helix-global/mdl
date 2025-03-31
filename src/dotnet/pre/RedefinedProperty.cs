@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class RedefinedProperty : ModelElement
+    internal class RedefinedProperty : ModelElement
         {
         public String ReferencedIdentifier { get;private set; }
         public RedefinedProperty(ModelElement owner)

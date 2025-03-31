@@ -12,21 +12,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Abstraction:Component
         /// <summary>
         /// The <see cref="Component"/> that owns this <see cref="ComponentRealization"/> and which is implemented by its realizing Classifiers.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Supplier"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ComponentRealization-abstraction"
         /// xmi:association="A_realization_abstraction_component"
-        /// xmi:subsets="Dependency-supplier"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         Component Abstraction { get; }
         #endregion
         #region P:RealizingClassifier:Classifier[]
         /// <summary>
         /// The Classifiers that are involved in the implementation of the <see cref="Component"/> that owns this <see cref="Realization"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Client"/>"
         /// </summary>
         /// xmi:id="ComponentRealization-realizingClassifier"
         /// xmi:association="A_realizingClassifier_componentRealization"
-        /// xmi:subsets="Dependency-client"
         [Multiplicity("1..*")]
         Classifier[] RealizingClassifier { get; }
         #endregion

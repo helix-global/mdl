@@ -42,10 +42,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:State:State
         /// <summary>
         /// The <see cref="State"/> in which the <see cref="ConnectionPointReference"/> is defined.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="ConnectionPointReference-state"
         /// xmi:association="A_connection_state"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         State State { get; }
         #endregion
@@ -53,6 +54,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query <see cref="isConsistentWith"/> specifies a <see cref="ConnectionPointReference"/> can only be redefined by a <see cref="ConnectionPointReference"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -69,7 +72,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ConnectionPointReference-isConsistentWith"
         /// xmi:is-query=""
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         }

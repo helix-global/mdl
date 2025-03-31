@@ -44,6 +44,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isCompatibleWith(ParameterableElement):Boolean
         /// <summary>
         /// The query <see cref="isCompatibleWith"/> determines if this <see cref="ValueSpecification"/> is compatible with the specified <see cref="ParameterableElement"/>. This <see cref="ValueSpecification"/> is compatible with <see cref="ParameterableElement"/> p if the kind of this <see cref="ValueSpecification"/> is the same as or a subtype of the kind of p. Further, if p is a <see cref="TypedElement"/>, then the <see cref="Type"/> of this <see cref="ValueSpecification"/> must be conformant with the <see cref="Type"/> of p.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.isCompatibleWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -54,7 +56,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ValueSpecification-isCompatibleWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="ParameterableElement-isCompatibleWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.isCompatibleWith"/>}"
         Boolean isCompatibleWith(ParameterableElement p);
         #endregion
         #region M:isComputable:Boolean

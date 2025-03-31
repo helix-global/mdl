@@ -44,12 +44,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Conformance:ProtocolConformance[]
         /// <summary>
         /// Conformance between <see cref="ProtocolStateMachine"/> 
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ProtocolStateMachine-conformance"
         /// xmi:aggregation="composite"
         /// xmi:association="A_conformance_specificMachine"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         ProtocolConformance[] Conformance { get; }
         #endregion
         }

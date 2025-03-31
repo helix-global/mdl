@@ -122,33 +122,36 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:LoopVariable:OutputPin[]
         /// <summary>
         /// A list of OutputPins that hold the values of the loop variables during an execution of the loop. When the <see cref="Test"/> fails, the values are moved to the <see cref="Result"/> OutputPins of the loop.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="LoopNode-loopVariable"
         /// xmi:aggregation="composite"
         /// xmi:association="A_loopVariable_loopNode"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         OutputPin[] LoopVariable { get; }
         #endregion
         #region P:LoopVariableInput:InputPin[]
         /// <summary>
         /// A list of InputPins whose values are moved into the <see cref="LoopVariable"/> Pins before the first iteration of the loop.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeInput"/>"
         /// </summary>
         /// xmi:id="LoopNode-loopVariableInput"
         /// xmi:aggregation="composite"
         /// xmi:association="A_loopVariableInput_loopNode"
-        /// xmi:redefines="StructuredActivityNode-structuredNodeInput{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeInput"/>}"
         [Ordered]
         InputPin[] LoopVariableInput { get; }
         #endregion
         #region P:Result:OutputPin[]
         /// <summary>
         /// A list of OutputPins that receive the <see cref="LoopVariable"/> values after the last iteration of the loop and constitute the <see cref="Output"/> of the <see cref="LoopNode"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeOutput"/>"
         /// </summary>
         /// xmi:id="LoopNode-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_loopNode"
-        /// xmi:redefines="StructuredActivityNode-structuredNodeOutput{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeOutput"/>}"
         [Ordered]
         OutputPin[] Result { get; }
         #endregion
@@ -173,6 +176,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:allActions:Action[]
         /// <summary>
         /// Return only this <see cref="LoopNode"/>. This prevents Actions within the <see cref="LoopNode"/> from having their OutputPins used as bodyOutputs or <see cref="Decider"/> Pins in containing LoopNodes or ConditionalNodes.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allActions"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -182,12 +187,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LoopNode-allActions"
         /// xmi:is-query="true"
-        /// xmi:redefines="Action-allActions{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allActions"/>}"
         Action[] allActions();
         #endregion
         #region M:sourceNodes:ActivityNode[]
         /// <summary>
         /// Return the <see cref="LoopVariable"/> OutputPins in addition to other source nodes for the <see cref="LoopNode"/> as a <see cref="StructuredActivityNode"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.sourceNodes"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -197,7 +203,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LoopNode-sourceNodes"
         /// xmi:is-query="true"
-        /// xmi:redefines="StructuredActivityNode-sourceNodes{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.sourceNodes"/>}"
         ActivityNode[] sourceNodes();
         #endregion
         }

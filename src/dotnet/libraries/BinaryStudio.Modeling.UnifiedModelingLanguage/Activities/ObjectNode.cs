@@ -70,11 +70,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:UpperBound:ValueSpecification
         /// <summary>
         /// The maximum number of tokens that may be held by this <see cref="ObjectNode"/>. Tokens cannot flow into the <see cref="ObjectNode"/> if the <see cref="UpperBound"/> is reached. If no <see cref="UpperBound"/> is specified, then there is no limit on how many tokens the <see cref="ObjectNode"/> can hold.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ObjectNode-upperBound"
         /// xmi:aggregation="composite"
         /// xmi:association="A_upperBound_objectNode"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification UpperBound { get; }
         #endregion

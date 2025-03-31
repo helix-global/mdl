@@ -19,9 +19,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Visibility:VisibilityKind?
         /// <summary>
         /// A <see cref="PackageableElement"/> must have a <see cref="Visibility"/> specified if it is owned by a <see cref="Namespace"/>. The default <see cref="Visibility"/> is public.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Visibility"/>"
         /// </summary>
         /// xmi:id="PackageableElement-visibility"
-        /// xmi:redefines="NamedElement-visibility{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Visibility"/>}"
         VisibilityKind? Visibility { get; }
         #endregion
         }

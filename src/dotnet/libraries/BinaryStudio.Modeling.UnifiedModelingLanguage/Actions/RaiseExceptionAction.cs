@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Exception:InputPin
         /// <summary>
         /// An <see cref="InputPin"/> whose value becomes the <see cref="Exception"/> object.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="RaiseExceptionAction-exception"
         /// xmi:aggregation="composite"
         /// xmi:association="A_exception_raiseExceptionAction"
-        /// xmi:subsets="Action-input"
         InputPin Exception { get; }
         #endregion
         }

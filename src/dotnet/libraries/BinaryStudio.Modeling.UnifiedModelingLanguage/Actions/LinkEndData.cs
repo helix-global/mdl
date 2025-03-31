@@ -55,11 +55,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Qualifier:QualifierValue[]
         /// <summary>
         /// A set of QualifierValues used to provide values for the qualifiers of the <see cref="End"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="LinkEndData-qualifier"
         /// xmi:aggregation="composite"
         /// xmi:association="A_qualifier_linkEndData"
-        /// xmi:subsets="Element-ownedElement"
         QualifierValue[] Qualifier { get; }
         #endregion
         #region P:Value:InputPin

@@ -28,11 +28,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> on which the <see cref="Result"/> values are placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ReadVariableAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readVariableAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

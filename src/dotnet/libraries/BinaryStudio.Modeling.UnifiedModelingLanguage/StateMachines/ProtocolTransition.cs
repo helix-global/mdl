@@ -35,22 +35,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:PostCondition:Constraint
         /// <summary>
         /// Specifies the post condition of the <see cref="Transition"/> which is the Condition that should be obtained once the <see cref="Transition"/> is triggered. This post condition is part of the post condition of the <see cref="Operation"/> connected to the <see cref="Transition"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="ProtocolTransition-postCondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_postCondition_owningTransition"
-        /// xmi:subsets="Namespace-ownedRule"
         [Multiplicity("0..1")]
         Constraint PostCondition { get; }
         #endregion
         #region P:PreCondition:Constraint
         /// <summary>
         /// Specifies the precondition of the <see cref="Transition"/>. It specifies the Condition that should be verified before triggering the <see cref="Transition"/>. This <see cref="Guard"/> condition added to the <see cref="Source"/> <see cref="State"/> will be evaluated as part of the precondition of the <see cref="Operation"/> <see cref="Referred"/> by the <see cref="Transition"/> if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Transition.Guard"/>"
         /// </summary>
         /// xmi:id="ProtocolTransition-preCondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_preCondition_protocolTransition"
-        /// xmi:subsets="Transition-guard"
         [Multiplicity("0..1")]
         Constraint PreCondition { get; }
         #endregion

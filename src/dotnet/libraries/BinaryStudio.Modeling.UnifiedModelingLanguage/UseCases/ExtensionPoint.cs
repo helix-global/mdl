@@ -19,10 +19,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:UseCase:UseCase
         /// <summary>
         /// The <see cref="UseCase"/> that owns this <see cref="ExtensionPoint"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="ExtensionPoint-useCase"
         /// xmi:association="A_extensionPoint_useCase"
-        /// xmi:subsets="NamedElement-namespace"
         UseCase UseCase { get; }
         #endregion
         }

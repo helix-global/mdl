@@ -22,6 +22,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:integerValue:Integer
         /// <summary>
         /// The query <see cref="integerValue"/> gives the <see cref="Value"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.integerValue"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -31,12 +33,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralInteger-integerValue"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-integerValue{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.integerValue"/>}"
         Integer integerValue();
         #endregion
         #region M:isComputable:Boolean
         /// <summary>
         /// The query <see cref="isComputable"/> is redefined to be true.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -46,7 +49,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralInteger-isComputable"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-isComputable{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>}"
         Boolean isComputable();
         #endregion
         }

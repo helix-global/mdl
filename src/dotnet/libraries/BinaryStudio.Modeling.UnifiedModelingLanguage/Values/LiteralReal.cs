@@ -22,6 +22,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isComputable:Boolean
         /// <summary>
         /// The query <see cref="isComputable"/> is redefined to be true.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -31,12 +33,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralReal-isComputable"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-isComputable{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>}"
         Boolean isComputable();
         #endregion
         #region M:realValue:Real
         /// <summary>
         /// The query <see cref="realValue"/> gives the <see cref="Value"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.realValue"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -46,7 +49,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralReal-realValue"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-realValue{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.realValue"/>}"
         Real realValue();
         #endregion
         }

@@ -12,10 +12,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Activity:Activity
         /// <summary>
         /// The <see cref="Activity"/> containing the <see cref="ActivityNode"/>, if it is directly owned by an <see cref="Activity"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ActivityNode-activity"
         /// xmi:association="A_node_activity"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         Activity Activity { get; }
         #endregion
@@ -41,29 +42,32 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:InInterruptibleRegion:InterruptibleActivityRegion[]
         /// <summary>
         /// InterruptibleActivityRegions containing the <see cref="ActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.InGroup"/>"
         /// </summary>
         /// xmi:id="ActivityNode-inInterruptibleRegion"
         /// xmi:association="A_inInterruptibleRegion_node"
-        /// xmi:subsets="ActivityNode-inGroup"
         InterruptibleActivityRegion[] InInterruptibleRegion { get; }
         #endregion
         #region P:InPartition:ActivityPartition[]
         /// <summary>
         /// ActivityPartitions containing the <see cref="ActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.InGroup"/>"
         /// </summary>
         /// xmi:id="ActivityNode-inPartition"
         /// xmi:association="A_inPartition_node"
-        /// xmi:subsets="ActivityNode-inGroup"
         ActivityPartition[] InPartition { get; }
         #endregion
         #region P:InStructuredNode:StructuredActivityNode
         /// <summary>
         /// The <see cref="StructuredActivityNode"/> containing the ActvityNode, if it is directly owned by a <see cref="StructuredActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityNode.InGroup"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ActivityNode-inStructuredNode"
         /// xmi:association="A_node_inStructuredNode"
-        /// xmi:subsets="ActivityNode-inGroup"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         StructuredActivityNode InStructuredNode { get; }
         #endregion
@@ -78,10 +82,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RedefinedNode:ActivityNode[]
         /// <summary>
         /// ActivityNodes from a generalization of the <see cref="Activity"/> containining this <see cref="ActivityNode"/> that are redefined by this <see cref="ActivityNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="ActivityNode-redefinedNode"
         /// xmi:association="A_redefinedNode_activityNode"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         ActivityNode[] RedefinedNode { get; }
         #endregion
 
@@ -103,6 +108,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         Activity containingActivity();
         #endregion
         #region M:isConsistentWith(RedefinableElement):Boolean
+        /// <summary>
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
+        /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
         ///     result = (redefiningElement.oclIsKindOf(ActivityNode))
@@ -111,7 +120,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ActivityNode-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         }

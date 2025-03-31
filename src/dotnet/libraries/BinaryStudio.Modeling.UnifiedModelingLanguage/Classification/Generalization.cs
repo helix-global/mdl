@@ -12,10 +12,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:General:Classifier
         /// <summary>
         /// The <see cref="General"/> classifier in the <see cref="Generalization"/> relationship.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="Generalization-general"
         /// xmi:association="A_general_generalization"
-        /// xmi:subsets="DirectedRelationship-target"
         Classifier General { get; }
         #endregion
         #region P:GeneralizationSet:GeneralizationSet[]
@@ -36,11 +37,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Specific:Classifier
         /// <summary>
         /// The specializing <see cref="Classifier"/> in the <see cref="Generalization"/> relationship.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="Generalization-specific"
         /// xmi:association="A_generalization_specific"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="Element-owner"
         Classifier Specific { get; }
         #endregion
         }

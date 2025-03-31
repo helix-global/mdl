@@ -33,12 +33,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Context:BehavioredClassifier
         /// <summary>
         /// The <see cref="BehavioredClassifier"/> that is the <see cref="Context"/> for the execution of the <see cref="Behavior"/>. A <see cref="Behavior"/> that is directly owned as a <see cref="NestedClassifier"/> does not have a <see cref="Context"/>. Otherwise, to determine the <see cref="Context"/> of a <see cref="Behavior"/>, find the first <see cref="BehavioredClassifier"/> reached by following the chain of <see cref="Owner"/> relationships from the <see cref="Behavior"/>, if any. If there is such a <see cref="BehavioredClassifier"/>, then it is the <see cref="Context"/>, unless it is itself a <see cref="Behavior"/> with a non-empty <see cref="Context"/>, in which case that is also the <see cref="Context"/> for the original <see cref="Behavior"/>. For example, following this algorithm, the <see cref="Context"/> of an entry <see cref="Behavior"/> in a <see cref="StateMachine"/> is the <see cref="BehavioredClassifier"/> that owns the <see cref="StateMachine"/>. The features of the <see cref="Context"/> <see cref="BehavioredClassifier"/> as well as the Elements visible to the <see cref="Context"/> <see cref="Classifier"/> are visible to the <see cref="Behavior"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Behavior-context"
         /// xmi:association="A_context_behavior"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="RedefinableElement-redefinitionContext"
         [Multiplicity("0..1")]
         BehavioredClassifier Context { get; }
         #endregion
@@ -52,51 +53,56 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedParameter:Parameter[]
         /// <summary>
         /// References a list of Parameters to the <see cref="Behavior"/> which describes the order and type of arguments that can be given when the <see cref="Behavior"/> is invoked and of the values which will be returned when the <see cref="Behavior"/> completes its execution.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Behavior-ownedParameter"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_behavior"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Parameter[] OwnedParameter { get; }
         #endregion
         #region P:OwnedParameterSet:ParameterSet[]
         /// <summary>
         /// The ParameterSets owned by this <see cref="Behavior"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Behavior-ownedParameterSet"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameterSet_behavior"
-        /// xmi:subsets="Namespace-ownedMember"
         ParameterSet[] OwnedParameterSet { get; }
         #endregion
         #region P:Postcondition:Constraint[]
         /// <summary>
         /// An optional set of Constraints specifying what is fulfilled after the execution of the <see cref="Behavior"/> is completed, if its <see cref="Precondition"/> was fulfilled before its invocation.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="Behavior-postcondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_postcondition_behavior"
-        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Postcondition { get; }
         #endregion
         #region P:Precondition:Constraint[]
         /// <summary>
         /// An optional set of Constraints specifying what must be fulfilled before the <see cref="Behavior"/> is invoked.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="Behavior-precondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_precondition_behavior"
-        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Precondition { get; }
         #endregion
         #region P:RedefinedBehavior:Behavior[]
         /// <summary>
         /// References the <see cref="Behavior"/> that this <see cref="Behavior"/> redefines. A subtype of <see cref="Behavior"/> may redefine any other subtype of <see cref="Behavior"/>. If the <see cref="Behavior"/> implements a <see cref="BehavioralFeature"/>, it replaces the redefined <see cref="Behavior"/>. If the <see cref="Behavior"/> is a <see cref="ClassifierBehavior"/>, it extends the redefined <see cref="Behavior"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.RedefinedClassifier"/>"
         /// </summary>
         /// xmi:id="Behavior-redefinedBehavior"
         /// xmi:association="A_redefinedBehavior_behavior"
-        /// xmi:subsets="Classifier-redefinedClassifier"
         Behavior[] RedefinedBehavior { get; }
         #endregion
         #region P:Specification:BehavioralFeature

@@ -12,6 +12,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:FeaturingClassifier:Classifier
         /// <summary>
         /// The Classifiers that have this <see cref="Feature"/> as a feature.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Feature-featuringClassifier"
         /// xmi:association="A_feature_featuringClassifier"

@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwningTemplateParameter:TemplateParameter
         /// <summary>
         /// The formal <see cref="TemplateParameter"/> that owns this <see cref="ParameterableElement"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>"
         /// </summary>
         /// xmi:id="ParameterableElement-owningTemplateParameter"
         /// xmi:association="A_ownedParameteredElement_owningTemplateParameter"
-        /// xmi:subsets="Element-owner"
-        /// xmi:subsets="ParameterableElement-templateParameter"
         [Multiplicity("0..1")]
         TemplateParameter OwningTemplateParameter { get; }
         #endregion

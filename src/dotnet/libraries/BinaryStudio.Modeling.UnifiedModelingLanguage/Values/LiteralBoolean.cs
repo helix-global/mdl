@@ -20,6 +20,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:booleanValue:Boolean
         /// <summary>
         /// The query <see cref="booleanValue"/> gives the <see cref="Value"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.booleanValue"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -29,12 +31,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralBoolean-booleanValue"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-booleanValue{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.booleanValue"/>}"
         Boolean booleanValue();
         #endregion
         #region M:isComputable:Boolean
         /// <summary>
         /// The query <see cref="isComputable"/> is redefined to be true.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -44,7 +47,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralBoolean-isComputable"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-isComputable{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>}"
         Boolean isComputable();
         #endregion
         }

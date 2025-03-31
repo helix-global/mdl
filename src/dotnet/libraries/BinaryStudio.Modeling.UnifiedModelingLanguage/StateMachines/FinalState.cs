@@ -55,6 +55,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query <see cref="isConsistentWith"/> specifies a <see cref="FinalState"/> can only be redefined by a <see cref="FinalState"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -71,7 +73,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="FinalState-isConsistentWith"
         /// xmi:is-query=""
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         }

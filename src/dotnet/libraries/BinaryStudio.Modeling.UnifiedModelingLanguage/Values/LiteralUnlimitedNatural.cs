@@ -20,6 +20,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isComputable:Boolean
         /// <summary>
         /// The query <see cref="isComputable"/> is redefined to be true.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -29,12 +31,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralUnlimitedNatural-isComputable"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-isComputable{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.isComputable"/>}"
         Boolean isComputable();
         #endregion
         #region M:unlimitedValue:UnlimitedNatural
         /// <summary>
         /// The query <see cref="unlimitedValue"/> gives the <see cref="Value"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.unlimitedValue"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -44,7 +47,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LiteralUnlimitedNatural-unlimitedValue"
         /// xmi:is-query="true"
-        /// xmi:redefines="ValueSpecification-unlimitedValue{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ValueSpecification.unlimitedValue"/>}"
         UnlimitedNatural unlimitedValue();
         #endregion
         }

@@ -49,63 +49,69 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Connection:ConnectionPointReference[]
         /// <summary>
         /// The <see cref="Entry"/> and <see cref="Exit"/> <see cref="Connection"/> points used in conjunction with this (<see cref="Submachine"/>) <see cref="State"/>, i.e., as targets and sources, respectively, in the <see cref="Region"/> with the <see cref="Submachine"/> <see cref="State"/>. A <see cref="Connection"/> point reference references the corresponding definition of a <see cref="Connection"/> point <see cref="Pseudostate"/> in the <see cref="StateMachine"/> referenced by the <see cref="Submachine"/> <see cref="State"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="State-connection"
         /// xmi:aggregation="composite"
         /// xmi:association="A_connection_state"
-        /// xmi:subsets="Namespace-ownedMember"
         ConnectionPointReference[] Connection { get; }
         #endregion
         #region P:ConnectionPoint:Pseudostate[]
         /// <summary>
         /// The <see cref="Entry"/> and <see cref="Exit"/> Pseudostates of a composite <see cref="State"/>. These can only be <see cref="Entry"/> or <see cref="Exit"/> Pseudostates, and they must have different names. They can only be defined for composite States.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="State-connectionPoint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_connectionPoint_state"
-        /// xmi:subsets="Namespace-ownedMember"
         Pseudostate[] ConnectionPoint { get; }
         #endregion
         #region P:DeferrableTrigger:Trigger[]
         /// <summary>
         /// A list of Triggers that are candidates to be retained by the <see cref="StateMachine"/> if they trigger no Transitions out of the <see cref="State"/> (not consumed). A deferred <see cref="Trigger"/> is retained until the <see cref="StateMachine"/> reaches a <see cref="State"/> configuration where it is no longer deferred.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="State-deferrableTrigger"
         /// xmi:aggregation="composite"
         /// xmi:association="A_deferrableTrigger_state"
-        /// xmi:subsets="Element-ownedElement"
         Trigger[] DeferrableTrigger { get; }
         #endregion
         #region P:DoActivity:Behavior
         /// <summary>
         /// An optional <see cref="Behavior"/> that is executed while being in the <see cref="State"/>. The execution starts when this <see cref="State"/> is entered, and ceases either by itself when done, or when the <see cref="State"/> is exited, whichever comes first.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="State-doActivity"
         /// xmi:aggregation="composite"
         /// xmi:association="A_doActivity_state"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         Behavior DoActivity { get; }
         #endregion
         #region P:Entry:Behavior
         /// <summary>
         /// An optional <see cref="Behavior"/> that is executed whenever this <see cref="State"/> is entered regardless of the <see cref="Transition"/> taken to reach the <see cref="State"/>. If defined, <see cref="Entry"/> Behaviors are always executed to completion prior to any internal <see cref="Behavior"/> or Transitions performed within the <see cref="State"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="State-entry"
         /// xmi:aggregation="composite"
         /// xmi:association="A_entry_state"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         Behavior Entry { get; }
         #endregion
         #region P:Exit:Behavior
         /// <summary>
         /// An optional <see cref="Behavior"/> that is executed whenever this <see cref="State"/> is exited regardless of which <see cref="Transition"/> was taken out of the <see cref="State"/>. If defined, <see cref="Exit"/> Behaviors are always executed to completion only after all internal and transition Behaviors have completed execution.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="State-exit"
         /// xmi:aggregation="composite"
         /// xmi:association="A_exit_state"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         Behavior Exit { get; }
         #endregion
@@ -148,21 +154,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Region:Region[]
         /// <summary>
         /// The Regions owned directly by the <see cref="State"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="State-region"
         /// xmi:aggregation="composite"
         /// xmi:association="A_region_state"
-        /// xmi:subsets="Namespace-ownedMember"
         Region[] Region { get; }
         #endregion
         #region P:StateInvariant:Constraint
         /// <summary>
         /// Specifies conditions that are always true when this <see cref="State"/> is the current <see cref="State"/>. In ProtocolStateMachines state invariants are additional conditions to the preconditions of the <see cref="Outgoing"/> Transitions, and to the postcondition of the <see cref="Incoming"/> Transitions.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="State-stateInvariant"
         /// xmi:aggregation="composite"
         /// xmi:association="A_stateInvariant_owningState"
-        /// xmi:subsets="Namespace-ownedRule"
         [Multiplicity("0..1")]
         Constraint StateInvariant { get; }
         #endregion
@@ -179,6 +187,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:containingStateMachine:StateMachine
         /// <summary>
         /// The query <see cref="containingStateMachine"/> returns the <see cref="StateMachine"/> that contains the <see cref="State"/> either directly or transitively.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Vertex.containingStateMachine"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -188,7 +198,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="State-containingStateMachine"
         /// xmi:is-query="true"
-        /// xmi:redefines="Vertex-containingStateMachine{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Vertex.containingStateMachine"/>}"
         StateMachine containingStateMachine();
         #endregion
         #region M:isComposite:Boolean
@@ -208,6 +217,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query isConsistentWith specifies that a non-final <see cref="State"/> can only be redefined by a non-final <see cref="State"/> (this is overridden by <see cref="FinalState"/> to allow a <see cref="FinalState"/> to be redefined by a <see cref="FinalState"/>) and, if the redefined <see cref="State"/> is a <see cref="Submachine"/> <see cref="State"/>, then the redefining <see cref="State"/> must be a <see cref="Submachine"/> state whose <see cref="Submachine"/> is a redefinition of the <see cref="Submachine"/> of the redefined <see cref="State"/>. Note that consistency requirements for the redefinition of Regions and <see cref="ConnectionPoint"/> Pseudostates within a composite <see cref="State"/> and <see cref="Connection"/> ConnectionPoints of a <see cref="Submachine"/> <see cref="State"/> are specified by the isConsistentWith and isRedefinitionContextValid operations for <see cref="Region"/> and <see cref="Vertex"/> (and its subclasses, <see cref="Pseudostate"/> and <see cref="ConnectionPointReference"/>).
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -227,7 +238,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="State-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:isOrthogonal:Boolean

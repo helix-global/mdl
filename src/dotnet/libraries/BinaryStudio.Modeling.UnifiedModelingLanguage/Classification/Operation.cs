@@ -28,47 +28,51 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:BodyCondition:Constraint
         /// <summary>
         /// An optional <see cref="Constraint"/> on the result values of an invocation of this <see cref="Operation"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="Operation-bodyCondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_bodyCondition_bodyContext"
-        /// xmi:subsets="Namespace-ownedRule"
         [Multiplicity("0..1")]
         Constraint BodyCondition { get; }
         #endregion
         #region P:Class:Class
         /// <summary>
         /// The <see cref="Class"/> that owns this operation, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Feature.FeaturingClassifier"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Operation-class"
         /// xmi:association="A_ownedOperation_class"
-        /// xmi:subsets="Feature-featuringClassifier"
-        /// xmi:subsets="NamedElement-namespace"
-        /// xmi:subsets="RedefinableElement-redefinitionContext"
         [Multiplicity("0..1")]
         Class Class { get; }
         #endregion
         #region P:Datatype:DataType
         /// <summary>
         /// The <see cref="DataType"/> that owns this <see cref="Operation"/>, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Feature.FeaturingClassifier"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Operation-datatype"
         /// xmi:association="A_ownedOperation_datatype"
-        /// xmi:subsets="Feature-featuringClassifier"
-        /// xmi:subsets="NamedElement-namespace"
-        /// xmi:subsets="RedefinableElement-redefinitionContext"
         [Multiplicity("0..1")]
         DataType Datatype { get; }
         #endregion
         #region P:Interface:Interface
         /// <summary>
         /// The <see cref="Interface"/> that owns this <see cref="Operation"/>, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Feature.FeaturingClassifier"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Operation-interface"
         /// xmi:association="A_ownedOperation_interface"
-        /// xmi:subsets="Feature-featuringClassifier"
-        /// xmi:subsets="NamedElement-namespace"
-        /// xmi:subsets="RedefinableElement-redefinitionContext"
         [Multiplicity("0..1")]
         Interface Interface { get; }
         #endregion
@@ -109,59 +113,65 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedParameter:Parameter[]
         /// <summary>
         /// The parameters owned by this <see cref="Operation"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioralFeature.OwnedParameter"/>"
         /// </summary>
         /// xmi:id="Operation-ownedParameter"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_operation"
-        /// xmi:redefines="BehavioralFeature-ownedParameter{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioralFeature.OwnedParameter"/>}"
         [Ordered]
         Parameter[] OwnedParameter { get; }
         #endregion
         #region P:Postcondition:Constraint[]
         /// <summary>
         /// An optional set of Constraints specifying the state of the system when the <see cref="Operation"/> is completed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="Operation-postcondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_postcondition_postContext"
-        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Postcondition { get; }
         #endregion
         #region P:Precondition:Constraint[]
         /// <summary>
         /// An optional set of Constraints on the state of the system when the <see cref="Operation"/> is invoked.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedRule"/>"
         /// </summary>
         /// xmi:id="Operation-precondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_precondition_preContext"
-        /// xmi:subsets="Namespace-ownedRule"
         Constraint[] Precondition { get; }
         #endregion
         #region P:RaisedException:Type[]
         /// <summary>
         /// The Types representing exceptions that may be raised during an invocation of this operation.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioralFeature.RaisedException"/>"
         /// </summary>
         /// xmi:id="Operation-raisedException"
         /// xmi:association="A_raisedException_operation"
-        /// xmi:redefines="BehavioralFeature-raisedException{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioralFeature.RaisedException"/>}"
         Type[] RaisedException { get; }
         #endregion
         #region P:RedefinedOperation:Operation[]
         /// <summary>
         /// The Operations that are redefined by this <see cref="Operation"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="Operation-redefinedOperation"
         /// xmi:association="A_redefinedOperation_operation"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         Operation[] RedefinedOperation { get; }
         #endregion
         #region P:TemplateParameter:OperationTemplateParameter
         /// <summary>
         /// The <see cref="OperationTemplateParameter"/> that exposes this element as a formal parameter.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>"
         /// </summary>
         /// xmi:id="Operation-templateParameter"
         /// xmi:association="A_operation_templateParameter_parameteredElement"
-        /// xmi:redefines="ParameterableElement-templateParameter{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.TemplateParameter"/>}"
         [Multiplicity("0..1")]
         OperationTemplateParameter TemplateParameter { get; }
         #endregion
@@ -194,6 +204,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// - Direction, ordering and uniqueness are the same.
         /// - The corresponding types are covariant, contravariant or invariant.
         /// - The multiplicities are compatible, depending on the parameter direction.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -230,7 +242,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Operation-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:isOrdered:Boolean

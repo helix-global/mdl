@@ -45,33 +45,36 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Extend:Extend[]
         /// <summary>
         /// The <see cref="Extend"/> relationships owned by this <see cref="UseCase"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="UseCase-extend"
         /// xmi:aggregation="composite"
         /// xmi:association="A_extend_extension"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Namespace-ownedMember"
         Extend[] Extend { get; }
         #endregion
         #region P:ExtensionPoint:ExtensionPoint[]
         /// <summary>
         /// The ExtensionPoints owned by this <see cref="UseCase"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="UseCase-extensionPoint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_extensionPoint_useCase"
-        /// xmi:subsets="Namespace-ownedMember"
         ExtensionPoint[] ExtensionPoint { get; }
         #endregion
         #region P:Include:Include[]
         /// <summary>
         /// The <see cref="Include"/> relationships owned by this <see cref="UseCase"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="UseCase-include"
         /// xmi:aggregation="composite"
         /// xmi:association="A_include_includingCase"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Namespace-ownedMember"
         Include[] Include { get; }
         #endregion
         #region P:Subject:Classifier[]

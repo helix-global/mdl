@@ -35,11 +35,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:JoinSpec:ValueSpecification
         /// <summary>
         /// A <see cref="ValueSpecification"/> giving the condition under which the <see cref="JoinNode"/> will offer a token on its <see cref="Outgoing"/> <see cref="ActivityEdge"/>. If no <see cref="JoinSpec"/> is specified, then the <see cref="JoinNode"/> will offer an <see cref="Outgoing"/> token if tokens are offered on all of its <see cref="Incoming"/> ActivityEdges (an "and" condition).
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="JoinNode-joinSpec"
         /// xmi:aggregation="composite"
         /// xmi:association="A_joinSpec_joinNode"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification JoinSpec { get; }
         #endregion

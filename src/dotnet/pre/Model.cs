@@ -4,20 +4,22 @@ using System.Xml;
 
 namespace pre
     {
-    public class Model : Package
+    internal class Model : Package
         {
         public override Model BaseModel { get{ return this; }}
         public ISet<String> ClassNames { get; }
         public IDictionary<String,Class> Classes { get; }
         public IDictionary<String,Enumeration> Enumerations { get; }
+        public IDictionary<String,Association> Associations { get; }
 
         #region ctor
         public Model()
             :base(null)
             {
             ClassNames = new SortedSet<String>();
-            Classes = new Dictionary<String,Class>();
-            Enumerations = new Dictionary<String,Enumeration>();
+            Classes = new SortedDictionary<String,Class>();
+            Enumerations = new SortedDictionary<String,Enumeration>();
+            Associations = new SortedDictionary<String,Association>();
             }
         #endregion
 
@@ -38,7 +40,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                OwnedPackage.Add(o);
+                                OwnedPackage.Add(o.Identifier,o);
                                 }
                                 break;
                             }

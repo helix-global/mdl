@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ChangeExpression:ValueSpecification
         /// <summary>
         /// A Boolean-valued <see cref="ValueSpecification"/> that will result in a <see cref="ChangeEvent"/> whenever its value changes from false to true.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ChangeEvent-changeExpression"
         /// xmi:aggregation="composite"
         /// xmi:association="A_changeExpression_changeEvent"
-        /// xmi:subsets="Element-ownedElement"
         ValueSpecification ChangeExpression { get; }
         #endregion
         }

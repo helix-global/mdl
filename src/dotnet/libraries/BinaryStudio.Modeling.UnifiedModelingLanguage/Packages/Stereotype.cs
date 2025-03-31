@@ -53,11 +53,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Icon:Image[]
         /// <summary>
         /// <see cref="Stereotype"/> can change the graphical appearance of the extended model element by using attached icons. When this association is not null, it references the location of the <see cref="Icon"/> content to be displayed within diagrams presenting the extended model elements.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Stereotype-icon"
         /// xmi:aggregation="composite"
         /// xmi:association="A_icon_stereotype"
-        /// xmi:subsets="Element-ownedElement"
         Image[] Icon { get; }
         #endregion
         #region P:Profile:Profile

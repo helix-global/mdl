@@ -26,11 +26,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Value:ValueSpecification
         /// <summary>
         /// The <see cref="ValueSpecification"/> that is evaluated to obtain the <see cref="Value"/> that the <see cref="ValuePin"/> will provide.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ValuePin-value"
         /// xmi:aggregation="composite"
         /// xmi:association="A_value_valuePin"
-        /// xmi:subsets="Element-ownedElement"
         ValueSpecification Value { get; }
         #endregion
         }

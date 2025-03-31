@@ -19,11 +19,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:EndData:LinkEndCreationData[]
         /// <summary>
         /// The <see cref="LinkEndData"/> that specifies the values to be placed on the <see cref="Association"/> ends for the new link.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.LinkAction.EndData"/>"
         /// </summary>
         /// xmi:id="CreateLinkAction-endData"
         /// xmi:aggregation="composite"
         /// xmi:association="A_endData_createLinkAction"
-        /// xmi:redefines="LinkAction-endData{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.LinkAction.EndData"/>}"
         [Multiplicity("2..*")]
         LinkEndCreationData[] EndData { get; }
         #endregion

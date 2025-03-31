@@ -27,12 +27,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedParameter:TemplateParameter[]
         /// <summary>
         /// The formal parameters that are owned by this <see cref="TemplateSignature"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateSignature.Parameter"/>"
         /// </summary>
         /// xmi:id="TemplateSignature-ownedParameter"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_signature"
-        /// xmi:subsets="Element-ownedElement"
-        /// xmi:subsets="TemplateSignature-parameter"
         [Ordered]
         TemplateParameter[] OwnedParameter { get; }
         #endregion
@@ -48,10 +49,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Template:TemplateableElement
         /// <summary>
         /// The <see cref="TemplateableElement"/> that owns this <see cref="TemplateSignature"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="TemplateSignature-template"
         /// xmi:association="A_ownedTemplateSignature_template"
-        /// xmi:subsets="Element-owner"
         TemplateableElement Template { get; }
         #endregion
         }

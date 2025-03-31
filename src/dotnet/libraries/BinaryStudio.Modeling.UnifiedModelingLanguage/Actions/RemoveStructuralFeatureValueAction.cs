@@ -33,11 +33,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RemoveAt:InputPin
         /// <summary>
         /// An <see cref="InputPin"/> that provides the position of an existing <see cref="Value"/> to remove in ordered, nonunique structural features. The type of the <see cref="RemoveAt"/> <see cref="InputPin"/> is UnlimitedNatural, but the <see cref="Value"/> cannot be zero or unlimited.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="RemoveStructuralFeatureValueAction-removeAt"
         /// xmi:aggregation="composite"
         /// xmi:association="A_removeAt_removeStructuralFeatureValueAction"
-        /// xmi:subsets="Action-input"
         [Multiplicity("0..1")]
         InputPin RemoveAt { get; }
         #endregion

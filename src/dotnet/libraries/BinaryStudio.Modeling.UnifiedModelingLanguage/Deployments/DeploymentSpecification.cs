@@ -26,10 +26,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Deployment:Deployment
         /// <summary>
         /// The <see cref="Deployment"/> with which the <see cref="DeploymentSpecification"/> is associated.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="DeploymentSpecification-deployment"
         /// xmi:association="A_configuration_deployment"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         Deployment Deployment { get; }
         #endregion

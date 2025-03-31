@@ -33,23 +33,25 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ElementImport:ElementImport[]
         /// <summary>
         /// References the ElementImports owned by the <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Namespace-elementImport"
         /// xmi:aggregation="composite"
         /// xmi:association="A_elementImport_importingNamespace"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         ElementImport[] ElementImport { get; }
         #endregion
         #region P:ImportedMember:PackageableElement[]
         /// <summary>
         /// References the PackageableElements that are members of this <see cref="Namespace"/> as a result of either PackageImports or ElementImports.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.Member"/>"
         /// </summary>
         /// xmi:id="Namespace-importedMember"
         /// xmi:association="A_importedMember_namespace"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Namespace-member"
         PackageableElement[] ImportedMember { get; }
         #endregion
         #region P:Member:NamedElement[]
@@ -66,36 +68,39 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedMember:NamedElement[]
         /// <summary>
         /// A collection of NamedElements owned by the <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.Member"/>"
         /// </summary>
         /// xmi:id="Namespace-ownedMember"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedMember_namespace"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Element-ownedElement"
-        /// xmi:subsets="Namespace-member"
         [Union]
         NamedElement[] OwnedMember { get; }
         #endregion
         #region P:OwnedRule:Constraint[]
         /// <summary>
         /// Specifies a set of Constraints owned by this <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Namespace-ownedRule"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedRule_context"
-        /// xmi:subsets="Namespace-ownedMember"
         Constraint[] OwnedRule { get; }
         #endregion
         #region P:PackageImport:PackageImport[]
         /// <summary>
         /// References the PackageImports owned by the <see cref="Namespace"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Namespace-packageImport"
         /// xmi:aggregation="composite"
         /// xmi:association="A_packageImport_importingNamespace"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         PackageImport[] PackageImport { get; }
         #endregion
 

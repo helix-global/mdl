@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Property : ModelElement
+    internal class Property : ModelElement
         {
         public String Name { get;private set; }
         public String Identifier { get;private set; }
@@ -32,6 +32,10 @@ namespace pre
             r.Append($"{Type}");
             r.Append($"{TypeMultiplicitySuffix}");
             return r.ToString();
+            }}
+
+        private IPackage Package{get{
+            return ((IPackageableElement)Owner).Package;
             }}
 
         private Property(ModelElement owner)
@@ -198,13 +202,36 @@ namespace pre
             var attributes = new StringBuilder();
 
             writer.Write($"{prefix}#region P:{UpperFirstLetter(Name)}:{TypeWithMultiplicity}\n");
-            if (OwnedComment.Count > 0) {
-                writer.Write($"{prefix}/// <summary>\n");
-                foreach (var comment in OwnedComment) {
-                    comment.WriteCSharp(writer,$"{prefix}/// ");
-                    }
-                writer.Write($"{prefix}/// </summary>\n");
+            writer.Write($"{prefix}/// <summary>\n");
+            foreach (var comment in OwnedComment) {
+                comment.WriteCSharp(writer,$"{prefix}/// ");
                 }
+            if (RedefinedProperties.Count > 0) {
+                writer.Write($"{prefix}/// Redefines:\n");
+                if (ClassOwner != null) {
+                    foreach (var p in RedefinedProperties) {
+                        var r = ClassOwner.DeclaredProperties[p.ReferencedIdentifier];
+                        writer.Write($"{prefix}///   <see cref=\"P:{DefaultNamespace}.{r.ClassOwner.Name}.{UpperFirstLetter(r.Name)}\"/>\"\n");
+                        }
+                    }
+                }
+            if (SubsettedProperties.Count>0) {
+                writer.Write($"{prefix}/// Subsets:\n");
+                foreach (var p in SubsettedProperties) {
+                    if (ClassOwner != null) {
+                        if (ClassOwner.DeclaredProperties.TryGetValue(p.ReferencedIdentifier,out var r)) {
+                            writer.Write($"{prefix}///   <see cref=\"P:{DefaultNamespace}.{r.ClassOwner.Name}.{UpperFirstLetter(r.Name)}\"/>\"\n");
+                            continue;
+                            }
+                        }
+                    var e = BaseModel.FindModelElement(p.ReferencedIdentifier);
+                    if (e != null)
+                        {
+                        continue;
+                        }
+                    }
+                }
+            writer.Write($"{prefix}/// </summary>\n");
             writer.Write($"{prefix}/// xmi:id=\"{Identifier}\"\n");
             if (!String.IsNullOrWhiteSpace(Aggregation))    { writer.Write($"{prefix}/// xmi:aggregation=\"{Aggregation}\"\n"); }
             if (!String.IsNullOrWhiteSpace(Association))    { writer.Write($"{prefix}/// xmi:association=\"{Association}\"\n"); }
@@ -215,14 +242,13 @@ namespace pre
             if (IsOrdered == true)      { attributes.Append("[Ordered]"); }
             if (IsDerivedUnion == true) { attributes.Append("[Union]");   }
 
-            var cls = ClassOwner;
-            foreach (var prop in RedefinedProperties) {
-                var refprop = cls.DeclaredProperties[prop.ReferencedIdentifier];
-                writer.Write($"{prefix}/// xmi:redefines=\"{prop.ReferencedIdentifier}{{<see cref=\"P:{DefaultNamespace}.{refprop.ClassOwner.Name}.{UpperFirstLetter(refprop.Name)}\"/>}}\"\n");
-                }
-            foreach (var prop in SubsettedProperties) {
-                //var refprop = cls.DeclaredProperties[prop.ReferencedIdentifier];
-                writer.Write($"{prefix}/// xmi:subsets=\"{prop.ReferencedIdentifier}\"\n");
+            foreach (var p in SubsettedProperties) {
+                if (ClassOwner != null) {
+                    if (ClassOwner.DeclaredProperties.TryGetValue(p.ReferencedIdentifier,out var r)) {
+                        continue;
+                        }
+                    }
+                writer.Write($"{prefix}/// xmi:subsets=\"{p.ReferencedIdentifier}\"\n");
                 }
 
             if (attributes.Length > 0) { writer.Write($"{prefix}{attributes}\n"); }

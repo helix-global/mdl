@@ -34,11 +34,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that gives the <see cref="Object"/> whose participation in the <see cref="Association"/> is to be cleared.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ClearAssociationAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_clearAssociationAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         }

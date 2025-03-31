@@ -12,21 +12,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Classifier:Enumeration
         /// <summary>
         /// The <see cref="Classifier"/> of this <see cref="EnumerationLiteral"/> derived to be equal to its <see cref="Enumeration"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InstanceSpecification.Classifier"/>"
         /// </summary>
         /// xmi:id="EnumerationLiteral-classifier"
         /// xmi:association="A_classifier_enumerationLiteral"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:redefines="InstanceSpecification-classifier{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InstanceSpecification.Classifier"/>}"
         Enumeration Classifier { get; }
         #endregion
         #region P:Enumeration:Enumeration
         /// <summary>
         /// The <see cref="Enumeration"/> that this <see cref="EnumerationLiteral"/> is a member of.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="EnumerationLiteral-enumeration"
         /// xmi:association="A_ownedLiteral_enumeration"
-        /// xmi:subsets="NamedElement-namespace"
         Enumeration Enumeration { get; }
         #endregion
 

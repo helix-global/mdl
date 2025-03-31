@@ -112,6 +112,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Association:Association
         /// <summary>
         /// The <see cref="Association"/> of which this <see cref="Property"/> is a member, if any.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Property-association"
         /// xmi:association="A_memberEnd_association"
@@ -122,55 +123,60 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:AssociationEnd:Property
         /// <summary>
         /// Designates the optional <see cref="Association"/> <see cref="End"/> that owns a <see cref="Qualifier"/> attribute.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="Property-associationEnd"
         /// xmi:association="A_qualifier_associationEnd"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         Property AssociationEnd { get; }
         #endregion
         #region P:Class:Class
         /// <summary>
         /// The <see cref="Class"/> that owns this <see cref="Property"/>, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Property-class"
         /// xmi:association="A_ownedAttribute_class"
         /// xmi:subsets="A_attribute_classifier-classifier"
         /// xmi:subsets="A_ownedAttribute_structuredClassifier-structuredClassifier"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         Class Class { get; }
         #endregion
         #region P:Datatype:DataType
         /// <summary>
         /// The <see cref="DataType"/> that owns this <see cref="Property"/>, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Property-datatype"
         /// xmi:association="A_ownedAttribute_datatype"
         /// xmi:subsets="A_attribute_classifier-classifier"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         DataType Datatype { get; }
         #endregion
         #region P:DefaultValue:ValueSpecification
         /// <summary>
         /// A <see cref="ValueSpecification"/> that is evaluated to give a default value for the <see cref="Property"/> when an instance of the owning <see cref="Classifier"/> is instantiated.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Property-defaultValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_defaultValue_owningProperty"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification DefaultValue { get; }
         #endregion
         #region P:Interface:Interface
         /// <summary>
         /// The <see cref="Interface"/> that owns this <see cref="Property"/>, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Property-interface"
         /// xmi:association="A_ownedAttribute_interface"
         /// xmi:subsets="A_attribute_classifier-classifier"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         Interface Interface { get; }
         #endregion
@@ -216,34 +222,37 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwningAssociation:Association
         /// <summary>
         /// The owning <see cref="Association"/> of this property, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Feature.FeaturingClassifier"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Property.Association"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Property-owningAssociation"
         /// xmi:association="A_ownedEnd_owningAssociation"
-        /// xmi:subsets="Feature-featuringClassifier"
-        /// xmi:subsets="NamedElement-namespace"
-        /// xmi:subsets="Property-association"
-        /// xmi:subsets="RedefinableElement-redefinitionContext"
         [Multiplicity("0..1")]
         Association OwningAssociation { get; }
         #endregion
         #region P:Qualifier:Property[]
         /// <summary>
         /// An optional list of ordered <see cref="Qualifier"/> attributes for the <see cref="End"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Property-qualifier"
         /// xmi:aggregation="composite"
         /// xmi:association="A_qualifier_associationEnd"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         Property[] Qualifier { get; }
         #endregion
         #region P:RedefinedProperty:Property[]
         /// <summary>
         /// The properties that are redefined by this property, if any.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="Property-redefinedProperty"
         /// xmi:association="A_redefinedProperty_property"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         Property[] RedefinedProperty { get; }
         #endregion
         #region P:SubsettedProperty:Property[]
@@ -272,6 +281,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isCompatibleWith(ParameterableElement):Boolean
         /// <summary>
         /// The query <see cref="isCompatibleWith"/> determines if this <see cref="Property"/> is compatible with the specified <see cref="ParameterableElement"/>. This <see cref="Property"/> is compatible with <see cref="ParameterableElement"/> p if the kind of this <see cref="Property"/> is thesame as or a subtype of the kind of p. Further, if p is a <see cref="TypedElement"/>, then the <see cref="Type"/> of this <see cref="Property"/> must be conformant with the <see cref="Type"/> of p.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.isCompatibleWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -282,7 +293,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Property-isCompatibleWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="ParameterableElement-isCompatibleWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.ParameterableElement.isCompatibleWith"/>}"
         Boolean isCompatibleWith(ParameterableElement p);
         #endregion
         #region M:isComposite:Boolean
@@ -302,6 +312,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query <see cref="isConsistentWith"/> specifies, for any two Properties in a context in which redefinition is possible, whether redefinition would be logically consistent. A redefining <see cref="Property"/> is consistent with a redefined <see cref="Property"/> if the <see cref="Type"/> of the redefining <see cref="Property"/> conforms to the <see cref="Type"/> of the redefined <see cref="Property"/>, and the multiplicity of the redefining <see cref="Property"/> (if specified) is contained in the multiplicity of the redefined <see cref="Property"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -323,7 +335,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Property-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:isNavigable:Boolean

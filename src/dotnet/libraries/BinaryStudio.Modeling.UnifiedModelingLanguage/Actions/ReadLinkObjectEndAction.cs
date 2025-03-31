@@ -69,21 +69,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="Input"/> pin from which the link <see cref="Object"/> is obtained.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReadLinkObjectEndAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_readLinkObjectEndAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> where the <see cref="Result"/> value is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ReadLinkObjectEndAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readLinkObjectEndAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

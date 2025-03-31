@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Contract:Interface
         /// <summary>
         /// References the <see cref="Interface"/> specifying the conformance <see cref="Contract"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Supplier"/>"
         /// </summary>
         /// xmi:id="InterfaceRealization-contract"
         /// xmi:association="A_contract_interfaceRealization"
-        /// xmi:subsets="Dependency-supplier"
         Interface Contract { get; }
         #endregion
         #region P:ImplementingClassifier:BehavioredClassifier
         /// <summary>
         /// References the <see cref="BehavioredClassifier"/> that owns this <see cref="InterfaceRealization"/>, i.e., the <see cref="BehavioredClassifier"/> that realizes the <see cref="Interface"/> to which it refers.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Client"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="InterfaceRealization-implementingClassifier"
         /// xmi:association="A_interfaceRealization_implementingClassifier"
-        /// xmi:subsets="Dependency-client"
-        /// xmi:subsets="Element-owner"
         BehavioredClassifier ImplementingClassifier { get; }
         #endregion
         }

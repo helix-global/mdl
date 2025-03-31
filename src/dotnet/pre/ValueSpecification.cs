@@ -2,7 +2,7 @@
 
 namespace pre
     {
-    public class ValueSpecification : ModelElement
+    internal class ValueSpecification : ModelElement
         {
         public ObjectIdentifier Identifier { get;private set; }
 

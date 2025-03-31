@@ -46,11 +46,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Target:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that provides the <see cref="Target"/> object to which the <see cref="Signal"/> instance is sent.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="SendSignalAction-target"
         /// xmi:aggregation="composite"
         /// xmi:association="A_target_sendSignalAction"
-        /// xmi:subsets="Action-input"
         InputPin Target { get; }
         #endregion
         }

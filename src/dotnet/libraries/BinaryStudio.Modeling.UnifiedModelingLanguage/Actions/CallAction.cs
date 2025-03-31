@@ -50,11 +50,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin[]
         /// <summary>
         /// The OutputPins on which the reply values from the invocation are placed (if the call is synchronous).
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="CallAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_callAction"
-        /// xmi:subsets="Action-output"
         [Ordered]
         OutputPin[] Result { get; }
         #endregion

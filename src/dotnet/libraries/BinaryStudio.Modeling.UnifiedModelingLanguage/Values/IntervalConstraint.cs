@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Specification:Interval
         /// <summary>
         /// The <see cref="Interval"/> that specifies the condition of the <see cref="IntervalConstraint"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Constraint.Specification"/>"
         /// </summary>
         /// xmi:id="IntervalConstraint-specification"
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_intervalConstraint"
-        /// xmi:redefines="Constraint-specification{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Constraint.Specification"/>}"
         Interval Specification { get; }
         #endregion
         }

@@ -12,13 +12,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedPort:Port[]
         /// <summary>
         /// The Ports owned by the <see cref="EncapsulatedClassifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredClassifier.OwnedAttribute"/>"
         /// </summary>
         /// xmi:id="EncapsulatedClassifier-ownedPort"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedPort_encapsulatedClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="StructuredClassifier-ownedAttribute"
         Port[] OwnedPort { get; }
         #endregion
 

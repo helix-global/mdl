@@ -23,13 +23,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Input:InputPin[]
         /// <summary>
         /// The ordered set of InputPins representing the inputs to the <see cref="Action"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Action-input"
         /// xmi:aggregation="composite"
         /// xmi:association="A_input_action"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered][Union]
         InputPin[] Input { get; }
         #endregion
@@ -43,33 +44,36 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:LocalPostcondition:Constraint[]
         /// <summary>
         /// A <see cref="Constraint"/> that must be satisfied when execution of the <see cref="Action"/> is completed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Action-localPostcondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_localPostcondition_action"
-        /// xmi:subsets="Element-ownedElement"
         Constraint[] LocalPostcondition { get; }
         #endregion
         #region P:LocalPrecondition:Constraint[]
         /// <summary>
         /// A <see cref="Constraint"/> that must be satisfied when execution of the <see cref="Action"/> is started.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Action-localPrecondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_localPrecondition_action"
-        /// xmi:subsets="Element-ownedElement"
         Constraint[] LocalPrecondition { get; }
         #endregion
         #region P:Output:OutputPin[]
         /// <summary>
         /// The ordered set of OutputPins representing outputs from the <see cref="Action"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Action-output"
         /// xmi:aggregation="composite"
         /// xmi:association="A_output_action"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered][Union]
         OutputPin[] Output { get; }
         #endregion
@@ -103,6 +107,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         ActivityNode[] allOwnedNodes();
         #endregion
         #region M:containingBehavior:Behavior
+        /// <summary>
+        /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
         ///     result = (if inStructuredNode<>null then inStructuredNode.containingBehavior() 

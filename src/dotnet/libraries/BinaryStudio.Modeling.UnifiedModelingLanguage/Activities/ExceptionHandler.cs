@@ -94,10 +94,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ProtectedNode:ExecutableNode
         /// <summary>
         /// The <see cref="ExecutableNode"/> protected by the <see cref="ExceptionHandler"/>. If an exception propagates out of the <see cref="ProtectedNode"/> and has a type matching one of the exceptionTypes, then it is caught by this <see cref="ExceptionHandler"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ExceptionHandler-protectedNode"
         /// xmi:association="A_handler_protectedNode"
-        /// xmi:subsets="Element-owner"
         ExecutableNode ProtectedNode { get; }
         #endregion
         }

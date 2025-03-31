@@ -19,21 +19,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Request:InputPin
         /// <summary>
         /// The <see cref="Request"/> object, which is transmitted to the <see cref="Target"/> object. The object may be copied in transmission, so identity might not be preserved.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InvocationAction.Argument"/>"
         /// </summary>
         /// xmi:id="SendObjectAction-request"
         /// xmi:aggregation="composite"
         /// xmi:association="A_request_sendObjectAction"
-        /// xmi:redefines="InvocationAction-argument{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InvocationAction.Argument"/>}"
         InputPin Request { get; }
         #endregion
         #region P:Target:InputPin
         /// <summary>
         /// The <see cref="Target"/> object to which the object is sent.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="SendObjectAction-target"
         /// xmi:aggregation="composite"
         /// xmi:association="A_target_sendObjectAction"
-        /// xmi:subsets="Action-input"
         InputPin Target { get; }
         #endregion
         }

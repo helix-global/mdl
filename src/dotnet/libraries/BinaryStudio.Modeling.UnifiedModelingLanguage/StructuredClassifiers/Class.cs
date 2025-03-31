@@ -30,9 +30,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:IsAbstract:Boolean
         /// <summary>
         /// If true, the <see cref="Class"/> does not provide a complete declaration and cannot be instantiated. An abstract <see cref="Class"/> is typically used as a target of Associations or Generalizations.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.IsAbstract"/>"
         /// </summary>
         /// xmi:id="Class-isAbstract"
-        /// xmi:redefines="Classifier-isAbstract{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.IsAbstract"/>}"
         Boolean IsAbstract { get; }
         #endregion
         #region P:IsActive:Boolean
@@ -45,60 +46,66 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:NestedClassifier:Classifier[]
         /// <summary>
         /// The Classifiers owned by the <see cref="Class"/> that are not ownedBehaviors.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Class-nestedClassifier"
         /// xmi:aggregation="composite"
         /// xmi:association="A_nestedClassifier_nestingClass"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Classifier[] NestedClassifier { get; }
         #endregion
         #region P:OwnedAttribute:Property[]
         /// <summary>
         /// The attributes (i.e., the Properties) owned by the <see cref="Class"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredClassifier.OwnedAttribute"/>"
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Attribute"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Class-ownedAttribute"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_class"
-        /// xmi:redefines="StructuredClassifier-ownedAttribute{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredClassifier.OwnedAttribute"/>}"
-        /// xmi:subsets="Classifier-attribute"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedOperation:Operation[]
         /// <summary>
         /// The Operations owned by the <see cref="Class"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Feature"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Class-ownedOperation"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedOperation_class"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
-        /// xmi:subsets="Classifier-feature"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Operation[] OwnedOperation { get; }
         #endregion
         #region P:OwnedReception:Reception[]
         /// <summary>
         /// The Receptions owned by the <see cref="Class"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Feature"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Class-ownedReception"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedReception_class"
-        /// xmi:subsets="Classifier-feature"
-        /// xmi:subsets="Namespace-ownedMember"
         Reception[] OwnedReception { get; }
         #endregion
         #region P:SuperClass:Class[]
         /// <summary>
         /// The superclasses of a <see cref="Class"/>, derived from its Generalizations.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.General"/>"
         /// </summary>
         /// xmi:id="Class-superClass"
         /// xmi:association="A_superClass_class"
         /// xmi:is-derived="true"
-        /// xmi:redefines="Classifier-general{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.General"/>}"
         Class[] SuperClass { get; }
         #endregion
 

@@ -48,11 +48,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that holds the <see cref="Object"/> to be reclassified.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_reclassifyObjectAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:OldClassifier:Classifier[]

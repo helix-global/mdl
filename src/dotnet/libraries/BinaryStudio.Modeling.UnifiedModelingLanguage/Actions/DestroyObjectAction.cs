@@ -40,11 +40,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Target:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> providing the object to be destroyed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="DestroyObjectAction-target"
         /// xmi:aggregation="composite"
         /// xmi:association="A_target_destroyObjectAction"
-        /// xmi:subsets="Action-input"
         InputPin Target { get; }
         #endregion
         }

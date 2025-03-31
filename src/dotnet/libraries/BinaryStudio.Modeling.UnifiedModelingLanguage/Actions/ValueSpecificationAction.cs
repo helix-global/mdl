@@ -26,21 +26,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> on which the <see cref="Result"/> <see cref="Value"/> is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ValueSpecificationAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_valueSpecificationAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         #region P:Value:ValueSpecification
         /// <summary>
         /// The <see cref="ValueSpecification"/> to be evaluated.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ValueSpecificationAction-value"
         /// xmi:aggregation="composite"
         /// xmi:association="A_value_valueSpecificationAction"
-        /// xmi:subsets="Element-ownedElement"
         ValueSpecification Value { get; }
         #endregion
         }

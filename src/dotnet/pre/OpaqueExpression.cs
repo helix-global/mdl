@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class OpaqueExpression : ModelElement
+    internal class OpaqueExpression : ModelElement
         {
         public String Name { get;private set; }
         public String Body { get;private set; }

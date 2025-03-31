@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:AppliedProfile:Profile
         /// <summary>
         /// References the Profiles that are applied to a <see cref="Package"/> through this <see cref="ProfileApplication"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="ProfileApplication-appliedProfile"
         /// xmi:association="A_appliedProfile_profileApplication"
-        /// xmi:subsets="DirectedRelationship-target"
         Profile AppliedProfile { get; }
         #endregion
         #region P:ApplyingPackage:Package
         /// <summary>
         /// The package that owns the profile application.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ProfileApplication-applyingPackage"
         /// xmi:association="A_profileApplication_applyingPackage"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="Element-owner"
         Package ApplyingPackage { get; }
         #endregion
         #region P:IsStrict:Boolean

@@ -38,11 +38,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:CfragmentGate:Gate[]
         /// <summary>
         /// Specifies the gates that form the interface between this <see cref="CombinedFragment"/> and its surroundings
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="CombinedFragment-cfragmentGate"
         /// xmi:aggregation="composite"
         /// xmi:association="A_cfragmentGate_combinedFragment"
-        /// xmi:subsets="Element-ownedElement"
         Gate[] CfragmentGate { get; }
         #endregion
         #region P:InteractionOperator:InteractionOperatorKind
@@ -55,11 +56,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Operand:InteractionOperand[]
         /// <summary>
         /// The set of operands of the combined fragment.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="CombinedFragment-operand"
         /// xmi:aggregation="composite"
         /// xmi:association="A_operand_combinedFragment"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("1..*")][Ordered]
         InteractionOperand[] Operand { get; }
         #endregion

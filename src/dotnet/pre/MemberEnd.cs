@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class MemberEnd : ModelElement
+    internal class MemberEnd : ModelElement
         {
         public ObjectIdentifier ReferencedIdentifier { get;private set; }
 

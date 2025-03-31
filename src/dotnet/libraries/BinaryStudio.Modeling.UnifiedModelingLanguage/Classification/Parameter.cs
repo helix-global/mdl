@@ -65,11 +65,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:DefaultValue:ValueSpecification
         /// <summary>
         /// Specifies a <see cref="ValueSpecification"/> that represents a value to be used when no argument is supplied for the <see cref="Parameter"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Parameter-defaultValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_defaultValue_owningParameter"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification DefaultValue { get; }
         #endregion
@@ -104,6 +105,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Operation:Operation
         /// <summary>
         /// The <see cref="Operation"/> owning this parameter.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Parameter-operation"
         /// xmi:association="A_ownedParameter_operation"

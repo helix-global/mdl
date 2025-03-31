@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Addition:UseCase
         /// <summary>
         /// The <see cref="UseCase"/> that is to be included.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="Include-addition"
         /// xmi:association="A_addition_include"
-        /// xmi:subsets="DirectedRelationship-target"
         UseCase Addition { get; }
         #endregion
         #region P:IncludingCase:UseCase
         /// <summary>
         /// The <see cref="UseCase"/> which includes the <see cref="Addition"/> and owns the <see cref="Include"/> relationship.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Include-includingCase"
         /// xmi:association="A_include_includingCase"
-        /// xmi:subsets="DirectedRelationship-source"
-        /// xmi:subsets="NamedElement-namespace"
         UseCase IncludingCase { get; }
         #endregion
         }

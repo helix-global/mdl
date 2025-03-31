@@ -19,31 +19,35 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Classifier:Classifier
         /// <summary>
         /// The <see cref="Classifier"/> that owns this <see cref="RedefinableTemplateSignature"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateSignature.Template"/>"
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="RedefinableTemplateSignature-classifier"
         /// xmi:association="A_ownedTemplateSignature_classifier"
-        /// xmi:redefines="TemplateSignature-template{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateSignature.Template"/>}"
-        /// xmi:subsets="RedefinableElement-redefinitionContext"
         Classifier Classifier { get; }
         #endregion
         #region P:ExtendedSignature:RedefinableTemplateSignature[]
         /// <summary>
         /// The signatures extended by this <see cref="RedefinableTemplateSignature"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="RedefinableTemplateSignature-extendedSignature"
         /// xmi:association="A_extendedSignature_redefinableTemplateSignature"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         RedefinableTemplateSignature[] ExtendedSignature { get; }
         #endregion
         #region P:InheritedParameter:TemplateParameter[]
         /// <summary>
         /// The formal <see cref="Template"/> parameters of the extended signatures.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateSignature.Parameter"/>"
         /// </summary>
         /// xmi:id="RedefinableTemplateSignature-inheritedParameter"
         /// xmi:association="A_inheritedParameter_redefinableTemplateSignature"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="TemplateSignature-parameter"
         TemplateParameter[] InheritedParameter { get; }
         #endregion
 
@@ -64,6 +68,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query <see cref="isConsistentWith"/> specifies, for any two RedefinableTemplateSignatures in a context in which redefinition is possible, whether redefinition would be logically consistent. A redefining <see cref="Template"/> signature is always consistent with a redefined <see cref="Template"/> signature, as redefinition only adds new formal parameters.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -80,7 +86,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="RedefinableTemplateSignature-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         }

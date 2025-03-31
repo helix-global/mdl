@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Class : ModelElement
+    internal class Class : ModelElement,IPackageableElement
         {
         public String Name { get;private set; }
         public String Identifier { get;private set; }
@@ -19,6 +19,7 @@ namespace pre
         public Boolean UseInteger { get;set; }
         public Boolean UseReal { get;set; }
         public Package PackageOwner { get; }
+        IPackage IPackageableElement.Package { get { return PackageOwner; }}
 
         #region P:DeclaredProperties:IDictionary<String,Property>
         public IDictionary<String,Property> DeclaredProperties { get {

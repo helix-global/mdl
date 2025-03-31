@@ -13,11 +13,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Argument:InputPin[]
         /// <summary>
         /// The InputPins that provide the <see cref="Argument"/> values passed in the invocation request.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="InvocationAction-argument"
         /// xmi:aggregation="composite"
         /// xmi:association="A_argument_invocationAction"
-        /// xmi:subsets="Action-input"
         [Ordered]
         InputPin[] Argument { get; }
         #endregion

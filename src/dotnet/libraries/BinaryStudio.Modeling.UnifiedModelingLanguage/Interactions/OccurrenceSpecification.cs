@@ -12,10 +12,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Covered:Lifeline
         /// <summary>
         /// References the <see cref="Lifeline"/> on which the <see cref="OccurrenceSpecification"/> appears.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InteractionFragment.Covered"/>"
         /// </summary>
         /// xmi:id="OccurrenceSpecification-covered"
         /// xmi:association="A_covered_events"
-        /// xmi:redefines="InteractionFragment-covered{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.InteractionFragment.Covered"/>}"
         Lifeline Covered { get; }
         #endregion
         #region P:ToAfter:GeneralOrdering[]

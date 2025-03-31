@@ -48,21 +48,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Slot:Slot[]
         /// <summary>
         /// A <see cref="Slot"/> giving the value or values of a <see cref="StructuralFeature"/> of the instance. An <see cref="InstanceSpecification"/> can have one <see cref="Slot"/> per <see cref="StructuralFeature"/> of its Classifiers, including inherited features. It is not necessary to model a <see cref="Slot"/> for every <see cref="StructuralFeature"/>, in which case the <see cref="InstanceSpecification"/> is a partial description.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InstanceSpecification-slot"
         /// xmi:aggregation="composite"
         /// xmi:association="A_slot_owningInstance"
-        /// xmi:subsets="Element-ownedElement"
         Slot[] Slot { get; }
         #endregion
         #region P:Specification:ValueSpecification
         /// <summary>
         /// A <see cref="Specification"/> of how to compute, derive, or construct the instance.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InstanceSpecification-specification"
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_owningInstanceSpec"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification Specification { get; }
         #endregion

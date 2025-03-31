@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Constraint : ModelElement
+    internal class Constraint : ModelElement
         {
         public String Name { get;private set; }
         public ObjectIdentifier Identifier { get;private set; }

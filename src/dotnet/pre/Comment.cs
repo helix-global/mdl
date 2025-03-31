@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Comment : ModelElement
+    internal class Comment : ModelElement
         {
         public ObjectIdentifier Identifier { get;private set; }
         public String Body { get;private set; }

@@ -12,12 +12,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedAttribute:Property[]
         /// <summary>
         /// The attributes owned by the <see cref="Signal"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Attribute"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Signal-ownedAttribute"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_owningSignal"
-        /// xmi:subsets="Classifier-attribute"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion

@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class RedefinedOperation : ModelElement
+    internal class RedefinedOperation : ModelElement
         {
         public String ReferencedIdentifier { get;private set; }
         public RedefinedOperation(ModelElement owner)

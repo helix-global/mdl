@@ -20,20 +20,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwningInstance:InstanceSpecification
         /// <summary>
         /// The <see cref="InstanceSpecification"/> that owns this <see cref="Slot"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="Slot-owningInstance"
         /// xmi:association="A_slot_owningInstance"
-        /// xmi:subsets="Element-owner"
         InstanceSpecification OwningInstance { get; }
         #endregion
         #region P:Value:ValueSpecification[]
         /// <summary>
         /// The <see cref="Value"/> or values held by the <see cref="Slot"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Slot-value"
         /// xmi:aggregation="composite"
         /// xmi:association="A_value_owningSlot"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         ValueSpecification[] Value { get; }
         #endregion

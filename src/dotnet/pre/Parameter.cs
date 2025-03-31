@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Parameter : ModelElement
+    internal class Parameter : ModelElement
         {
         public String Type { get;private set; }
         public String Name { get;private set; }

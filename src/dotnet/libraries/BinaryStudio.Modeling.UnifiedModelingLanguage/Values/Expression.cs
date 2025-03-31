@@ -12,11 +12,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Operand:ValueSpecification[]
         /// <summary>
         /// Specifies a sequence of <see cref="Operand"/> ValueSpecifications.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="Expression-operand"
         /// xmi:aggregation="composite"
         /// xmi:association="A_operand_expression"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         ValueSpecification[] Operand { get; }
         #endregion

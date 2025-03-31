@@ -40,30 +40,33 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ConnectionPoint:Pseudostate[]
         /// <summary>
         /// The connection points defined for this <see cref="StateMachine"/>. They represent the interface of the <see cref="StateMachine"/> when used as <see cref="Part"/> of submachine <see cref="State"/>
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="StateMachine-connectionPoint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_connectionPoint_stateMachine"
-        /// xmi:subsets="Namespace-ownedMember"
         Pseudostate[] ConnectionPoint { get; }
         #endregion
         #region P:ExtendedStateMachine:StateMachine[]
         /// <summary>
         /// The StateMachines of which this is an <see cref="Extension"/>.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Behavior.RedefinedBehavior"/>"
         /// </summary>
         /// xmi:id="StateMachine-extendedStateMachine"
         /// xmi:association="A_extendedStateMachine_stateMachine"
-        /// xmi:redefines="Behavior-redefinedBehavior{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Behavior.RedefinedBehavior"/>}"
         StateMachine[] ExtendedStateMachine { get; }
         #endregion
         #region P:Region:Region[]
         /// <summary>
         /// The Regions owned directly by the <see cref="StateMachine"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="StateMachine-region"
         /// xmi:aggregation="composite"
         /// xmi:association="A_region_stateMachine"
-        /// xmi:subsets="Namespace-ownedMember"
         [Multiplicity("1..*")]
         Region[] Region { get; }
         #endregion
@@ -105,6 +108,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query isConsistentWith specifies that a <see cref="StateMachine"/> can be redefined by any other <see cref="StateMachine"/> for which the redefinition <see cref="Context"/> is valid (see the isRedefinitionContextValid operation). Note that consistency requirements for the redefinition of Regions and <see cref="ConnectionPoint"/> Pseudostates owned by a <see cref="StateMachine"/> are specified by the isConsistentWith and isRedefinitionContextValid operations for <see cref="Region"/> and <see cref="Vertex"/> (and its subclass <see cref="Pseudostate"/>).
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -114,12 +119,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StateMachine-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:isRedefinitionContextValid(RedefinableElement):Boolean
         /// <summary>
         /// The query isRedefinitionContextValid specifies whether the redefinition <see cref="Context"/> of a <see cref="StateMachine"/> is properly related to the redefinition contexts of a <see cref="StateMachine"/> it redefines. The requirement is that the <see cref="Context"/> <see cref="BehavioredClassifier"/> of a redefining <see cref="StateMachine"/> must specialize the <see cref="Context"/> <see cref="Classifier"/> of the redefined <see cref="StateMachine"/>. If the redefining <see cref="StateMachine"/> does not have a <see cref="Context"/> <see cref="BehavioredClassifier"/>, then then the redefining <see cref="StateMachine"/> also must not have a <see cref="Context"/> <see cref="BehavioredClassifier"/> but must, instead, specialize the redefining <see cref="StateMachine"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isRedefinitionContextValid"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -136,7 +142,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="StateMachine-isRedefinitionContextValid"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isRedefinitionContextValid{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isRedefinitionContextValid"/>}"
         Boolean isRedefinitionContextValid(RedefinableElement redefinedElement);
         #endregion
         #region M:LCA(Vertex,Vertex):Region

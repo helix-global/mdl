@@ -40,11 +40,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ReturnInformation:OutputPin
         /// <summary>
         /// An <see cref="OutputPin"/> where a value is placed containing sufficient information to perform a subsequent <see cref="ReplyAction"/> and return control to the caller. The contents of this value are opaque. It can be passed and copied but it cannot be manipulated by the model.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="AcceptCallAction-returnInformation"
         /// xmi:aggregation="composite"
         /// xmi:association="A_returnInformation_acceptCallAction"
-        /// xmi:subsets="Action-output"
         OutputPin ReturnInformation { get; }
         #endregion
         }

@@ -12,10 +12,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:UtilizedElement:PackageableElement
         /// <summary>
         /// The model element that is utilized in the manifestation in an <see cref="Artifact"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Dependency.Supplier"/>"
         /// </summary>
         /// xmi:id="Manifestation-utilizedElement"
         /// xmi:association="A_utilizedElement_manifestation"
-        /// xmi:subsets="Dependency-supplier"
         PackageableElement UtilizedElement { get; }
         #endregion
         }

@@ -40,22 +40,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> on which is put the <see cref="Input"/> <see cref="Object"/> as modified by the <see cref="WriteStructuralFeatureAction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="WriteStructuralFeatureAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_writeStructuralFeatureAction"
-        /// xmi:subsets="Action-output"
         [Multiplicity("0..1")]
         OutputPin Result { get; }
         #endregion
         #region P:Value:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that provides the <see cref="Value"/> to be added or removed from the <see cref="StructuralFeature"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="WriteStructuralFeatureAction-value"
         /// xmi:aggregation="composite"
         /// xmi:association="A_value_writeStructuralFeatureAction"
-        /// xmi:subsets="Action-input"
         [Multiplicity("0..1")]
         InputPin Value { get; }
         #endregion

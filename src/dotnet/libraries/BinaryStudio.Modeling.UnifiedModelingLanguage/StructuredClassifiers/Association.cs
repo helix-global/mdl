@@ -49,12 +49,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:EndType:Type[]
         /// <summary>
         /// The Classifiers that are used as types of the ends of the <see cref="Association"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Relationship.RelatedElement"/>"
         /// </summary>
         /// xmi:id="Association-endType"
         /// xmi:association="A_endType_association"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Relationship-relatedElement"
         [Multiplicity("1..*")]
         Type[] EndType { get; }
         #endregion
@@ -68,33 +69,36 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:MemberEnd:Property[]
         /// <summary>
         /// Each end represents participation of instances of the <see cref="Classifier"/> connected to the end in links of the <see cref="Association"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.Member"/>"
         /// </summary>
         /// xmi:id="Association-memberEnd"
         /// xmi:association="A_memberEnd_association"
-        /// xmi:subsets="Namespace-member"
         [Multiplicity("2..*")][Ordered]
         Property[] MemberEnd { get; }
         #endregion
         #region P:NavigableOwnedEnd:Property[]
         /// <summary>
         /// The navigable ends that are owned by the <see cref="Association"/> itself.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Association.OwnedEnd"/>"
         /// </summary>
         /// xmi:id="Association-navigableOwnedEnd"
         /// xmi:association="A_navigableOwnedEnd_association"
-        /// xmi:subsets="Association-ownedEnd"
         Property[] NavigableOwnedEnd { get; }
         #endregion
         #region P:OwnedEnd:Property[]
         /// <summary>
         /// The ends that are owned by the <see cref="Association"/> itself.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Association.MemberEnd"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Feature"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Association-ownedEnd"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedEnd_owningAssociation"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
-        /// xmi:subsets="Association-memberEnd"
-        /// xmi:subsets="Classifier-feature"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Property[] OwnedEnd { get; }
         #endregion

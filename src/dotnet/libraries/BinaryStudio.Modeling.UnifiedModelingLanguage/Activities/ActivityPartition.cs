@@ -62,10 +62,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Edge:ActivityEdge[]
         /// <summary>
         /// ActivityEdges immediately contained in the <see cref="ActivityPartition"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.ContainedEdge"/>"
         /// </summary>
         /// xmi:id="ActivityPartition-edge"
         /// xmi:association="A_edge_inPartition"
-        /// xmi:subsets="ActivityGroup-containedEdge"
         ActivityEdge[] Edge { get; }
         #endregion
         #region P:IsDimension:Boolean
@@ -85,10 +86,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Node:ActivityNode[]
         /// <summary>
         /// ActivityNodes immediately contained in the <see cref="ActivityPartition"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.ContainedNode"/>"
         /// </summary>
         /// xmi:id="ActivityPartition-node"
         /// xmi:association="A_inPartition_node"
-        /// xmi:subsets="ActivityGroup-containedNode"
         ActivityNode[] Node { get; }
         #endregion
         #region P:Represents:Element
@@ -103,20 +105,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Subpartition:ActivityPartition[]
         /// <summary>
         /// Other ActivityPartitions immediately contained in this <see cref="ActivityPartition"/> (as its subgroups).
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.Subgroup"/>"
         /// </summary>
         /// xmi:id="ActivityPartition-subpartition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_subpartition_superPartition"
-        /// xmi:subsets="ActivityGroup-subgroup"
         ActivityPartition[] Subpartition { get; }
         #endregion
         #region P:SuperPartition:ActivityPartition
         /// <summary>
         /// Other ActivityPartitions immediately containing this <see cref="ActivityPartition"/> (as its superGroups).
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.SuperGroup"/>"
         /// </summary>
         /// xmi:id="ActivityPartition-superPartition"
         /// xmi:association="A_subpartition_superPartition"
-        /// xmi:subsets="ActivityGroup-superGroup"
         [Multiplicity("0..1")]
         ActivityPartition SuperPartition { get; }
         #endregion

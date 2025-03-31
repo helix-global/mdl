@@ -53,20 +53,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:InformationSource:NamedElement[]
         /// <summary>
         /// Defines from which <see cref="Source"/> the <see cref="Conveyed"/> InformationItems are initiated.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Source"/>"
         /// </summary>
         /// xmi:id="InformationFlow-informationSource"
         /// xmi:association="A_informationSource_informationFlow"
-        /// xmi:subsets="DirectedRelationship-source"
         [Multiplicity("1..*")]
         NamedElement[] InformationSource { get; }
         #endregion
         #region P:InformationTarget:NamedElement[]
         /// <summary>
         /// Defines to which <see cref="Target"/> the <see cref="Conveyed"/> InformationItems are directed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.DirectedRelationship.Target"/>"
         /// </summary>
         /// xmi:id="InformationFlow-informationTarget"
         /// xmi:association="A_informationTarget_informationFlow"
-        /// xmi:subsets="DirectedRelationship-target"
         [Multiplicity("1..*")]
         NamedElement[] InformationTarget { get; }
         #endregion

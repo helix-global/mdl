@@ -51,21 +51,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that gives the <see cref="Object"/> to be unmarshalled.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="UnmarshallAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_unmarshallAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Result:OutputPin[]
         /// <summary>
         /// The OutputPins on which are placed the values of the StructuralFeatures of the <see cref="Input"/> <see cref="Object"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="UnmarshallAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_unmarshallAction"
-        /// xmi:subsets="Action-output"
         [Multiplicity("1..*")][Ordered]
         OutputPin[] Result { get; }
         #endregion

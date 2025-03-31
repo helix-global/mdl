@@ -12,6 +12,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Package:Package
         /// <summary>
         /// Specifies the owning <see cref="Package"/> of this <see cref="Type"/>, if any.
+        /// Subsets:
         /// </summary>
         /// xmi:id="Type-package"
         /// xmi:association="A_ownedType_package"

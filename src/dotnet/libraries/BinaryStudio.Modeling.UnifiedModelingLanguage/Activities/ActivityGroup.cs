@@ -52,35 +52,38 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:InActivity:Activity
         /// <summary>
         /// The <see cref="Activity"/> containing the <see cref="ActivityGroup"/>, if it is directly owned by an <see cref="Activity"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ActivityGroup-inActivity"
         /// xmi:association="A_group_inActivity"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")]
         Activity InActivity { get; }
         #endregion
         #region P:Subgroup:ActivityGroup[]
         /// <summary>
         /// Other ActivityGroups immediately contained in this <see cref="ActivityGroup"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ActivityGroup-subgroup"
         /// xmi:aggregation="composite"
         /// xmi:association="A_subgroup_superGroup"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Element-ownedElement"
         [Union]
         ActivityGroup[] Subgroup { get; }
         #endregion
         #region P:SuperGroup:ActivityGroup
         /// <summary>
         /// The <see cref="ActivityGroup"/> immediately containing this <see cref="ActivityGroup"/>, if it is directly owned by another <see cref="ActivityGroup"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="ActivityGroup-superGroup"
         /// xmi:association="A_subgroup_superGroup"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Element-owner"
         [Multiplicity("0..1")][Union]
         ActivityGroup SuperGroup { get; }
         #endregion

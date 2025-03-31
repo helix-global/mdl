@@ -12,31 +12,34 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RedefinedVertex:Vertex
         /// <summary>
         /// The <see cref="Vertex"/> of which this <see cref="Vertex"/> is a redefinition.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="State-redefinedState"
         /// xmi:association="A_redefinedState_state"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         [Multiplicity("0..1")]
         Vertex RedefinedVertex { get; }
         #endregion
         #region P:RedefinitionContext:Classifier
         /// <summary>
         /// References the <see cref="Classifier"/> in which context this element may be redefined.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="State-redefinitionContext"
         /// xmi:association="A_redefinitionContext_state"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:redefines="RedefinableElement-redefinitionContext{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>}"
         Classifier RedefinitionContext { get; }
         #endregion
         #region P:Container:Region
         /// <summary>
         /// The <see cref="Region"/> that contains this <see cref="Vertex"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Vertex-container"
         /// xmi:association="A_subvertex_container"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         Region Container { get; }
         #endregion
@@ -64,6 +67,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query isRedefinitionContextValid specifies that the redefinition context of a redefining <see cref="Vertex"/> is properly related to the redefinition context of the redefined <see cref="Vertex"/> if the <see cref="Owner"/> of the redefining <see cref="Vertex"/> is a redefinition of the <see cref="Owner"/> of the redefined <see cref="Vertex"/>. Note that the <see cref="Owner"/> of a <see cref="Vertex"/> may be a <see cref="Region"/>, a <see cref="StateMachine"/> (for a connectionPoint <see cref="Pseudostate"/>), or a <see cref="State"/> (for a connectionPoint <see cref="Pseudostate"/> or a connection <see cref="ConnectionPointReference"/>), all of which are RedefinableElements.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -81,7 +86,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="State-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:redefinitionContext:Classifier

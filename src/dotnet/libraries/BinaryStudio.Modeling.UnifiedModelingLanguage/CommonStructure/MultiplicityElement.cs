@@ -72,11 +72,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:LowerValue:ValueSpecification
         /// <summary>
         /// The specification of the <see cref="Lower"/> bound for this multiplicity.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="MultiplicityElement-lowerValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_lowerValue_owningLower"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification LowerValue { get; }
         #endregion
@@ -91,11 +92,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:UpperValue:ValueSpecification
         /// <summary>
         /// The specification of the <see cref="Upper"/> bound for this multiplicity.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="MultiplicityElement-upperValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_upperValue_owningUpper"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification UpperValue { get; }
         #endregion

@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Precondition : ModelElement
+    internal class Precondition : ModelElement
         {
         public ObjectIdentifier ReferencedIdentifier { get;private set; }
         public Precondition(ModelElement owner)

@@ -20,31 +20,34 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:EnclosingInteraction:Interaction
         /// <summary>
         /// The <see cref="Interaction"/> enclosing this <see cref="InteractionFragment"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="InteractionFragment-enclosingInteraction"
         /// xmi:association="A_fragment_enclosingInteraction"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         Interaction EnclosingInteraction { get; }
         #endregion
         #region P:EnclosingOperand:InteractionOperand
         /// <summary>
         /// The operand enclosing this <see cref="InteractionFragment"/> (they may nest recursively).
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="InteractionFragment-enclosingOperand"
         /// xmi:association="A_fragment_enclosingOperand"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         InteractionOperand EnclosingOperand { get; }
         #endregion
         #region P:GeneralOrdering:GeneralOrdering[]
         /// <summary>
         /// The general ordering relationships contained in this fragment.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionFragment-generalOrdering"
         /// xmi:aggregation="composite"
         /// xmi:association="A_generalOrdering_interactionFragment"
-        /// xmi:subsets="Element-ownedElement"
         GeneralOrdering[] GeneralOrdering { get; }
         #endregion
         }

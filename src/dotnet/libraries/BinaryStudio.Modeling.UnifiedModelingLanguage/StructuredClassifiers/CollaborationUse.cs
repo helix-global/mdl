@@ -49,11 +49,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RoleBinding:Dependency[]
         /// <summary>
         /// A mapping between features of the <see cref="Collaboration"/> and features of the owning <see cref="Classifier"/>. This mapping indicates which <see cref="ConnectableElement"/> of the <see cref="Classifier"/> plays which role(s) in the <see cref="Collaboration"/>. A <see cref="ConnectableElement"/> may be bound to multiple roles in the same <see cref="CollaborationUse"/> (that is, it may play multiple roles).
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="CollaborationUse-roleBinding"
         /// xmi:aggregation="composite"
         /// xmi:association="A_roleBinding_collaborationUse"
-        /// xmi:subsets="Element-ownedElement"
         Dependency[] RoleBinding { get; }
         #endregion
         #region P:Type:Collaboration

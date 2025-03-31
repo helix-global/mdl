@@ -26,11 +26,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> on which is put the <see cref="Input"/> <see cref="Object"/> as modified by the <see cref="ClearStructuralFeatureAction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ClearStructuralFeatureAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_clearStructuralFeatureAction"
-        /// xmi:subsets="Action-output"
         [Multiplicity("0..1")]
         OutputPin Result { get; }
         #endregion

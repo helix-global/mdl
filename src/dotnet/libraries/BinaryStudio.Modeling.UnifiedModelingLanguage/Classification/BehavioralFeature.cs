@@ -41,22 +41,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedParameter:Parameter[]
         /// <summary>
         /// The ordered set of formal Parameters of this <see cref="BehavioralFeature"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="BehavioralFeature-ownedParameter"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_ownerFormalParam"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         Parameter[] OwnedParameter { get; }
         #endregion
         #region P:OwnedParameterSet:ParameterSet[]
         /// <summary>
         /// The ParameterSets owned by this <see cref="BehavioralFeature"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="BehavioralFeature-ownedParameterSet"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameterSet_behavioralFeature"
-        /// xmi:subsets="Namespace-ownedMember"
         ParameterSet[] OwnedParameterSet { get; }
         #endregion
         #region P:RaisedException:Type[]
@@ -85,6 +87,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isDistinguishableFrom(NamedElement,Namespace):Boolean
         /// <summary>
         /// The query <see cref="isDistinguishableFrom"/> determines whether two BehavioralFeatures may coexist in the same <see cref="Namespace"/>. It specifies that they must have different signatures.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -98,7 +102,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="BehavioralFeature-isDistinguishableFrom"
         /// xmi:is-query="true"
-        /// xmi:redefines="NamedElement-isDistinguishableFrom{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.isDistinguishableFrom"/>}"
         Boolean isDistinguishableFrom(NamedElement n,Namespace ns);
         #endregion
         #region M:outputParameters:Parameter[]

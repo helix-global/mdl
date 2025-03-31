@@ -19,32 +19,35 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ClassifierBehavior:Behavior
         /// <summary>
         /// A <see cref="Behavior"/> that specifies the behavior of the <see cref="BehavioredClassifier"/> itself.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.BehavioredClassifier.OwnedBehavior"/>"
         /// </summary>
         /// xmi:id="BehavioredClassifier-classifierBehavior"
         /// xmi:association="A_classifierBehavior_behavioredClassifier"
-        /// xmi:subsets="BehavioredClassifier-ownedBehavior"
         [Multiplicity("0..1")]
         Behavior ClassifierBehavior { get; }
         #endregion
         #region P:InterfaceRealization:InterfaceRealization[]
         /// <summary>
         /// The set of InterfaceRealizations owned by the <see cref="BehavioredClassifier"/>. <see cref="Interface"/> realizations reference the Interfaces of which the <see cref="BehavioredClassifier"/> is an implementation.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.ClientDependency"/>"
         /// </summary>
         /// xmi:id="BehavioredClassifier-interfaceRealization"
         /// xmi:aggregation="composite"
         /// xmi:association="A_interfaceRealization_implementingClassifier"
-        /// xmi:subsets="Element-ownedElement"
-        /// xmi:subsets="NamedElement-clientDependency"
         InterfaceRealization[] InterfaceRealization { get; }
         #endregion
         #region P:OwnedBehavior:Behavior[]
         /// <summary>
         /// Behaviors owned by a <see cref="BehavioredClassifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="BehavioredClassifier-ownedBehavior"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedBehavior_behavioredClassifier"
-        /// xmi:subsets="Namespace-ownedMember"
         Behavior[] OwnedBehavior { get; }
         #endregion
         }

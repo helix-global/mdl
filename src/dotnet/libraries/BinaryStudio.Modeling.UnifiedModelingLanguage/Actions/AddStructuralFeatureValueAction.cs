@@ -32,11 +32,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:InsertAt:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that gives the position at which to insert the <see cref="Value"/> in an ordered <see cref="StructuralFeature"/>. The type of the <see cref="InsertAt"/> <see cref="InputPin"/> is UnlimitedNatural, but the <see cref="Value"/> cannot be zero. It is omitted for unordered StructuralFeatures.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="AddStructuralFeatureValueAction-insertAt"
         /// xmi:aggregation="composite"
         /// xmi:association="A_insertAt_addStructuralFeatureValueAction"
-        /// xmi:subsets="Action-input"
         [Multiplicity("0..1")]
         InputPin InsertAt { get; }
         #endregion

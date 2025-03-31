@@ -73,10 +73,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:RedefinedPort:Port[]
         /// <summary>
         /// A <see cref="Port"/> may be redefined when its containing <see cref="EncapsulatedClassifier"/> is specialized. The redefining <see cref="Port"/> may have additional Interfaces to those that are associated with the redefined <see cref="Port"/> or it may replace an <see cref="Interface"/> by one of its subtypes.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Property.RedefinedProperty"/>"
         /// </summary>
         /// xmi:id="Port-redefinedPort"
         /// xmi:association="A_redefinedPort_port"
-        /// xmi:subsets="Property-redefinedProperty"
         Port[] RedefinedPort { get; }
         #endregion
         #region P:Required:Interface[]

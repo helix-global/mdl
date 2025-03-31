@@ -35,22 +35,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedActual:ParameterableElement
         /// <summary>
         /// The <see cref="ParameterableElement"/> that is owned by this <see cref="TemplateParameterSubstitution"/> as its <see cref="Actual"/> parameter.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.TemplateParameterSubstitution.Actual"/>"
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-ownedActual"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedActual_owningTemplateParameterSubstitution"
-        /// xmi:subsets="Element-ownedElement"
-        /// xmi:subsets="TemplateParameterSubstitution-actual"
         [Multiplicity("0..1")]
         ParameterableElement OwnedActual { get; }
         #endregion
         #region P:TemplateBinding:TemplateBinding
         /// <summary>
         /// The <see cref="TemplateBinding"/> that owns this <see cref="TemplateParameterSubstitution"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.Owner"/>"
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-templateBinding"
         /// xmi:association="A_parameterSubstitution_templateBinding"
-        /// xmi:subsets="Element-owner"
         TemplateBinding TemplateBinding { get; }
         #endregion
         }

@@ -35,31 +35,34 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:First:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> on which the <see cref="First"/> <see cref="Input"/> object is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="TestIdentityAction-first"
         /// xmi:aggregation="composite"
         /// xmi:association="A_first_testIdentityAction"
-        /// xmi:subsets="Action-input"
         InputPin First { get; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> whose Boolean value indicates whether the two <see cref="Input"/> objects are identical.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="TestIdentityAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_testIdentityAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         #region P:Second:InputPin
         /// <summary>
         /// The <see cref="OutputPin"/> on which the <see cref="Second"/> <see cref="Input"/> object is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="TestIdentityAction-second"
         /// xmi:aggregation="composite"
         /// xmi:association="A_second_testIdentityAction"
-        /// xmi:subsets="Action-input"
         InputPin Second { get; }
         #endregion
         }

@@ -18,11 +18,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedLiteral:EnumerationLiteral[]
         /// <summary>
         /// The ordered set of literals owned by this <see cref="Enumeration"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Enumeration-ownedLiteral"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedLiteral_enumeration"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         EnumerationLiteral[] OwnedLiteral { get; }
         #endregion

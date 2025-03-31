@@ -1,28 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Xml;
 
 namespace pre
     {
-    public class Package : ModelElement
+    internal class Package : ModelElement,IPackage,IPackageableElement
         {
         public String Name { get;private set; }
-        public ObjectIdentifier Identifier { get;private set; }
-        public IList<Package> OwnedPackage { get; }
-        public IList<Class> OwnedClass { get; }
-        public IList<Enumeration> OwnedEnumeration { get; }
+        public String Identifier { get;private set; }
+        public IDictionary<String,Package> OwnedPackage { get; }
+        public IDictionary<String,Class> OwnedClass { get; }
+        public IDictionary<String,Enumeration> OwnedEnumeration { get; }
         public IDictionary<String,Association> OwnedAssociation { get; }
         public Package PackageOwner { get; }
         public override Model BaseModel { get{ return Owner?.BaseModel; }}
+        IPackage IPackageableElement.Package { get { return PackageOwner; }}
+
+        public IDictionary<String,IPackageableElement> PackagedElement { get {
+            var r = new SortedDictionary<String,IPackageableElement>();
+            foreach (var i in OwnedPackage)     { r.Add(i.Key,i.Value); }
+            foreach (var i in OwnedClass)       { r.Add(i.Key,i.Value); }
+            foreach (var i in OwnedEnumeration) { r.Add(i.Key,i.Value); }
+            foreach (var i in OwnedAssociation) { r.Add(i.Key,i.Value); }
+            return r;
+            }}
 
         #region ctor
         public Package(Package owner)
             :base(owner)
             {
             PackageOwner = owner;
-            OwnedPackage = new List<Package>();
-            OwnedClass = new List<Class>();
-            OwnedEnumeration = new List<Enumeration>();
+            OwnedPackage = new SortedDictionary<String,Package>();
+            OwnedClass = new SortedDictionary<String,Class>();
+            OwnedEnumeration = new SortedDictionary<String,Enumeration>();
             OwnedAssociation = new Dictionary<String,Association>();
             }
         #endregion
@@ -35,7 +46,7 @@ namespace pre
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             reader.MoveToContent();
             Name = reader.GetAttribute("name");
-            Identifier = new ObjectIdentifier(reader.GetAttribute("id",xmi));
+            Identifier = reader.GetAttribute("id",xmi);
             while (reader.Read()) {
                 switch (reader.NodeType) {
                     case XmlNodeType.Element:
@@ -49,7 +60,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                OwnedPackage.Add(o);
+                                OwnedPackage.Add(o.Identifier,o);
                                 }
                                 break;
                             #endregion
@@ -60,7 +71,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                OwnedClass.Add(o);
+                                OwnedClass.Add(o.Identifier,o);
                                 }
                                 break;
                                 #endregion
@@ -71,7 +82,7 @@ namespace pre
                                 using (var r = reader.ReadSubtree()) {
                                     o.ReadXml(r);
                                     }
-                                OwnedEnumeration.Add(o);
+                                OwnedEnumeration.Add(o.Identifier,o);
                                 }
                                 break;
                                 #endregion
@@ -107,10 +118,25 @@ namespace pre
         #region M:OnAfterLoadModel
         public override void OnAfterLoadModel()
             {
-            foreach (var i in OwnedEnumeration) { i.OnAfterLoadModel();       }
-            foreach (var i in OwnedClass)       { i.OnAfterLoadModel();       }
+            foreach (var i in OwnedEnumeration) { i.Value.OnAfterLoadModel(); }
+            foreach (var i in OwnedClass)       { i.Value.OnAfterLoadModel(); }
             foreach (var i in OwnedAssociation) { i.Value.OnAfterLoadModel(); }
-            foreach (var i in OwnedPackage)     { i.OnAfterLoadModel();       }
+            foreach (var i in OwnedPackage)     { i.Value.OnAfterLoadModel(); }
+            }
+        #endregion
+        #region M:FindModelElement(String):ModelElement
+        public override ModelElement FindModelElement(String idref) {
+            if (String.IsNullOrWhiteSpace(idref)) { throw new ArgumentOutOfRangeException(nameof(idref)); }
+            var values = PackagedElement;
+            if (values.TryGetValue(idref,out var e)) { return (ModelElement)e; }
+            foreach (var value in values) {
+                var r = value.Value.FindModelElement(idref);
+                if (r != null)
+                    {
+                    return r;
+                    }
+                }
+            return null;
             }
         #endregion
         }

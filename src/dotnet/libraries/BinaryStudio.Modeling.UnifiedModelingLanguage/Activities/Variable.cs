@@ -12,20 +12,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ActivityScope:Activity
         /// <summary>
         /// An <see cref="Activity"/> that owns the <see cref="Variable"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Variable-activityScope"
         /// xmi:association="A_variable_activityScope"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         Activity ActivityScope { get; }
         #endregion
         #region P:Scope:StructuredActivityNode
         /// <summary>
         /// A <see cref="StructuredActivityNode"/> that owns the <see cref="Variable"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Variable-scope"
         /// xmi:association="A_variable_scope"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         StructuredActivityNode Scope { get; }
         #endregion

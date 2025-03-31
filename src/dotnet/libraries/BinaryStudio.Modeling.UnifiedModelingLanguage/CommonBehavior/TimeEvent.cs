@@ -26,11 +26,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:When:TimeExpression
         /// <summary>
         /// Specifies the time of the <see cref="TimeEvent"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="TimeEvent-when"
         /// xmi:aggregation="composite"
         /// xmi:association="A_when_timeEvent"
-        /// xmi:subsets="Element-ownedElement"
         TimeExpression When { get; }
         #endregion
         }

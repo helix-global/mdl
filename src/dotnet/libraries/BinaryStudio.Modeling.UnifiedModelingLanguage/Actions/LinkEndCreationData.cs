@@ -42,6 +42,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:allPins:InputPin[]
         /// <summary>
         /// Adds the <see cref="InsertAt"/> <see cref="InputPin"/> (if any) to the set of all Pins.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.LinkEndData.allPins"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -51,7 +53,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="LinkEndCreationData-allPins"
         /// xmi:is-query="true"
-        /// xmi:redefines="LinkEndData-allPins{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.LinkEndData.allPins"/>}"
         InputPin[] allPins();
         #endregion
         }

@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class LiteralUnlimitedNatural : LiteralSpecification
+    internal class LiteralUnlimitedNatural : LiteralSpecification
         {
         public UnlimitedNatural? Value { get;private set; }
         public LiteralUnlimitedNatural(ModelElement owner)

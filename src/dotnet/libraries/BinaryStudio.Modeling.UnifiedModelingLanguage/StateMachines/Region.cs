@@ -46,62 +46,68 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ExtendedRegion:Region
         /// <summary>
         /// The region of which this region is an extension.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinedElement"/>"
         /// </summary>
         /// xmi:id="Region-extendedRegion"
         /// xmi:association="A_extendedRegion_region"
-        /// xmi:subsets="RedefinableElement-redefinedElement"
         [Multiplicity("0..1")]
         Region ExtendedRegion { get; }
         #endregion
         #region P:RedefinitionContext:Classifier
         /// <summary>
         /// References the <see cref="Classifier"/> in which context this element may be redefined.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>"
         /// </summary>
         /// xmi:id="Region-redefinitionContext"
         /// xmi:association="A_redefinitionContext_region"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:redefines="RedefinableElement-redefinitionContext{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.RedefinitionContext"/>}"
         Classifier RedefinitionContext { get; }
         #endregion
         #region P:State:State
         /// <summary>
         /// The <see cref="State"/> that owns the <see cref="Region"/>. If a <see cref="Region"/> is owned by a <see cref="State"/>, then it cannot also be owned by a <see cref="StateMachine"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Region-state"
         /// xmi:association="A_region_state"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         State State { get; }
         #endregion
         #region P:StateMachine:StateMachine
         /// <summary>
         /// The <see cref="StateMachine"/> that owns the <see cref="Region"/>. If a <see cref="Region"/> is owned by a <see cref="StateMachine"/>, then it cannot also be owned by a <see cref="State"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Namespace"/>"
         /// </summary>
         /// xmi:id="Region-stateMachine"
         /// xmi:association="A_region_stateMachine"
-        /// xmi:subsets="NamedElement-namespace"
         [Multiplicity("0..1")]
         StateMachine StateMachine { get; }
         #endregion
         #region P:Subvertex:Vertex[]
         /// <summary>
         /// The set of Vertices that are owned by this <see cref="Region"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Region-subvertex"
         /// xmi:aggregation="composite"
         /// xmi:association="A_subvertex_container"
-        /// xmi:subsets="Namespace-ownedMember"
         Vertex[] Subvertex { get; }
         #endregion
         #region P:Transition:Transition[]
         /// <summary>
         /// The set of Transitions owned by the <see cref="Region"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="Region-transition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_transition_container"
-        /// xmi:subsets="Namespace-ownedMember"
         Transition[] Transition { get; }
         #endregion
 
@@ -146,6 +152,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:isConsistentWith(RedefinableElement):Boolean
         /// <summary>
         /// The query isConsistentWith specifies that a <see cref="Region"/> can be redefined by any <see cref="Region"/> for which the redefinition context is valid (see the isRedefinitionContextValid operation). Note that consistency requirements for the redefinition of Vertices and Transitions within a redefining <see cref="Region"/> are specified by the isConsistentWith and isRedefinitionContextValid operations for <see cref="Vertex"/> (and its subclasses) and <see cref="Transition"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -162,12 +170,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Region-isConsistentWith"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isConsistentWith{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isConsistentWith"/>}"
         Boolean isConsistentWith(RedefinableElement redefiningElement);
         #endregion
         #region M:isRedefinitionContextValid(RedefinableElement):Boolean
         /// <summary>
         /// The query <see cref="isRedefinitionContextValid"/> specifies whether the redefinition contexts of a <see cref="Region"/> are properly related to the redefinition contexts of the specified <see cref="Region"/> to allow this element to redefine the other. The containing <see cref="StateMachine"/> or <see cref="State"/> of a redefining <see cref="Region"/> must Redefine the containing <see cref="StateMachine"/> or <see cref="State"/> of the redefined <see cref="Region"/>.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isRedefinitionContextValid"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -189,7 +198,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="Region-isRedefinitionContextValid"
         /// xmi:is-query="true"
-        /// xmi:redefines="RedefinableElement-isRedefinitionContextValid{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.RedefinableElement.isRedefinitionContextValid"/>}"
         Boolean isRedefinitionContextValid(RedefinableElement redefinedElement);
         #endregion
         #region M:redefinitionContext:Classifier

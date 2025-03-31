@@ -27,11 +27,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:InputValue:InputPin[]
         /// <summary>
         /// The InputPins providing inputs to the <see cref="OpaqueAction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="OpaqueAction-inputValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_inputValue_opaqueAction"
-        /// xmi:subsets="Action-input"
         InputPin[] InputValue { get; }
         #endregion
         #region P:Language:String[]
@@ -45,11 +46,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OutputValue:OutputPin[]
         /// <summary>
         /// The OutputPins on which the <see cref="OpaqueAction"/> provides outputs.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="OpaqueAction-outputValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_outputValue_opaqueAction"
-        /// xmi:subsets="Action-output"
         OutputPin[] OutputValue { get; }
         #endregion
         }

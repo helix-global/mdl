@@ -12,23 +12,25 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedTemplateSignature:TemplateSignature
         /// <summary>
         /// The optional <see cref="TemplateSignature"/> specifying the formal TemplateParameters for this <see cref="TemplateableElement"/>. If a <see cref="TemplateableElement"/> has a <see cref="TemplateSignature"/>, then it is a template.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="TemplateableElement-ownedTemplateSignature"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedTemplateSignature_template"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         TemplateSignature OwnedTemplateSignature { get; }
         #endregion
         #region P:TemplateBinding:TemplateBinding[]
         /// <summary>
         /// The optional TemplateBindings from this <see cref="TemplateableElement"/> to one or more templates.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="TemplateableElement-templateBinding"
         /// xmi:aggregation="composite"
         /// xmi:association="A_templateBinding_boundElement"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        /// xmi:subsets="Element-ownedElement"
         TemplateBinding[] TemplateBinding { get; }
         #endregion
 

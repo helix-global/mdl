@@ -5,12 +5,13 @@ using System.Xml;
 
 namespace pre
     {
-    public class Enumeration : ModelElement
+    internal class Enumeration : ModelElement,IPackageableElement
         {
         public String Name { get;private set; }
         public String Identifier { get;private set; }
         public IList<Comment> OwnedComment { get; }
         public IList<EnumerationLiteral> OwnedLiteral { get; }
+        IPackage IPackageableElement.Package { get { return (IPackage)Owner; }}
 
         public Enumeration(ModelElement owner)
             : base(owner)

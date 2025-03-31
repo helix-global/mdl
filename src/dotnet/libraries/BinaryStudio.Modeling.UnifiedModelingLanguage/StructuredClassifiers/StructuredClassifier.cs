@@ -12,26 +12,28 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:OwnedAttribute:Property[]
         /// <summary>
         /// The Properties owned by the <see cref="StructuredClassifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Attribute"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredClassifier.Role"/>"
         /// </summary>
         /// xmi:id="StructuredClassifier-ownedAttribute"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_structuredClassifier"
-        /// xmi:subsets="Classifier-attribute"
-        /// xmi:subsets="Namespace-ownedMember"
-        /// xmi:subsets="StructuredClassifier-role"
         [Ordered]
         Property[] OwnedAttribute { get; }
         #endregion
         #region P:OwnedConnector:Connector[]
         /// <summary>
         /// The connectors owned by the <see cref="StructuredClassifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.Feature"/>"
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="StructuredClassifier-ownedConnector"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedConnector_structuredClassifier"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
-        /// xmi:subsets="Classifier-feature"
-        /// xmi:subsets="Namespace-ownedMember"
         Connector[] OwnedConnector { get; }
         #endregion
         #region P:Part:Property[]
@@ -47,12 +49,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Role:ConnectableElement[]
         /// <summary>
         /// The roles that instances may play in this <see cref="StructuredClassifier"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.Member"/>"
         /// </summary>
         /// xmi:id="StructuredClassifier-role"
         /// xmi:association="A_role_structuredClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        /// xmi:subsets="Namespace-member"
         [Union]
         ConnectableElement[] Role { get; }
         #endregion

@@ -61,11 +61,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Clause:Clause[]
         /// <summary>
         /// The set of Clauses composing the <see cref="ConditionalNode"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="ConditionalNode-clause"
         /// xmi:aggregation="composite"
         /// xmi:association="A_clause_conditionalNode"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("1..*")]
         Clause[] Clause { get; }
         #endregion
@@ -86,11 +87,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin[]
         /// <summary>
         /// The OutputPins that onto which are moved values from the bodyOutputs of the <see cref="Clause"/> selected for execution.
+        /// Redefines:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeOutput"/>"
         /// </summary>
         /// xmi:id="ConditionalNode-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_conditionalNode"
-        /// xmi:redefines="StructuredActivityNode-structuredNodeOutput{<see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.StructuredActivityNode.StructuredNodeOutput"/>}"
         [Ordered]
         OutputPin[] Result { get; }
         #endregion
@@ -98,6 +100,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region M:allActions:Action[]
         /// <summary>
         /// Return only this <see cref="ConditionalNode"/>. This prevents Actions within the <see cref="ConditionalNode"/> from having their OutputPins used as bodyOutputs or decider Pins in containing LoopNodes or ConditionalNodes.
+        /// Redefines:
+        ///   <see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allActions"/>"
         /// </summary>
         /// <rule language="OCL">
         ///   <![CDATA[
@@ -107,7 +111,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </rule>
         /// xmi:id="ConditionalNode-allActions"
         /// xmi:is-query="true"
-        /// xmi:redefines="Action-allActions{<see cref="M:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.allActions"/>}"
         Action[] allActions();
         #endregion
         }

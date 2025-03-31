@@ -69,21 +69,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ActualGate:Gate[]
         /// <summary>
         /// The actual gates of the <see cref="InteractionUse"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionUse-actualGate"
         /// xmi:aggregation="composite"
         /// xmi:association="A_actualGate_interactionUse"
-        /// xmi:subsets="Element-ownedElement"
         Gate[] ActualGate { get; }
         #endregion
         #region P:Argument:ValueSpecification[]
         /// <summary>
         /// The actual arguments of the <see cref="Interaction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionUse-argument"
         /// xmi:aggregation="composite"
         /// xmi:association="A_argument_interactionUse"
-        /// xmi:subsets="Element-ownedElement"
         [Ordered]
         ValueSpecification[] Argument { get; }
         #endregion
@@ -98,11 +100,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:ReturnValue:ValueSpecification
         /// <summary>
         /// The value of the executed <see cref="Interaction"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionUse-returnValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_returnValue_interactionUse"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         ValueSpecification ReturnValue { get; }
         #endregion

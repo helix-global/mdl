@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace pre
     {
-    public class Generalization : ModelElement
+    internal class Generalization : ModelElement
         {
         public String General { get;private set; }
         public String Identifier { get;private set; }

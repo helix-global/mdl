@@ -36,11 +36,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Collection:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that provides the <see cref="Collection"/> to be reduced.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReduceAction-collection"
         /// xmi:aggregation="composite"
         /// xmi:association="A_collection_reduceAction"
-        /// xmi:subsets="Action-input"
         InputPin Collection { get; }
         #endregion
         #region P:IsOrdered:Boolean
@@ -61,11 +62,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="Output"/> pin on which the <see cref="Result"/> value is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ReduceAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_reduceAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

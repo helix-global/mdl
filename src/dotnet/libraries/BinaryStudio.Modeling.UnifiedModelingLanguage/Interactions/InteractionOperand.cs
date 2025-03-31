@@ -20,22 +20,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Fragment:InteractionFragment[]
         /// <summary>
         /// The fragments of the operand.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Namespace.OwnedMember"/>"
         /// </summary>
         /// xmi:id="InteractionOperand-fragment"
         /// xmi:aggregation="composite"
         /// xmi:association="A_fragment_enclosingOperand"
-        /// xmi:subsets="Namespace-ownedMember"
         [Ordered]
         InteractionFragment[] Fragment { get; }
         #endregion
         #region P:Guard:InteractionConstraint
         /// <summary>
         /// <see cref="Constraint"/> of the operand.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Element.OwnedElement"/>"
         /// </summary>
         /// xmi:id="InteractionOperand-guard"
         /// xmi:aggregation="composite"
         /// xmi:association="A_guard_interactionOperand"
-        /// xmi:subsets="Element-ownedElement"
         [Multiplicity("0..1")]
         InteractionConstraint Guard { get; }
         #endregion

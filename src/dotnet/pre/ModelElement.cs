@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace pre
     {
-    public class ModelElement : IXmlSerializable,IServiceProvider
+    internal class ModelElement : IXmlSerializable,IServiceProvider,IModelElement
         {
         public const String DefaultNamespace = "BinaryStudio.Modeling.UnifiedModelingLanguage";
         public const String uml = "http://www.omg.org/spec/UML/20131001";

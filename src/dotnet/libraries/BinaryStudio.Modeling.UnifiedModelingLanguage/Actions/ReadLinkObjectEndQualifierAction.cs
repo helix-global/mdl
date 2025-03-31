@@ -68,11 +68,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> from which the link <see cref="Object"/> is obtained.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="ReadLinkObjectEndQualifierAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_readLinkObjectEndQualifierAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         #region P:Qualifier:Property
@@ -86,11 +87,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Result:OutputPin
         /// <summary>
         /// The <see cref="OutputPin"/> where the <see cref="Result"/> value is placed.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Output"/>"
         /// </summary>
         /// xmi:id="ReadLinkObjectEndQualifierAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readLinkObjectEndQualifierAction"
-        /// xmi:subsets="Action-output"
         OutputPin Result { get; }
         #endregion
         }

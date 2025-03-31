@@ -28,10 +28,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Node:ActivityNode[]
         /// <summary>
         /// ActivityNodes immediately contained in the <see cref="InterruptibleActivityRegion"/>.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.ActivityGroup.ContainedNode"/>"
         /// </summary>
         /// xmi:id="InterruptibleActivityRegion-node"
         /// xmi:association="A_inInterruptibleRegion_node"
-        /// xmi:subsets="ActivityGroup-containedNode"
         ActivityNode[] Node { get; }
         #endregion
         }

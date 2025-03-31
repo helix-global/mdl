@@ -27,11 +27,12 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         #region P:Object:InputPin
         /// <summary>
         /// The <see cref="InputPin"/> that holds the <see cref="Object"/> whose classifierBehavior is to be started.
+        /// Subsets:
+        ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Action.Input"/>"
         /// </summary>
         /// xmi:id="StartClassifierBehaviorAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_startClassifierBehaviorAction"
-        /// xmi:subsets="Action-input"
         InputPin Object { get; }
         #endregion
         }
