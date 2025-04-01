@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net45</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libraries\BinaryStudio.Modeling.MetadataInterchange\BinaryStudio.Modeling.MetadataInterchange.csproj" />
+    <ProjectReference Include="..\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage\BinaryStudio.Modeling.UnifiedModelingLanguage.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net45</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -6,4 +6,10 @@
     <DebugSymbols>true</DebugSymbols>
     <NoWarn>0618</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Infrastructure\MetadataInterchange\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryStudio.Modeling.MetadataInterchange\BinaryStudio.Modeling.MetadataInterchange.csproj" />
+  </ItemGroup>
 </Project>

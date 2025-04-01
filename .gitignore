@@ -5,5 +5,10 @@
 /.vs/dotnet
 /src/dotnet/libraries/BinaryStudio.Modeling.UnifiedModelingLanguage/bin
 /src/dotnet/libraries/BinaryStudio.Modeling.UnifiedModelingLanguage/obj
+/src/dotnet/libraries/BinaryStudio.Modeling.MetadataInterchange/bin
+/src/dotnet/libraries/BinaryStudio.Modeling.MetadataInterchange/obj
 /src/dotnet/pre/bin
 /src/dotnet/pre/obj
+/docs/.vs
+/src/dotnet/xmi/bin
+/src/dotnet/xmi/obj
