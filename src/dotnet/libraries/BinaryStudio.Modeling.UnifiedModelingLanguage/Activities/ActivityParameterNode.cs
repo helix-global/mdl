@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -55,7 +56,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityParameterNode-parameter"
         /// xmi:association="A_parameter_activityParameterNode"
-        Parameter Parameter { get; }
+        Parameter Parameter { get;set; }
         #endregion
         }
     }

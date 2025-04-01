@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -26,15 +27,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_expr_timeExpression"
         [Multiplicity("0..1")]
-        ValueSpecification Expr { get; }
+        ValueSpecification Expr { get;set; }
         #endregion
-        #region P:Observation:Observation[]
+        #region P:Observation:IList<Observation>
         /// <summary>
         /// Refers to the Observations that are involved in the computation of the <see cref="TimeExpression"/> value.
         /// </summary>
         /// xmi:id="TimeExpression-observation"
         /// xmi:association="A_observation_timeExpression"
-        Observation[] Observation { get; }
+        IList<Observation> Observation { get; }
         #endregion
         }
     }

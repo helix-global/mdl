@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProtocolConformance-generalMachine"
         /// xmi:association="A_generalMachine_protocolConformance"
-        ProtocolStateMachine GeneralMachine { get; }
+        ProtocolStateMachine GeneralMachine { get;set; }
         #endregion
         #region P:SpecificMachine:ProtocolStateMachine
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProtocolConformance-specificMachine"
         /// xmi:association="A_conformance_specificMachine"
-        ProtocolStateMachine SpecificMachine { get; }
+        ProtocolStateMachine SpecificMachine { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="RaiseExceptionAction-exception"
         /// xmi:aggregation="composite"
         /// xmi:association="A_exception_raiseExceptionAction"
-        InputPin Exception { get; }
+        InputPin Exception { get;set; }
         #endregion
         }
     }

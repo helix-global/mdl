@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -23,21 +24,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ConnectionPointReference"
     public interface ConnectionPointReference : Vertex
         {
-        #region P:Entry:Pseudostate[]
+        #region P:Entry:IList<Pseudostate>
         /// <summary>
         /// The entryPoint Pseudostates corresponding to this connection point.
         /// </summary>
         /// xmi:id="ConnectionPointReference-entry"
         /// xmi:association="A_entry_connectionPointReference"
-        Pseudostate[] Entry { get; }
+        IList<Pseudostate> Entry { get; }
         #endregion
-        #region P:Exit:Pseudostate[]
+        #region P:Exit:IList<Pseudostate>
         /// <summary>
         /// The exitPoints kind Pseudostates corresponding to this connection point.
         /// </summary>
         /// xmi:id="ConnectionPointReference-exit"
         /// xmi:association="A_exit_connectionPointReference"
-        Pseudostate[] Exit { get; }
+        IList<Pseudostate> Exit { get; }
         #endregion
         #region P:State:State
         /// <summary>
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ConnectionPointReference-state"
         /// xmi:association="A_connection_state"
         [Multiplicity("0..1")]
-        State State { get; }
+        State State { get;set; }
         #endregion
 
         #region M:isConsistentWith(RedefinableElement):Boolean

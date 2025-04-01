@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -35,7 +36,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_bodyCondition_bodyContext"
         [Multiplicity("0..1")]
-        Constraint BodyCondition { get; }
+        Constraint BodyCondition { get;set; }
         #endregion
         #region P:Class:Class
         /// <summary>
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Operation-class"
         /// xmi:association="A_ownedOperation_class"
         [Multiplicity("0..1")]
-        Class Class { get; }
+        Class Class { get;set; }
         #endregion
         #region P:Datatype:DataType
         /// <summary>
@@ -61,7 +62,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Operation-datatype"
         /// xmi:association="A_ownedOperation_datatype"
         [Multiplicity("0..1")]
-        DataType Datatype { get; }
+        DataType Datatype { get;set; }
         #endregion
         #region P:Interface:Interface
         /// <summary>
@@ -74,7 +75,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Operation-interface"
         /// xmi:association="A_ownedOperation_interface"
         [Multiplicity("0..1")]
-        Interface Interface { get; }
+        Interface Interface { get;set; }
         #endregion
         #region P:IsOrdered:Boolean
         /// <summary>
@@ -90,7 +91,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether an execution of the <see cref="BehavioralFeature"/> leaves the state of the system unchanged (<see cref="IsQuery"/>=true) or whether side effects may occur (<see cref="IsQuery"/>=false).
         /// </summary>
         /// xmi:id="Operation-isQuery"
-        Boolean IsQuery { get; }
+        Boolean IsQuery { get;set; }
         #endregion
         #region P:IsUnique:Boolean
         /// <summary>
@@ -110,7 +111,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-readonly="true"
         Integer? Lower { get; }
         #endregion
-        #region P:OwnedParameter:Parameter[]
+        #region P:OwnedParameter:IList<Parameter>
         /// <summary>
         /// The parameters owned by this <see cref="Operation"/>.
         /// Redefines:
@@ -120,9 +121,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_operation"
         [Ordered]
-        Parameter[] OwnedParameter { get; }
+        IList<Parameter> OwnedParameter { get; }
         #endregion
-        #region P:Postcondition:Constraint[]
+        #region P:Postcondition:IList<Constraint>
         /// <summary>
         /// An optional set of Constraints specifying the state of the system when the <see cref="Operation"/> is completed.
         /// Subsets:
@@ -131,9 +132,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Operation-postcondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_postcondition_postContext"
-        Constraint[] Postcondition { get; }
+        IList<Constraint> Postcondition { get; }
         #endregion
-        #region P:Precondition:Constraint[]
+        #region P:Precondition:IList<Constraint>
         /// <summary>
         /// An optional set of Constraints on the state of the system when the <see cref="Operation"/> is invoked.
         /// Subsets:
@@ -142,9 +143,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Operation-precondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_precondition_preContext"
-        Constraint[] Precondition { get; }
+        IList<Constraint> Precondition { get; }
         #endregion
-        #region P:RaisedException:Type[]
+        #region P:RaisedException:IList<Type>
         /// <summary>
         /// The Types representing exceptions that may be raised during an invocation of this operation.
         /// Redefines:
@@ -152,9 +153,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Operation-raisedException"
         /// xmi:association="A_raisedException_operation"
-        Type[] RaisedException { get; }
+        IList<Type> RaisedException { get; }
         #endregion
-        #region P:RedefinedOperation:Operation[]
+        #region P:RedefinedOperation:IList<Operation>
         /// <summary>
         /// The Operations that are redefined by this <see cref="Operation"/>.
         /// Subsets:
@@ -162,7 +163,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Operation-redefinedOperation"
         /// xmi:association="A_redefinedOperation_operation"
-        Operation[] RedefinedOperation { get; }
+        IList<Operation> RedefinedOperation { get; }
         #endregion
         #region P:TemplateParameter:OperationTemplateParameter
         /// <summary>
@@ -173,7 +174,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Operation-templateParameter"
         /// xmi:association="A_operation_templateParameter_parameteredElement"
         [Multiplicity("0..1")]
-        OperationTemplateParameter TemplateParameter { get; }
+        OperationTemplateParameter TemplateParameter { get;set; }
         #endregion
         #region P:Type:Type
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -33,7 +34,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Activity"
     public interface Activity : Behavior
         {
-        #region P:Edge:ActivityEdge[]
+        #region P:Edge:IList<ActivityEdge>
         /// <summary>
         /// ActivityEdges expressing flow between the nodes of the <see cref="Activity"/>.
         /// Subsets:
@@ -42,9 +43,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Activity-edge"
         /// xmi:aggregation="composite"
         /// xmi:association="A_edge_activity"
-        ActivityEdge[] Edge { get; }
+        IList<ActivityEdge> Edge { get; }
         #endregion
-        #region P:Group:ActivityGroup[]
+        #region P:Group:IList<ActivityGroup>
         /// <summary>
         /// Top-level ActivityGroups in the <see cref="Activity"/>.
         /// Subsets:
@@ -53,23 +54,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Activity-group"
         /// xmi:aggregation="composite"
         /// xmi:association="A_group_inActivity"
-        ActivityGroup[] Group { get; }
+        IList<ActivityGroup> Group { get; }
         #endregion
         #region P:IsReadOnly:Boolean
         /// <summary>
         /// If true, this <see cref="Activity"/> must not make any changes to objects. The default is false (an <see cref="Activity"/> may make nonlocal changes). (This is an assertion, not an executable property. It may be used by an execution engine to optimize model execution. If the assertion is violated by the <see cref="Activity"/>, then the model is ill-formed.) 
         /// </summary>
         /// xmi:id="Activity-isReadOnly"
-        Boolean IsReadOnly { get; }
+        Boolean IsReadOnly { get;set; }
         #endregion
         #region P:IsSingleExecution:Boolean
         /// <summary>
         /// If true, all invocations of the <see cref="Activity"/> are handled by the same execution.
         /// </summary>
         /// xmi:id="Activity-isSingleExecution"
-        Boolean IsSingleExecution { get; }
+        Boolean IsSingleExecution { get;set; }
         #endregion
-        #region P:Node:ActivityNode[]
+        #region P:Node:IList<ActivityNode>
         /// <summary>
         /// ActivityNodes coordinated by the <see cref="Activity"/>.
         /// Subsets:
@@ -78,9 +79,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Activity-node"
         /// xmi:aggregation="composite"
         /// xmi:association="A_node_activity"
-        ActivityNode[] Node { get; }
+        IList<ActivityNode> Node { get; }
         #endregion
-        #region P:Partition:ActivityPartition[]
+        #region P:Partition:IList<ActivityPartition>
         /// <summary>
         /// Top-level ActivityPartitions in the <see cref="Activity"/>.
         /// Subsets:
@@ -88,9 +89,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Activity-partition"
         /// xmi:association="A_partition_activity"
-        ActivityPartition[] Partition { get; }
+        IList<ActivityPartition> Partition { get; }
         #endregion
-        #region P:StructuredNode:StructuredActivityNode[]
+        #region P:StructuredNode:IList<StructuredActivityNode>
         /// <summary>
         /// Top-level StructuredActivityNodes in the <see cref="Activity"/>.
         /// Subsets:
@@ -100,9 +101,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Activity-structuredNode"
         /// xmi:aggregation="composite"
         /// xmi:association="A_structuredNode_activity"
-        StructuredActivityNode[] StructuredNode { get; }
+        IList<StructuredActivityNode> StructuredNode { get; }
         #endregion
-        #region P:Variable:Variable[]
+        #region P:Variable:IList<Variable>
         /// <summary>
         /// Top-level Variables defined by the <see cref="Activity"/>.
         /// Subsets:
@@ -111,7 +112,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Activity-variable"
         /// xmi:aggregation="composite"
         /// xmi:association="A_variable_activityScope"
-        Variable[] Variable { get; }
+        IList<Variable> Variable { get; }
         #endregion
         }
     }

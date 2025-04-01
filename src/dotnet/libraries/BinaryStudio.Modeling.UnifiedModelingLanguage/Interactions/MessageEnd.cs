@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="MessageEnd-message"
         /// xmi:association="A_message_messageEnd"
         [Multiplicity("0..1")]
-        Message Message { get; }
+        Message Message { get;set; }
         #endregion
 
         #region M:enclosingFragment:InteractionFragment[]

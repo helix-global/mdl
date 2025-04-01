@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -60,7 +61,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Parameter-default"
         /// xmi:is-derived="true"
         [Multiplicity("0..1")]
-        String Default { get; }
+        String Default { get;set; }
         #endregion
         #region P:DefaultValue:ValueSpecification
         /// <summary>
@@ -72,35 +73,35 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_defaultValue_owningParameter"
         [Multiplicity("0..1")]
-        ValueSpecification DefaultValue { get; }
+        ValueSpecification DefaultValue { get;set; }
         #endregion
         #region P:Direction:ParameterDirectionKind
         /// <summary>
         /// Indicates whether a parameter is being sent into or out of a behavioral element.
         /// </summary>
         /// xmi:id="Parameter-direction"
-        ParameterDirectionKind Direction { get; }
+        ParameterDirectionKind Direction { get;set; }
         #endregion
         #region P:Effect:ParameterEffectKind?
         /// <summary>
         /// Specifies the <see cref="Effect"/> that executions of the <see cref="Owner"/> of the <see cref="Parameter"/> have on objects passed in or out of the parameter.
         /// </summary>
         /// xmi:id="Parameter-effect"
-        ParameterEffectKind? Effect { get; }
+        ParameterEffectKind? Effect { get;set; }
         #endregion
         #region P:IsException:Boolean
         /// <summary>
         /// Tells whether an output parameter may emit a value to the exclusion of the other outputs.
         /// </summary>
         /// xmi:id="Parameter-isException"
-        Boolean IsException { get; }
+        Boolean IsException { get;set; }
         #endregion
         #region P:IsStream:Boolean
         /// <summary>
         /// Tells whether an input parameter may accept values while its behavior is executing, or whether an output parameter may post values while the behavior is executing.
         /// </summary>
         /// xmi:id="Parameter-isStream"
-        Boolean IsStream { get; }
+        Boolean IsStream { get;set; }
         #endregion
         #region P:Operation:Operation
         /// <summary>
@@ -111,15 +112,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedParameter_operation"
         /// xmi:subsets="A_ownedParameter_ownerFormalParam-ownerFormalParam"
         [Multiplicity("0..1")]
-        Operation Operation { get; }
+        Operation Operation { get;set; }
         #endregion
-        #region P:ParameterSet:ParameterSet[]
+        #region P:ParameterSet:IList<ParameterSet>
         /// <summary>
         /// The ParameterSets containing the parameter. See <see cref="ParameterSet"/>.
         /// </summary>
         /// xmi:id="Parameter-parameterSet"
         /// xmi:association="A_parameterSet_parameter"
-        ParameterSet[] ParameterSet { get; }
+        IList<ParameterSet> ParameterSet { get; }
         #endregion
 
         #region M:default:String

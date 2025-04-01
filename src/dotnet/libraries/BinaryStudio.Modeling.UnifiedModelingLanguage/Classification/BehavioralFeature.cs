@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -21,24 +22,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies the semantics of concurrent calls to the same passive instance (i.e., an instance originating from a <see cref="Class"/> with isActive being false). Active instances control access to their own BehavioralFeatures.
         /// </summary>
         /// xmi:id="BehavioralFeature-concurrency"
-        CallConcurrencyKind Concurrency { get; }
+        CallConcurrencyKind Concurrency { get;set; }
         #endregion
         #region P:IsAbstract:Boolean
         /// <summary>
         /// If true, then the <see cref="BehavioralFeature"/> does not have an implementation, and one must be supplied by a more specific <see cref="Classifier"/>. If false, the <see cref="BehavioralFeature"/> must have an implementation in the <see cref="Classifier"/> or one must be inherited.
         /// </summary>
         /// xmi:id="BehavioralFeature-isAbstract"
-        Boolean IsAbstract { get; }
+        Boolean IsAbstract { get;set; }
         #endregion
-        #region P:Method:Behavior[]
+        #region P:Method:IList<Behavior>
         /// <summary>
         /// A <see cref="Behavior"/> that implements the <see cref="BehavioralFeature"/>. There may be at most one <see cref="Behavior"/> for a particular pairing of a <see cref="Classifier"/> (as <see cref="Owner"/> of the <see cref="Behavior"/>) and a <see cref="BehavioralFeature"/> (as specification of the <see cref="Behavior"/>).
         /// </summary>
         /// xmi:id="BehavioralFeature-method"
         /// xmi:association="A_method_specification"
-        Behavior[] Method { get; }
+        IList<Behavior> Method { get; }
         #endregion
-        #region P:OwnedParameter:Parameter[]
+        #region P:OwnedParameter:IList<Parameter>
         /// <summary>
         /// The ordered set of formal Parameters of this <see cref="BehavioralFeature"/>.
         /// Subsets:
@@ -48,9 +49,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_ownerFormalParam"
         [Ordered]
-        Parameter[] OwnedParameter { get; }
+        IList<Parameter> OwnedParameter { get; }
         #endregion
-        #region P:OwnedParameterSet:ParameterSet[]
+        #region P:OwnedParameterSet:IList<ParameterSet>
         /// <summary>
         /// The ParameterSets owned by this <see cref="BehavioralFeature"/>.
         /// Subsets:
@@ -59,15 +60,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="BehavioralFeature-ownedParameterSet"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameterSet_behavioralFeature"
-        ParameterSet[] OwnedParameterSet { get; }
+        IList<ParameterSet> OwnedParameterSet { get; }
         #endregion
-        #region P:RaisedException:Type[]
+        #region P:RaisedException:IList<Type>
         /// <summary>
         /// The Types representing exceptions that may be raised during an invocation of this <see cref="BehavioralFeature"/>.
         /// </summary>
         /// xmi:id="BehavioralFeature-raisedException"
         /// xmi:association="A_raisedException_behavioralFeature"
-        Type[] RaisedException { get; }
+        IList<Type> RaisedException { get; }
         #endregion
 
         #region M:inputParameters:Parameter[]

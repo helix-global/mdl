@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -15,14 +16,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TimeObservation-event"
         /// xmi:association="A_event_timeObservation"
-        NamedElement Event { get; }
+        NamedElement Event { get;set; }
         #endregion
         #region P:FirstEvent:Boolean
         /// <summary>
         /// The value of <see cref="FirstEvent"/> is related to the <see cref="Event"/>. If <see cref="FirstEvent"/> is true, then the corresponding observation <see cref="Event"/> is the first time instant the execution enters the <see cref="Event"/> <see cref="Element"/>. If <see cref="FirstEvent"/> is false, then the corresponding observation <see cref="Event"/> is the time instant the execution exits the <see cref="Event"/> <see cref="Element"/>.
         /// </summary>
         /// xmi:id="TimeObservation-firstEvent"
-        Boolean FirstEvent { get; }
+        Boolean FirstEvent { get;set; }
         #endregion
         }
     }

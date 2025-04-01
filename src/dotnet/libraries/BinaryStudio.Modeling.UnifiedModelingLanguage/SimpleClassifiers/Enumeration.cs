@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -15,7 +16,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Enumeration"
     public interface Enumeration : DataType
         {
-        #region P:OwnedLiteral:EnumerationLiteral[]
+        #region P:OwnedLiteral:IList<EnumerationLiteral>
         /// <summary>
         /// The ordered set of literals owned by this <see cref="Enumeration"/>.
         /// Subsets:
@@ -25,7 +26,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedLiteral_enumeration"
         [Ordered]
-        EnumerationLiteral[] OwnedLiteral { get; }
+        IList<EnumerationLiteral> OwnedLiteral { get; }
         #endregion
         }
     }

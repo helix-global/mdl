@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ConnectableElement"
     public interface ConnectableElement : ParameterableElement,TypedElement
         {
-        #region P:End:ConnectorEnd[]
+        #region P:End:IList<ConnectorEnd>
         /// <summary>
         /// A set of ConnectorEnds that attach to this <see cref="ConnectableElement"/>.
         /// </summary>
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_end_role"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        ConnectorEnd[] End { get; }
+        IList<ConnectorEnd> End { get; }
         #endregion
         #region P:TemplateParameter:ConnectableElementTemplateParameter
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ConnectableElement-templateParameter"
         /// xmi:association="A_connectableElement_templateParameter_parameteredElement"
         [Multiplicity("0..1")]
-        ConnectableElementTemplateParameter TemplateParameter { get; }
+        ConnectableElementTemplateParameter TemplateParameter { get;set; }
         #endregion
 
         #region M:end:ConnectorEnd[]

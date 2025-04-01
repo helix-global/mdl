@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Relationship"
     public interface Relationship : Element
         {
-        #region P:RelatedElement:Element[]
+        #region P:RelatedElement:IList<Element>
         /// <summary>
         /// Specifies the elements related by the <see cref="Relationship"/>.
         /// </summary>
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Multiplicity("1..*")][Union]
-        Element[] RelatedElement { get; }
+        IList<Element> RelatedElement { get; }
         #endregion
         }
     }

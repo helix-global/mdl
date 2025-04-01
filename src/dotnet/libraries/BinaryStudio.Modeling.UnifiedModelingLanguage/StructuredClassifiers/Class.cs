@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Class"
     public interface Class : BehavioredClassifier,EncapsulatedClassifier
         {
-        #region P:Extension:Extension[]
+        #region P:Extension:IList<Extension>
         /// <summary>
         /// This property is used when the <see cref="Class"/> is acting as a metaclass. It references the Extensions that specify additional properties of the metaclass. The property is derived from the Extensions whose memberEnds are typed by the <see cref="Class"/>.
         /// </summary>
@@ -25,7 +26,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_extension_metaclass"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Extension[] Extension { get; }
+        IList<Extension> Extension { get; }
         #endregion
         #region P:IsAbstract:Boolean
         /// <summary>
@@ -34,16 +35,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Classifier.IsAbstract"/>"
         /// </summary>
         /// xmi:id="Class-isAbstract"
-        Boolean IsAbstract { get; }
+        Boolean IsAbstract { get;set; }
         #endregion
         #region P:IsActive:Boolean
         /// <summary>
         /// Determines whether an object specified by this <see cref="Class"/> is active or not. If true, then the owning <see cref="Class"/> is referred to as an active <see cref="Class"/>. If false, then such a <see cref="Class"/> is referred to as a passive <see cref="Class"/>.
         /// </summary>
         /// xmi:id="Class-isActive"
-        Boolean IsActive { get; }
+        Boolean IsActive { get;set; }
         #endregion
-        #region P:NestedClassifier:Classifier[]
+        #region P:NestedClassifier:IList<Classifier>
         /// <summary>
         /// The Classifiers owned by the <see cref="Class"/> that are not ownedBehaviors.
         /// Subsets:
@@ -54,9 +55,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_nestedClassifier_nestingClass"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Classifier[] NestedClassifier { get; }
+        IList<Classifier> NestedClassifier { get; }
         #endregion
-        #region P:OwnedAttribute:Property[]
+        #region P:OwnedAttribute:IList<Property>
         /// <summary>
         /// The attributes (i.e., the Properties) owned by the <see cref="Class"/>.
         /// Redefines:
@@ -69,9 +70,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_class"
         [Ordered]
-        Property[] OwnedAttribute { get; }
+        IList<Property> OwnedAttribute { get; }
         #endregion
-        #region P:OwnedOperation:Operation[]
+        #region P:OwnedOperation:IList<Operation>
         /// <summary>
         /// The Operations owned by the <see cref="Class"/>.
         /// Subsets:
@@ -83,9 +84,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedOperation_class"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Operation[] OwnedOperation { get; }
+        IList<Operation> OwnedOperation { get; }
         #endregion
-        #region P:OwnedReception:Reception[]
+        #region P:OwnedReception:IList<Reception>
         /// <summary>
         /// The Receptions owned by the <see cref="Class"/>.
         /// Subsets:
@@ -95,9 +96,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Class-ownedReception"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedReception_class"
-        Reception[] OwnedReception { get; }
+        IList<Reception> OwnedReception { get; }
         #endregion
-        #region P:SuperClass:Class[]
+        #region P:SuperClass:IList<Class>
         /// <summary>
         /// The superclasses of a <see cref="Class"/>, derived from its Generalizations.
         /// Redefines:
@@ -106,7 +107,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Class-superClass"
         /// xmi:association="A_superClass_class"
         /// xmi:is-derived="true"
-        Class[] SuperClass { get; }
+        IList<Class> SuperClass { get; }
         #endregion
 
         #region M:extension:Extension[]

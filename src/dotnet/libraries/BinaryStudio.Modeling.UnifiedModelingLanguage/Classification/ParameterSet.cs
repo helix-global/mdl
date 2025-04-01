@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -35,7 +36,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ParameterSet"
     public interface ParameterSet : NamedElement
         {
-        #region P:Condition:Constraint[]
+        #region P:Condition:IList<Constraint>
         /// <summary>
         /// A constraint that should be satisfied for the <see cref="Owner"/> of the Parameters in an input <see cref="ParameterSet"/> to start execution using the values provided for those Parameters, or the <see cref="Owner"/> of the Parameters in an output <see cref="ParameterSet"/> to end execution providing the values for those Parameters, if all preconditions and conditions on input ParameterSets were satisfied.
         /// Subsets:
@@ -44,16 +45,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ParameterSet-condition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_condition_parameterSet"
-        Constraint[] Condition { get; }
+        IList<Constraint> Condition { get; }
         #endregion
-        #region P:Parameter:Parameter[]
+        #region P:Parameter:IList<Parameter>
         /// <summary>
         /// Parameters in the <see cref="ParameterSet"/>.
         /// </summary>
         /// xmi:id="ParameterSet-parameter"
         /// xmi:association="A_parameterSet_parameter"
         [Multiplicity("1..*")]
-        Parameter[] Parameter { get; }
+        IList<Parameter> Parameter { get; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -100,7 +101,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Message"
     public interface Message : NamedElement
         {
-        #region P:Argument:ValueSpecification[]
+        #region P:Argument:IList<ValueSpecification>
         /// <summary>
         /// The arguments of the <see cref="Message"/>.
         /// Subsets:
@@ -110,7 +111,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_argument_message"
         [Ordered]
-        ValueSpecification[] Argument { get; }
+        IList<ValueSpecification> Argument { get; }
         #endregion
         #region P:Connector:Connector
         /// <summary>
@@ -119,7 +120,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Message-connector"
         /// xmi:association="A_connector_message"
         [Multiplicity("0..1")]
-        Connector Connector { get; }
+        Connector Connector { get;set; }
         #endregion
         #region P:Interaction:Interaction
         /// <summary>
@@ -129,7 +130,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Message-interaction"
         /// xmi:association="A_message_interaction"
-        Interaction Interaction { get; }
+        Interaction Interaction { get;set; }
         #endregion
         #region P:MessageKind:MessageKind
         /// <summary>
@@ -145,7 +146,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The sort of communication reflected by the <see cref="Message"/>.
         /// </summary>
         /// xmi:id="Message-messageSort"
-        MessageSort MessageSort { get; }
+        MessageSort MessageSort { get;set; }
         #endregion
         #region P:ReceiveEvent:MessageEnd
         /// <summary>
@@ -156,7 +157,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_receiveEvent_endMessage"
         /// xmi:subsets="A_message_messageEnd-messageEnd"
         [Multiplicity("0..1")]
-        MessageEnd ReceiveEvent { get; }
+        MessageEnd ReceiveEvent { get;set; }
         #endregion
         #region P:SendEvent:MessageEnd
         /// <summary>
@@ -167,7 +168,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_sendEvent_endMessage"
         /// xmi:subsets="A_message_messageEnd-messageEnd"
         [Multiplicity("0..1")]
-        MessageEnd SendEvent { get; }
+        MessageEnd SendEvent { get;set; }
         #endregion
         #region P:Signature:NamedElement
         /// <summary>
@@ -176,7 +177,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Message-signature"
         /// xmi:association="A_signature_message"
         [Multiplicity("0..1")]
-        NamedElement Signature { get; }
+        NamedElement Signature { get;set; }
         #endregion
 
         #region M:isDistinguishableFrom(NamedElement,Namespace):Boolean

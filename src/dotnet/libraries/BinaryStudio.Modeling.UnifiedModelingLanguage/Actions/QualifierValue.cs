@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -36,7 +37,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="QualifierValue-qualifier"
         /// xmi:association="A_qualifier_qualifierValue"
-        Property Qualifier { get; }
+        Property Qualifier { get;set; }
         #endregion
         #region P:Value:InputPin
         /// <summary>
@@ -44,7 +45,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="QualifierValue-value"
         /// xmi:association="A_value_qualifierValue"
-        InputPin Value { get; }
+        InputPin Value { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -10,7 +11,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="InvocationAction"
     public interface InvocationAction : Action
         {
-        #region P:Argument:InputPin[]
+        #region P:Argument:IList<InputPin>
         /// <summary>
         /// The InputPins that provide the <see cref="Argument"/> values passed in the invocation request.
         /// Subsets:
@@ -20,7 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_argument_invocationAction"
         [Ordered]
-        InputPin[] Argument { get; }
+        IList<InputPin> Argument { get; }
         #endregion
         #region P:OnPort:Port
         /// <summary>
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InvocationAction-onPort"
         /// xmi:association="A_onPort_invocationAction"
         [Multiplicity("0..1")]
-        Port OnPort { get; }
+        Port OnPort { get;set; }
         #endregion
         }
     }

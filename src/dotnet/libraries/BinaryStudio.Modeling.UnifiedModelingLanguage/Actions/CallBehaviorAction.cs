@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -22,7 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CallBehaviorAction-behavior"
         /// xmi:association="A_behavior_callBehaviorAction"
-        Behavior Behavior { get; }
+        Behavior Behavior { get;set; }
         #endregion
 
         #region M:inputParameters:Parameter[]

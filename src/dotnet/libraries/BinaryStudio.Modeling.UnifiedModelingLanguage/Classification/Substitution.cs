@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Substitution-contract"
         /// xmi:association="A_contract_substitution"
-        Classifier Contract { get; }
+        Classifier Contract { get;set; }
         #endregion
         #region P:SubstitutingClassifier:Classifier
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Substitution-substitutingClassifier"
         /// xmi:association="A_substitution_substitutingClassifier"
-        Classifier SubstitutingClassifier { get; }
+        Classifier SubstitutingClassifier { get;set; }
         #endregion
         }
     }

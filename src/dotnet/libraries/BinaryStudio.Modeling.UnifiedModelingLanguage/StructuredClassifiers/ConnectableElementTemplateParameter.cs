@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ConnectableElementTemplateParameter-parameteredElement"
         /// xmi:association="A_connectableElement_templateParameter_parameteredElement"
-        ConnectableElement ParameteredElement { get; }
+        ConnectableElement ParameteredElement { get;set; }
         #endregion
         }
     }

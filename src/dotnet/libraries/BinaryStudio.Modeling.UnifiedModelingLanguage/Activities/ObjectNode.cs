@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -36,27 +37,27 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ObjectNode"
     public interface ObjectNode : ActivityNode,TypedElement
         {
-        #region P:InState:State[]
+        #region P:InState:IList<State>
         /// <summary>
         /// The States required to be associated with the values held by tokens on this <see cref="ObjectNode"/>.
         /// </summary>
         /// xmi:id="ObjectNode-inState"
         /// xmi:association="A_inState_objectNode"
-        State[] InState { get; }
+        IList<State> InState { get; }
         #endregion
         #region P:IsControlType:Boolean
         /// <summary>
         /// Indicates whether the <see cref="Type"/> of the <see cref="ObjectNode"/> is to be treated as representing control values that may traverse ControlFlows.
         /// </summary>
         /// xmi:id="ObjectNode-isControlType"
-        Boolean IsControlType { get; }
+        Boolean IsControlType { get;set; }
         #endregion
         #region P:Ordering:ObjectNodeOrderingKind
         /// <summary>
         /// Indicates how the tokens held by the <see cref="ObjectNode"/> are ordered for <see cref="Selection"/> to traverse ActivityEdges <see cref="Outgoing"/> from the <see cref="ObjectNode"/>.
         /// </summary>
         /// xmi:id="ObjectNode-ordering"
-        ObjectNodeOrderingKind Ordering { get; }
+        ObjectNodeOrderingKind Ordering { get;set; }
         #endregion
         #region P:Selection:Behavior
         /// <summary>
@@ -65,7 +66,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ObjectNode-selection"
         /// xmi:association="A_selection_objectNode"
         [Multiplicity("0..1")]
-        Behavior Selection { get; }
+        Behavior Selection { get;set; }
         #endregion
         #region P:UpperBound:ValueSpecification
         /// <summary>
@@ -77,7 +78,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_upperBound_objectNode"
         [Multiplicity("0..1")]
-        ValueSpecification UpperBound { get; }
+        ValueSpecification UpperBound { get;set; }
         #endregion
         }
     }

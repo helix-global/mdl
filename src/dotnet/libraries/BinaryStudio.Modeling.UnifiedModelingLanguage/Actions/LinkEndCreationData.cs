@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -29,14 +30,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="LinkEndCreationData-insertAt"
         /// xmi:association="A_insertAt_linkEndCreationData"
         [Multiplicity("0..1")]
-        InputPin InsertAt { get; }
+        InputPin InsertAt { get;set; }
         #endregion
         #region P:IsReplaceAll:Boolean
         /// <summary>
         /// Specifies whether the existing links emanating from the object on this <see cref="End"/> should be destroyed before creating a new link.
         /// </summary>
         /// xmi:id="LinkEndCreationData-isReplaceAll"
-        Boolean IsReplaceAll { get; }
+        Boolean IsReplaceAll { get;set; }
         #endregion
 
         #region M:allPins:InputPin[]

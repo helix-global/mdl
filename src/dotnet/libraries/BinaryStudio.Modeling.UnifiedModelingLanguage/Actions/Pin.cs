@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates whether the <see cref="Pin"/> provides data to the <see cref="Action"/> or just controls how the <see cref="Action"/> executes.
         /// </summary>
         /// xmi:id="Pin-isControl"
-        Boolean IsControl { get; }
+        Boolean IsControl { get;set; }
         #endregion
         }
     }

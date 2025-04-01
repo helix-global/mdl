@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -24,14 +25,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Constraint"
     public interface Constraint : PackageableElement
         {
-        #region P:ConstrainedElement:Element[]
+        #region P:ConstrainedElement:IList<Element>
         /// <summary>
         /// The ordered set of Elements referenced by this <see cref="Constraint"/>.
         /// </summary>
         /// xmi:id="Constraint-constrainedElement"
         /// xmi:association="A_constrainedElement_constraint"
         [Ordered]
-        Element[] ConstrainedElement { get; }
+        IList<Element> ConstrainedElement { get; }
         #endregion
         #region P:Context:Namespace
         /// <summary>
@@ -42,7 +43,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Constraint-context"
         /// xmi:association="A_ownedRule_context"
         [Multiplicity("0..1")]
-        Namespace Context { get; }
+        Namespace Context { get;set; }
         #endregion
         #region P:Specification:ValueSpecification
         /// <summary>
@@ -53,7 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Constraint-specification"
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_owningConstraint"
-        ValueSpecification Specification { get; }
+        ValueSpecification Specification { get;set; }
         #endregion
         }
     }

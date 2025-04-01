@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -39,14 +40,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_insertAt_addVariableValueAction"
         [Multiplicity("0..1")]
-        InputPin InsertAt { get; }
+        InputPin InsertAt { get;set; }
         #endregion
         #region P:IsReplaceAll:Boolean
         /// <summary>
         /// Specifies whether existing values of the <see cref="Variable"/> should be removed before adding the new <see cref="Value"/>.
         /// </summary>
         /// xmi:id="AddVariableValueAction-isReplaceAll"
-        Boolean IsReplaceAll { get; }
+        Boolean IsReplaceAll { get;set; }
         #endregion
         }
     }

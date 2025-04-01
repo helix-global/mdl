@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Dependency"
     public interface Dependency : DirectedRelationship,PackageableElement
         {
-        #region P:Client:NamedElement[]
+        #region P:Client:IList<NamedElement>
         /// <summary>
         /// The <see cref="Element"/>(s) dependent on the <see cref="Supplier"/> <see cref="Element"/>(s). In some cases (such as a trace <see cref="Abstraction"/>) the assignment of direction (that is, the designation of the <see cref="Client"/> <see cref="Element"/>) is at the discretion of the modeler and is a stipulation.
         /// Subsets:
@@ -18,9 +19,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Dependency-client"
         /// xmi:association="A_clientDependency_client"
         [Multiplicity("1..*")]
-        NamedElement[] Client { get; }
+        IList<NamedElement> Client { get; }
         #endregion
-        #region P:Supplier:NamedElement[]
+        #region P:Supplier:IList<NamedElement>
         /// <summary>
         /// The <see cref="Element"/>(s) on which the <see cref="Client"/> <see cref="Element"/>(s) depend in some respect. The modeler may stipulate a sense of <see cref="Dependency"/> direction suitable for their domain.
         /// Subsets:
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Dependency-supplier"
         /// xmi:association="A_supplier_supplierDependency"
         [Multiplicity("1..*")]
-        NamedElement[] Supplier { get; }
+        IList<NamedElement> Supplier { get; }
         #endregion
         }
     }

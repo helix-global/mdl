@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -37,7 +38,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="StateMachine"
     public interface StateMachine : Behavior
         {
-        #region P:ConnectionPoint:Pseudostate[]
+        #region P:ConnectionPoint:IList<Pseudostate>
         /// <summary>
         /// The connection points defined for this <see cref="StateMachine"/>. They represent the interface of the <see cref="StateMachine"/> when used as <see cref="Part"/> of submachine <see cref="State"/>
         /// Subsets:
@@ -46,9 +47,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StateMachine-connectionPoint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_connectionPoint_stateMachine"
-        Pseudostate[] ConnectionPoint { get; }
+        IList<Pseudostate> ConnectionPoint { get; }
         #endregion
-        #region P:ExtendedStateMachine:StateMachine[]
+        #region P:ExtendedStateMachine:IList<StateMachine>
         /// <summary>
         /// The StateMachines of which this is an <see cref="Extension"/>.
         /// Redefines:
@@ -56,9 +57,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StateMachine-extendedStateMachine"
         /// xmi:association="A_extendedStateMachine_stateMachine"
-        StateMachine[] ExtendedStateMachine { get; }
+        IList<StateMachine> ExtendedStateMachine { get; }
         #endregion
-        #region P:Region:Region[]
+        #region P:Region:IList<Region>
         /// <summary>
         /// The Regions owned directly by the <see cref="StateMachine"/>.
         /// Subsets:
@@ -68,15 +69,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_region_stateMachine"
         [Multiplicity("1..*")]
-        Region[] Region { get; }
+        IList<Region> Region { get; }
         #endregion
-        #region P:SubmachineState:State[]
+        #region P:SubmachineState:IList<State>
         /// <summary>
         /// References the submachine(s) in case of a submachine <see cref="State"/>. Multiple machines are referenced in case of a concurrent <see cref="State"/>.
         /// </summary>
         /// xmi:id="StateMachine-submachineState"
         /// xmi:association="A_submachineState_submachine"
-        State[] SubmachineState { get; }
+        IList<State> SubmachineState { get; }
         #endregion
 
         #region M:ancestor(Vertex,Vertex):Boolean

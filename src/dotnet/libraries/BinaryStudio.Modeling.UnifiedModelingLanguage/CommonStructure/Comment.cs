@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,13 +10,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Comment"
     public interface Comment : Element
         {
-        #region P:AnnotatedElement:Element[]
+        #region P:AnnotatedElement:IList<Element>
         /// <summary>
         /// References the <see cref="Element"/>(s) being commented.
         /// </summary>
         /// xmi:id="Comment-annotatedElement"
         /// xmi:association="A_annotatedElement_comment"
-        Element[] AnnotatedElement { get; }
+        IList<Element> AnnotatedElement { get; }
         #endregion
         #region P:Body:String
         /// <summary>
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Comment-body"
         [Multiplicity("0..1")]
-        String Body { get; }
+        String Body { get;set; }
         #endregion
         }
     }

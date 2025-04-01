@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -41,16 +42,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="InformationFlow"
     public interface InformationFlow : DirectedRelationship,PackageableElement
         {
-        #region P:Conveyed:Classifier[]
+        #region P:Conveyed:IList<Classifier>
         /// <summary>
         /// Specifies the information items that may circulate on this information flow.
         /// </summary>
         /// xmi:id="InformationFlow-conveyed"
         /// xmi:association="A_conveyed_conveyingFlow"
         [Multiplicity("1..*")]
-        Classifier[] Conveyed { get; }
+        IList<Classifier> Conveyed { get; }
         #endregion
-        #region P:InformationSource:NamedElement[]
+        #region P:InformationSource:IList<NamedElement>
         /// <summary>
         /// Defines from which <see cref="Source"/> the <see cref="Conveyed"/> InformationItems are initiated.
         /// Subsets:
@@ -59,9 +60,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InformationFlow-informationSource"
         /// xmi:association="A_informationSource_informationFlow"
         [Multiplicity("1..*")]
-        NamedElement[] InformationSource { get; }
+        IList<NamedElement> InformationSource { get; }
         #endregion
-        #region P:InformationTarget:NamedElement[]
+        #region P:InformationTarget:IList<NamedElement>
         /// <summary>
         /// Defines to which <see cref="Target"/> the <see cref="Conveyed"/> InformationItems are directed.
         /// Subsets:
@@ -70,39 +71,39 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InformationFlow-informationTarget"
         /// xmi:association="A_informationTarget_informationFlow"
         [Multiplicity("1..*")]
-        NamedElement[] InformationTarget { get; }
+        IList<NamedElement> InformationTarget { get; }
         #endregion
-        #region P:Realization:Relationship[]
+        #region P:Realization:IList<Relationship>
         /// <summary>
         /// Determines which <see cref="Relationship"/> will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realization"
         /// xmi:association="A_realization_abstraction_flow"
-        Relationship[] Realization { get; }
+        IList<Relationship> Realization { get; }
         #endregion
-        #region P:RealizingActivityEdge:ActivityEdge[]
+        #region P:RealizingActivityEdge:IList<ActivityEdge>
         /// <summary>
         /// Determines which ActivityEdges will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realizingActivityEdge"
         /// xmi:association="A_realizingActivityEdge_informationFlow"
-        ActivityEdge[] RealizingActivityEdge { get; }
+        IList<ActivityEdge> RealizingActivityEdge { get; }
         #endregion
-        #region P:RealizingConnector:Connector[]
+        #region P:RealizingConnector:IList<Connector>
         /// <summary>
         /// Determines which Connectors will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realizingConnector"
         /// xmi:association="A_realizingConnector_informationFlow"
-        Connector[] RealizingConnector { get; }
+        IList<Connector> RealizingConnector { get; }
         #endregion
-        #region P:RealizingMessage:Message[]
+        #region P:RealizingMessage:IList<Message>
         /// <summary>
         /// Determines which Messages will realize the specified flow.
         /// </summary>
         /// xmi:id="InformationFlow-realizingMessage"
         /// xmi:association="A_realizingMessage_informationFlow"
-        Message[] RealizingMessage { get; }
+        IList<Message> RealizingMessage { get; }
         #endregion
         }
     }

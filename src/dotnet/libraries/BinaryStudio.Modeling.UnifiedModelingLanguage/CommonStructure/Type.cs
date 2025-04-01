@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedType_package"
         /// xmi:subsets="A_packagedElement_owningPackage-owningPackage"
         [Multiplicity("0..1")]
-        Package Package { get; }
+        Package Package { get;set; }
         #endregion
 
         #region M:conformsTo(Type):Boolean

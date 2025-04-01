@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -34,9 +35,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReplyAction-replyToCall"
         /// xmi:association="A_replyToCall_replyAction"
-        Trigger ReplyToCall { get; }
+        Trigger ReplyToCall { get;set; }
         #endregion
-        #region P:ReplyValue:InputPin[]
+        #region P:ReplyValue:IList<InputPin>
         /// <summary>
         /// A list of InputPins providing the values for the <see cref="Output"/> (inout, out, and return) Parameters of the <see cref="Operation"/>. These values are returned to the caller.
         /// Subsets:
@@ -46,7 +47,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_replyValue_replyAction"
         [Ordered]
-        InputPin[] ReplyValue { get; }
+        IList<InputPin> ReplyValue { get; }
         #endregion
         #region P:ReturnInformation:InputPin
         /// <summary>
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReplyAction-returnInformation"
         /// xmi:aggregation="composite"
         /// xmi:association="A_returnInformation_replyAction"
-        InputPin ReturnInformation { get; }
+        InputPin ReturnInformation { get;set; }
         #endregion
         }
     }

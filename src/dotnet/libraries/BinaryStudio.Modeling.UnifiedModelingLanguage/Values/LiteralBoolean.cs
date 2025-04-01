@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -14,7 +15,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The specified Boolean <see cref="Value"/>.
         /// </summary>
         /// xmi:id="LiteralBoolean-value"
-        Boolean Value { get; }
+        Boolean Value { get;set; }
         #endregion
 
         #region M:booleanValue:Boolean

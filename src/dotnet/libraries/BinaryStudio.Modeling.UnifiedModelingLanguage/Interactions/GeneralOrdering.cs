@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -22,7 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="GeneralOrdering-after"
         /// xmi:association="A_toBefore_after"
-        OccurrenceSpecification After { get; }
+        OccurrenceSpecification After { get;set; }
         #endregion
         #region P:Before:OccurrenceSpecification
         /// <summary>
@@ -30,7 +31,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="GeneralOrdering-before"
         /// xmi:association="A_before_toAfter"
-        OccurrenceSpecification Before { get; }
+        OccurrenceSpecification Before { get;set; }
         #endregion
         }
     }

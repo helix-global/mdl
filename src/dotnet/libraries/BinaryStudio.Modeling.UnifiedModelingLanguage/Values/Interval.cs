@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -15,7 +16,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interval-max"
         /// xmi:association="A_max_interval"
-        ValueSpecification Max { get; }
+        ValueSpecification Max { get;set; }
         #endregion
         #region P:Min:ValueSpecification
         /// <summary>
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interval-min"
         /// xmi:association="A_min_interval"
-        ValueSpecification Min { get; }
+        ValueSpecification Min { get;set; }
         #endregion
         }
     }

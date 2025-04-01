@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -24,7 +25,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="TemplateSignature"
     public interface TemplateSignature : Element
         {
-        #region P:OwnedParameter:TemplateParameter[]
+        #region P:OwnedParameter:IList<TemplateParameter>
         /// <summary>
         /// The formal parameters that are owned by this <see cref="TemplateSignature"/>.
         /// Subsets:
@@ -35,16 +36,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_signature"
         [Ordered]
-        TemplateParameter[] OwnedParameter { get; }
+        IList<TemplateParameter> OwnedParameter { get; }
         #endregion
-        #region P:Parameter:TemplateParameter[]
+        #region P:Parameter:IList<TemplateParameter>
         /// <summary>
         /// The ordered set of all formal TemplateParameters for this <see cref="TemplateSignature"/>.
         /// </summary>
         /// xmi:id="TemplateSignature-parameter"
         /// xmi:association="A_parameter_templateSignature"
         [Multiplicity("1..*")][Ordered]
-        TemplateParameter[] Parameter { get; }
+        IList<TemplateParameter> Parameter { get; }
         #endregion
         #region P:Template:TemplateableElement
         /// <summary>
@@ -54,7 +55,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateSignature-template"
         /// xmi:association="A_ownedTemplateSignature_template"
-        TemplateableElement Template { get; }
+        TemplateableElement Template { get;set; }
         #endregion
         }
     }

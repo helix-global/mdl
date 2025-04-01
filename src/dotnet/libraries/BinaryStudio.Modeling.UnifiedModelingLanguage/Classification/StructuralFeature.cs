@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -14,7 +15,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// If <see cref="IsReadOnly"/> is true, the <see cref="StructuralFeature"/> may not be written to after initialization.
         /// </summary>
         /// xmi:id="StructuralFeature-isReadOnly"
-        Boolean IsReadOnly { get; }
+        Boolean IsReadOnly { get;set; }
         #endregion
         }
     }

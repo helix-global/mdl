@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ExpansionNode-regionAsInput"
         /// xmi:association="A_inputElement_regionAsInput"
         [Multiplicity("0..1")]
-        ExpansionRegion RegionAsInput { get; }
+        ExpansionRegion RegionAsInput { get;set; }
         #endregion
         #region P:RegionAsOutput:ExpansionRegion
         /// <summary>
@@ -32,7 +33,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ExpansionNode-regionAsOutput"
         /// xmi:association="A_outputElement_regionAsOutput"
         [Multiplicity("0..1")]
-        ExpansionRegion RegionAsOutput { get; }
+        ExpansionRegion RegionAsOutput { get;set; }
         #endregion
         }
     }

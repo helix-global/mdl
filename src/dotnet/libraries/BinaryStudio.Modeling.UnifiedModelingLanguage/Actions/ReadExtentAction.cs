@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadExtentAction-classifier"
         /// xmi:association="A_classifier_readExtentAction"
-        Classifier Classifier { get; }
+        Classifier Classifier { get;set; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReadExtentAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readExtentAction"
-        OutputPin Result { get; }
+        OutputPin Result { get;set; }
         #endregion
         }
     }

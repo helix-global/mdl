@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TimeInterval-max"
         /// xmi:association="A_max_timeInterval"
-        TimeExpression Max { get; }
+        TimeExpression Max { get;set; }
         #endregion
         #region P:Min:TimeExpression
         /// <summary>
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TimeInterval-min"
         /// xmi:association="A_min_timeInterval"
-        TimeExpression Min { get; }
+        TimeExpression Min { get;set; }
         #endregion
         }
     }

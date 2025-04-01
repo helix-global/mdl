@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,23 +18,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="OccurrenceSpecification-covered"
         /// xmi:association="A_covered_events"
-        Lifeline Covered { get; }
+        Lifeline Covered { get;set; }
         #endregion
-        #region P:ToAfter:GeneralOrdering[]
+        #region P:ToAfter:IList<GeneralOrdering>
         /// <summary>
         /// References the GeneralOrderings that specify EventOcurrences that must occur after this <see cref="OccurrenceSpecification"/>.
         /// </summary>
         /// xmi:id="OccurrenceSpecification-toAfter"
         /// xmi:association="A_before_toAfter"
-        GeneralOrdering[] ToAfter { get; }
+        IList<GeneralOrdering> ToAfter { get; }
         #endregion
-        #region P:ToBefore:GeneralOrdering[]
+        #region P:ToBefore:IList<GeneralOrdering>
         /// <summary>
         /// References the GeneralOrderings that specify EventOcurrences that must occur before this <see cref="OccurrenceSpecification"/>.
         /// </summary>
         /// xmi:id="OccurrenceSpecification-toBefore"
         /// xmi:association="A_toBefore_after"
-        GeneralOrdering[] ToBefore { get; }
+        IList<GeneralOrdering> ToBefore { get; }
         #endregion
         }
     }

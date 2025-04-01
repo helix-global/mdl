@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -32,9 +33,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StringExpression-owningExpression"
         /// xmi:association="A_subExpression_owningExpression"
         [Multiplicity("0..1")]
-        StringExpression OwningExpression { get; }
+        StringExpression OwningExpression { get;set; }
         #endregion
-        #region P:SubExpression:StringExpression[]
+        #region P:SubExpression:IList<StringExpression>
         /// <summary>
         /// The StringExpressions that constitute this <see cref="StringExpression"/>.
         /// Subsets:
@@ -44,7 +45,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_subExpression_owningExpression"
         [Ordered]
-        StringExpression[] SubExpression { get; }
+        IList<StringExpression> SubExpression { get; }
         #endregion
 
         #region M:stringValue:String

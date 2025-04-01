@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -25,13 +26,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DurationConstraint"
     public interface DurationConstraint : IntervalConstraint
         {
-        #region P:FirstEvent:Boolean[]
+        #region P:FirstEvent:IList<Boolean>
         /// <summary>
         /// The value of <see cref="FirstEvent"/>[i] is related to <see cref="ConstrainedElement"/>[i] (where i is 1 or 2). If <see cref="FirstEvent"/>[i] is true, then the corresponding observation event is the first time instant the execution enters <see cref="ConstrainedElement"/>[i]. If <see cref="FirstEvent"/>[i] is false, then the corresponding observation event is the last time instant the execution is within <see cref="ConstrainedElement"/>[i].
         /// </summary>
         /// xmi:id="DurationConstraint-firstEvent"
         [Multiplicity("0..2")]
-        Boolean[] FirstEvent { get; }
+        IList<Boolean> FirstEvent { get; }
         #endregion
         #region P:Specification:DurationInterval
         /// <summary>
@@ -42,7 +43,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="DurationConstraint-specification"
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_durationConstraint"
-        DurationInterval Specification { get; }
+        DurationInterval Specification { get;set; }
         #endregion
         }
     }

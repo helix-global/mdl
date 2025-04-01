@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -35,21 +36,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether requests arriving at this <see cref="Port"/> are sent to the classifier behavior of this <see cref="EncapsulatedClassifier"/>. Such a <see cref="Port"/> is referred to as a behavior <see cref="Port"/>. Any invocation of a <see cref="BehavioralFeature"/> targeted at a behavior <see cref="Port"/> will be handled by the instance of the owning <see cref="EncapsulatedClassifier"/> itself, rather than by any instances that it may contain.
         /// </summary>
         /// xmi:id="Port-isBehavior"
-        Boolean IsBehavior { get; }
+        Boolean IsBehavior { get;set; }
         #endregion
         #region P:IsConjugated:Boolean
         /// <summary>
         /// Specifies the way that the <see cref="Provided"/> and <see cref="Required"/> Interfaces are derived from the <see cref="Port"/>’s <see cref="Type"/>.
         /// </summary>
         /// xmi:id="Port-isConjugated"
-        Boolean IsConjugated { get; }
+        Boolean IsConjugated { get;set; }
         #endregion
         #region P:IsService:Boolean
         /// <summary>
         /// If true, indicates that this <see cref="Port"/> is used to provide the published functionality of an <see cref="EncapsulatedClassifier"/>.  If false, this <see cref="Port"/> is used to implement the <see cref="EncapsulatedClassifier"/> but is not part of the essential externally-visible functionality of the <see cref="EncapsulatedClassifier"/> and can, therefore, be altered or deleted along with the internal implementation of the <see cref="EncapsulatedClassifier"/> and other properties that are considered part of its implementation.
         /// </summary>
         /// xmi:id="Port-isService"
-        Boolean IsService { get; }
+        Boolean IsService { get;set; }
         #endregion
         #region P:Protocol:ProtocolStateMachine
         /// <summary>
@@ -58,9 +59,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Port-protocol"
         /// xmi:association="A_protocol_port"
         [Multiplicity("0..1")]
-        ProtocolStateMachine Protocol { get; }
+        ProtocolStateMachine Protocol { get;set; }
         #endregion
-        #region P:Provided:Interface[]
+        #region P:Provided:IList<Interface>
         /// <summary>
         /// The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCclassifier offers to its environment via this <see cref="Port"/>, and which it will handle either directly or by forwarding it to a part of its internal structure. This <see cref="Association"/> is derived according to the value of <see cref="IsConjugated"/>. If <see cref="IsConjugated"/> is false, <see cref="Provided"/> is derived as the union of the sets of Interfaces realized by the <see cref="Type"/> of the port and its supertypes, or directly from the <see cref="Type"/> of the <see cref="Port"/> if the <see cref="Port"/> is typed by an <see cref="Interface"/>. If <see cref="IsConjugated"/> is true, it is derived as the union of the sets of Interfaces used by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes.
         /// </summary>
@@ -68,9 +69,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_provided_port"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Interface[] Provided { get; }
+        IList<Interface> Provided { get; }
         #endregion
-        #region P:RedefinedPort:Port[]
+        #region P:RedefinedPort:IList<Port>
         /// <summary>
         /// A <see cref="Port"/> may be redefined when its containing <see cref="EncapsulatedClassifier"/> is specialized. The redefining <see cref="Port"/> may have additional Interfaces to those that are associated with the redefined <see cref="Port"/> or it may replace an <see cref="Interface"/> by one of its subtypes.
         /// Subsets:
@@ -78,9 +79,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Port-redefinedPort"
         /// xmi:association="A_redefinedPort_port"
-        Port[] RedefinedPort { get; }
+        IList<Port> RedefinedPort { get; }
         #endregion
-        #region P:Required:Interface[]
+        #region P:Required:IList<Interface>
         /// <summary>
         /// The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCassifier expects its environment to handle via this port. This <see cref="Association"/> is derived according to the value of <see cref="IsConjugated"/>. If <see cref="IsConjugated"/> is false, <see cref="Required"/> is derived as the union of the sets of Interfaces used by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes. If <see cref="IsConjugated"/> is true, it is derived as the union of the sets of Interfaces realized by the <see cref="Type"/> of the <see cref="Port"/> and its supertypes, or directly from the <see cref="Type"/> of the <see cref="Port"/> if the <see cref="Port"/> is typed by an <see cref="Interface"/>.
         /// </summary>
@@ -88,7 +89,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_required_port"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Interface[] Required { get; }
+        IList<Interface> Required { get; }
         #endregion
 
         #region M:basicProvided:Interface[]

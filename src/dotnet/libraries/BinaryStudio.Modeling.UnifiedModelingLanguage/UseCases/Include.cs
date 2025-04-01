@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Include-addition"
         /// xmi:association="A_addition_include"
-        UseCase Addition { get; }
+        UseCase Addition { get;set; }
         #endregion
         #region P:IncludingCase:UseCase
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Include-includingCase"
         /// xmi:association="A_include_includingCase"
-        UseCase IncludingCase { get; }
+        UseCase IncludingCase { get;set; }
         #endregion
         }
     }

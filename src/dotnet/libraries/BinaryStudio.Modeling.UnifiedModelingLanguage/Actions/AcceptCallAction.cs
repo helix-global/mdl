@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -46,7 +47,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="AcceptCallAction-returnInformation"
         /// xmi:aggregation="composite"
         /// xmi:association="A_returnInformation_acceptCallAction"
-        OutputPin ReturnInformation { get; }
+        OutputPin ReturnInformation { get;set; }
         #endregion
         }
     }

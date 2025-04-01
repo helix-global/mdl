@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,17 +19,17 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityNode-activity"
         /// xmi:association="A_node_activity"
         [Multiplicity("0..1")]
-        Activity Activity { get; }
+        Activity Activity { get;set; }
         #endregion
-        #region P:Incoming:ActivityEdge[]
+        #region P:Incoming:IList<ActivityEdge>
         /// <summary>
         /// ActivityEdges that have the <see cref="ActivityNode"/> as their target.
         /// </summary>
         /// xmi:id="ActivityNode-incoming"
         /// xmi:association="A_incoming_target_node"
-        ActivityEdge[] Incoming { get; }
+        IList<ActivityEdge> Incoming { get; }
         #endregion
-        #region P:InGroup:ActivityGroup[]
+        #region P:InGroup:IList<ActivityGroup>
         /// <summary>
         /// ActivityGroups containing the <see cref="ActivityNode"/>.
         /// </summary>
@@ -37,9 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        ActivityGroup[] InGroup { get; }
+        IList<ActivityGroup> InGroup { get; }
         #endregion
-        #region P:InInterruptibleRegion:InterruptibleActivityRegion[]
+        #region P:InInterruptibleRegion:IList<InterruptibleActivityRegion>
         /// <summary>
         /// InterruptibleActivityRegions containing the <see cref="ActivityNode"/>.
         /// Subsets:
@@ -47,9 +48,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityNode-inInterruptibleRegion"
         /// xmi:association="A_inInterruptibleRegion_node"
-        InterruptibleActivityRegion[] InInterruptibleRegion { get; }
+        IList<InterruptibleActivityRegion> InInterruptibleRegion { get; }
         #endregion
-        #region P:InPartition:ActivityPartition[]
+        #region P:InPartition:IList<ActivityPartition>
         /// <summary>
         /// ActivityPartitions containing the <see cref="ActivityNode"/>.
         /// Subsets:
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityNode-inPartition"
         /// xmi:association="A_inPartition_node"
-        ActivityPartition[] InPartition { get; }
+        IList<ActivityPartition> InPartition { get; }
         #endregion
         #region P:InStructuredNode:StructuredActivityNode
         /// <summary>
@@ -69,17 +70,17 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityNode-inStructuredNode"
         /// xmi:association="A_node_inStructuredNode"
         [Multiplicity("0..1")]
-        StructuredActivityNode InStructuredNode { get; }
+        StructuredActivityNode InStructuredNode { get;set; }
         #endregion
-        #region P:Outgoing:ActivityEdge[]
+        #region P:Outgoing:IList<ActivityEdge>
         /// <summary>
         /// ActivityEdges that have the <see cref="ActivityNode"/> as their source.
         /// </summary>
         /// xmi:id="ActivityNode-outgoing"
         /// xmi:association="A_outgoing_source_node"
-        ActivityEdge[] Outgoing { get; }
+        IList<ActivityEdge> Outgoing { get; }
         #endregion
-        #region P:RedefinedNode:ActivityNode[]
+        #region P:RedefinedNode:IList<ActivityNode>
         /// <summary>
         /// ActivityNodes from a generalization of the <see cref="Activity"/> containining this <see cref="ActivityNode"/> that are redefined by this <see cref="ActivityNode"/>.
         /// Subsets:
@@ -87,7 +88,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityNode-redefinedNode"
         /// xmi:association="A_redefinedNode_activityNode"
-        ActivityNode[] RedefinedNode { get; }
+        IList<ActivityNode> RedefinedNode { get; }
         #endregion
 
         #region M:containingActivity:Activity

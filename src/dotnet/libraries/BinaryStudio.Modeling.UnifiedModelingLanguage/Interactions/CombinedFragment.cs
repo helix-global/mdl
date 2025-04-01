@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -35,7 +36,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="CombinedFragment"
     public interface CombinedFragment : InteractionFragment
         {
-        #region P:CfragmentGate:Gate[]
+        #region P:CfragmentGate:IList<Gate>
         /// <summary>
         /// Specifies the gates that form the interface between this <see cref="CombinedFragment"/> and its surroundings
         /// Subsets:
@@ -44,16 +45,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="CombinedFragment-cfragmentGate"
         /// xmi:aggregation="composite"
         /// xmi:association="A_cfragmentGate_combinedFragment"
-        Gate[] CfragmentGate { get; }
+        IList<Gate> CfragmentGate { get; }
         #endregion
         #region P:InteractionOperator:InteractionOperatorKind
         /// <summary>
         /// Specifies the operation which defines the semantics of this combination of InteractionFragments.
         /// </summary>
         /// xmi:id="CombinedFragment-interactionOperator"
-        InteractionOperatorKind InteractionOperator { get; }
+        InteractionOperatorKind InteractionOperator { get;set; }
         #endregion
-        #region P:Operand:InteractionOperand[]
+        #region P:Operand:IList<InteractionOperand>
         /// <summary>
         /// The set of operands of the combined fragment.
         /// Subsets:
@@ -63,7 +64,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_operand_combinedFragment"
         [Multiplicity("1..*")][Ordered]
-        InteractionOperand[] Operand { get; }
+        IList<InteractionOperand> Operand { get; }
         #endregion
         }
     }

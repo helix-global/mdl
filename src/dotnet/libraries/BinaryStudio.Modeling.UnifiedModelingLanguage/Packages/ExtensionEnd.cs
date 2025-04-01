@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -34,7 +35,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExtensionEnd-lower"
         /// xmi:is-derived="true"
-        Integer? Lower { get; }
+        Integer? Lower { get;set; }
         #endregion
         #region P:Type:Stereotype
         /// <summary>
@@ -44,7 +45,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExtensionEnd-type"
         /// xmi:association="A_type_extensionEnd"
-        Stereotype Type { get; }
+        Stereotype Type { get;set; }
         #endregion
 
         #region M:lowerBound:Integer?

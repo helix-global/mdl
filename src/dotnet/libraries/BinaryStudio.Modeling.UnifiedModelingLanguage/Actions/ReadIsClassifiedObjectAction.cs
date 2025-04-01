@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -43,14 +44,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-classifier"
         /// xmi:association="A_classifier_readIsClassifiedObjectAction"
-        Classifier Classifier { get; }
+        Classifier Classifier { get;set; }
         #endregion
         #region P:IsDirect:Boolean
         /// <summary>
         /// Indicates whether the <see cref="Input"/> <see cref="Object"/> must be directly classified by the given <see cref="Classifier"/> or whether it may also be an instance of a specialization of the given <see cref="Classifier"/>.
         /// </summary>
         /// xmi:id="ReadIsClassifiedObjectAction-isDirect"
-        Boolean IsDirect { get; }
+        Boolean IsDirect { get;set; }
         #endregion
         #region P:Object:InputPin
         /// <summary>
@@ -61,7 +62,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReadIsClassifiedObjectAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_readIsClassifiedObjectAction"
-        InputPin Object { get; }
+        InputPin Object { get;set; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
@@ -72,7 +73,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReadIsClassifiedObjectAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_readIsClassifiedObjectAction"
-        OutputPin Result { get; }
+        OutputPin Result { get;set; }
         #endregion
         }
     }

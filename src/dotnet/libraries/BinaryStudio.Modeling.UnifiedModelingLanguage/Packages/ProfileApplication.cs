@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProfileApplication-appliedProfile"
         /// xmi:association="A_appliedProfile_profileApplication"
-        Profile AppliedProfile { get; }
+        Profile AppliedProfile { get;set; }
         #endregion
         #region P:ApplyingPackage:Package
         /// <summary>
@@ -28,14 +29,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ProfileApplication-applyingPackage"
         /// xmi:association="A_profileApplication_applyingPackage"
-        Package ApplyingPackage { get; }
+        Package ApplyingPackage { get;set; }
         #endregion
         #region P:IsStrict:Boolean
         /// <summary>
         /// Specifies that the <see cref="Profile"/> filtering rules for the metaclasses of the referenced metamodel shall be strictly applied.
         /// </summary>
         /// xmi:id="ProfileApplication-isStrict"
-        Boolean IsStrict { get; }
+        Boolean IsStrict { get;set; }
         #endregion
         }
     }

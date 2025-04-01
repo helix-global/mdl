@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -22,15 +23,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Trigger-event"
         /// xmi:association="A_event_trigger"
-        Event Event { get; }
+        Event Event { get;set; }
         #endregion
-        #region P:Port:Port[]
+        #region P:Port:IList<Port>
         /// <summary>
         /// A optional <see cref="Port"/> of through which the given effect is detected.
         /// </summary>
         /// xmi:id="Trigger-port"
         /// xmi:association="A_port_trigger"
-        Port[] Port { get; }
+        IList<Port> Port { get; }
         #endregion
         }
     }

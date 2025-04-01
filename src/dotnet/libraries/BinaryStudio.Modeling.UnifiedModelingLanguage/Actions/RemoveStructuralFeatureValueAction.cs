@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether to remove duplicates of the <see cref="Value"/> in nonunique StructuralFeatures.
         /// </summary>
         /// xmi:id="RemoveStructuralFeatureValueAction-isRemoveDuplicates"
-        Boolean IsRemoveDuplicates { get; }
+        Boolean IsRemoveDuplicates { get;set; }
         #endregion
         #region P:RemoveAt:InputPin
         /// <summary>
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_removeAt_removeStructuralFeatureValueAction"
         [Multiplicity("0..1")]
-        InputPin RemoveAt { get; }
+        InputPin RemoveAt { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -25,27 +26,27 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="GeneralizationSet"
     public interface GeneralizationSet : PackageableElement
         {
-        #region P:Generalization:Generalization[]
+        #region P:Generalization:IList<Generalization>
         /// <summary>
         /// Designates the instances of <see cref="Generalization"/> that are members of this <see cref="GeneralizationSet"/>.
         /// </summary>
         /// xmi:id="GeneralizationSet-generalization"
         /// xmi:association="A_generalizationSet_generalization"
-        Generalization[] Generalization { get; }
+        IList<Generalization> Generalization { get; }
         #endregion
         #region P:IsCovering:Boolean
         /// <summary>
         /// Indicates (via the associated Generalizations) whether or not the set of specific Classifiers are covering for a particular general classifier. When <see cref="IsCovering"/> is true, every instance of a particular general <see cref="Classifier"/> is also an instance of at least one of its specific Classifiers for the <see cref="GeneralizationSet"/>. When <see cref="IsCovering"/> is false, there are one or more instances of the particular general <see cref="Classifier"/> that are not instances of at least one of its specific Classifiers defined for the <see cref="GeneralizationSet"/>.
         /// </summary>
         /// xmi:id="GeneralizationSet-isCovering"
-        Boolean IsCovering { get; }
+        Boolean IsCovering { get;set; }
         #endregion
         #region P:IsDisjoint:Boolean
         /// <summary>
         /// Indicates whether or not the set of specific Classifiers in a <see cref="Generalization"/> relationship have instance in common. If <see cref="IsDisjoint"/> is true, the specific Classifiers for a particular <see cref="GeneralizationSet"/> have no members in common; that is, their intersection is empty. If <see cref="IsDisjoint"/> is false, the specific Classifiers in a particular <see cref="GeneralizationSet"/> have one or more members in common; that is, their intersection is not empty.
         /// </summary>
         /// xmi:id="GeneralizationSet-isDisjoint"
-        Boolean IsDisjoint { get; }
+        Boolean IsDisjoint { get;set; }
         #endregion
         #region P:Powertype:Classifier
         /// <summary>
@@ -54,7 +55,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="GeneralizationSet-powertype"
         /// xmi:association="A_powertypeExtent_powertype"
         [Multiplicity("0..1")]
-        Classifier Powertype { get; }
+        Classifier Powertype { get;set; }
         #endregion
         }
     }

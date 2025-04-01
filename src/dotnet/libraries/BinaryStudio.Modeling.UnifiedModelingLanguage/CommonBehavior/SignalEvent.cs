@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -15,7 +16,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="SignalEvent-signal"
         /// xmi:association="A_signal_signalEvent"
-        Signal Signal { get; }
+        Signal Signal { get;set; }
         #endregion
         }
     }

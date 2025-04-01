@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="BroadcastSignalAction-signal"
         /// xmi:association="A_signal_broadcastSignalAction"
-        Signal Signal { get; }
+        Signal Signal { get;set; }
         #endregion
         }
     }

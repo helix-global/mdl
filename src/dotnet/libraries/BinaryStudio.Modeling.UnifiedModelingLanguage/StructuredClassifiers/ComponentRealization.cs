@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -19,9 +20,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ComponentRealization-abstraction"
         /// xmi:association="A_realization_abstraction_component"
         [Multiplicity("0..1")]
-        Component Abstraction { get; }
+        Component Abstraction { get;set; }
         #endregion
-        #region P:RealizingClassifier:Classifier[]
+        #region P:RealizingClassifier:IList<Classifier>
         /// <summary>
         /// The Classifiers that are involved in the implementation of the <see cref="Component"/> that owns this <see cref="Realization"/>.
         /// Subsets:
@@ -30,7 +31,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ComponentRealization-realizingClassifier"
         /// xmi:association="A_realizingClassifier_componentRealization"
         [Multiplicity("1..*")]
-        Classifier[] RealizingClassifier { get; }
+        IList<Classifier> RealizingClassifier { get; }
         #endregion
         }
     }

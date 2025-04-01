@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -87,22 +88,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="LoopNode"
     public interface LoopNode : StructuredActivityNode
         {
-        #region P:BodyOutput:OutputPin[]
+        #region P:BodyOutput:IList<OutputPin>
         /// <summary>
         /// The OutputPins on Actions within the <see cref="BodyPart"/>, the values of which are moved to the <see cref="LoopVariable"/> OutputPins after the completion of each execution of the <see cref="BodyPart"/>, before the next iteration of the loop begins or before the loop exits.
         /// </summary>
         /// xmi:id="LoopNode-bodyOutput"
         /// xmi:association="A_bodyOutput_loopNode"
         [Ordered]
-        OutputPin[] BodyOutput { get; }
+        IList<OutputPin> BodyOutput { get; }
         #endregion
-        #region P:BodyPart:ExecutableNode[]
+        #region P:BodyPart:IList<ExecutableNode>
         /// <summary>
         /// The set of ExecutableNodes that perform the repetitive computations of the loop. The <see cref="BodyPart"/> is executed as long as the <see cref="Test"/> section produces a true value.
         /// </summary>
         /// xmi:id="LoopNode-bodyPart"
         /// xmi:association="A_bodyPart_loopNode"
-        ExecutableNode[] BodyPart { get; }
+        IList<ExecutableNode> BodyPart { get; }
         #endregion
         #region P:Decider:OutputPin
         /// <summary>
@@ -110,16 +111,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LoopNode-decider"
         /// xmi:association="A_decider_loopNode"
-        OutputPin Decider { get; }
+        OutputPin Decider { get;set; }
         #endregion
         #region P:IsTestedFirst:Boolean
         /// <summary>
         /// If true, the <see cref="Test"/> is performed before the first execution of the <see cref="BodyPart"/>. If false, the <see cref="BodyPart"/> is executed once before the <see cref="Test"/> is performed.
         /// </summary>
         /// xmi:id="LoopNode-isTestedFirst"
-        Boolean IsTestedFirst { get; }
+        Boolean IsTestedFirst { get;set; }
         #endregion
-        #region P:LoopVariable:OutputPin[]
+        #region P:LoopVariable:IList<OutputPin>
         /// <summary>
         /// A list of OutputPins that hold the values of the loop variables during an execution of the loop. When the <see cref="Test"/> fails, the values are moved to the <see cref="Result"/> OutputPins of the loop.
         /// Subsets:
@@ -129,9 +130,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_loopVariable_loopNode"
         [Ordered]
-        OutputPin[] LoopVariable { get; }
+        IList<OutputPin> LoopVariable { get; }
         #endregion
-        #region P:LoopVariableInput:InputPin[]
+        #region P:LoopVariableInput:IList<InputPin>
         /// <summary>
         /// A list of InputPins whose values are moved into the <see cref="LoopVariable"/> Pins before the first iteration of the loop.
         /// Redefines:
@@ -141,9 +142,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_loopVariableInput_loopNode"
         [Ordered]
-        InputPin[] LoopVariableInput { get; }
+        IList<InputPin> LoopVariableInput { get; }
         #endregion
-        #region P:Result:OutputPin[]
+        #region P:Result:IList<OutputPin>
         /// <summary>
         /// A list of OutputPins that receive the <see cref="LoopVariable"/> values after the last iteration of the loop and constitute the <see cref="Output"/> of the <see cref="LoopNode"/>.
         /// Redefines:
@@ -153,24 +154,24 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_loopNode"
         [Ordered]
-        OutputPin[] Result { get; }
+        IList<OutputPin> Result { get; }
         #endregion
-        #region P:SetupPart:ExecutableNode[]
+        #region P:SetupPart:IList<ExecutableNode>
         /// <summary>
         /// The set of ExecutableNodes executed before the first iteration of the loop, in order to initialize values or perform other setup computations.
         /// </summary>
         /// xmi:id="LoopNode-setupPart"
         /// xmi:association="A_setupPart_loopNode"
-        ExecutableNode[] SetupPart { get; }
+        IList<ExecutableNode> SetupPart { get; }
         #endregion
-        #region P:Test:ExecutableNode[]
+        #region P:Test:IList<ExecutableNode>
         /// <summary>
         /// The set of ExecutableNodes executed in order to provide the <see cref="Test"/> <see cref="Result"/> for the loop.
         /// </summary>
         /// xmi:id="LoopNode-test"
         /// xmi:association="A_test_loopNode"
         [Multiplicity("1..*")]
-        ExecutableNode[] Test { get; }
+        IList<ExecutableNode> Test { get; }
         #endregion
 
         #region M:allActions:Action[]

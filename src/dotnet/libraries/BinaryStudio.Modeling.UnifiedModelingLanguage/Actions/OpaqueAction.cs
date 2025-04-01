@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,15 +17,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="OpaqueAction"
     public interface OpaqueAction : Action
         {
-        #region P:Body:String[]
+        #region P:Body:IList<String>
         /// <summary>
         /// Provides a textual specification of the functionality of the <see cref="Action"/>, in one or more languages other than UML.
         /// </summary>
         /// xmi:id="OpaqueAction-body"
         [Ordered]
-        String[] Body { get; }
+        IList<String> Body { get; }
         #endregion
-        #region P:InputValue:InputPin[]
+        #region P:InputValue:IList<InputPin>
         /// <summary>
         /// The InputPins providing inputs to the <see cref="OpaqueAction"/>.
         /// Subsets:
@@ -33,17 +34,17 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="OpaqueAction-inputValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_inputValue_opaqueAction"
-        InputPin[] InputValue { get; }
+        IList<InputPin> InputValue { get; }
         #endregion
-        #region P:Language:String[]
+        #region P:Language:IList<String>
         /// <summary>
         /// If provided, a specification of the <see cref="Language"/> used for each of the <see cref="Body"/> Strings.
         /// </summary>
         /// xmi:id="OpaqueAction-language"
         [Ordered]
-        String[] Language { get; }
+        IList<String> Language { get; }
         #endregion
-        #region P:OutputValue:OutputPin[]
+        #region P:OutputValue:IList<OutputPin>
         /// <summary>
         /// The OutputPins on which the <see cref="OpaqueAction"/> provides outputs.
         /// Subsets:
@@ -52,7 +53,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="OpaqueAction-outputValue"
         /// xmi:aggregation="composite"
         /// xmi:association="A_outputValue_opaqueAction"
-        OutputPin[] OutputValue { get; }
+        IList<OutputPin> OutputValue { get; }
         #endregion
         }
     }

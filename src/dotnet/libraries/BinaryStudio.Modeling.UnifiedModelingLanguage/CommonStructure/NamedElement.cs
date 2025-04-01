@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -31,7 +32,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="NamedElement"
     public interface NamedElement : Element
         {
-        #region P:ClientDependency:Dependency[]
+        #region P:ClientDependency:IList<Dependency>
         /// <summary>
         /// Indicates the Dependencies that reference this <see cref="NamedElement"/> as a client.
         /// Subsets:
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_clientDependency_client"
         /// xmi:is-derived="true"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        Dependency[] ClientDependency { get; }
+        IList<Dependency> ClientDependency { get; }
         #endregion
         #region P:Name:String
         /// <summary>
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="NamedElement-name"
         [Multiplicity("0..1")]
-        String Name { get; }
+        String Name { get;set; }
         #endregion
         #region P:NameExpression:StringExpression
         /// <summary>
@@ -60,7 +61,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_nameExpression_namedElement"
         [Multiplicity("0..1")]
-        StringExpression NameExpression { get; }
+        StringExpression NameExpression { get;set; }
         #endregion
         #region P:Namespace:Namespace
         /// <summary>
@@ -91,7 +92,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines whether and how the <see cref="NamedElement"/> is visible outside its owning <see cref="Namespace"/>.
         /// </summary>
         /// xmi:id="NamedElement-visibility"
-        VisibilityKind? Visibility { get; }
+        VisibilityKind? Visibility { get;set; }
         #endregion
 
         #region M:allNamespaces:Namespace[]

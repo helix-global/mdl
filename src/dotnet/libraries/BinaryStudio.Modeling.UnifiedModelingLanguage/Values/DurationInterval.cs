@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DurationInterval-max"
         /// xmi:association="A_max_durationInterval"
-        Duration Max { get; }
+        Duration Max { get;set; }
         #endregion
         #region P:Min:Duration
         /// <summary>
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DurationInterval-min"
         /// xmi:association="A_min_durationInterval"
-        Duration Min { get; }
+        Duration Min { get;set; }
         #endregion
         }
     }

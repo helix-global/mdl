@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -26,9 +27,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="RedefinableTemplateSignature-classifier"
         /// xmi:association="A_ownedTemplateSignature_classifier"
-        Classifier Classifier { get; }
+        Classifier Classifier { get;set; }
         #endregion
-        #region P:ExtendedSignature:RedefinableTemplateSignature[]
+        #region P:ExtendedSignature:IList<RedefinableTemplateSignature>
         /// <summary>
         /// The signatures extended by this <see cref="RedefinableTemplateSignature"/>.
         /// Subsets:
@@ -36,9 +37,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="RedefinableTemplateSignature-extendedSignature"
         /// xmi:association="A_extendedSignature_redefinableTemplateSignature"
-        RedefinableTemplateSignature[] ExtendedSignature { get; }
+        IList<RedefinableTemplateSignature> ExtendedSignature { get; }
         #endregion
-        #region P:InheritedParameter:TemplateParameter[]
+        #region P:InheritedParameter:IList<TemplateParameter>
         /// <summary>
         /// The formal <see cref="Template"/> parameters of the extended signatures.
         /// Subsets:
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_inheritedParameter_redefinableTemplateSignature"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        TemplateParameter[] InheritedParameter { get; }
+        IList<TemplateParameter> InheritedParameter { get; }
         #endregion
 
         #region M:inheritedParameter:TemplateParameter[]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -65,9 +66,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates whether there is a single <see cref="OutputPin"/> for a <see cref="SignalEvent"/> occurrence, or multiple OutputPins for attribute values of the instance of the <see cref="Signal"/> associated with a <see cref="SignalEvent"/> occurrence.
         /// </summary>
         /// xmi:id="AcceptEventAction-isUnmarshall"
-        Boolean IsUnmarshall { get; }
+        Boolean IsUnmarshall { get;set; }
         #endregion
-        #region P:Result:OutputPin[]
+        #region P:Result:IList<OutputPin>
         /// <summary>
         /// OutputPins holding the values received from an <see cref="Event"/> occurrence.
         /// Subsets:
@@ -77,9 +78,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_acceptEventAction"
         [Ordered]
-        OutputPin[] Result { get; }
+        IList<OutputPin> Result { get; }
         #endregion
-        #region P:Trigger:Trigger[]
+        #region P:Trigger:IList<Trigger>
         /// <summary>
         /// The Triggers specifying the Events of which the <see cref="AcceptEventAction"/> waits for occurrences.
         /// Subsets:
@@ -89,7 +90,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_trigger_acceptEventAction"
         [Multiplicity("1..*")]
-        Trigger[] Trigger { get; }
+        IList<Trigger> Trigger { get; }
         #endregion
         }
     }

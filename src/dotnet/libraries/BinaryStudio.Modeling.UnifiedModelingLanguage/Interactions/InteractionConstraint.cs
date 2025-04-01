@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -61,7 +62,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_maxint_interactionConstraint"
         [Multiplicity("0..1")]
-        ValueSpecification Maxint { get; }
+        ValueSpecification Maxint { get;set; }
         #endregion
         #region P:Minint:ValueSpecification
         /// <summary>
@@ -73,7 +74,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_minint_interactionConstraint"
         [Multiplicity("0..1")]
-        ValueSpecification Minint { get; }
+        ValueSpecification Minint { get;set; }
         #endregion
         }
     }

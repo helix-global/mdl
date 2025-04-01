@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="OperationTemplateParameter-parameteredElement"
         /// xmi:association="A_operation_templateParameter_parameteredElement"
-        Operation ParameteredElement { get; }
+        Operation ParameteredElement { get;set; }
         #endregion
         }
     }

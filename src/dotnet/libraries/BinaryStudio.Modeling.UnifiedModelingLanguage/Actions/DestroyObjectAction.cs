@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -28,14 +29,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether links in which the object participates are destroyed along with the object.
         /// </summary>
         /// xmi:id="DestroyObjectAction-isDestroyLinks"
-        Boolean IsDestroyLinks { get; }
+        Boolean IsDestroyLinks { get;set; }
         #endregion
         #region P:IsDestroyOwnedObjects:Boolean
         /// <summary>
         /// Specifies whether objects owned by the object (via composition) are destroyed along with the object.
         /// </summary>
         /// xmi:id="DestroyObjectAction-isDestroyOwnedObjects"
-        Boolean IsDestroyOwnedObjects { get; }
+        Boolean IsDestroyOwnedObjects { get;set; }
         #endregion
         #region P:Target:InputPin
         /// <summary>
@@ -46,7 +47,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="DestroyObjectAction-target"
         /// xmi:aggregation="composite"
         /// xmi:association="A_target_destroyObjectAction"
-        InputPin Target { get; }
+        InputPin Target { get;set; }
         #endregion
         }
     }

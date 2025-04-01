@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -41,7 +42,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TestIdentityAction-first"
         /// xmi:aggregation="composite"
         /// xmi:association="A_first_testIdentityAction"
-        InputPin First { get; }
+        InputPin First { get;set; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
@@ -52,7 +53,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TestIdentityAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_testIdentityAction"
-        OutputPin Result { get; }
+        OutputPin Result { get;set; }
         #endregion
         #region P:Second:InputPin
         /// <summary>
@@ -63,7 +64,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TestIdentityAction-second"
         /// xmi:aggregation="composite"
         /// xmi:association="A_second_testIdentityAction"
-        InputPin Second { get; }
+        InputPin Second { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -24,7 +25,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CallOperationAction-operation"
         /// xmi:association="A_operation_callOperationAction"
-        Operation Operation { get; }
+        Operation Operation { get;set; }
         #endregion
         #region P:Target:InputPin
         /// <summary>
@@ -35,7 +36,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="CallOperationAction-target"
         /// xmi:aggregation="composite"
         /// xmi:association="A_target_callOperationAction"
-        InputPin Target { get; }
+        InputPin Target { get;set; }
         #endregion
 
         #region M:inputParameters:Parameter[]

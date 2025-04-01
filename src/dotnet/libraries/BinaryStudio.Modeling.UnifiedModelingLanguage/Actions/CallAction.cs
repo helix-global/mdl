@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -45,9 +46,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// If true, the call is synchronous and the caller waits for completion of the invoked <see cref="Behavior"/>. If false, the call is asynchronous and the caller proceeds immediately and cannot receive return values.
         /// </summary>
         /// xmi:id="CallAction-isSynchronous"
-        Boolean IsSynchronous { get; }
+        Boolean IsSynchronous { get;set; }
         #endregion
-        #region P:Result:OutputPin[]
+        #region P:Result:IList<OutputPin>
         /// <summary>
         /// The OutputPins on which the reply values from the invocation are placed (if the call is synchronous).
         /// Subsets:
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_callAction"
         [Ordered]
-        OutputPin[] Result { get; }
+        IList<OutputPin> Result { get; }
         #endregion
 
         #region M:inputParameters:Parameter[]

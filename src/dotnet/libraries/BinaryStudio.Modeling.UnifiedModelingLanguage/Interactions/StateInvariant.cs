@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StateInvariant-covered"
         /// xmi:association="A_covered_stateInvariant"
-        Lifeline Covered { get; }
+        Lifeline Covered { get;set; }
         #endregion
         #region P:Invariant:Constraint
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StateInvariant-invariant"
         /// xmi:aggregation="composite"
         /// xmi:association="A_invariant_stateInvariant"
-        Constraint Invariant { get; }
+        Constraint Invariant { get;set; }
         #endregion
         }
     }

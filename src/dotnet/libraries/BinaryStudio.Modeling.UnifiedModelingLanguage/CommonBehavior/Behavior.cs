@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -48,9 +49,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Tells whether the <see cref="Behavior"/> can be invoked while it is still executing from a previous invocation.
         /// </summary>
         /// xmi:id="Behavior-isReentrant"
-        Boolean IsReentrant { get; }
+        Boolean IsReentrant { get;set; }
         #endregion
-        #region P:OwnedParameter:Parameter[]
+        #region P:OwnedParameter:IList<Parameter>
         /// <summary>
         /// References a list of Parameters to the <see cref="Behavior"/> which describes the order and type of arguments that can be given when the <see cref="Behavior"/> is invoked and of the values which will be returned when the <see cref="Behavior"/> completes its execution.
         /// Subsets:
@@ -60,9 +61,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameter_behavior"
         [Ordered]
-        Parameter[] OwnedParameter { get; }
+        IList<Parameter> OwnedParameter { get; }
         #endregion
-        #region P:OwnedParameterSet:ParameterSet[]
+        #region P:OwnedParameterSet:IList<ParameterSet>
         /// <summary>
         /// The ParameterSets owned by this <see cref="Behavior"/>.
         /// Subsets:
@@ -71,9 +72,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Behavior-ownedParameterSet"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameterSet_behavior"
-        ParameterSet[] OwnedParameterSet { get; }
+        IList<ParameterSet> OwnedParameterSet { get; }
         #endregion
-        #region P:Postcondition:Constraint[]
+        #region P:Postcondition:IList<Constraint>
         /// <summary>
         /// An optional set of Constraints specifying what is fulfilled after the execution of the <see cref="Behavior"/> is completed, if its <see cref="Precondition"/> was fulfilled before its invocation.
         /// Subsets:
@@ -82,9 +83,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Behavior-postcondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_postcondition_behavior"
-        Constraint[] Postcondition { get; }
+        IList<Constraint> Postcondition { get; }
         #endregion
-        #region P:Precondition:Constraint[]
+        #region P:Precondition:IList<Constraint>
         /// <summary>
         /// An optional set of Constraints specifying what must be fulfilled before the <see cref="Behavior"/> is invoked.
         /// Subsets:
@@ -93,9 +94,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Behavior-precondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_precondition_behavior"
-        Constraint[] Precondition { get; }
+        IList<Constraint> Precondition { get; }
         #endregion
-        #region P:RedefinedBehavior:Behavior[]
+        #region P:RedefinedBehavior:IList<Behavior>
         /// <summary>
         /// References the <see cref="Behavior"/> that this <see cref="Behavior"/> redefines. A subtype of <see cref="Behavior"/> may redefine any other subtype of <see cref="Behavior"/>. If the <see cref="Behavior"/> implements a <see cref="BehavioralFeature"/>, it replaces the redefined <see cref="Behavior"/>. If the <see cref="Behavior"/> is a <see cref="ClassifierBehavior"/>, it extends the redefined <see cref="Behavior"/>.
         /// Subsets:
@@ -103,7 +104,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Behavior-redefinedBehavior"
         /// xmi:association="A_redefinedBehavior_behavior"
-        Behavior[] RedefinedBehavior { get; }
+        IList<Behavior> RedefinedBehavior { get; }
         #endregion
         #region P:Specification:BehavioralFeature
         /// <summary>
@@ -112,7 +113,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Behavior-specification"
         /// xmi:association="A_method_specification"
         [Multiplicity("0..1")]
-        BehavioralFeature Specification { get; }
+        BehavioralFeature Specification { get;set; }
         #endregion
 
         #region M:behavioredClassifier(Element):BehavioredClassifier

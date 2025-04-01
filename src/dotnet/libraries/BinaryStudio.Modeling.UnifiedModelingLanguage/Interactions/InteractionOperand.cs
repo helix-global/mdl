@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="InteractionOperand"
     public interface InteractionOperand : InteractionFragment,Namespace
         {
-        #region P:Fragment:InteractionFragment[]
+        #region P:Fragment:IList<InteractionFragment>
         /// <summary>
         /// The fragments of the operand.
         /// Subsets:
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_fragment_enclosingOperand"
         [Ordered]
-        InteractionFragment[] Fragment { get; }
+        IList<InteractionFragment> Fragment { get; }
         #endregion
         #region P:Guard:InteractionConstraint
         /// <summary>
@@ -39,7 +40,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_guard_interactionOperand"
         [Multiplicity("0..1")]
-        InteractionConstraint Guard { get; }
+        InteractionConstraint Guard { get;set; }
         #endregion
         }
     }

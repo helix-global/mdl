@@ -22,16 +22,15 @@ namespace pre
         public String IsDerived { get;private set; }
         public Boolean? IsDerivedUnion { get;private set; }
         public String Association { get;private set; }
-        public String IsReadOnly { get;private set; }
+        public Boolean? IsReadOnly { get;private set; }
         public Boolean? IsOrdered { get;private set; }
         public String Multiplicity { get;private set; }
         public String TypeMultiplicitySuffix { get;private set; }
         public String MultiplicityAttribute { get;private set; }
         public String TypeWithMultiplicity { get {
-            var r = new StringBuilder();
-            r.Append($"{Type}");
-            r.Append($"{TypeMultiplicitySuffix}");
-            return r.ToString();
+            return String.Equals(TypeMultiplicitySuffix,"[]")
+                    ? $"IList<{Type}>"
+                    : $"{Type}{TypeMultiplicitySuffix}"; 
             }}
 
         private IPackage Package{get{
@@ -69,7 +68,7 @@ namespace pre
             Type = reader.GetAttribute("type");
             Aggregation = reader.GetAttribute("aggregation");
             Association = reader.GetAttribute("association");
-            IsReadOnly = reader.GetAttribute("isReadOnly");
+            IsReadOnly = GetValueAsBoolean(reader.GetAttribute("isReadOnly"));
             IsDerived = reader.GetAttribute("isDerived");
             IsDerivedUnion = GetValueAsBoolean(reader.GetAttribute("isDerivedUnion"));
             IsOrdered = GetValueAsBoolean(reader.GetAttribute("isOrdered"));
@@ -236,11 +235,12 @@ namespace pre
             if (!String.IsNullOrWhiteSpace(Aggregation))    { writer.Write($"{prefix}/// xmi:aggregation=\"{Aggregation}\"\n"); }
             if (!String.IsNullOrWhiteSpace(Association))    { writer.Write($"{prefix}/// xmi:association=\"{Association}\"\n"); }
             if (!String.IsNullOrWhiteSpace(IsDerived))      { writer.Write($"{prefix}/// xmi:is-derived=\"true\"\n"); }
-            if (!String.IsNullOrWhiteSpace(IsReadOnly))     { writer.Write($"{prefix}/// xmi:is-readonly=\"true\"\n"); }
+            if (IsReadOnly == true)     { writer.Write($"{prefix}/// xmi:is-readonly=\"true\"\n"); }
 
             if (!String.IsNullOrWhiteSpace(MultiplicityAttribute)) { attributes.Append($"[{MultiplicityAttribute}]"); }
             if (IsOrdered == true)      { attributes.Append("[Ordered]"); }
             if (IsDerivedUnion == true) { attributes.Append("[Union]");   }
+            var @readonly = (IsReadOnly==true) || (TypeMultiplicitySuffix == "[]");
 
             foreach (var p in SubsettedProperties) {
                 if (ClassOwner != null) {
@@ -253,7 +253,9 @@ namespace pre
 
             if (attributes.Length > 0) { writer.Write($"{prefix}{attributes}\n"); }
             writer.Write($"{prefix}{TypeWithMultiplicity}");
-            writer.Write($" {UpperFirstLetter(Name)} {{ get; }}\n");
+            writer.Write(@readonly
+                ? $" {UpperFirstLetter(Name)} {{ get; }}\n"
+                : $" {UpperFirstLetter(Name)} {{ get;set; }}\n");
             writer.Write($"{prefix}#endregion\n");
             }
         #endregion

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DestroyLinkAction"
     public interface DestroyLinkAction : WriteLinkAction
         {
-        #region P:EndData:LinkEndDestructionData[]
+        #region P:EndData:IList<LinkEndDestructionData>
         /// <summary>
         /// The <see cref="LinkEndData"/> that the values of the <see cref="Association"/> ends for the links to be destroyed.
         /// Redefines:
@@ -19,7 +20,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_endData_destroyLinkAction"
         [Multiplicity("2..*")]
-        LinkEndDestructionData[] EndData { get; }
+        IList<LinkEndDestructionData> EndData { get; }
         #endregion
         }
     }

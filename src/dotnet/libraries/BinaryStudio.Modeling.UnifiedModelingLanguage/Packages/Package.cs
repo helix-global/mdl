@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Package"
     public interface Package : TemplateableElement,Namespace,PackageableElement
         {
-        #region P:NestedPackage:Package[]
+        #region P:NestedPackage:IList<Package>
         /// <summary>
         /// References the packaged elements that are Packages.
         /// Subsets:
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_nestedPackage_nestingPackage"
         /// xmi:is-derived="true"
-        Package[] NestedPackage { get; }
+        IList<Package> NestedPackage { get; }
         #endregion
         #region P:NestingPackage:Package
         /// <summary>
@@ -39,9 +40,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_nestedPackage_nestingPackage"
         /// xmi:subsets="A_packagedElement_owningPackage-owningPackage"
         [Multiplicity("0..1")]
-        Package NestingPackage { get; }
+        Package NestingPackage { get;set; }
         #endregion
-        #region P:OwnedStereotype:Stereotype[]
+        #region P:OwnedStereotype:IList<Stereotype>
         /// <summary>
         /// References the Stereotypes that are owned by the <see cref="Package"/>.
         /// Subsets:
@@ -52,9 +53,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedStereotype_owningPackage"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Stereotype[] OwnedStereotype { get; }
+        IList<Stereotype> OwnedStereotype { get; }
         #endregion
-        #region P:OwnedType:Type[]
+        #region P:OwnedType:IList<Type>
         /// <summary>
         /// References the packaged elements that are Types.
         /// Subsets:
@@ -64,9 +65,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedType_package"
         /// xmi:is-derived="true"
-        Type[] OwnedType { get; }
+        IList<Type> OwnedType { get; }
         #endregion
-        #region P:PackagedElement:PackageableElement[]
+        #region P:PackagedElement:IList<PackageableElement>
         /// <summary>
         /// Specifies the packageable elements that are owned by this <see cref="Package"/>.
         /// Subsets:
@@ -75,9 +76,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Package-packagedElement"
         /// xmi:aggregation="composite"
         /// xmi:association="A_packagedElement_owningPackage"
-        PackageableElement[] PackagedElement { get; }
+        IList<PackageableElement> PackagedElement { get; }
         #endregion
-        #region P:PackageMerge:PackageMerge[]
+        #region P:PackageMerge:IList<PackageMerge>
         /// <summary>
         /// References the PackageMerges that are owned by this <see cref="Package"/>.
         /// Subsets:
@@ -87,9 +88,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_packageMerge_receivingPackage"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        PackageMerge[] PackageMerge { get; }
+        IList<PackageMerge> PackageMerge { get; }
         #endregion
-        #region P:ProfileApplication:ProfileApplication[]
+        #region P:ProfileApplication:IList<ProfileApplication>
         /// <summary>
         /// References the ProfileApplications that indicate which profiles have been applied to the <see cref="Package"/>.
         /// Subsets:
@@ -99,7 +100,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_profileApplication_applyingPackage"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        ProfileApplication[] ProfileApplication { get; }
+        IList<ProfileApplication> ProfileApplication { get; }
         #endregion
         #region P:URI:String
         /// <summary>
@@ -107,7 +108,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Package-URI"
         [Multiplicity("0..1")]
-        String URI { get; }
+        String URI { get;set; }
         #endregion
 
         #region M:allApplicableStereotypes:Stereotype[]

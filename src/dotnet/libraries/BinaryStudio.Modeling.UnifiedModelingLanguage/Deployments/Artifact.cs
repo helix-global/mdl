@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,9 +17,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Artifact-fileName"
         [Multiplicity("0..1")]
-        String FileName { get; }
+        String FileName { get;set; }
         #endregion
-        #region P:Manifestation:Manifestation[]
+        #region P:Manifestation:IList<Manifestation>
         /// <summary>
         /// The set of model elements that are manifested in the <see cref="Artifact"/>. That is, these model elements are utilized in the construction (or generation) of the artifact.
         /// Subsets:
@@ -28,9 +29,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Artifact-manifestation"
         /// xmi:aggregation="composite"
         /// xmi:association="A_manifestation_artifact"
-        Manifestation[] Manifestation { get; }
+        IList<Manifestation> Manifestation { get; }
         #endregion
-        #region P:NestedArtifact:Artifact[]
+        #region P:NestedArtifact:IList<Artifact>
         /// <summary>
         /// The Artifacts that are defined (nested) within the <see cref="Artifact"/>. The association is a specialization of the <see cref="OwnedMember"/> association from <see cref="Namespace"/> to <see cref="NamedElement"/>.
         /// Subsets:
@@ -39,9 +40,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Artifact-nestedArtifact"
         /// xmi:aggregation="composite"
         /// xmi:association="A_nestedArtifact_artifact"
-        Artifact[] NestedArtifact { get; }
+        IList<Artifact> NestedArtifact { get; }
         #endregion
-        #region P:OwnedAttribute:Property[]
+        #region P:OwnedAttribute:IList<Property>
         /// <summary>
         /// The attributes or association ends defined for the <see cref="Artifact"/>. The association is a specialization of the <see cref="OwnedMember"/> association.
         /// Subsets:
@@ -52,9 +53,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_artifact"
         [Ordered]
-        Property[] OwnedAttribute { get; }
+        IList<Property> OwnedAttribute { get; }
         #endregion
-        #region P:OwnedOperation:Operation[]
+        #region P:OwnedOperation:IList<Operation>
         /// <summary>
         /// The Operations defined for the <see cref="Artifact"/>. The association is a specialization of the <see cref="OwnedMember"/> association.
         /// Subsets:
@@ -66,7 +67,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedOperation_artifact"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Operation[] OwnedOperation { get; }
+        IList<Operation> OwnedOperation { get; }
         #endregion
         }
     }

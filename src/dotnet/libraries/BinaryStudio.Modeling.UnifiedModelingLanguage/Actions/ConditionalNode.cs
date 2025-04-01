@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -58,7 +59,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ConditionalNode"
     public interface ConditionalNode : StructuredActivityNode
         {
-        #region P:Clause:Clause[]
+        #region P:Clause:IList<Clause>
         /// <summary>
         /// The set of Clauses composing the <see cref="ConditionalNode"/>.
         /// Subsets:
@@ -68,23 +69,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_clause_conditionalNode"
         [Multiplicity("1..*")]
-        Clause[] Clause { get; }
+        IList<Clause> Clause { get; }
         #endregion
         #region P:IsAssured:Boolean
         /// <summary>
         /// If true, the modeler asserts that the test for at least one <see cref="Clause"/> of the <see cref="ConditionalNode"/> will succeed.
         /// </summary>
         /// xmi:id="ConditionalNode-isAssured"
-        Boolean IsAssured { get; }
+        Boolean IsAssured { get;set; }
         #endregion
         #region P:IsDeterminate:Boolean
         /// <summary>
         /// If true, the modeler asserts that the test for at most one <see cref="Clause"/> of the <see cref="ConditionalNode"/> will succeed.
         /// </summary>
         /// xmi:id="ConditionalNode-isDeterminate"
-        Boolean IsDeterminate { get; }
+        Boolean IsDeterminate { get;set; }
         #endregion
-        #region P:Result:OutputPin[]
+        #region P:Result:IList<OutputPin>
         /// <summary>
         /// The OutputPins that onto which are moved values from the bodyOutputs of the <see cref="Clause"/> selected for execution.
         /// Redefines:
@@ -94,7 +95,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_conditionalNode"
         [Ordered]
-        OutputPin[] Result { get; }
+        IList<OutputPin> Result { get; }
         #endregion
 
         #region M:allActions:Action[]

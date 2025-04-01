@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -46,7 +47,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="State"
     public interface State : Namespace,Vertex
         {
-        #region P:Connection:ConnectionPointReference[]
+        #region P:Connection:IList<ConnectionPointReference>
         /// <summary>
         /// The <see cref="Entry"/> and <see cref="Exit"/> <see cref="Connection"/> points used in conjunction with this (<see cref="Submachine"/>) <see cref="State"/>, i.e., as targets and sources, respectively, in the <see cref="Region"/> with the <see cref="Submachine"/> <see cref="State"/>. A <see cref="Connection"/> point reference references the corresponding definition of a <see cref="Connection"/> point <see cref="Pseudostate"/> in the <see cref="StateMachine"/> referenced by the <see cref="Submachine"/> <see cref="State"/>.
         /// Subsets:
@@ -55,9 +56,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="State-connection"
         /// xmi:aggregation="composite"
         /// xmi:association="A_connection_state"
-        ConnectionPointReference[] Connection { get; }
+        IList<ConnectionPointReference> Connection { get; }
         #endregion
-        #region P:ConnectionPoint:Pseudostate[]
+        #region P:ConnectionPoint:IList<Pseudostate>
         /// <summary>
         /// The <see cref="Entry"/> and <see cref="Exit"/> Pseudostates of a composite <see cref="State"/>. These can only be <see cref="Entry"/> or <see cref="Exit"/> Pseudostates, and they must have different names. They can only be defined for composite States.
         /// Subsets:
@@ -66,9 +67,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="State-connectionPoint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_connectionPoint_state"
-        Pseudostate[] ConnectionPoint { get; }
+        IList<Pseudostate> ConnectionPoint { get; }
         #endregion
-        #region P:DeferrableTrigger:Trigger[]
+        #region P:DeferrableTrigger:IList<Trigger>
         /// <summary>
         /// A list of Triggers that are candidates to be retained by the <see cref="StateMachine"/> if they trigger no Transitions out of the <see cref="State"/> (not consumed). A deferred <see cref="Trigger"/> is retained until the <see cref="StateMachine"/> reaches a <see cref="State"/> configuration where it is no longer deferred.
         /// Subsets:
@@ -77,7 +78,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="State-deferrableTrigger"
         /// xmi:aggregation="composite"
         /// xmi:association="A_deferrableTrigger_state"
-        Trigger[] DeferrableTrigger { get; }
+        IList<Trigger> DeferrableTrigger { get; }
         #endregion
         #region P:DoActivity:Behavior
         /// <summary>
@@ -89,7 +90,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_doActivity_state"
         [Multiplicity("0..1")]
-        Behavior DoActivity { get; }
+        Behavior DoActivity { get;set; }
         #endregion
         #region P:Entry:Behavior
         /// <summary>
@@ -101,7 +102,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_entry_state"
         [Multiplicity("0..1")]
-        Behavior Entry { get; }
+        Behavior Entry { get;set; }
         #endregion
         #region P:Exit:Behavior
         /// <summary>
@@ -113,7 +114,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_exit_state"
         [Multiplicity("0..1")]
-        Behavior Exit { get; }
+        Behavior Exit { get;set; }
         #endregion
         #region P:IsComposite:Boolean
         /// <summary>
@@ -151,7 +152,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-readonly="true"
         Boolean IsSubmachineState { get; }
         #endregion
-        #region P:Region:Region[]
+        #region P:Region:IList<Region>
         /// <summary>
         /// The Regions owned directly by the <see cref="State"/>.
         /// Subsets:
@@ -160,7 +161,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="State-region"
         /// xmi:aggregation="composite"
         /// xmi:association="A_region_state"
-        Region[] Region { get; }
+        IList<Region> Region { get; }
         #endregion
         #region P:StateInvariant:Constraint
         /// <summary>
@@ -172,7 +173,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_stateInvariant_owningState"
         [Multiplicity("0..1")]
-        Constraint StateInvariant { get; }
+        Constraint StateInvariant { get;set; }
         #endregion
         #region P:Submachine:StateMachine
         /// <summary>
@@ -181,7 +182,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="State-submachine"
         /// xmi:association="A_submachineState_submachine"
         [Multiplicity("0..1")]
-        StateMachine Submachine { get; }
+        StateMachine Submachine { get;set; }
         #endregion
 
         #region M:containingStateMachine:StateMachine

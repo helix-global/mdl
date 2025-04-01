@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -43,7 +44,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CreateObjectAction-classifier"
         /// xmi:association="A_classifier_createObjectAction"
-        Classifier Classifier { get; }
+        Classifier Classifier { get;set; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
@@ -54,7 +55,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="CreateObjectAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_createObjectAction"
-        OutputPin Result { get; }
+        OutputPin Result { get;set; }
         #endregion
         }
     }

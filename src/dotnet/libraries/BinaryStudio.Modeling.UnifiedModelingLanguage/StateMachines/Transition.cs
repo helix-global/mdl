@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -95,7 +96,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Transition-container"
         /// xmi:association="A_transition_container"
-        Region Container { get; }
+        Region Container { get;set; }
         #endregion
         #region P:Effect:Behavior
         /// <summary>
@@ -107,7 +108,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_effect_transition"
         [Multiplicity("0..1")]
-        Behavior Effect { get; }
+        Behavior Effect { get;set; }
         #endregion
         #region P:Guard:Constraint
         /// <summary>
@@ -119,14 +120,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_guard_transition"
         [Multiplicity("0..1")]
-        Constraint Guard { get; }
+        Constraint Guard { get;set; }
         #endregion
         #region P:Kind:TransitionKind
         /// <summary>
         /// Indicates the precise type of the <see cref="Transition"/>.
         /// </summary>
         /// xmi:id="Transition-kind"
-        TransitionKind Kind { get; }
+        TransitionKind Kind { get;set; }
         #endregion
         #region P:RedefinedTransition:Transition
         /// <summary>
@@ -137,7 +138,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Transition-redefinedTransition"
         /// xmi:association="A_redefinedTransition_transition"
         [Multiplicity("0..1")]
-        Transition RedefinedTransition { get; }
+        Transition RedefinedTransition { get;set; }
         #endregion
         #region P:RedefinitionContext:Classifier
         /// <summary>
@@ -157,7 +158,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Transition-source"
         /// xmi:association="A_outgoing_source_vertex"
-        Vertex Source { get; }
+        Vertex Source { get;set; }
         #endregion
         #region P:Target:Vertex
         /// <summary>
@@ -165,9 +166,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Transition-target"
         /// xmi:association="A_incoming_target_vertex"
-        Vertex Target { get; }
+        Vertex Target { get;set; }
         #endregion
-        #region P:Trigger:Trigger[]
+        #region P:Trigger:IList<Trigger>
         /// <summary>
         /// Specifies the Triggers that may fire the transition.
         /// Subsets:
@@ -176,7 +177,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Transition-trigger"
         /// xmi:aggregation="composite"
         /// xmi:association="A_trigger_transition"
-        Trigger[] Trigger { get; }
+        IList<Trigger> Trigger { get; }
         #endregion
 
         #region M:containingStateMachine:StateMachine

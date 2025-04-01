@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TypedElement-type"
         /// xmi:association="A_type_typedElement"
         [Multiplicity("0..1")]
-        Type Type { get; }
+        Type Type { get;set; }
         #endregion
         }
     }

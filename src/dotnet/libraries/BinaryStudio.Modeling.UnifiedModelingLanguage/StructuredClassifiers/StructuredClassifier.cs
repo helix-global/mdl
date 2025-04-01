@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="StructuredClassifier"
     public interface StructuredClassifier : Classifier
         {
-        #region P:OwnedAttribute:Property[]
+        #region P:OwnedAttribute:IList<Property>
         /// <summary>
         /// The Properties owned by the <see cref="StructuredClassifier"/>.
         /// Subsets:
@@ -21,9 +22,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_structuredClassifier"
         [Ordered]
-        Property[] OwnedAttribute { get; }
+        IList<Property> OwnedAttribute { get; }
         #endregion
-        #region P:OwnedConnector:Connector[]
+        #region P:OwnedConnector:IList<Connector>
         /// <summary>
         /// The connectors owned by the <see cref="StructuredClassifier"/>.
         /// Subsets:
@@ -34,9 +35,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedConnector_structuredClassifier"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
-        Connector[] OwnedConnector { get; }
+        IList<Connector> OwnedConnector { get; }
         #endregion
-        #region P:Part:Property[]
+        #region P:Part:IList<Property>
         /// <summary>
         /// The Properties specifying instances that the <see cref="StructuredClassifier"/> owns by composition. This collection is derived, selecting those owned Properties where isComposite is true.
         /// </summary>
@@ -44,9 +45,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_part_structuredClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Property[] Part { get; }
+        IList<Property> Part { get; }
         #endregion
-        #region P:Role:ConnectableElement[]
+        #region P:Role:IList<ConnectableElement>
         /// <summary>
         /// The roles that instances may play in this <see cref="StructuredClassifier"/>.
         /// Subsets:
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        ConnectableElement[] Role { get; }
+        IList<ConnectableElement> Role { get; }
         #endregion
 
         #region M:allRoles:ConnectableElement[]

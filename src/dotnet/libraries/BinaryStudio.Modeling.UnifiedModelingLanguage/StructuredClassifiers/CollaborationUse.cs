@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -46,7 +47,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="CollaborationUse"
     public interface CollaborationUse : NamedElement
         {
-        #region P:RoleBinding:Dependency[]
+        #region P:RoleBinding:IList<Dependency>
         /// <summary>
         /// A mapping between features of the <see cref="Collaboration"/> and features of the owning <see cref="Classifier"/>. This mapping indicates which <see cref="ConnectableElement"/> of the <see cref="Classifier"/> plays which role(s) in the <see cref="Collaboration"/>. A <see cref="ConnectableElement"/> may be bound to multiple roles in the same <see cref="CollaborationUse"/> (that is, it may play multiple roles).
         /// Subsets:
@@ -55,7 +56,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="CollaborationUse-roleBinding"
         /// xmi:aggregation="composite"
         /// xmi:association="A_roleBinding_collaborationUse"
-        Dependency[] RoleBinding { get; }
+        IList<Dependency> RoleBinding { get; }
         #endregion
         #region P:Type:Collaboration
         /// <summary>
@@ -63,7 +64,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="CollaborationUse-type"
         /// xmi:association="A_type_collaborationUse"
-        Collaboration Type { get; }
+        Collaboration Type { get;set; }
         #endregion
         }
     }

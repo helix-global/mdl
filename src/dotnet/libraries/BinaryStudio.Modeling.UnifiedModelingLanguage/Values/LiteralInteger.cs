@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The specified Integer <see cref="Value"/>.
         /// </summary>
         /// xmi:id="LiteralInteger-value"
-        Integer Value { get; }
+        Integer Value { get;set; }
         #endregion
 
         #region M:integerValue:Integer

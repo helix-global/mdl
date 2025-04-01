@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -32,7 +33,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ValueSpecificationAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_valueSpecificationAction"
-        OutputPin Result { get; }
+        OutputPin Result { get;set; }
         #endregion
         #region P:Value:ValueSpecification
         /// <summary>
@@ -43,7 +44,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ValueSpecificationAction-value"
         /// xmi:aggregation="composite"
         /// xmi:association="A_value_valueSpecificationAction"
-        ValueSpecification Value { get; }
+        ValueSpecification Value { get;set; }
         #endregion
         }
     }

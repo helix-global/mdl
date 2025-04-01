@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Interface"
     public interface Interface : Classifier
         {
-        #region P:NestedClassifier:Classifier[]
+        #region P:NestedClassifier:IList<Classifier>
         /// <summary>
         /// References all the Classifiers that are defined (nested) within the <see cref="Interface"/>.
         /// Subsets:
@@ -27,9 +28,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_nestedClassifier_interface"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Classifier[] NestedClassifier { get; }
+        IList<Classifier> NestedClassifier { get; }
         #endregion
-        #region P:OwnedAttribute:Property[]
+        #region P:OwnedAttribute:IList<Property>
         /// <summary>
         /// The attributes (i.e., the Properties) owned by the <see cref="Interface"/>.
         /// Subsets:
@@ -40,9 +41,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_interface"
         [Ordered]
-        Property[] OwnedAttribute { get; }
+        IList<Property> OwnedAttribute { get; }
         #endregion
-        #region P:OwnedOperation:Operation[]
+        #region P:OwnedOperation:IList<Operation>
         /// <summary>
         /// The Operations owned by the <see cref="Interface"/>.
         /// Subsets:
@@ -54,9 +55,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedOperation_interface"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Operation[] OwnedOperation { get; }
+        IList<Operation> OwnedOperation { get; }
         #endregion
-        #region P:OwnedReception:Reception[]
+        #region P:OwnedReception:IList<Reception>
         /// <summary>
         /// Receptions that objects providing this <see cref="Interface"/> are willing to accept.
         /// Subsets:
@@ -66,7 +67,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Interface-ownedReception"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedReception_interface"
-        Reception[] OwnedReception { get; }
+        IList<Reception> OwnedReception { get; }
         #endregion
         #region P:Protocol:ProtocolStateMachine
         /// <summary>
@@ -78,9 +79,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_protocol_interface"
         [Multiplicity("0..1")]
-        ProtocolStateMachine Protocol { get; }
+        ProtocolStateMachine Protocol { get;set; }
         #endregion
-        #region P:RedefinedInterface:Interface[]
+        #region P:RedefinedInterface:IList<Interface>
         /// <summary>
         /// References all the Interfaces redefined by this <see cref="Interface"/>.
         /// Subsets:
@@ -88,7 +89,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Interface-redefinedInterface"
         /// xmi:association="A_redefinedInterface_interface"
-        Interface[] RedefinedInterface { get; }
+        IList<Interface> RedefinedInterface { get; }
         #endregion
         }
     }

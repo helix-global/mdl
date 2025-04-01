@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -25,9 +26,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="BehavioredClassifier-classifierBehavior"
         /// xmi:association="A_classifierBehavior_behavioredClassifier"
         [Multiplicity("0..1")]
-        Behavior ClassifierBehavior { get; }
+        Behavior ClassifierBehavior { get;set; }
         #endregion
-        #region P:InterfaceRealization:InterfaceRealization[]
+        #region P:InterfaceRealization:IList<InterfaceRealization>
         /// <summary>
         /// The set of InterfaceRealizations owned by the <see cref="BehavioredClassifier"/>. <see cref="Interface"/> realizations reference the Interfaces of which the <see cref="BehavioredClassifier"/> is an implementation.
         /// Subsets:
@@ -37,9 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="BehavioredClassifier-interfaceRealization"
         /// xmi:aggregation="composite"
         /// xmi:association="A_interfaceRealization_implementingClassifier"
-        InterfaceRealization[] InterfaceRealization { get; }
+        IList<InterfaceRealization> InterfaceRealization { get; }
         #endregion
-        #region P:OwnedBehavior:Behavior[]
+        #region P:OwnedBehavior:IList<Behavior>
         /// <summary>
         /// Behaviors owned by a <see cref="BehavioredClassifier"/>.
         /// Subsets:
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="BehavioredClassifier-ownedBehavior"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedBehavior_behavioredClassifier"
-        Behavior[] OwnedBehavior { get; }
+        IList<Behavior> OwnedBehavior { get; }
         #endregion
         }
     }

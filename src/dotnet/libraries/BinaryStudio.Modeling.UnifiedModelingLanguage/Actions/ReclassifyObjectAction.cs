@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -35,15 +36,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether existing Classifiers should be removed before adding the new Classifiers.
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-isReplaceAll"
-        Boolean IsReplaceAll { get; }
+        Boolean IsReplaceAll { get;set; }
         #endregion
-        #region P:NewClassifier:Classifier[]
+        #region P:NewClassifier:IList<Classifier>
         /// <summary>
         /// A set of Classifiers to be added to the Classifiers of the given <see cref="Object"/>.
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-newClassifier"
         /// xmi:association="A_newClassifier_reclassifyObjectAction"
-        Classifier[] NewClassifier { get; }
+        IList<Classifier> NewClassifier { get; }
         #endregion
         #region P:Object:InputPin
         /// <summary>
@@ -54,15 +55,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReclassifyObjectAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_reclassifyObjectAction"
-        InputPin Object { get; }
+        InputPin Object { get;set; }
         #endregion
-        #region P:OldClassifier:Classifier[]
+        #region P:OldClassifier:IList<Classifier>
         /// <summary>
         /// A set of Classifiers to be removed from the Classifiers of the given <see cref="Object"/>.
         /// </summary>
         /// xmi:id="ReclassifyObjectAction-oldClassifier"
         /// xmi:association="A_oldClassifier_reclassifyObjectAction"
-        Classifier[] OldClassifier { get; }
+        IList<Classifier> OldClassifier { get; }
         #endregion
         }
     }

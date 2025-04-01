@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -30,7 +31,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates whether <see cref="Incoming"/> tokens having objects with the same identity are combined into one by the <see cref="JoinNode"/>.
         /// </summary>
         /// xmi:id="JoinNode-isCombineDuplicate"
-        Boolean IsCombineDuplicate { get; }
+        Boolean IsCombineDuplicate { get;set; }
         #endregion
         #region P:JoinSpec:ValueSpecification
         /// <summary>
@@ -42,7 +43,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_joinSpec_joinNode"
         [Multiplicity("0..1")]
-        ValueSpecification JoinSpec { get; }
+        ValueSpecification JoinSpec { get;set; }
         #endregion
         }
     }

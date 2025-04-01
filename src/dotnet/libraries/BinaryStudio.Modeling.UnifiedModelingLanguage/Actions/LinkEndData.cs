@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -50,9 +51,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="LinkEndData-end"
         /// xmi:association="A_end_linkEndData"
-        Property End { get; }
+        Property End { get;set; }
         #endregion
-        #region P:Qualifier:QualifierValue[]
+        #region P:Qualifier:IList<QualifierValue>
         /// <summary>
         /// A set of QualifierValues used to provide values for the qualifiers of the <see cref="End"/>.
         /// Subsets:
@@ -61,7 +62,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="LinkEndData-qualifier"
         /// xmi:aggregation="composite"
         /// xmi:association="A_qualifier_linkEndData"
-        QualifierValue[] Qualifier { get; }
+        IList<QualifierValue> Qualifier { get; }
         #endregion
         #region P:Value:InputPin
         /// <summary>
@@ -70,7 +71,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="LinkEndData-value"
         /// xmi:association="A_value_linkEndData"
         [Multiplicity("0..1")]
-        InputPin Value { get; }
+        InputPin Value { get;set; }
         #endregion
 
         #region M:allPins:InputPin[]

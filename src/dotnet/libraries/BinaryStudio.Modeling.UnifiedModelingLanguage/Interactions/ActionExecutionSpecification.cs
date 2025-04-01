@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -26,7 +27,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActionExecutionSpecification-action"
         /// xmi:association="A_action_actionExecutionSpecification"
-        Action Action { get; }
+        Action Action { get;set; }
         #endregion
         }
     }

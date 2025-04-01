@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -66,14 +67,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates whether the objects in the <see cref="ObjectFlow"/> are passed by multicasting.
         /// </summary>
         /// xmi:id="ObjectFlow-isMulticast"
-        Boolean IsMulticast { get; }
+        Boolean IsMulticast { get;set; }
         #endregion
         #region P:IsMultireceive:Boolean
         /// <summary>
         /// Indicates whether the objects in the <see cref="ObjectFlow"/> are gathered from respondents to multicasting.
         /// </summary>
         /// xmi:id="ObjectFlow-isMultireceive"
-        Boolean IsMultireceive { get; }
+        Boolean IsMultireceive { get;set; }
         #endregion
         #region P:Selection:Behavior
         /// <summary>
@@ -82,7 +83,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ObjectFlow-selection"
         /// xmi:association="A_selection_objectFlow"
         [Multiplicity("0..1")]
-        Behavior Selection { get; }
+        Behavior Selection { get;set; }
         #endregion
         #region P:Transformation:Behavior
         /// <summary>
@@ -91,7 +92,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ObjectFlow-transformation"
         /// xmi:association="A_transformation_objectFlow"
         [Multiplicity("0..1")]
-        Behavior Transformation { get; }
+        Behavior Transformation { get;set; }
         #endregion
         }
     }

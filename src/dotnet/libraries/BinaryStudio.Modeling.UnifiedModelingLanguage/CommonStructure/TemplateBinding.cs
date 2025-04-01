@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -32,9 +33,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateBinding-boundElement"
         /// xmi:association="A_templateBinding_boundElement"
-        TemplateableElement BoundElement { get; }
+        TemplateableElement BoundElement { get;set; }
         #endregion
-        #region P:ParameterSubstitution:TemplateParameterSubstitution[]
+        #region P:ParameterSubstitution:IList<TemplateParameterSubstitution>
         /// <summary>
         /// The TemplateParameterSubstitutions owned by this <see cref="TemplateBinding"/>.
         /// Subsets:
@@ -43,7 +44,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TemplateBinding-parameterSubstitution"
         /// xmi:aggregation="composite"
         /// xmi:association="A_parameterSubstitution_templateBinding"
-        TemplateParameterSubstitution[] ParameterSubstitution { get; }
+        IList<TemplateParameterSubstitution> ParameterSubstitution { get; }
         #endregion
         #region P:Signature:TemplateSignature
         /// <summary>
@@ -53,7 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateBinding-signature"
         /// xmi:association="A_signature_templateBinding"
-        TemplateSignature Signature { get; }
+        TemplateSignature Signature { get;set; }
         #endregion
         }
     }

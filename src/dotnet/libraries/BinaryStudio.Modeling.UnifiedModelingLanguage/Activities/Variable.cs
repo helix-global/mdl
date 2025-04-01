@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Variable-activityScope"
         /// xmi:association="A_variable_activityScope"
         [Multiplicity("0..1")]
-        Activity ActivityScope { get; }
+        Activity ActivityScope { get;set; }
         #endregion
         #region P:Scope:StructuredActivityNode
         /// <summary>
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Variable-scope"
         /// xmi:association="A_variable_scope"
         [Multiplicity("0..1")]
-        StructuredActivityNode Scope { get; }
+        StructuredActivityNode Scope { get;set; }
         #endregion
 
         #region M:isAccessibleBy(Action):Boolean

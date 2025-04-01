@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="EncapsulatedClassifier"
     public interface EncapsulatedClassifier : StructuredClassifier
         {
-        #region P:OwnedPort:Port[]
+        #region P:OwnedPort:IList<Port>
         /// <summary>
         /// The Ports owned by the <see cref="EncapsulatedClassifier"/>.
         /// Subsets:
@@ -20,7 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedPort_encapsulatedClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Port[] OwnedPort { get; }
+        IList<Port> OwnedPort { get; }
         #endregion
 
         #region M:ownedPort:Port[]

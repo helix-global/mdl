@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -10,7 +11,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Deployment"
     public interface Deployment : Dependency
         {
-        #region P:Configuration:DeploymentSpecification[]
+        #region P:Configuration:IList<DeploymentSpecification>
         /// <summary>
         /// The specification of properties that parameterize the deployment and execution of one or more Artifacts.
         /// Subsets:
@@ -19,9 +20,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Deployment-configuration"
         /// xmi:aggregation="composite"
         /// xmi:association="A_configuration_deployment"
-        DeploymentSpecification[] Configuration { get; }
+        IList<DeploymentSpecification> Configuration { get; }
         #endregion
-        #region P:DeployedArtifact:DeployedArtifact[]
+        #region P:DeployedArtifact:IList<DeployedArtifact>
         /// <summary>
         /// The Artifacts that are deployed onto a <see cref="Node"/>. This association specializes the <see cref="Supplier"/> association.
         /// Subsets:
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Deployment-deployedArtifact"
         /// xmi:association="A_deployedArtifact_deploymentForArtifact"
-        DeployedArtifact[] DeployedArtifact { get; }
+        IList<DeployedArtifact> DeployedArtifact { get; }
         #endregion
         #region P:Location:DeploymentTarget
         /// <summary>
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Deployment-location"
         /// xmi:association="A_deployment_location"
-        DeploymentTarget Location { get; }
+        DeploymentTarget Location { get;set; }
         #endregion
         }
     }

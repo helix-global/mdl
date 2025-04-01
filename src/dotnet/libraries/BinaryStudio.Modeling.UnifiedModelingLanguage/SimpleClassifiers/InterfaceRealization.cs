@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InterfaceRealization-contract"
         /// xmi:association="A_contract_interfaceRealization"
-        Interface Contract { get; }
+        Interface Contract { get;set; }
         #endregion
         #region P:ImplementingClassifier:BehavioredClassifier
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InterfaceRealization-implementingClassifier"
         /// xmi:association="A_interfaceRealization_implementingClassifier"
-        BehavioredClassifier ImplementingClassifier { get; }
+        BehavioredClassifier ImplementingClassifier { get;set; }
         #endregion
         }
     }

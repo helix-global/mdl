@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DataType"
     public interface DataType : Classifier
         {
-        #region P:OwnedAttribute:Property[]
+        #region P:OwnedAttribute:IList<Property>
         /// <summary>
         /// The attributes owned by the <see cref="DataType"/>.
         /// Subsets:
@@ -20,9 +21,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedAttribute_datatype"
         [Ordered]
-        Property[] OwnedAttribute { get; }
+        IList<Property> OwnedAttribute { get; }
         #endregion
-        #region P:OwnedOperation:Operation[]
+        #region P:OwnedOperation:IList<Operation>
         /// <summary>
         /// The Operations owned by the <see cref="DataType"/>.
         /// Subsets:
@@ -34,7 +35,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedOperation_datatype"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Operation[] OwnedOperation { get; }
+        IList<Operation> OwnedOperation { get; }
         #endregion
         }
     }

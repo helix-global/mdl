@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -35,9 +36,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Indicates whether it is possible to further redefine a <see cref="RedefinableElement"/>. If the value is true, then it is not possible to further redefine the <see cref="RedefinableElement"/>.
         /// </summary>
         /// xmi:id="RedefinableElement-isLeaf"
-        Boolean IsLeaf { get; }
+        Boolean IsLeaf { get;set; }
         #endregion
-        #region P:RedefinedElement:RedefinableElement[]
+        #region P:RedefinedElement:IList<RedefinableElement>
         /// <summary>
         /// The <see cref="RedefinableElement"/> that is being redefined by this element.
         /// </summary>
@@ -46,9 +47,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        RedefinableElement[] RedefinedElement { get; }
+        IList<RedefinableElement> RedefinedElement { get; }
         #endregion
-        #region P:RedefinitionContext:Classifier[]
+        #region P:RedefinitionContext:IList<Classifier>
         /// <summary>
         /// The contexts that this element may be redefined from.
         /// </summary>
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        Classifier[] RedefinitionContext { get; }
+        IList<Classifier> RedefinitionContext { get; }
         #endregion
 
         #region M:isConsistentWith(RedefinableElement):Boolean

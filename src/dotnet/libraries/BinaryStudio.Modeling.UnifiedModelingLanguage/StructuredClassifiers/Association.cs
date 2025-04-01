@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -46,7 +47,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Association"
     public interface Association : Relationship,Classifier
         {
-        #region P:EndType:Type[]
+        #region P:EndType:IList<Type>
         /// <summary>
         /// The Classifiers that are used as types of the ends of the <see cref="Association"/>.
         /// Subsets:
@@ -57,16 +58,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Multiplicity("1..*")]
-        Type[] EndType { get; }
+        IList<Type> EndType { get; }
         #endregion
         #region P:IsDerived:Boolean
         /// <summary>
         /// Specifies whether the <see cref="Association"/> is derived from other model elements such as other Associations.
         /// </summary>
         /// xmi:id="Association-isDerived"
-        Boolean IsDerived { get; }
+        Boolean IsDerived { get;set; }
         #endregion
-        #region P:MemberEnd:Property[]
+        #region P:MemberEnd:IList<Property>
         /// <summary>
         /// Each end represents participation of instances of the <see cref="Classifier"/> connected to the end in links of the <see cref="Association"/>.
         /// Subsets:
@@ -75,9 +76,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Association-memberEnd"
         /// xmi:association="A_memberEnd_association"
         [Multiplicity("2..*")][Ordered]
-        Property[] MemberEnd { get; }
+        IList<Property> MemberEnd { get; }
         #endregion
-        #region P:NavigableOwnedEnd:Property[]
+        #region P:NavigableOwnedEnd:IList<Property>
         /// <summary>
         /// The navigable ends that are owned by the <see cref="Association"/> itself.
         /// Subsets:
@@ -85,9 +86,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Association-navigableOwnedEnd"
         /// xmi:association="A_navigableOwnedEnd_association"
-        Property[] NavigableOwnedEnd { get; }
+        IList<Property> NavigableOwnedEnd { get; }
         #endregion
-        #region P:OwnedEnd:Property[]
+        #region P:OwnedEnd:IList<Property>
         /// <summary>
         /// The ends that are owned by the <see cref="Association"/> itself.
         /// Subsets:
@@ -100,7 +101,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedEnd_owningAssociation"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered]
-        Property[] OwnedEnd { get; }
+        IList<Property> OwnedEnd { get; }
         #endregion
 
         #region M:endType:Type[]

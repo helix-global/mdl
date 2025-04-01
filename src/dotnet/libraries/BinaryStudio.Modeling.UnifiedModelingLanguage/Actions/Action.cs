@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -20,7 +21,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         [Multiplicity("0..1")]
         Classifier Context { get; }
         #endregion
-        #region P:Input:InputPin[]
+        #region P:Input:IList<InputPin>
         /// <summary>
         /// The ordered set of InputPins representing the inputs to the <see cref="Action"/>.
         /// Subsets:
@@ -32,16 +33,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Ordered][Union]
-        InputPin[] Input { get; }
+        IList<InputPin> Input { get; }
         #endregion
         #region P:IsLocallyReentrant:Boolean
         /// <summary>
         /// If true, the <see cref="Action"/> can begin a new, concurrent execution, even if there is already another execution of the <see cref="Action"/> ongoing. If false, the <see cref="Action"/> cannot begin a new execution until any previous execution has completed.
         /// </summary>
         /// xmi:id="Action-isLocallyReentrant"
-        Boolean IsLocallyReentrant { get; }
+        Boolean IsLocallyReentrant { get;set; }
         #endregion
-        #region P:LocalPostcondition:Constraint[]
+        #region P:LocalPostcondition:IList<Constraint>
         /// <summary>
         /// A <see cref="Constraint"/> that must be satisfied when execution of the <see cref="Action"/> is completed.
         /// Subsets:
@@ -50,9 +51,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Action-localPostcondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_localPostcondition_action"
-        Constraint[] LocalPostcondition { get; }
+        IList<Constraint> LocalPostcondition { get; }
         #endregion
-        #region P:LocalPrecondition:Constraint[]
+        #region P:LocalPrecondition:IList<Constraint>
         /// <summary>
         /// A <see cref="Constraint"/> that must be satisfied when execution of the <see cref="Action"/> is started.
         /// Subsets:
@@ -61,9 +62,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Action-localPrecondition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_localPrecondition_action"
-        Constraint[] LocalPrecondition { get; }
+        IList<Constraint> LocalPrecondition { get; }
         #endregion
-        #region P:Output:OutputPin[]
+        #region P:Output:IList<OutputPin>
         /// <summary>
         /// The ordered set of OutputPins representing outputs from the <see cref="Action"/>.
         /// Subsets:
@@ -75,7 +76,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Ordered][Union]
-        OutputPin[] Output { get; }
+        IList<OutputPin> Output { get; }
         #endregion
 
         #region M:allActions:Action[]

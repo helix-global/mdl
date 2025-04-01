@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -64,7 +65,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// True: when the <see cref="Continuation"/> is at the end of the enclosing <see cref="InteractionFragment"/> and False when it is in the beginning.
         /// </summary>
         /// xmi:id="Continuation-setting"
-        Boolean Setting { get; }
+        Boolean Setting { get;set; }
         #endregion
         }
     }

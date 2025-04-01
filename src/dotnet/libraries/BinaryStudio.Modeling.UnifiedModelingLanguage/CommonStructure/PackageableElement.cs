@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         ///   <see cref="P:BinaryStudio.Modeling.UnifiedModelingLanguage.NamedElement.Visibility"/>"
         /// </summary>
         /// xmi:id="PackageableElement-visibility"
-        VisibilityKind? Visibility { get; }
+        VisibilityKind? Visibility { get;set; }
         #endregion
         }
     }

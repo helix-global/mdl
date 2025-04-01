@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ClearAssociationAction-association"
         /// xmi:association="A_association_clearAssociationAction"
-        Association Association { get; }
+        Association Association { get;set; }
         #endregion
         #region P:Object:InputPin
         /// <summary>
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ClearAssociationAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_clearAssociationAction"
-        InputPin Object { get; }
+        InputPin Object { get;set; }
         #endregion
         }
     }

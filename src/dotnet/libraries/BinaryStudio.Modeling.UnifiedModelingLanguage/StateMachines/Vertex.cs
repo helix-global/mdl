@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="State-redefinedState"
         /// xmi:association="A_redefinedState_state"
         [Multiplicity("0..1")]
-        Vertex RedefinedVertex { get; }
+        Vertex RedefinedVertex { get;set; }
         #endregion
         #region P:RedefinitionContext:Classifier
         /// <summary>
@@ -41,9 +42,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Vertex-container"
         /// xmi:association="A_subvertex_container"
         [Multiplicity("0..1")]
-        Region Container { get; }
+        Region Container { get;set; }
         #endregion
-        #region P:Incoming:Transition[]
+        #region P:Incoming:IList<Transition>
         /// <summary>
         /// Specifies the Transitions entering this <see cref="Vertex"/>.
         /// </summary>
@@ -51,9 +52,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_incoming_target_vertex"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Transition[] Incoming { get; }
+        IList<Transition> Incoming { get; }
         #endregion
-        #region P:Outgoing:Transition[]
+        #region P:Outgoing:IList<Transition>
         /// <summary>
         /// Specifies the Transitions departing from this <see cref="Vertex"/>.
         /// </summary>
@@ -61,7 +62,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_outgoing_source_vertex"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Transition[] Outgoing { get; }
+        IList<Transition> Outgoing { get; }
         #endregion
 
         #region M:isConsistentWith(RedefinableElement):Boolean

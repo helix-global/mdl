@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -41,23 +42,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="OpaqueExpression-behavior"
         /// xmi:association="A_behavior_opaqueExpression"
         [Multiplicity("0..1")]
-        Behavior Behavior { get; }
+        Behavior Behavior { get;set; }
         #endregion
-        #region P:Body:String[]
+        #region P:Body:IList<String>
         /// <summary>
         /// A textual definition of the <see cref="Behavior"/> of the <see cref="OpaqueExpression"/>, possibly in multiple languages.
         /// </summary>
         /// xmi:id="OpaqueExpression-body"
         [Ordered]
-        String[] Body { get; }
+        IList<String> Body { get; }
         #endregion
-        #region P:Language:String[]
+        #region P:Language:IList<String>
         /// <summary>
         /// Specifies the languages used to express the textual bodies of the <see cref="OpaqueExpression"/>.  Languages are matched to <see cref="Body"/> Strings by order. The interpretation of the <see cref="Body"/> depends on the languages. If the languages are unspecified, they may be implicit from the expression <see cref="Body"/> or the context.
         /// </summary>
         /// xmi:id="OpaqueExpression-language"
         [Ordered]
-        String[] Language { get; }
+        IList<String> Language { get; }
         #endregion
         #region P:Result:Parameter
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -57,9 +58,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="UnmarshallAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_unmarshallAction"
-        InputPin Object { get; }
+        InputPin Object { get;set; }
         #endregion
-        #region P:Result:OutputPin[]
+        #region P:Result:IList<OutputPin>
         /// <summary>
         /// The OutputPins on which are placed the values of the StructuralFeatures of the <see cref="Input"/> <see cref="Object"/>.
         /// Subsets:
@@ -69,7 +70,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_unmarshallAction"
         [Multiplicity("1..*")][Ordered]
-        OutputPin[] Result { get; }
+        IList<OutputPin> Result { get; }
         #endregion
         #region P:UnmarshallType:Classifier
         /// <summary>
@@ -77,7 +78,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="UnmarshallAction-unmarshallType"
         /// xmi:association="A_unmarshallType_unmarshallAction"
-        Classifier UnmarshallType { get; }
+        Classifier UnmarshallType { get;set; }
         #endregion
         }
     }

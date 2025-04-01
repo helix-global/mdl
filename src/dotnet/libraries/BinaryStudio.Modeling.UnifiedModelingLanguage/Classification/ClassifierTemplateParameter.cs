@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -65,15 +66,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Constrains the required relationship between an actual parameter and the <see cref="ParameteredElement"/> for this formal parameter.
         /// </summary>
         /// xmi:id="ClassifierTemplateParameter-allowSubstitutable"
-        Boolean AllowSubstitutable { get; }
+        Boolean AllowSubstitutable { get;set; }
         #endregion
-        #region P:ConstrainingClassifier:Classifier[]
+        #region P:ConstrainingClassifier:IList<Classifier>
         /// <summary>
         /// The classifiers that constrain the argument that can be used for the parameter. If the <see cref="AllowSubstitutable"/> attribute is true, then any <see cref="Classifier"/> that is compatible with this constraining <see cref="Classifier"/> can be substituted; otherwise, it must be either this <see cref="Classifier"/> or one of its specializations. If this property is empty, there are no constraints on the <see cref="Classifier"/> that can be used as an argument.
         /// </summary>
         /// xmi:id="ClassifierTemplateParameter-constrainingClassifier"
         /// xmi:association="A_constrainingClassifier_classifierTemplateParameter"
-        Classifier[] ConstrainingClassifier { get; }
+        IList<Classifier> ConstrainingClassifier { get; }
         #endregion
         #region P:ParameteredElement:Classifier
         /// <summary>
@@ -83,7 +84,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ClassifierTemplateParameter-parameteredElement"
         /// xmi:association="A_classifier_templateParameter_parameteredElement"
-        Classifier ParameteredElement { get; }
+        Classifier ParameteredElement { get;set; }
         #endregion
         }
     }

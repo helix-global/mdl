@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -97,7 +98,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Determines the precise type of the <see cref="Pseudostate"/> and can be one of: entryPoint, exitPoint, initial, deepHistory, shallowHistory, join, fork, junction, terminate or choice.
         /// </summary>
         /// xmi:id="Pseudostate-kind"
-        PseudostateKind Kind { get; }
+        PseudostateKind Kind { get;set; }
         #endregion
         #region P:State:State
         /// <summary>
@@ -108,7 +109,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Pseudostate-state"
         /// xmi:association="A_connectionPoint_state"
         [Multiplicity("0..1")]
-        State State { get; }
+        State State { get;set; }
         #endregion
         #region P:StateMachine:StateMachine
         /// <summary>
@@ -119,7 +120,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Pseudostate-stateMachine"
         /// xmi:association="A_connectionPoint_stateMachine"
         [Multiplicity("0..1")]
-        StateMachine StateMachine { get; }
+        StateMachine StateMachine { get;set; }
         #endregion
 
         #region M:isConsistentWith(RedefinableElement):Boolean

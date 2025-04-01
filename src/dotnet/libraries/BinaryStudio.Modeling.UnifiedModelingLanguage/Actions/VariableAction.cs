@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -22,7 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="VariableAction-variable"
         /// xmi:association="A_variable_variableAction"
-        Variable Variable { get; }
+        Variable Variable { get;set; }
         #endregion
         }
     }

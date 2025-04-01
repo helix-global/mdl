@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -19,7 +20,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_mapping_abstraction"
         [Multiplicity("0..1")]
-        OpaqueExpression Mapping { get; }
+        OpaqueExpression Mapping { get;set; }
         #endregion
         }
     }

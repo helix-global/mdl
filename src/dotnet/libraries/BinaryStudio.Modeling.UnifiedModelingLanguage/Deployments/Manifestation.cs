@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Manifestation-utilizedElement"
         /// xmi:association="A_utilizedElement_manifestation"
-        PackageableElement UtilizedElement { get; }
+        PackageableElement UtilizedElement { get;set; }
         #endregion
         }
     }

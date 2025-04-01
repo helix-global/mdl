@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -77,13 +78,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Lifeline"
     public interface Lifeline : NamedElement
         {
-        #region P:CoveredBy:InteractionFragment[]
+        #region P:CoveredBy:IList<InteractionFragment>
         /// <summary>
         /// References the InteractionFragments in which this <see cref="Lifeline"/> takes part.
         /// </summary>
         /// xmi:id="Lifeline-coveredBy"
         /// xmi:association="A_covered_coveredBy"
-        InteractionFragment[] CoveredBy { get; }
+        IList<InteractionFragment> CoveredBy { get; }
         #endregion
         #region P:DecomposedAs:PartDecomposition
         /// <summary>
@@ -92,7 +93,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Lifeline-decomposedAs"
         /// xmi:association="A_decomposedAs_lifeline"
         [Multiplicity("0..1")]
-        PartDecomposition DecomposedAs { get; }
+        PartDecomposition DecomposedAs { get;set; }
         #endregion
         #region P:Interaction:Interaction
         /// <summary>
@@ -102,7 +103,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Lifeline-interaction"
         /// xmi:association="A_lifeline_interaction"
-        Interaction Interaction { get; }
+        Interaction Interaction { get;set; }
         #endregion
         #region P:Represents:ConnectableElement
         /// <summary>
@@ -111,7 +112,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Lifeline-represents"
         /// xmi:association="A_represents_lifeline"
         [Multiplicity("0..1")]
-        ConnectableElement Represents { get; }
+        ConnectableElement Represents { get;set; }
         #endregion
         #region P:Selector:ValueSpecification
         /// <summary>
@@ -123,7 +124,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_selector_lifeline"
         [Multiplicity("0..1")]
-        ValueSpecification Selector { get; }
+        ValueSpecification Selector { get;set; }
         #endregion
         }
     }

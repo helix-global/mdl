@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Interaction"
     public interface Interaction : InteractionFragment,Behavior
         {
-        #region P:Action:Action[]
+        #region P:Action:IList<Action>
         /// <summary>
         /// Actions owned by the <see cref="Interaction"/>.
         /// Subsets:
@@ -25,9 +26,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Interaction-action"
         /// xmi:aggregation="composite"
         /// xmi:association="A_action_interaction"
-        Action[] Action { get; }
+        IList<Action> Action { get; }
         #endregion
-        #region P:FormalGate:Gate[]
+        #region P:FormalGate:IList<Gate>
         /// <summary>
         /// Specifies the gates that form the <see cref="Message"/> interface between this <see cref="Interaction"/> and any InteractionUses which reference it.
         /// Subsets:
@@ -36,9 +37,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Interaction-formalGate"
         /// xmi:aggregation="composite"
         /// xmi:association="A_formalGate_interaction"
-        Gate[] FormalGate { get; }
+        IList<Gate> FormalGate { get; }
         #endregion
-        #region P:Fragment:InteractionFragment[]
+        #region P:Fragment:IList<InteractionFragment>
         /// <summary>
         /// The ordered set of fragments in the <see cref="Interaction"/>.
         /// Subsets:
@@ -48,9 +49,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_fragment_enclosingInteraction"
         [Ordered]
-        InteractionFragment[] Fragment { get; }
+        IList<InteractionFragment> Fragment { get; }
         #endregion
-        #region P:Lifeline:Lifeline[]
+        #region P:Lifeline:IList<Lifeline>
         /// <summary>
         /// Specifies the participants in this <see cref="Interaction"/>.
         /// Subsets:
@@ -59,9 +60,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Interaction-lifeline"
         /// xmi:aggregation="composite"
         /// xmi:association="A_lifeline_interaction"
-        Lifeline[] Lifeline { get; }
+        IList<Lifeline> Lifeline { get; }
         #endregion
-        #region P:Message:Message[]
+        #region P:Message:IList<Message>
         /// <summary>
         /// The Messages contained in this <see cref="Interaction"/>.
         /// Subsets:
@@ -70,7 +71,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Interaction-message"
         /// xmi:aggregation="composite"
         /// xmi:association="A_message_interaction"
-        Message[] Message { get; }
+        IList<Message> Message { get; }
         #endregion
         }
     }

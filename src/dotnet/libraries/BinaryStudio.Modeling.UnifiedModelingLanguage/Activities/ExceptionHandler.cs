@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -72,16 +73,16 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExceptionHandler-exceptionInput"
         /// xmi:association="A_exceptionInput_exceptionHandler"
-        ObjectNode ExceptionInput { get; }
+        ObjectNode ExceptionInput { get;set; }
         #endregion
-        #region P:ExceptionType:Classifier[]
+        #region P:ExceptionType:IList<Classifier>
         /// <summary>
         /// The Classifiers whose instances the <see cref="ExceptionHandler"/> catches as exceptions. If an exception occurs whose type is any <see cref="ExceptionType"/>, the <see cref="ExceptionHandler"/> catches the exception and executes the <see cref="HandlerBody"/>.
         /// </summary>
         /// xmi:id="ExceptionHandler-exceptionType"
         /// xmi:association="A_exceptionType_exceptionHandler"
         [Multiplicity("1..*")]
-        Classifier[] ExceptionType { get; }
+        IList<Classifier> ExceptionType { get; }
         #endregion
         #region P:HandlerBody:ExecutableNode
         /// <summary>
@@ -89,7 +90,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExceptionHandler-handlerBody"
         /// xmi:association="A_handlerBody_exceptionHandler"
-        ExecutableNode HandlerBody { get; }
+        ExecutableNode HandlerBody { get;set; }
         #endregion
         #region P:ProtectedNode:ExecutableNode
         /// <summary>
@@ -99,7 +100,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExceptionHandler-protectedNode"
         /// xmi:association="A_handler_protectedNode"
-        ExecutableNode ProtectedNode { get; }
+        ExecutableNode ProtectedNode { get;set; }
         #endregion
         }
     }

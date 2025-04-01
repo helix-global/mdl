@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ActivityGroup"
     public interface ActivityGroup : NamedElement
         {
-        #region P:ContainedEdge:ActivityEdge[]
+        #region P:ContainedEdge:IList<ActivityEdge>
         /// <summary>
         /// ActivityEdges immediately contained in the <see cref="ActivityGroup"/>.
         /// </summary>
@@ -36,9 +37,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        ActivityEdge[] ContainedEdge { get; }
+        IList<ActivityEdge> ContainedEdge { get; }
         #endregion
-        #region P:ContainedNode:ActivityNode[]
+        #region P:ContainedNode:IList<ActivityNode>
         /// <summary>
         /// ActivityNodes immediately contained in the <see cref="ActivityGroup"/>.
         /// </summary>
@@ -47,7 +48,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        ActivityNode[] ContainedNode { get; }
+        IList<ActivityNode> ContainedNode { get; }
         #endregion
         #region P:InActivity:Activity
         /// <summary>
@@ -58,9 +59,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityGroup-inActivity"
         /// xmi:association="A_group_inActivity"
         [Multiplicity("0..1")]
-        Activity InActivity { get; }
+        Activity InActivity { get;set; }
         #endregion
-        #region P:Subgroup:ActivityGroup[]
+        #region P:Subgroup:IList<ActivityGroup>
         /// <summary>
         /// Other ActivityGroups immediately contained in this <see cref="ActivityGroup"/>.
         /// Subsets:
@@ -72,7 +73,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        ActivityGroup[] Subgroup { get; }
+        IList<ActivityGroup> Subgroup { get; }
         #endregion
         #region P:SuperGroup:ActivityGroup
         /// <summary>

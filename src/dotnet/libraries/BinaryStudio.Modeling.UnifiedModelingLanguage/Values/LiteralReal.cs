@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// The specified Real <see cref="Value"/>.
         /// </summary>
         /// xmi:id="LiteralReal-value"
-        Real Value { get; }
+        Real Value { get;set; }
         #endregion
 
         #region M:isComputable:Boolean

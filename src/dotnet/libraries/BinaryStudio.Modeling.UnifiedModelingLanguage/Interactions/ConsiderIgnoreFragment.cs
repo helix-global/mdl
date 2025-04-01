@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -23,13 +24,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ConsiderIgnoreFragment"
     public interface ConsiderIgnoreFragment : CombinedFragment
         {
-        #region P:Message:NamedElement[]
+        #region P:Message:IList<NamedElement>
         /// <summary>
         /// The set of messages that apply to this fragment.
         /// </summary>
         /// xmi:id="ConsiderIgnoreFragment-message"
         /// xmi:association="A_message_considerIgnoreFragment"
-        NamedElement[] Message { get; }
+        IList<NamedElement> Message { get; }
         #endregion
         }
     }

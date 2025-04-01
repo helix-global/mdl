@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -59,7 +60,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ActivityPartition"
     public interface ActivityPartition : ActivityGroup
         {
-        #region P:Edge:ActivityEdge[]
+        #region P:Edge:IList<ActivityEdge>
         /// <summary>
         /// ActivityEdges immediately contained in the <see cref="ActivityPartition"/>.
         /// Subsets:
@@ -67,23 +68,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityPartition-edge"
         /// xmi:association="A_edge_inPartition"
-        ActivityEdge[] Edge { get; }
+        IList<ActivityEdge> Edge { get; }
         #endregion
         #region P:IsDimension:Boolean
         /// <summary>
         /// Indicates whether the <see cref="ActivityPartition"/> groups other ActivityPartitions along a dimension.
         /// </summary>
         /// xmi:id="ActivityPartition-isDimension"
-        Boolean IsDimension { get; }
+        Boolean IsDimension { get;set; }
         #endregion
         #region P:IsExternal:Boolean
         /// <summary>
         /// Indicates whether the <see cref="ActivityPartition"/> <see cref="Represents"/> an entity to which the partitioning structure does not apply.
         /// </summary>
         /// xmi:id="ActivityPartition-isExternal"
-        Boolean IsExternal { get; }
+        Boolean IsExternal { get;set; }
         #endregion
-        #region P:Node:ActivityNode[]
+        #region P:Node:IList<ActivityNode>
         /// <summary>
         /// ActivityNodes immediately contained in the <see cref="ActivityPartition"/>.
         /// Subsets:
@@ -91,7 +92,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityPartition-node"
         /// xmi:association="A_inPartition_node"
-        ActivityNode[] Node { get; }
+        IList<ActivityNode> Node { get; }
         #endregion
         #region P:Represents:Element
         /// <summary>
@@ -100,9 +101,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityPartition-represents"
         /// xmi:association="A_represents_activityPartition"
         [Multiplicity("0..1")]
-        Element Represents { get; }
+        Element Represents { get;set; }
         #endregion
-        #region P:Subpartition:ActivityPartition[]
+        #region P:Subpartition:IList<ActivityPartition>
         /// <summary>
         /// Other ActivityPartitions immediately contained in this <see cref="ActivityPartition"/> (as its subgroups).
         /// Subsets:
@@ -111,7 +112,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityPartition-subpartition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_subpartition_superPartition"
-        ActivityPartition[] Subpartition { get; }
+        IList<ActivityPartition> Subpartition { get; }
         #endregion
         #region P:SuperPartition:ActivityPartition
         /// <summary>
@@ -122,7 +123,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityPartition-superPartition"
         /// xmi:association="A_subpartition_superPartition"
         [Multiplicity("0..1")]
-        ActivityPartition SuperPartition { get; }
+        ActivityPartition SuperPartition { get;set; }
         #endregion
         }
     }

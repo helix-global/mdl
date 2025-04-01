@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -19,7 +20,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ParameterableElement-owningTemplateParameter"
         /// xmi:association="A_ownedParameteredElement_owningTemplateParameter"
         [Multiplicity("0..1")]
-        TemplateParameter OwningTemplateParameter { get; }
+        TemplateParameter OwningTemplateParameter { get;set; }
         #endregion
         #region P:TemplateParameter:TemplateParameter
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ParameterableElement-templateParameter"
         /// xmi:association="A_parameteredElement_templateParameter"
         [Multiplicity("0..1")]
-        TemplateParameter TemplateParameter { get; }
+        TemplateParameter TemplateParameter { get;set; }
         #endregion
 
         #region M:isCompatibleWith(ParameterableElement):Boolean

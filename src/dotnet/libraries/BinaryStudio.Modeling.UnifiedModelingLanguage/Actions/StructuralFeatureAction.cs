@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -58,7 +59,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuralFeatureAction-object"
         /// xmi:aggregation="composite"
         /// xmi:association="A_object_structuralFeatureAction"
-        InputPin Object { get; }
+        InputPin Object { get;set; }
         #endregion
         #region P:StructuralFeature:StructuralFeature
         /// <summary>
@@ -66,7 +67,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="StructuralFeatureAction-structuralFeature"
         /// xmi:association="A_structuralFeature_structuralFeatureAction"
-        StructuralFeature StructuralFeature { get; }
+        StructuralFeature StructuralFeature { get;set; }
         #endregion
         }
     }

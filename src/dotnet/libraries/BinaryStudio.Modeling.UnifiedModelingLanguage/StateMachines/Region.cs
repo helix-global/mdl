@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -52,7 +53,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Region-extendedRegion"
         /// xmi:association="A_extendedRegion_region"
         [Multiplicity("0..1")]
-        Region ExtendedRegion { get; }
+        Region ExtendedRegion { get;set; }
         #endregion
         #region P:RedefinitionContext:Classifier
         /// <summary>
@@ -75,7 +76,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Region-state"
         /// xmi:association="A_region_state"
         [Multiplicity("0..1")]
-        State State { get; }
+        State State { get;set; }
         #endregion
         #region P:StateMachine:StateMachine
         /// <summary>
@@ -86,9 +87,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Region-stateMachine"
         /// xmi:association="A_region_stateMachine"
         [Multiplicity("0..1")]
-        StateMachine StateMachine { get; }
+        StateMachine StateMachine { get;set; }
         #endregion
-        #region P:Subvertex:Vertex[]
+        #region P:Subvertex:IList<Vertex>
         /// <summary>
         /// The set of Vertices that are owned by this <see cref="Region"/>.
         /// Subsets:
@@ -97,9 +98,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Region-subvertex"
         /// xmi:aggregation="composite"
         /// xmi:association="A_subvertex_container"
-        Vertex[] Subvertex { get; }
+        IList<Vertex> Subvertex { get; }
         #endregion
-        #region P:Transition:Transition[]
+        #region P:Transition:IList<Transition>
         /// <summary>
         /// The set of Transitions owned by the <see cref="Region"/>.
         /// Subsets:
@@ -108,7 +109,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Region-transition"
         /// xmi:aggregation="composite"
         /// xmi:association="A_transition_container"
-        Transition[] Transition { get; }
+        IList<Transition> Transition { get; }
         #endregion
 
         #region M:belongsToPSM:Boolean

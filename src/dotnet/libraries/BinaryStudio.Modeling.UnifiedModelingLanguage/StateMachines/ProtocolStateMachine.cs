@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -41,7 +42,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ProtocolStateMachine"
     public interface ProtocolStateMachine : StateMachine
         {
-        #region P:Conformance:ProtocolConformance[]
+        #region P:Conformance:IList<ProtocolConformance>
         /// <summary>
         /// Conformance between <see cref="ProtocolStateMachine"/> 
         /// Subsets:
@@ -51,7 +52,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_conformance_specificMachine"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        ProtocolConformance[] Conformance { get; }
+        IList<ProtocolConformance> Conformance { get; }
         #endregion
         }
     }

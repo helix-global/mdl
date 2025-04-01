@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -37,15 +38,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="InstanceSpecification"
     public interface InstanceSpecification : PackageableElement,DeployedArtifact,DeploymentTarget
         {
-        #region P:Classifier:Classifier[]
+        #region P:Classifier:IList<Classifier>
         /// <summary>
         /// The <see cref="Classifier"/> or Classifiers of the represented instance. If multiple Classifiers are specified, the instance is classified by all of them.
         /// </summary>
         /// xmi:id="InstanceSpecification-classifier"
         /// xmi:association="A_classifier_instanceSpecification"
-        Classifier[] Classifier { get; }
+        IList<Classifier> Classifier { get; }
         #endregion
-        #region P:Slot:Slot[]
+        #region P:Slot:IList<Slot>
         /// <summary>
         /// A <see cref="Slot"/> giving the value or values of a <see cref="StructuralFeature"/> of the instance. An <see cref="InstanceSpecification"/> can have one <see cref="Slot"/> per <see cref="StructuralFeature"/> of its Classifiers, including inherited features. It is not necessary to model a <see cref="Slot"/> for every <see cref="StructuralFeature"/>, in which case the <see cref="InstanceSpecification"/> is a partial description.
         /// Subsets:
@@ -54,7 +55,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InstanceSpecification-slot"
         /// xmi:aggregation="composite"
         /// xmi:association="A_slot_owningInstance"
-        Slot[] Slot { get; }
+        IList<Slot> Slot { get; }
         #endregion
         #region P:Specification:ValueSpecification
         /// <summary>
@@ -66,7 +67,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_specification_owningInstanceSpec"
         [Multiplicity("0..1")]
-        ValueSpecification Specification { get; }
+        ValueSpecification Specification { get;set; }
         #endregion
         }
     }

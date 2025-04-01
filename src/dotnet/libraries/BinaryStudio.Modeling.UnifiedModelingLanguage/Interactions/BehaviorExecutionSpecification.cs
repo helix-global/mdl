@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="BehaviorExecutionSpecification-behavior"
         /// xmi:association="A_behavior_behaviorExecutionSpecification"
         [Multiplicity("0..1")]
-        Behavior Behavior { get; }
+        Behavior Behavior { get;set; }
         #endregion
         }
     }

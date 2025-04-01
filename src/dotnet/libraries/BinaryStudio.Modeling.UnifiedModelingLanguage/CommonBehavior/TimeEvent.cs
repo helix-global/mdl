@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -21,7 +22,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether the <see cref="TimeEvent"/> is specified as an absolute or relative time.
         /// </summary>
         /// xmi:id="TimeEvent-isRelative"
-        Boolean IsRelative { get; }
+        Boolean IsRelative { get;set; }
         #endregion
         #region P:When:TimeExpression
         /// <summary>
@@ -32,7 +33,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TimeEvent-when"
         /// xmi:aggregation="composite"
         /// xmi:association="A_when_timeEvent"
-        TimeExpression When { get; }
+        TimeExpression When { get;set; }
         #endregion
         }
     }

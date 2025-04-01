@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Element"
     public interface Element
         {
-        #region P:OwnedComment:Comment[]
+        #region P:OwnedComment:IList<Comment>
         /// <summary>
         /// The Comments owned by this <see cref="Element"/>.
         /// Subsets:
@@ -32,9 +33,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Element-ownedComment"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedComment_owningElement"
-        Comment[] OwnedComment { get; }
+        IList<Comment> OwnedComment { get; }
         #endregion
-        #region P:OwnedElement:Element[]
+        #region P:OwnedElement:IList<Element>
         /// <summary>
         /// The Elements owned by this <see cref="Element"/>.
         /// </summary>
@@ -44,7 +45,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        Element[] OwnedElement { get; }
+        IList<Element> OwnedElement { get; }
         #endregion
         #region P:Owner:Element
         /// <summary>

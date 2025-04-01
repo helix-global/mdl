@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ChangeEvent-changeExpression"
         /// xmi:aggregation="composite"
         /// xmi:association="A_changeExpression_changeEvent"
-        ValueSpecification ChangeExpression { get; }
+        ValueSpecification ChangeExpression { get;set; }
         #endregion
         }
     }

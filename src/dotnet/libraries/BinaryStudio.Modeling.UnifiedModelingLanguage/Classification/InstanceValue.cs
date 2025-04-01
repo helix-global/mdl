@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -15,7 +16,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InstanceValue-instance"
         /// xmi:association="A_instance_instanceValue"
-        InstanceSpecification Instance { get; }
+        InstanceSpecification Instance { get;set; }
         #endregion
         }
     }

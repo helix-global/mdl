@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -24,7 +25,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="PackageImport-importedPackage"
         /// xmi:association="A_importedPackage_packageImport"
-        Package ImportedPackage { get; }
+        Package ImportedPackage { get;set; }
         #endregion
         #region P:ImportingNamespace:Namespace
         /// <summary>
@@ -35,14 +36,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="PackageImport-importingNamespace"
         /// xmi:association="A_packageImport_importingNamespace"
-        Namespace ImportingNamespace { get; }
+        Namespace ImportingNamespace { get;set; }
         #endregion
         #region P:Visibility:VisibilityKind
         /// <summary>
         /// Specifies the <see cref="Visibility"/> of the imported PackageableElements within the <see cref="ImportingNamespace"/>, i.e., whether imported Elements will in turn be visible to other Namespaces. If the <see cref="PackageImport"/> is public, the imported Elements will be visible outside the <see cref="ImportingNamespace"/>, while, if the <see cref="PackageImport"/> is private, they will not.
         /// </summary>
         /// xmi:id="PackageImport-visibility"
-        VisibilityKind Visibility { get; }
+        VisibilityKind Visibility { get;set; }
         #endregion
         }
     }

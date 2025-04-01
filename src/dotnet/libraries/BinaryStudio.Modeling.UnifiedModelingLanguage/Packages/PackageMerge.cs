@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="PackageMerge-mergedPackage"
         /// xmi:association="A_mergedPackage_packageMerge"
-        Package MergedPackage { get; }
+        Package MergedPackage { get;set; }
         #endregion
         #region P:ReceivingPackage:Package
         /// <summary>
@@ -28,7 +29,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="PackageMerge-receivingPackage"
         /// xmi:association="A_packageMerge_receivingPackage"
-        Package ReceivingPackage { get; }
+        Package ReceivingPackage { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -50,7 +51,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Stereotype"
     public interface Stereotype : Class
         {
-        #region P:Icon:Image[]
+        #region P:Icon:IList<Image>
         /// <summary>
         /// <see cref="Stereotype"/> can change the graphical appearance of the extended model element by using attached icons. When this association is not null, it references the location of the <see cref="Icon"/> content to be displayed within diagrams presenting the extended model elements.
         /// Subsets:
@@ -59,7 +60,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Stereotype-icon"
         /// xmi:aggregation="composite"
         /// xmi:association="A_icon_stereotype"
-        Image[] Icon { get; }
+        IList<Image> Icon { get; }
         #endregion
         #region P:Profile:Profile
         /// <summary>

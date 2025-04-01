@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Classifier"
     public interface Classifier : Type,RedefinableElement,TemplateableElement,Namespace
         {
-        #region P:Attribute:Property[]
+        #region P:Attribute:IList<Property>
         /// <summary>
         /// All of the Properties that are direct (i.e., not inherited or imported) attributes of the <see cref="Classifier"/>.
         /// Subsets:
@@ -52,9 +53,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-readonly="true"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Ordered][Union]
-        Property[] Attribute { get; }
+        IList<Property> Attribute { get; }
         #endregion
-        #region P:CollaborationUse:CollaborationUse[]
+        #region P:CollaborationUse:IList<CollaborationUse>
         /// <summary>
         /// The CollaborationUses owned by the <see cref="Classifier"/>.
         /// Subsets:
@@ -63,9 +64,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Classifier-collaborationUse"
         /// xmi:aggregation="composite"
         /// xmi:association="A_collaborationUse_classifier"
-        CollaborationUse[] CollaborationUse { get; }
+        IList<CollaborationUse> CollaborationUse { get; }
         #endregion
-        #region P:Feature:Feature[]
+        #region P:Feature:IList<Feature>
         /// <summary>
         /// Specifies each <see cref="Feature"/> directly defined in the classifier. Note that there may be members of the <see cref="Classifier"/> that are of the type <see cref="Feature"/> but are not included, e.g., inherited features.
         /// Subsets:
@@ -76,18 +77,18 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        Feature[] Feature { get; }
+        IList<Feature> Feature { get; }
         #endregion
-        #region P:General:Classifier[]
+        #region P:General:IList<Classifier>
         /// <summary>
         /// The generalizing Classifiers for this <see cref="Classifier"/>.
         /// </summary>
         /// xmi:id="Classifier-general"
         /// xmi:association="A_general_classifier"
         /// xmi:is-derived="true"
-        Classifier[] General { get; }
+        IList<Classifier> General { get; }
         #endregion
-        #region P:Generalization:Generalization[]
+        #region P:Generalization:IList<Generalization>
         /// <summary>
         /// The <see cref="Generalization"/> relationships for this <see cref="Classifier"/>. These Generalizations navigate to more <see cref="General"/> Classifiers in the <see cref="Generalization"/> hierarchy.
         /// Subsets:
@@ -97,9 +98,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_generalization_specific"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        Generalization[] Generalization { get; }
+        IList<Generalization> Generalization { get; }
         #endregion
-        #region P:InheritedMember:NamedElement[]
+        #region P:InheritedMember:IList<NamedElement>
         /// <summary>
         /// All elements inherited by this <see cref="Classifier"/> from its <see cref="General"/> Classifiers.
         /// Subsets:
@@ -109,21 +110,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_inheritedMember_inheritingClassifier"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        NamedElement[] InheritedMember { get; }
+        IList<NamedElement> InheritedMember { get; }
         #endregion
         #region P:IsAbstract:Boolean
         /// <summary>
         /// If true, the <see cref="Classifier"/> can only be instantiated by instantiating one of its specializations. An abstract <see cref="Classifier"/> is intended to be used by other Classifiers e.g., as the target of Associations or Generalizations.
         /// </summary>
         /// xmi:id="Classifier-isAbstract"
-        Boolean IsAbstract { get; }
+        Boolean IsAbstract { get;set; }
         #endregion
         #region P:IsFinalSpecialization:Boolean
         /// <summary>
         /// If true, the <see cref="Classifier"/> cannot be specialized.
         /// </summary>
         /// xmi:id="Classifier-isFinalSpecialization"
-        Boolean IsFinalSpecialization { get; }
+        Boolean IsFinalSpecialization { get;set; }
         #endregion
         #region P:OwnedTemplateSignature:RedefinableTemplateSignature
         /// <summary>
@@ -137,9 +138,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_ownedTemplateSignature_classifier"
         /// xmi:subsets="A_redefinitionContext_redefinableElement-redefinableElement"
         [Multiplicity("0..1")]
-        RedefinableTemplateSignature OwnedTemplateSignature { get; }
+        RedefinableTemplateSignature OwnedTemplateSignature { get;set; }
         #endregion
-        #region P:OwnedUseCase:UseCase[]
+        #region P:OwnedUseCase:IList<UseCase>
         /// <summary>
         /// The UseCases owned by this classifier.
         /// Subsets:
@@ -148,17 +149,17 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Classifier-ownedUseCase"
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedUseCase_classifier"
-        UseCase[] OwnedUseCase { get; }
+        IList<UseCase> OwnedUseCase { get; }
         #endregion
-        #region P:PowertypeExtent:GeneralizationSet[]
+        #region P:PowertypeExtent:IList<GeneralizationSet>
         /// <summary>
         /// The <see cref="GeneralizationSet"/> of which this <see cref="Classifier"/> is a power type.
         /// </summary>
         /// xmi:id="Classifier-powertypeExtent"
         /// xmi:association="A_powertypeExtent_powertype"
-        GeneralizationSet[] PowertypeExtent { get; }
+        IList<GeneralizationSet> PowertypeExtent { get; }
         #endregion
-        #region P:RedefinedClassifier:Classifier[]
+        #region P:RedefinedClassifier:IList<Classifier>
         /// <summary>
         /// The Classifiers redefined by this <see cref="Classifier"/>.
         /// Subsets:
@@ -166,7 +167,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Classifier-redefinedClassifier"
         /// xmi:association="A_redefinedClassifier_classifier"
-        Classifier[] RedefinedClassifier { get; }
+        IList<Classifier> RedefinedClassifier { get; }
         #endregion
         #region P:Representation:CollaborationUse
         /// <summary>
@@ -177,9 +178,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Classifier-representation"
         /// xmi:association="A_representation_classifier"
         [Multiplicity("0..1")]
-        CollaborationUse Representation { get; }
+        CollaborationUse Representation { get;set; }
         #endregion
-        #region P:Substitution:Substitution[]
+        #region P:Substitution:IList<Substitution>
         /// <summary>
         /// The Substitutions owned by this <see cref="Classifier"/>.
         /// Subsets:
@@ -189,7 +190,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Classifier-substitution"
         /// xmi:aggregation="composite"
         /// xmi:association="A_substitution_substitutingClassifier"
-        Substitution[] Substitution { get; }
+        IList<Substitution> Substitution { get; }
         #endregion
         #region P:TemplateParameter:ClassifierTemplateParameter
         /// <summary>
@@ -200,15 +201,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Classifier-templateParameter"
         /// xmi:association="A_classifier_templateParameter_parameteredElement"
         [Multiplicity("0..1")]
-        ClassifierTemplateParameter TemplateParameter { get; }
+        ClassifierTemplateParameter TemplateParameter { get;set; }
         #endregion
-        #region P:UseCase:UseCase[]
+        #region P:UseCase:IList<UseCase>
         /// <summary>
         /// The set of UseCases for which this <see cref="Classifier"/> is the subject.
         /// </summary>
         /// xmi:id="Classifier-useCase"
         /// xmi:association="A_subject_useCase"
-        UseCase[] UseCase { get; }
+        IList<UseCase> UseCase { get; }
         #endregion
 
         #region M:allAttributes:Property[]

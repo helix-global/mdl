@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -41,9 +42,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredActivityNode-activity"
         /// xmi:association="A_structuredNode_activity"
         [Multiplicity("0..1")]
-        Activity Activity { get; }
+        Activity Activity { get;set; }
         #endregion
-        #region P:Edge:ActivityEdge[]
+        #region P:Edge:IList<ActivityEdge>
         /// <summary>
         /// The ActivityEdges immediately contained in the <see cref="StructuredActivityNode"/>.
         /// Subsets:
@@ -53,7 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredActivityNode-edge"
         /// xmi:aggregation="composite"
         /// xmi:association="A_edge_inStructuredNode"
-        ActivityEdge[] Edge { get; }
+        IList<ActivityEdge> Edge { get; }
         #endregion
         #region P:MustIsolate:Boolean
         /// <summary>
@@ -61,9 +62,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// 
         /// </summary>
         /// xmi:id="StructuredActivityNode-mustIsolate"
-        Boolean MustIsolate { get; }
+        Boolean MustIsolate { get;set; }
         #endregion
-        #region P:Node:ActivityNode[]
+        #region P:Node:IList<ActivityNode>
         /// <summary>
         /// The ActivityNodes immediately contained in the <see cref="StructuredActivityNode"/>.
         /// Subsets:
@@ -73,9 +74,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredActivityNode-node"
         /// xmi:aggregation="composite"
         /// xmi:association="A_node_inStructuredNode"
-        ActivityNode[] Node { get; }
+        IList<ActivityNode> Node { get; }
         #endregion
-        #region P:StructuredNodeInput:InputPin[]
+        #region P:StructuredNodeInput:IList<InputPin>
         /// <summary>
         /// The InputPins owned by the <see cref="StructuredActivityNode"/>.
         /// Subsets:
@@ -84,9 +85,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredActivityNode-structuredNodeInput"
         /// xmi:aggregation="composite"
         /// xmi:association="A_structuredNodeInput_structuredActivityNode"
-        InputPin[] StructuredNodeInput { get; }
+        IList<InputPin> StructuredNodeInput { get; }
         #endregion
-        #region P:StructuredNodeOutput:OutputPin[]
+        #region P:StructuredNodeOutput:IList<OutputPin>
         /// <summary>
         /// The OutputPins owned by the <see cref="StructuredActivityNode"/>.
         /// Subsets:
@@ -95,9 +96,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredActivityNode-structuredNodeOutput"
         /// xmi:aggregation="composite"
         /// xmi:association="A_structuredNodeOutput_structuredActivityNode"
-        OutputPin[] StructuredNodeOutput { get; }
+        IList<OutputPin> StructuredNodeOutput { get; }
         #endregion
-        #region P:Variable:Variable[]
+        #region P:Variable:IList<Variable>
         /// <summary>
         /// The Variables defined in the scope of the <see cref="StructuredActivityNode"/>.
         /// Subsets:
@@ -106,7 +107,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="StructuredActivityNode-variable"
         /// xmi:aggregation="composite"
         /// xmi:association="A_variable_scope"
-        Variable[] Variable { get; }
+        IList<Variable> Variable { get; }
         #endregion
 
         #region M:allActions:Action[]

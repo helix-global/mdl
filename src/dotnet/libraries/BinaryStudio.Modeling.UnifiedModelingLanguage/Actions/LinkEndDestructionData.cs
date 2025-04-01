@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -29,14 +30,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="LinkEndDestructionData-destroyAt"
         /// xmi:association="A_destroyAt_linkEndDestructionData"
         [Multiplicity("0..1")]
-        InputPin DestroyAt { get; }
+        InputPin DestroyAt { get;set; }
         #endregion
         #region P:IsDestroyDuplicates:Boolean
         /// <summary>
         /// Specifies whether to destroy duplicates of the <see cref="Value"/> in nonunique <see cref="Association"/> ends.
         /// </summary>
         /// xmi:id="LinkEndDestructionData-isDestroyDuplicates"
-        Boolean IsDestroyDuplicates { get; }
+        Boolean IsDestroyDuplicates { get;set; }
         #endregion
 
         #region M:allPins:InputPin[]

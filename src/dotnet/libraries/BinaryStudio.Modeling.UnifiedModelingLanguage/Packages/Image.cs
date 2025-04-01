@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -15,7 +16,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Image-content"
         [Multiplicity("0..1")]
-        String Content { get; }
+        String Content { get;set; }
         #endregion
         #region P:Format:String
         /// <summary>
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Image-format"
         [Multiplicity("0..1")]
-        String Format { get; }
+        String Format { get;set; }
         #endregion
         #region P:Location:String
         /// <summary>
@@ -31,7 +32,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Image-location"
         [Multiplicity("0..1")]
-        String Location { get; }
+        String Location { get;set; }
         #endregion
         }
     }

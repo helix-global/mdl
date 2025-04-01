@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -42,7 +43,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_postCondition_owningTransition"
         [Multiplicity("0..1")]
-        Constraint PostCondition { get; }
+        Constraint PostCondition { get;set; }
         #endregion
         #region P:PreCondition:Constraint
         /// <summary>
@@ -54,9 +55,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_preCondition_protocolTransition"
         [Multiplicity("0..1")]
-        Constraint PreCondition { get; }
+        Constraint PreCondition { get;set; }
         #endregion
-        #region P:Referred:Operation[]
+        #region P:Referred:IList<Operation>
         /// <summary>
         /// This association refers to the associated <see cref="Operation"/>. It is derived from the <see cref="Operation"/> of the <see cref="CallEvent"/> <see cref="Trigger"/> when applicable.
         /// </summary>
@@ -64,7 +65,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_referred_protocolTransition"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Operation[] Referred { get; }
+        IList<Operation> Referred { get; }
         #endregion
 
         #region M:referred:Operation[]

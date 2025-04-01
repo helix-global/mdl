@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -42,7 +43,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="UseCase"
     public interface UseCase : BehavioredClassifier
         {
-        #region P:Extend:Extend[]
+        #region P:Extend:IList<Extend>
         /// <summary>
         /// The <see cref="Extend"/> relationships owned by this <see cref="UseCase"/>.
         /// Subsets:
@@ -52,9 +53,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_extend_extension"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        Extend[] Extend { get; }
+        IList<Extend> Extend { get; }
         #endregion
-        #region P:ExtensionPoint:ExtensionPoint[]
+        #region P:ExtensionPoint:IList<ExtensionPoint>
         /// <summary>
         /// The ExtensionPoints owned by this <see cref="UseCase"/>.
         /// Subsets:
@@ -63,9 +64,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="UseCase-extensionPoint"
         /// xmi:aggregation="composite"
         /// xmi:association="A_extensionPoint_useCase"
-        ExtensionPoint[] ExtensionPoint { get; }
+        IList<ExtensionPoint> ExtensionPoint { get; }
         #endregion
-        #region P:Include:Include[]
+        #region P:Include:IList<Include>
         /// <summary>
         /// The <see cref="Include"/> relationships owned by this <see cref="UseCase"/>.
         /// Subsets:
@@ -75,15 +76,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_include_includingCase"
         /// xmi:subsets="A_source_directedRelationship-directedRelationship"
-        Include[] Include { get; }
+        IList<Include> Include { get; }
         #endregion
-        #region P:Subject:Classifier[]
+        #region P:Subject:IList<Classifier>
         /// <summary>
         /// The subjects to which this <see cref="UseCase"/> applies. Each <see cref="Subject"/> or its parts realize all the UseCases that apply to it.
         /// </summary>
         /// xmi:id="UseCase-subject"
         /// xmi:association="A_subject_useCase"
-        Classifier[] Subject { get; }
+        IList<Classifier> Subject { get; }
         #endregion
 
         #region M:allIncludedUseCases:UseCase[]

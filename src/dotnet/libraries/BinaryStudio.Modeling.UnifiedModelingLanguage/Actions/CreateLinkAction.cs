@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -16,7 +17,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="CreateLinkAction"
     public interface CreateLinkAction : WriteLinkAction
         {
-        #region P:EndData:LinkEndCreationData[]
+        #region P:EndData:IList<LinkEndCreationData>
         /// <summary>
         /// The <see cref="LinkEndData"/> that specifies the values to be placed on the <see cref="Association"/> ends for the new link.
         /// Redefines:
@@ -26,7 +27,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_endData_createLinkAction"
         [Multiplicity("2..*")]
-        LinkEndCreationData[] EndData { get; }
+        IList<LinkEndCreationData> EndData { get; }
         #endregion
         }
     }

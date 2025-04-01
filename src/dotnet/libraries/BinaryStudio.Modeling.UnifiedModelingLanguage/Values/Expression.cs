@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Expression"
     public interface Expression : ValueSpecification
         {
-        #region P:Operand:ValueSpecification[]
+        #region P:Operand:IList<ValueSpecification>
         /// <summary>
         /// Specifies a sequence of <see cref="Operand"/> ValueSpecifications.
         /// Subsets:
@@ -19,7 +20,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_operand_expression"
         [Ordered]
-        ValueSpecification[] Operand { get; }
+        IList<ValueSpecification> Operand { get; }
         #endregion
         #region P:Symbol:String
         /// <summary>
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Expression-symbol"
         [Multiplicity("0..1")]
-        String Symbol { get; }
+        String Symbol { get;set; }
         #endregion
         }
     }

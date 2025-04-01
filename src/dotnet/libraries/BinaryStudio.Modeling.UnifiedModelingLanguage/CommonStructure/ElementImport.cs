@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ElementImport-alias"
         [Multiplicity("0..1")]
-        String Alias { get; }
+        String Alias { get;set; }
         #endregion
         #region P:ImportedElement:PackageableElement
         /// <summary>
@@ -39,7 +40,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ElementImport-importedElement"
         /// xmi:association="A_importedElement_import"
-        PackageableElement ImportedElement { get; }
+        PackageableElement ImportedElement { get;set; }
         #endregion
         #region P:ImportingNamespace:Namespace
         /// <summary>
@@ -50,14 +51,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ElementImport-importingNamespace"
         /// xmi:association="A_elementImport_importingNamespace"
-        Namespace ImportingNamespace { get; }
+        Namespace ImportingNamespace { get;set; }
         #endregion
         #region P:Visibility:VisibilityKind
         /// <summary>
         /// Specifies the <see cref="Visibility"/> of the imported <see cref="PackageableElement"/> within the <see cref="ImportingNamespace"/>, i.e., whether the  <see cref="ImportedElement"/> will in turn be visible to other Namespaces. If the <see cref="ElementImport"/> is public, the <see cref="ImportedElement"/> will be visible outside the <see cref="ImportingNamespace"/> while, if the <see cref="ElementImport"/> is private, it will not.
         /// </summary>
         /// xmi:id="ElementImport-visibility"
-        VisibilityKind Visibility { get; }
+        VisibilityKind Visibility { get;set; }
         #endregion
 
         #region M:getName:String

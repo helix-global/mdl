@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -24,7 +25,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExtensionPoint-useCase"
         /// xmi:association="A_extensionPoint_useCase"
-        UseCase UseCase { get; }
+        UseCase UseCase { get;set; }
         #endregion
         }
     }

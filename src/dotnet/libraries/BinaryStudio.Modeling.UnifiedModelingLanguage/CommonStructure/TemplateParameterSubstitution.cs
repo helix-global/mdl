@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -22,7 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-actual"
         /// xmi:association="A_actual_templateParameterSubstitution"
-        ParameterableElement Actual { get; }
+        ParameterableElement Actual { get;set; }
         #endregion
         #region P:Formal:TemplateParameter
         /// <summary>
@@ -30,7 +31,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-formal"
         /// xmi:association="A_formal_templateParameterSubstitution"
-        TemplateParameter Formal { get; }
+        TemplateParameter Formal { get;set; }
         #endregion
         #region P:OwnedActual:ParameterableElement
         /// <summary>
@@ -43,7 +44,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedActual_owningTemplateParameterSubstitution"
         [Multiplicity("0..1")]
-        ParameterableElement OwnedActual { get; }
+        ParameterableElement OwnedActual { get;set; }
         #endregion
         #region P:TemplateBinding:TemplateBinding
         /// <summary>
@@ -53,7 +54,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameterSubstitution-templateBinding"
         /// xmi:association="A_parameterSubstitution_templateBinding"
-        TemplateBinding TemplateBinding { get; }
+        TemplateBinding TemplateBinding { get;set; }
         #endregion
         }
     }

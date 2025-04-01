@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -28,9 +29,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// If true, the <see cref="Component"/> is defined at design-time, but at run-time (or execution-time) an object specified by the <see cref="Component"/> does not exist, that is, the <see cref="Component"/> is instantiated indirectly, through the instantiation of its realizing Classifiers or parts.
         /// </summary>
         /// xmi:id="Component-isIndirectlyInstantiated"
-        Boolean IsIndirectlyInstantiated { get; }
+        Boolean IsIndirectlyInstantiated { get;set; }
         #endregion
-        #region P:PackagedElement:PackageableElement[]
+        #region P:PackagedElement:IList<PackageableElement>
         /// <summary>
         /// The set of PackageableElements that a <see cref="Component"/> owns. In the <see cref="Namespace"/> of a <see cref="Component"/>, all model elements that are involved in or related to its definition may be owned or imported explicitly. These may include e.g., Classes, Interfaces, Components, Packages, UseCases, Dependencies (e.g., mappings), and Artifacts.
         /// Subsets:
@@ -39,9 +40,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Component-packagedElement"
         /// xmi:aggregation="composite"
         /// xmi:association="A_packagedElement_component"
-        PackageableElement[] PackagedElement { get; }
+        IList<PackageableElement> PackagedElement { get; }
         #endregion
-        #region P:Provided:Interface[]
+        #region P:Provided:IList<Interface>
         /// <summary>
         /// The Interfaces that the <see cref="Component"/> exposes to its environment. These Interfaces may be Realized by the <see cref="Component"/> or any of its realizingClassifiers, or they may be the Interfaces that are <see cref="Provided"/> by its public Ports.
         /// </summary>
@@ -49,9 +50,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_provided_component"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Interface[] Provided { get; }
+        IList<Interface> Provided { get; }
         #endregion
-        #region P:Realization:ComponentRealization[]
+        #region P:Realization:IList<ComponentRealization>
         /// <summary>
         /// The set of Realizations owned by the <see cref="Component"/>. Realizations reference the Classifiers of which the <see cref="Component"/> is an abstraction; i.e., that realize its behavior.
         /// Subsets:
@@ -61,9 +62,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_realization_abstraction_component"
         /// xmi:subsets="A_supplier_supplierDependency-supplierDependency"
-        ComponentRealization[] Realization { get; }
+        IList<ComponentRealization> Realization { get; }
         #endregion
-        #region P:Required:Interface[]
+        #region P:Required:IList<Interface>
         /// <summary>
         /// The Interfaces that the <see cref="Component"/> requires from other Components in its environment in order to be able to offer its full set of <see cref="Provided"/> functionality. These Interfaces may be used by the <see cref="Component"/> or any of its realizingClassifiers, or they may be the Interfaces that are <see cref="Required"/> by its public Ports.
         /// </summary>
@@ -71,7 +72,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_required_component"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        Interface[] Required { get; }
+        IList<Interface> Required { get; }
         #endregion
 
         #region M:provided:Interface[]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,13 +10,13 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="InteractionFragment"
     public interface InteractionFragment : NamedElement
         {
-        #region P:Covered:Lifeline[]
+        #region P:Covered:IList<Lifeline>
         /// <summary>
         /// References the Lifelines that the <see cref="InteractionFragment"/> involves.
         /// </summary>
         /// xmi:id="InteractionFragment-covered"
         /// xmi:association="A_covered_coveredBy"
-        Lifeline[] Covered { get; }
+        IList<Lifeline> Covered { get; }
         #endregion
         #region P:EnclosingInteraction:Interaction
         /// <summary>
@@ -26,7 +27,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InteractionFragment-enclosingInteraction"
         /// xmi:association="A_fragment_enclosingInteraction"
         [Multiplicity("0..1")]
-        Interaction EnclosingInteraction { get; }
+        Interaction EnclosingInteraction { get;set; }
         #endregion
         #region P:EnclosingOperand:InteractionOperand
         /// <summary>
@@ -37,9 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InteractionFragment-enclosingOperand"
         /// xmi:association="A_fragment_enclosingOperand"
         [Multiplicity("0..1")]
-        InteractionOperand EnclosingOperand { get; }
+        InteractionOperand EnclosingOperand { get;set; }
         #endregion
-        #region P:GeneralOrdering:GeneralOrdering[]
+        #region P:GeneralOrdering:IList<GeneralOrdering>
         /// <summary>
         /// The general ordering relationships contained in this fragment.
         /// Subsets:
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InteractionFragment-generalOrdering"
         /// xmi:aggregation="composite"
         /// xmi:association="A_generalOrdering_interactionFragment"
-        GeneralOrdering[] GeneralOrdering { get; }
+        IList<GeneralOrdering> GeneralOrdering { get; }
         #endregion
         }
     }

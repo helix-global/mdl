@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -27,7 +28,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// Specifies whether this <see cref="Feature"/> characterizes individual instances classified by the <see cref="Classifier"/> (false) or the <see cref="Classifier"/> itself (true).
         /// </summary>
         /// xmi:id="Feature-isStatic"
-        Boolean IsStatic { get; }
+        Boolean IsStatic { get;set; }
         #endregion
         }
     }

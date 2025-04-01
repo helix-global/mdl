@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -25,7 +26,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityEdge-activity"
         /// xmi:association="A_edge_activity"
         [Multiplicity("0..1")]
-        Activity Activity { get; }
+        Activity Activity { get;set; }
         #endregion
         #region P:Guard:ValueSpecification
         /// <summary>
@@ -37,9 +38,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_guard_activityEdge"
         [Multiplicity("0..1")]
-        ValueSpecification Guard { get; }
+        ValueSpecification Guard { get;set; }
         #endregion
-        #region P:InGroup:ActivityGroup[]
+        #region P:InGroup:IList<ActivityGroup>
         /// <summary>
         /// ActivityGroups containing the <see cref="ActivityEdge"/>.
         /// </summary>
@@ -48,9 +49,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Union]
-        ActivityGroup[] InGroup { get; }
+        IList<ActivityGroup> InGroup { get; }
         #endregion
-        #region P:InPartition:ActivityPartition[]
+        #region P:InPartition:IList<ActivityPartition>
         /// <summary>
         /// ActivityPartitions containing the <see cref="ActivityEdge"/>.
         /// Subsets:
@@ -58,7 +59,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityEdge-inPartition"
         /// xmi:association="A_edge_inPartition"
-        ActivityPartition[] InPartition { get; }
+        IList<ActivityPartition> InPartition { get; }
         #endregion
         #region P:InStructuredNode:StructuredActivityNode
         /// <summary>
@@ -70,7 +71,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityEdge-inStructuredNode"
         /// xmi:association="A_edge_inStructuredNode"
         [Multiplicity("0..1")]
-        StructuredActivityNode InStructuredNode { get; }
+        StructuredActivityNode InStructuredNode { get;set; }
         #endregion
         #region P:Interrupts:InterruptibleActivityRegion
         /// <summary>
@@ -79,9 +80,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ActivityEdge-interrupts"
         /// xmi:association="A_interruptingEdge_interrupts"
         [Multiplicity("0..1")]
-        InterruptibleActivityRegion Interrupts { get; }
+        InterruptibleActivityRegion Interrupts { get;set; }
         #endregion
-        #region P:RedefinedEdge:ActivityEdge[]
+        #region P:RedefinedEdge:IList<ActivityEdge>
         /// <summary>
         /// ActivityEdges from a generalization of the <see cref="Activity"/> containing this <see cref="ActivityEdge"/> that are redefined by this <see cref="ActivityEdge"/>.
         /// Subsets:
@@ -89,7 +90,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityEdge-redefinedEdge"
         /// xmi:association="A_redefinedEdge_activityEdge"
-        ActivityEdge[] RedefinedEdge { get; }
+        IList<ActivityEdge> RedefinedEdge { get; }
         #endregion
         #region P:Source:ActivityNode
         /// <summary>
@@ -97,7 +98,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityEdge-source"
         /// xmi:association="A_outgoing_source_node"
-        ActivityNode Source { get; }
+        ActivityNode Source { get;set; }
         #endregion
         #region P:Target:ActivityNode
         /// <summary>
@@ -105,7 +106,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ActivityEdge-target"
         /// xmi:association="A_incoming_target_node"
-        ActivityNode Target { get; }
+        ActivityNode Target { get;set; }
         #endregion
         #region P:Weight:ValueSpecification
         /// <summary>
@@ -117,7 +118,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_weight_activityEdge"
         [Multiplicity("0..1")]
-        ValueSpecification Weight { get; }
+        ValueSpecification Weight { get;set; }
         #endregion
 
         #region M:isConsistentWith(RedefinableElement):Boolean

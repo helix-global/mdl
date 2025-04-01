@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -66,7 +67,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="InteractionUse"
     public interface InteractionUse : InteractionFragment
         {
-        #region P:ActualGate:Gate[]
+        #region P:ActualGate:IList<Gate>
         /// <summary>
         /// The actual gates of the <see cref="InteractionUse"/>.
         /// Subsets:
@@ -75,9 +76,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InteractionUse-actualGate"
         /// xmi:aggregation="composite"
         /// xmi:association="A_actualGate_interactionUse"
-        Gate[] ActualGate { get; }
+        IList<Gate> ActualGate { get; }
         #endregion
-        #region P:Argument:ValueSpecification[]
+        #region P:Argument:IList<ValueSpecification>
         /// <summary>
         /// The actual arguments of the <see cref="Interaction"/>.
         /// Subsets:
@@ -87,7 +88,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_argument_interactionUse"
         [Ordered]
-        ValueSpecification[] Argument { get; }
+        IList<ValueSpecification> Argument { get; }
         #endregion
         #region P:RefersTo:Interaction
         /// <summary>
@@ -95,7 +96,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="InteractionUse-refersTo"
         /// xmi:association="A_refersTo_interactionUse"
-        Interaction RefersTo { get; }
+        Interaction RefersTo { get;set; }
         #endregion
         #region P:ReturnValue:ValueSpecification
         /// <summary>
@@ -107,7 +108,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_returnValue_interactionUse"
         [Multiplicity("0..1")]
-        ValueSpecification ReturnValue { get; }
+        ValueSpecification ReturnValue { get;set; }
         #endregion
         #region P:ReturnValueRecipient:Property
         /// <summary>
@@ -116,7 +117,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="InteractionUse-returnValueRecipient"
         /// xmi:association="A_returnValueRecipient_interactionUse"
         [Multiplicity("0..1")]
-        Property ReturnValueRecipient { get; }
+        Property ReturnValueRecipient { get;set; }
         #endregion
         }
     }

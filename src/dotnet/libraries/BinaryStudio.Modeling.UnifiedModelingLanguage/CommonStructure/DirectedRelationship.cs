@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DirectedRelationship"
     public interface DirectedRelationship : Relationship
         {
-        #region P:Source:Element[]
+        #region P:Source:IList<Element>
         /// <summary>
         /// Specifies the <see cref="Source"/> <see cref="Element"/>(s) of the <see cref="DirectedRelationship"/>.
         /// Subsets:
@@ -20,9 +21,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Multiplicity("1..*")][Union]
-        Element[] Source { get; }
+        IList<Element> Source { get; }
         #endregion
-        #region P:Target:Element[]
+        #region P:Target:IList<Element>
         /// <summary>
         /// Specifies the <see cref="Target"/> <see cref="Element"/>(s) of the <see cref="DirectedRelationship"/>.
         /// Subsets:
@@ -33,7 +34,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
         [Multiplicity("1..*")][Union]
-        Element[] Target { get; }
+        IList<Element> Target { get; }
         #endregion
         }
     }

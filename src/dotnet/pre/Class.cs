@@ -191,6 +191,7 @@ namespace pre
         #region M:WriteCSharp(TextWriter,String)
         public override void WriteCSharp(TextWriter writer,String prefix) {
             writer.Write($"{prefix}using System;\n");
+            writer.Write($"{prefix}using System.Collections.Generic;\n");
             writer.Write($"{prefix}using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;\n");
             writer.Write($"{prefix}\n");
             writer.Write($"{prefix}namespace {DefaultNamespace}\n");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -42,14 +43,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReduceAction-collection"
         /// xmi:aggregation="composite"
         /// xmi:association="A_collection_reduceAction"
-        InputPin Collection { get; }
+        InputPin Collection { get;set; }
         #endregion
         #region P:IsOrdered:Boolean
         /// <summary>
         /// Indicates whether the order of the <see cref="Input"/> <see cref="Collection"/> should determine the order in which the <see cref="Reducer"/> <see cref="Behavior"/> is applied to its elements.
         /// </summary>
         /// xmi:id="ReduceAction-isOrdered"
-        Boolean IsOrdered { get; }
+        Boolean IsOrdered { get;set; }
         #endregion
         #region P:Reducer:Behavior
         /// <summary>
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ReduceAction-reducer"
         /// xmi:association="A_reducer_reduceAction"
-        Behavior Reducer { get; }
+        Behavior Reducer { get;set; }
         #endregion
         #region P:Result:OutputPin
         /// <summary>
@@ -68,7 +69,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ReduceAction-result"
         /// xmi:aggregation="composite"
         /// xmi:association="A_result_reduceAction"
-        OutputPin Result { get; }
+        OutputPin Result { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,21 +10,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="OpaqueBehavior"
     public interface OpaqueBehavior : Behavior
         {
-        #region P:Body:String[]
+        #region P:Body:IList<String>
         /// <summary>
         /// Specifies the behavior in one or more languages.
         /// </summary>
         /// xmi:id="OpaqueBehavior-body"
         [Ordered]
-        String[] Body { get; }
+        IList<String> Body { get; }
         #endregion
-        #region P:Language:String[]
+        #region P:Language:IList<String>
         /// <summary>
         /// Languages the <see cref="Body"/> strings use in the same order as the <see cref="Body"/> strings.
         /// </summary>
         /// xmi:id="OpaqueBehavior-language"
         [Ordered]
-        String[] Language { get; }
+        IList<String> Language { get; }
         #endregion
         }
     }

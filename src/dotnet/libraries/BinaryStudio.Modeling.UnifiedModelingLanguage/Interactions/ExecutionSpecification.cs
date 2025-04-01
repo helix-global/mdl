@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -22,7 +23,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExecutionSpecification-finish"
         /// xmi:association="A_finish_executionSpecification"
-        OccurrenceSpecification Finish { get; }
+        OccurrenceSpecification Finish { get;set; }
         #endregion
         #region P:Start:OccurrenceSpecification
         /// <summary>
@@ -30,7 +31,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ExecutionSpecification-start"
         /// xmi:association="A_start_executionSpecification"
-        OccurrenceSpecification Start { get; }
+        OccurrenceSpecification Start { get;set; }
         #endregion
         }
     }

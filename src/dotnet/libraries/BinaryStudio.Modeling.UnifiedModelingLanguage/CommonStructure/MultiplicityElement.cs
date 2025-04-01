@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -52,14 +53,14 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// For a multivalued multiplicity, this attribute specifies whether the values in an instantiation of this <see cref="MultiplicityElement"/> are sequentially ordered.
         /// </summary>
         /// xmi:id="MultiplicityElement-isOrdered"
-        Boolean IsOrdered { get; }
+        Boolean IsOrdered { get;set; }
         #endregion
         #region P:IsUnique:Boolean
         /// <summary>
         /// For a multivalued multiplicity, this attributes specifies whether the values in an instantiation of this <see cref="MultiplicityElement"/> are unique.
         /// </summary>
         /// xmi:id="MultiplicityElement-isUnique"
-        Boolean IsUnique { get; }
+        Boolean IsUnique { get;set; }
         #endregion
         #region P:Lower:Integer
         /// <summary>
@@ -67,7 +68,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="MultiplicityElement-lower"
         /// xmi:is-derived="true"
-        Integer Lower { get; }
+        Integer Lower { get;set; }
         #endregion
         #region P:LowerValue:ValueSpecification
         /// <summary>
@@ -79,7 +80,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_lowerValue_owningLower"
         [Multiplicity("0..1")]
-        ValueSpecification LowerValue { get; }
+        ValueSpecification LowerValue { get;set; }
         #endregion
         #region P:Upper:UnlimitedNatural
         /// <summary>
@@ -87,7 +88,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="MultiplicityElement-upper"
         /// xmi:is-derived="true"
-        UnlimitedNatural Upper { get; }
+        UnlimitedNatural Upper { get;set; }
         #endregion
         #region P:UpperValue:ValueSpecification
         /// <summary>
@@ -99,7 +100,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_upperValue_owningUpper"
         [Multiplicity("0..1")]
-        ValueSpecification UpperValue { get; }
+        ValueSpecification UpperValue { get;set; }
         #endregion
 
         #region M:compatibleWith(MultiplicityElement):Boolean

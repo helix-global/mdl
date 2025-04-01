@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="DeploymentTarget"
     public interface DeploymentTarget : NamedElement
         {
-        #region P:DeployedElement:PackageableElement[]
+        #region P:DeployedElement:IList<PackageableElement>
         /// <summary>
         /// The set of elements that are manifested in an <see cref="Artifact"/> that is involved in <see cref="Deployment"/> to a <see cref="DeploymentTarget"/>.
         /// </summary>
@@ -17,9 +18,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:association="A_deployedElement_deploymentTarget"
         /// xmi:is-derived="true"
         /// xmi:is-readonly="true"
-        PackageableElement[] DeployedElement { get; }
+        IList<PackageableElement> DeployedElement { get; }
         #endregion
-        #region P:Deployment:Deployment[]
+        #region P:Deployment:IList<Deployment>
         /// <summary>
         /// The set of Deployments for a <see cref="DeploymentTarget"/>.
         /// Subsets:
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="DeploymentTarget-deployment"
         /// xmi:aggregation="composite"
         /// xmi:association="A_deployment_location"
-        Deployment[] Deployment { get; }
+        IList<Deployment> Deployment { get; }
         #endregion
 
         #region M:deployedElement:PackageableElement[]

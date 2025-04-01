@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -30,7 +31,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Profile"
     public interface Profile : Package
         {
-        #region P:MetaclassReference:ElementImport[]
+        #region P:MetaclassReference:IList<ElementImport>
         /// <summary>
         /// References a metaclass that may be extended.
         /// Subsets:
@@ -39,9 +40,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Profile-metaclassReference"
         /// xmi:aggregation="composite"
         /// xmi:association="A_metaclassReference_profile"
-        ElementImport[] MetaclassReference { get; }
+        IList<ElementImport> MetaclassReference { get; }
         #endregion
-        #region P:MetamodelReference:PackageImport[]
+        #region P:MetamodelReference:IList<PackageImport>
         /// <summary>
         /// References a package containing (directly or indirectly) metaclasses that may be extended.
         /// Subsets:
@@ -50,7 +51,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="Profile-metamodelReference"
         /// xmi:aggregation="composite"
         /// xmi:association="A_metamodelReference_profile"
-        PackageImport[] MetamodelReference { get; }
+        IList<PackageImport> MetamodelReference { get; }
         #endregion
         }
     }

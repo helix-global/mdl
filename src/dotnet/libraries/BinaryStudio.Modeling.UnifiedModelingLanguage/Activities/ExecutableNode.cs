@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="ExecutableNode"
     public interface ExecutableNode : ActivityNode
         {
-        #region P:Handler:ExceptionHandler[]
+        #region P:Handler:IList<ExceptionHandler>
         /// <summary>
         /// A set of ExceptionHandlers that are examined if an exception propagates out of the ExceptionNode.
         /// Subsets:
@@ -18,7 +19,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ExecutableNode-handler"
         /// xmi:aggregation="composite"
         /// xmi:association="A_handler_protectedNode"
-        ExceptionHandler[] Handler { get; }
+        IList<ExceptionHandler> Handler { get; }
         #endregion
         }
     }

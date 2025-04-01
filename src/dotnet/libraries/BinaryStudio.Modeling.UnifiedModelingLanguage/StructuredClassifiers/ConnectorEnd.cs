@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -56,7 +57,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="ConnectorEnd-partWithPort"
         /// xmi:association="A_partWithPort_connectorEnd"
         [Multiplicity("0..1")]
-        Property PartWithPort { get; }
+        Property PartWithPort { get;set; }
         #endregion
         #region P:Role:ConnectableElement
         /// <summary>
@@ -64,7 +65,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="ConnectorEnd-role"
         /// xmi:association="A_end_role"
-        ConnectableElement Role { get; }
+        ConnectableElement Role { get;set; }
         #endregion
 
         #region M:definingEnd:Property

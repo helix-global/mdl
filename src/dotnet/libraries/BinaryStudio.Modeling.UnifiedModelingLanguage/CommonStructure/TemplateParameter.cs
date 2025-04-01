@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -23,7 +24,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TemplateParameter-default"
         /// xmi:association="A_default_templateParameter"
         [Multiplicity("0..1")]
-        ParameterableElement Default { get; }
+        ParameterableElement Default { get;set; }
         #endregion
         #region P:OwnedDefault:ParameterableElement
         /// <summary>
@@ -36,7 +37,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedDefault_templateParameter"
         [Multiplicity("0..1")]
-        ParameterableElement OwnedDefault { get; }
+        ParameterableElement OwnedDefault { get;set; }
         #endregion
         #region P:OwnedParameteredElement:ParameterableElement
         /// <summary>
@@ -49,7 +50,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:aggregation="composite"
         /// xmi:association="A_ownedParameteredElement_owningTemplateParameter"
         [Multiplicity("0..1")]
-        ParameterableElement OwnedParameteredElement { get; }
+        ParameterableElement OwnedParameteredElement { get;set; }
         #endregion
         #region P:ParameteredElement:ParameterableElement
         /// <summary>
@@ -57,7 +58,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="TemplateParameter-parameteredElement"
         /// xmi:association="A_parameteredElement_templateParameter"
-        ParameterableElement ParameteredElement { get; }
+        ParameterableElement ParameteredElement { get;set; }
         #endregion
         #region P:Signature:TemplateSignature
         /// <summary>
@@ -68,7 +69,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="TemplateParameter-signature"
         /// xmi:association="A_ownedParameter_signature"
         /// xmi:subsets="A_parameter_templateSignature-templateSignature"
-        TemplateSignature Signature { get; }
+        TemplateSignature Signature { get;set; }
         #endregion
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -32,7 +33,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="DeploymentSpecification-deployment"
         /// xmi:association="A_configuration_deployment"
         [Multiplicity("0..1")]
-        Deployment Deployment { get; }
+        Deployment Deployment { get;set; }
         #endregion
         #region P:DeploymentLocation:String
         /// <summary>
@@ -40,7 +41,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DeploymentSpecification-deploymentLocation"
         [Multiplicity("0..1")]
-        String DeploymentLocation { get; }
+        String DeploymentLocation { get;set; }
         #endregion
         #region P:ExecutionLocation:String
         /// <summary>
@@ -48,7 +49,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="DeploymentSpecification-executionLocation"
         [Multiplicity("0..1")]
-        String ExecutionLocation { get; }
+        String ExecutionLocation { get;set; }
         #endregion
         }
     }

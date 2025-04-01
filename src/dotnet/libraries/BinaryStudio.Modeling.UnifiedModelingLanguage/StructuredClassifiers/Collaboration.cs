@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -9,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
     /// xmi:id="Collaboration"
     public interface Collaboration : BehavioredClassifier,StructuredClassifier
         {
-        #region P:CollaborationRole:ConnectableElement[]
+        #region P:CollaborationRole:IList<ConnectableElement>
         /// <summary>
         /// Represents the participants in the <see cref="Collaboration"/>.
         /// Subsets:
@@ -17,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="Collaboration-collaborationRole"
         /// xmi:association="A_collaborationRole_collaboration"
-        ConnectableElement[] CollaborationRole { get; }
+        IList<ConnectableElement> CollaborationRole { get; }
         #endregion
         }
     }

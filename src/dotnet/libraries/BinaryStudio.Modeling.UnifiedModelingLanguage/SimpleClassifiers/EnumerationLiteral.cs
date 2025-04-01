@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -29,7 +30,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// </summary>
         /// xmi:id="EnumerationLiteral-enumeration"
         /// xmi:association="A_ownedLiteral_enumeration"
-        Enumeration Enumeration { get; }
+        Enumeration Enumeration { get;set; }
         #endregion
 
         #region M:classifier:Enumeration

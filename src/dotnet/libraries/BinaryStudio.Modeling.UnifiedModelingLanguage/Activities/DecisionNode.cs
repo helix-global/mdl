@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Attributes;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage
@@ -85,7 +86,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="DecisionNode-decisionInput"
         /// xmi:association="A_decisionInput_decisionNode"
         [Multiplicity("0..1")]
-        Behavior DecisionInput { get; }
+        Behavior DecisionInput { get;set; }
         #endregion
         #region P:DecisionInputFlow:ObjectFlow
         /// <summary>
@@ -94,7 +95,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage
         /// xmi:id="DecisionNode-decisionInputFlow"
         /// xmi:association="A_decisionInputFlow_decisionNode"
         [Multiplicity("0..1")]
-        ObjectFlow DecisionInputFlow { get; }
+        ObjectFlow DecisionInputFlow { get;set; }
         #endregion
         }
     }
