@@ -2,19 +2,19 @@
 
 namespace BinaryStudio.Modeling.MetadataInterchange
     {
-    public class XMIIsTargetListAttribute : Attribute
+    public class IsTargetListAttribute : Attribute
         {
-        public static readonly XMIIsTargetListAttribute No  = new XMIIsTargetListAttribute(false);
-        public static readonly XMIIsTargetListAttribute Yes = new XMIIsTargetListAttribute(true);
-        public static readonly XMIIsTargetListAttribute Default = No;
+        public static readonly IsTargetListAttribute No  = new IsTargetListAttribute(false);
+        public static readonly IsTargetListAttribute Yes = new IsTargetListAttribute(true);
+        public static readonly IsTargetListAttribute Default = No;
 
         public Boolean IsTargetList { get; }
-        public XMIIsTargetListAttribute(Boolean value)
+        public IsTargetListAttribute(Boolean value)
             {
             IsTargetList = value;
             }
 
-        public XMIIsTargetListAttribute()
+        public IsTargetListAttribute()
             :this(true)
             {
             }
@@ -41,7 +41,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
         /// <returns><see langword="true"/> if <paramref name="other"/> and this instance are of the same type and have identical field values; otherwise, <see langword="false"/>.</returns>
         public override Boolean Equals(Object other) {
             if (ReferenceEquals(other,this)) { return true; }
-            return (other is XMIIsTargetListAttribute attribute) && (IsTargetList == attribute.IsTargetList);
+            return (other is IsTargetListAttribute attribute) && (IsTargetList == attribute.IsTargetList);
             }
         #endregion
         #region M:ToString:String

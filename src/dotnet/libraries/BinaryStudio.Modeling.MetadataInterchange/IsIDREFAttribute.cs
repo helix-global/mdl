@@ -2,19 +2,19 @@
 
 namespace BinaryStudio.Modeling.MetadataInterchange
     {
-    public class XMIIDREFAttribute : Attribute
+    public class IsIDREFAttribute : Attribute
         {
-        public static readonly XMIIDREFAttribute No  = new XMIIDREFAttribute(false);
-        public static readonly XMIIDREFAttribute Yes = new XMIIDREFAttribute(true);
-        public static readonly XMIIDREFAttribute Default = No;
+        public static readonly IsIDREFAttribute No  = new IsIDREFAttribute(false);
+        public static readonly IsIDREFAttribute Yes = new IsIDREFAttribute(true);
+        public static readonly IsIDREFAttribute Default = No;
 
-        public Boolean IsXMIIDREF { get; }
-        public XMIIDREFAttribute(Boolean value)
+        public Boolean IsIDREF { get; }
+        public IsIDREFAttribute(Boolean value)
             {
-            IsXMIIDREF = value;
+            IsIDREF = value;
             }
 
-        public XMIIDREFAttribute()
+        public IsIDREFAttribute()
             :this(true)
             {
             }
@@ -32,7 +32,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
         /// <returns>A 32-bit signed integer hash code.</returns>
         public override Int32 GetHashCode()
             {
-            return IsXMIIDREF.GetHashCode();
+            return IsIDREF.GetHashCode();
             }
         #endregion
         #region M:Equals(Object):Boolean
@@ -41,14 +41,14 @@ namespace BinaryStudio.Modeling.MetadataInterchange
         /// <returns><see langword="true"/> if <paramref name="other"/> and this instance are of the same type and have identical field values; otherwise, <see langword="false"/>.</returns>
         public override Boolean Equals(Object other) {
             if (ReferenceEquals(other,this)) { return true; }
-            return (other is XMIIsTargetListAttribute attribute) && (IsXMIIDREF == attribute.IsTargetList);
+            return (other is IsIDREFAttribute attribute) && (IsIDREF == attribute.IsIDREF);
             }
         #endregion
         #region M:ToString:String
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         public override String ToString() {
-            return IsXMIIDREF
+            return IsIDREF
                 ? "Yes"
                 : "No";
             }

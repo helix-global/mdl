@@ -7,6 +7,20 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         {
         public TemplateSignature OwnedTemplateSignature { get;set; }
         public IList<TemplateBinding> TemplateBinding { get; }
+        public IList<Package> NestedPackage { get; }
+        public Package NestingPackage { get;set; }
+        public IList<Stereotype> OwnedStereotype { get; }
+        public IList<Type> OwnedType { get; }
+        public IList<PackageableElement> PackagedElement { get; }
+        public IList<PackageMerge> PackageMerge { get; }
+        public IList<ProfileApplication> ProfileApplication { get; }
+        public String URI { get;set; }
+
+        public EPackage()
+            {
+            PackagedElement = new List<PackageableElement>();
+            }
+
         public Boolean isTemplate()
             {
             throw new NotImplementedException();
@@ -29,14 +43,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             throw new NotImplementedException();
             }
 
-        public IList<Package> NestedPackage { get; }
-        public Package NestingPackage { get;set; }
-        public IList<Stereotype> OwnedStereotype { get; }
-        public IList<Type> OwnedType { get; }
-        public IList<PackageableElement> PackagedElement { get; }
-        public IList<PackageMerge> PackageMerge { get; }
-        public IList<ProfileApplication> ProfileApplication { get; }
-        public String URI { get; set; }
         public Stereotype[] allApplicableStereotypes()
             {
             throw new NotImplementedException();
@@ -79,7 +85,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             return String.IsNullOrWhiteSpace(Name)
                 ? $"Package"
                 : $"Package{{{Name}}}";
-
             }
         #endregion
         }

@@ -2,10 +2,15 @@
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
-    internal class EPackageableElement : ENamedElement,PackageableElement
+    internal abstract class EPackageableElement : ENamedElement,PackageableElement
         {
-        public TemplateParameter OwningTemplateParameter { get; set; }
-        public TemplateParameter TemplateParameter { get; set; }
+        public TemplateParameter OwningTemplateParameter { get;set; }
+        public TemplateParameter TemplateParameter { get;set; }
+
+        protected EPackageableElement()
+            {
+            }
+
         public Boolean isCompatibleWith(ParameterableElement p)
             {
             throw new NotImplementedException();

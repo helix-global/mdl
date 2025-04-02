@@ -1,10 +1,11 @@
 ﻿using System;
+using BinaryStudio.Modeling.MetadataInterchange;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
     internal class EValueSpecification : EPackageableElement,ValueSpecification
         {
-        public Type Type { get;set; }
+        [IsIDREF] public Type Type { get;set; }
         public Boolean? booleanValue()
             {
             throw new NotImplementedException();
@@ -39,5 +40,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             {
             throw new NotImplementedException();
             }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return String.IsNullOrWhiteSpace(Name)
+                ? $"ValueSpecification"
+                : $"ValueSpecification{{{Name}}}";
+            }
+        #endregion
         }
     }

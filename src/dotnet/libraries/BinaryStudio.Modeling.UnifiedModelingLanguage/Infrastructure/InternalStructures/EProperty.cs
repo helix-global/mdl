@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using BinaryStudio.Modeling.MetadataInterchange;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
     internal class EProperty : EStructuralFeature,Property
         {
-        public TemplateParameter OwningTemplateParameter { get; set; }
+        public TemplateParameter OwningTemplateParameter { get;set; }
         public IList<ConnectorEnd> End { get; }
-        public ConnectableElementTemplateParameter TemplateParameter { get; set; }
+        public ConnectableElementTemplateParameter TemplateParameter { get;set; }
         public ConnectorEnd[] end()
             {
             throw new NotImplementedException();
@@ -19,19 +20,19 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             set { TemplateParameter = null;/*value;*/ }
             }
 
-        public AggregationKind Aggregation { get; set; }
-        public Association Association { get; set; }
-        public Property AssociationEnd { get; set; }
-        public Class Class { get; set; }
-        public DataType Datatype { get; set; }
-        public ValueSpecification DefaultValue { get; set; }
-        public Interface Interface { get; set; }
-        public Boolean IsComposite { get; set; }
+        public AggregationKind Aggregation { get;set; }
+        [IsIDREF] public Association Association { get;set; }
+        public Property AssociationEnd { get;set; }
+        public Class Class { get;set; }
+        public DataType Datatype { get;set; }
+        public ValueSpecification DefaultValue { get;set; }
+        public Interface Interface { get;set; }
+        public Boolean IsComposite { get;set; }
         public Boolean IsDerived { get; set; }
-        public Boolean IsDerivedUnion { get; set; }
-        public Boolean IsID { get; set; }
-        public Property Opposite { get; set; }
-        public Association OwningAssociation { get; set; }
+        public Boolean IsDerivedUnion { get;set; }
+        public Boolean IsID { get;set; }
+        public Property Opposite { get;set; }
+        public Association OwningAssociation { get;set; }
         public IList<Property> Qualifier { get; }
         public IList<Property> RedefinedProperty { get; }
         public IList<Property> SubsettedProperty { get; }

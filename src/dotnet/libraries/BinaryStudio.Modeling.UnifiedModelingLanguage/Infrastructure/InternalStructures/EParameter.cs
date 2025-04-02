@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BinaryStudio.Modeling.MetadataInterchange;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
@@ -52,9 +53,9 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             throw new NotImplementedException();
             }
 
-        public TemplateParameter OwningTemplateParameter { get; set; }
+        public TemplateParameter OwningTemplateParameter { get;set; }
         public IList<ConnectorEnd> End { get; }
-        public ConnectableElementTemplateParameter TemplateParameter { get; set; }
+        public ConnectableElementTemplateParameter TemplateParameter { get;set; }
         public ConnectorEnd[] end()
         {
             throw new NotImplementedException();
@@ -78,10 +79,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
 
         public IList<Dependency> ClientDependency { get; }
         public String Name { get; set; }
-        public StringExpression NameExpression { get; set; }
+        public StringExpression NameExpression { get;set; }
         public Namespace Namespace { get; }
         public String QualifiedName { get; }
-        public VisibilityKind? Visibility { get; set; }
+        public VisibilityKind? Visibility { get;set; }
         public Namespace[] allNamespaces()
         {
             throw new NotImplementedException();
@@ -112,18 +113,28 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             throw new NotImplementedException();
         }
 
-        public Type Type { get; set; }
-        public String Default { get; set; }
-        public ValueSpecification DefaultValue { get; set; }
-        public ParameterDirectionKind Direction { get; set; }
-        public ParameterEffectKind? Effect { get; set; }
-        public Boolean IsException { get; set; }
-        public Boolean IsStream { get; set; }
-        public Operation Operation { get; set; }
+        [IsIDREF] public Type Type { get;set; }
+        public String Default { get;set; }
+        public ValueSpecification DefaultValue { get;set; }
+        public ParameterDirectionKind Direction { get;set; }
+        public ParameterEffectKind? Effect { get;set; }
+        public Boolean IsException { get;set; }
+        public Boolean IsStream { get;set; }
+        public Operation Operation { get;set; }
         public IList<ParameterSet> ParameterSet { get; }
         public String @default()
         {
             throw new NotImplementedException();
         }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return String.IsNullOrWhiteSpace(Name)
+                ? $"Parameter"
+                : $"Parameter{{{Name}}}";
+            }
+        #endregion
         }
     }

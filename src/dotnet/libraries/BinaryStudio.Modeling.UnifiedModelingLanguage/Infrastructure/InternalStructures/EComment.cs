@@ -6,7 +6,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
     {
     internal class EComment : EElement,Comment
         {
-        [XMIIDREF] public IList<Element> AnnotatedElement { get; }
+        [IsIDREF] public IList<Element> AnnotatedElement { get; }
         public String Body { get;set; }
 
         public EComment()

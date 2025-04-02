@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
@@ -14,5 +15,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         public IList<Classifier> Classifier { get; }
         public IList<Slot> Slot { get; }
         public ValueSpecification Specification { get;set; }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return String.IsNullOrWhiteSpace(Name)
+                ? $"InstanceSpecification"
+                : $"InstanceSpecification{{{Name}}}";
+            }
+        #endregion
         }
     }

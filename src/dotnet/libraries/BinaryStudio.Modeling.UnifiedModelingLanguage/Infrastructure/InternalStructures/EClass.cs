@@ -5,15 +5,21 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
     {
     internal class EClass : EEncapsulatedClassifier,Class
         {
-        public Behavior ClassifierBehavior { get; set; }
+        public Behavior ClassifierBehavior { get;set; }
         public IList<InterfaceRealization> InterfaceRealization { get; }
         public IList<Behavior> OwnedBehavior { get; }
         public IList<Extension> Extension { get; }
-        public Boolean IsActive { get; set; }
+        public Boolean IsActive { get;set; }
         public IList<Classifier> NestedClassifier { get; }
         public IList<Operation> OwnedOperation { get; }
         public IList<Reception> OwnedReception { get; }
         public IList<Class> SuperClass { get; }
+
+        public EClass()
+            {
+            OwnedOperation = new List<Operation>();
+            }
+
         public Extension[] extension()
             {
             throw new NotImplementedException();

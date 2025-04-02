@@ -1,10 +1,11 @@
 ﻿using System;
+using BinaryStudio.Modeling.MetadataInterchange;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
     internal class EPackageImport : EDirectedRelationship,PackageImport
         {
-        public Package ImportedPackage { get;set; }
+        [IsIDREF] public Package ImportedPackage { get;set; }
         public Namespace ImportingNamespace { get;set; }
         public VisibilityKind Visibility { get;set; }
 
@@ -15,7 +16,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             return (ImportedPackage != null)
                 ? $"PackageImport{{{ImportedPackage.Name}}}"
                 : $"PackageImport";
-
             }
         #endregion
         }

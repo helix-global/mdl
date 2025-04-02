@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -15,17 +16,32 @@ namespace BinaryStudio.Modeling.MetadataInterchange
         {
         private class PendingChange
             {
-            public Object TargetObject { get;set; }
-            public PropertyDescriptor TargetPropertyDescriptor { get;set; }
-            public String SourceObjectIdentity { get;set; }
-            public Boolean IsAssignment { get;set; }
-            public Boolean IsAddToList { get;set; }
+            public Object TargetObject;
+            public PropertyDescriptor TargetPropertyDescriptor;
+            public String SourceObjectIdentity;
+            public Boolean IsAssignment;
+            public Boolean IsAddToList;
+            public Boolean Completed;
+            public IList TargetList;
+            public Object SourceValue;
+
+            public override String ToString() {
+                return Completed
+                    ? "Completed"
+                    : "Pending";
+                }
+            }
+
+        private struct Value
+            {
+            public Object SourceValue;
+            public Boolean ForceIDREF;
             }
 
         public IObjectFactory Factory { get; }
         public String NamespaceURI { get;private set; }
         public XMIDocumentation Documentation { get;set; }
-        [XMIIsTargetList] public IList<Object> Content { get; }
+        [IsTargetList] public IList<Object> Content { get; }
         public IDictionary<String,String> NamespaceURIForPrefix { get; }
         public IDictionary<String,String> PrefixForNamespaceURI { get; }
         public IDictionary<String,Object> ObjectForID { get; }
@@ -73,6 +89,30 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                 }
             NamespacePrefix = PrefixForNamespaceURI[NamespaceURI];
             Apply(NamespaceURI,this,reader);
+            foreach (var change in PendingChanges) {
+                if (change.IsAddToList) {
+                    if (change.TargetList != null) {
+                        if (!String.IsNullOrWhiteSpace(change.SourceObjectIdentity)) {
+                            change.TargetList.Add(ObjectForID[change.SourceObjectIdentity]);
+                            change.Completed = true;
+                            continue;
+                            }
+                        change.TargetList.Add(change.SourceValue);
+                        change.Completed = true;
+                        }
+                    }
+                else
+                    {
+                    if (!String.IsNullOrWhiteSpace(change.SourceObjectIdentity)) {
+                        change.TargetPropertyDescriptor.SetValue(change.TargetObject,ObjectForID[change.SourceObjectIdentity]);
+                        change.Completed = true;
+                        continue;
+                        }
+                    change.TargetPropertyDescriptor.SetValue(change.TargetObject,change.SourceValue);
+                    change.Completed = true;
+                    }
+                }
+            return;
             }
         #endregion
         #region M:IXmlSerializable.WriteXml(XmlWriter)
@@ -122,84 +162,62 @@ namespace BinaryStudio.Modeling.MetadataInterchange
 
                         if (String.IsNullOrWhiteSpace(source.NamespaceURI)) {
                             if (properties.TryGetValue(source.LocalName,out var pi)) {
+                                #region {Construction from "prefix:type"}
                                 if (!String.IsNullOrWhiteSpace(type)) {
                                     DecodeQualifiedName(type,out var TypeNamespaceURI,out var TypeLocalName);
                                     var o = Factory.CreateObject(TypeNamespaceURI,TypeLocalName);
                                     if (!String.IsNullOrWhiteSpace(id)) { ObjectForID.Add(id,o); }
-                                    using (var reader = source.ReadSubtree())
-                                        {
+                                    using (var reader = source.ReadSubtree()) {
                                         Apply(xmi,o,reader);
                                         }
-                                    var value = pi.GetValue(target);
-                                    if (value is IList L) {
-                                        L.Add(o);
-                                        }
-                                    else
-                                        {
-                                        pi.SetValue(target,o);
-                                        }
+                                    SetValue(target,pi,o);
+                                    continue;
                                     }
-                                else
-                                    {
+                                #endregion
+                                #region {Loading external object from "href"}
                                     if (!String.IsNullOrWhiteSpace(href)) {
-                                        ResolveExternalObject(href,out var o);
-                                        SetValue(target,pi,o);
-                                        continue;
-                                        }
-
-                                    if (CanReadFromContentString(pi.PropertyType))
-                                        {
-                                        SetValue(target,pi,source.ReadElementContentAsString());
-                                        }
-                                    else
-                                        {
-                                        var TargetList = pi.GetValue(target) as IList;
-                                        if (!String.IsNullOrWhiteSpace(idref)) {
-                                            if (pi.IsReadOnly) {
-                                                if (TargetList != null) {
-                                                    if (ObjectForID.TryGetValue(idref,out var r)) {
-                                                        TargetList.Add(r);
-                                                        continue;
-                                                        }
-                                                    else
-                                                        {
-                                                        PendingChanges.Add(new PendingChange{
-                                                            TargetObject = TargetList,
-                                                            SourceObjectIdentity = idref,
-                                                            IsAddToList = true
-                                                            });
-                                                        continue;
-                                                        }
-                                                    }
-                                                }
-                                            if (pi.PropertyType.IsConstructedGenericType) {
-                                                var GenericType = pi.PropertyType.GetGenericTypeDefinition();
-                                                if (GenericType == typeof(IList<>)) {
-                                                    throw new NullReferenceException($@"Unable connect to the target list property ""{pi.Name}"".");
-                                                    }
-                                                }
-                                            throw new InvalidDataException();
-                                            }
-
-                                        if (pi.IsReadOnly && (TargetList != null)) {
-                                            var TargetListType = TargetList.GetType();
-                                            if (TargetListType.IsConstructedGenericType) {
-                                                var TargetListArgumentType = TargetListType.GenericTypeArguments[0];
-                                                if (CanReadFromContentString(TargetListArgumentType)) {
-                                                    TargetList.Add(source.ReadElementContentAsString());
-                                                    continue;
-                                                    }
-                                                }
-                                            }
-
-                                        //if (pi.GetValue(target) is 
-                                        var o = Activator.CreateInstance(pi.PropertyType);
-                                        using (var reader = source.ReadSubtree()) {
-                                            Apply(xmi,o,reader);
-                                            }
-                                        pi.SetValue(target,o);
-                                        }
+                                    ResolveExternalObject(href,out var o);
+                                    SetValue(target,pi,o);
+                                    continue;
                                     }
+                                #endregion
+                                #region {Loading element content for "primitive" type}
+                                if (CanReadFromContentString(pi.PropertyType))
+                                    {
+                                    SetValue(target,pi,source.ReadElementContentAsString());
+                                    continue;
+                                    }
+                                #endregion
+                                #region {Perform for "xmi:idref"}
+                                if (!String.IsNullOrWhiteSpace(idref)) {
+                                    SetValue(target,pi,(TargetList,ElementType)=>
+                                        new Value{
+                                            SourceValue = idref,
+                                            ForceIDREF = true
+                                            });
+                                    continue;
+                                    }
+                                #endregion
+                                #region {Perform ordinary property processing}
+                                SetValue(target,pi,(TargetList,ElementType)=>{
+                                    if (TargetList != null) {
+                                        if (CanReadFromContentString(ElementType)) {
+                                            return new Value{
+                                                ForceIDREF = false,
+                                                SourceValue=source.ReadElementContentAsString()
+                                                };
+                                            }
+                                        }
+                                    var o = Activator.CreateInstance(pi.PropertyType);
+                                    using (var reader = source.ReadSubtree()) {
+                                        Apply(xmi,o,reader);
+                                        }
+                                    return new Value{
+                                        SourceValue = o,
+                                        ForceIDREF = false
+                                        };
+                                    });
+                                #endregion
                                 continue;
                                 }
                             throw new MissingMemberException($@"Attempted to access a missing property ""{source.LocalName}"".");
@@ -215,11 +233,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                                     {
                                     Apply(xmi,o,reader);
                                     }
-                                //if (target is XMIPackage pkg)
-                                //        {
-                                //        SetValue(target,pi,o);
-                                //        }
-                                pi.SetValue(target,o);
+                                SetValue(target,pi,o);
                                 }
                             }
                         }
@@ -229,48 +243,130 @@ namespace BinaryStudio.Modeling.MetadataInterchange
             }
         #endregion
         #region M:SetValue(Object,PropertyDescriptor,Object)
-        private void SetValue(Object TargetObject,PropertyDescriptor TargetDescriptor,Object value) {
-            if (TargetDescriptor == null) { throw new ArgumentNullException(nameof(TargetDescriptor)); }
-            if (TargetDescriptor.IsReadOnly) {
-                if (TargetDescriptor.Attributes.Contains(XMIIsTargetListAttribute.Yes)) {
-                    if (TargetDescriptor.GetValue(TargetObject) is IList TargetList) {
-                        TargetList.Add(value);
-                        return;
-                        }
-                    if (TargetDescriptor.PropertyType.IsConstructedGenericType) {
-                        var GenericType = TargetDescriptor.PropertyType.GetGenericTypeDefinition();
-                        if (GenericType == typeof(IList<>)) {
-                            throw new NullReferenceException($@"Unable connect to the target list property ""{TargetDescriptor.Name}"".");
-                            }
-                        }
-                    }
-                }
+        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+        private void SetValue(Object TargetObject,PropertyDescriptor TargetDescriptor,Object SourceValue) {
+            SetValue(TargetObject,TargetDescriptor,(TargetList,ElementType)=>
+                new Value {
+                    SourceValue=SourceValue,
+                    ForceIDREF = false
+                    });
+            //if (TargetDescriptor == null) { throw new ArgumentNullException(nameof(TargetDescriptor)); }
+            //var SourceType = SourceValue.GetType();
+            //if (TargetDescriptor.IsReadOnly) {
+            //    if (TargetDescriptor.GetValue(TargetObject) is IList TargetList) {
+            //        var ElementType = GetListTypeElementType(TargetList.GetType());
+            //        if (ElementType.IsAssignableFrom(SourceType)) {
+            //            PendingChanges.Add(new PendingChange{
+            //                TargetList = TargetList,
+            //                SourceValue = SourceValue,
+            //                IsAddToList = true
+            //                });
+            //            return;
+            //            }
+            //        if (SourceValue is String S) {
+            //            if (TargetDescriptor.Attributes.Contains(IsIDREFAttribute.Yes)) {
+            //                PendingChanges.Add(new PendingChange{
+            //                    TargetList = TargetList,
+            //                    SourceObjectIdentity = S,
+            //                    IsAddToList = true
+            //                    });
+            //                return;
+            //                }
+            //            }
+            //        PendingChanges.Add(new PendingChange{
+            //            TargetList = TargetList,
+            //            SourceValue = SourceValue,
+            //            IsAddToList = true
+            //            });
+            //        return;
+            //        }
+            //    if (IsListType(TargetDescriptor.PropertyType)) { throw new NullReferenceException($@"Unable connect to the target list property ""{TargetDescriptor.Name}""."); }
+            //    }
 
-            var SourceType = value.GetType();
-            var TargetType = TargetDescriptor.PropertyType;
-            var converter = TargetDescriptor.Converter;
-            if (converter.CanConvertFrom(SourceType)) {
-                TargetDescriptor.SetValue(TargetObject,converter.ConvertFrom(value));
-                }
-            else
-                {
-                if (SourceType == typeof(String)) {
-                    if (TargetType.IsClass || TargetType.IsInterface) {
-                        var id = (String)value;
-                        if (ObjectForID.TryGetValue(id,out var o)) {
-                            SetValue(TargetObject,TargetDescriptor,o);
-                            return;
-                            }
+            //var TargetType = TargetDescriptor.PropertyType;
+            //var Converter = TargetDescriptor.Converter;
+            //if (!Converter.CanConvertFrom(SourceType)) {
+            //    if (SourceValue is String S) {
+            //        if (TargetDescriptor.Attributes.Contains(IsIDREFAttribute.Yes)) {
+            //            PendingChanges.Add(new PendingChange {
+            //                TargetObject = TargetObject,
+            //                TargetPropertyDescriptor = TargetDescriptor,
+            //                SourceObjectIdentity = S,
+            //                IsAssignment = true
+            //                });
+            //            return;
+            //            }
+            //        }
+            //    TargetDescriptor.SetValue(TargetObject,SourceValue);
+            //    }
+            //else
+            //    {
+            //    TargetDescriptor.SetValue(TargetObject,Converter.ConvertFrom(SourceValue));
+            //    }
+            }
+        #endregion
+        #region M:SetValue(Object,PropertyDescriptor,Object)
+        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+        private void SetValue(Object TargetObject,PropertyDescriptor TargetDescriptor,Func<IList,Type,Value> SourceValueProvider) {
+            if (TargetDescriptor == null) { throw new ArgumentNullException(nameof(TargetDescriptor)); }
+            Type SourceType = null;
+            Value SourceValue;
+            if (TargetDescriptor.IsReadOnly) {
+                if (TargetDescriptor.GetValue(TargetObject) is IList TargetList) {
+                    var ElementType = GetListTypeElementType(TargetList.GetType());
+                    SourceValue = SourceValueProvider(TargetList,ElementType);
+                    SourceType = SourceValue.SourceValue.GetType();
+                    if (ElementType.IsAssignableFrom(SourceType)) {
                         PendingChanges.Add(new PendingChange{
                             TargetObject = TargetObject,
+                            TargetList = TargetList,
+                            SourceValue = SourceValue.SourceValue,
+                            IsAddToList = true
+                            });
+                        return;
+                        }
+                    if (SourceValue.SourceValue is String S) {
+                        if (TargetDescriptor.Attributes.Contains(IsIDREFAttribute.Yes) || SourceValue.ForceIDREF) {
+                            PendingChanges.Add(new PendingChange{
+                                TargetObject = TargetObject,
+                                TargetList = TargetList,
+                                SourceObjectIdentity = S,
+                                IsAddToList = true
+                                });
+                            return;
+                            }
+                        }
+                    PendingChanges.Add(new PendingChange{
+                        TargetObject = TargetObject,
+                        TargetList = TargetList,
+                        SourceValue = SourceValue.SourceValue,
+                        IsAddToList = true
+                        });
+                    return;
+                    }
+                if (IsListType(TargetDescriptor.PropertyType)) { throw new NullReferenceException($@"Unable connect to the target list property ""{TargetDescriptor.Name}""."); }
+                }
+
+            SourceValue = SourceValueProvider(null,null);
+            SourceType = SourceValue.SourceValue.GetType();
+            var Converter = TargetDescriptor.Converter;
+            if (!Converter.CanConvertFrom(SourceType)) {
+                if (SourceValue.SourceValue is String S) {
+                    if (TargetDescriptor.Attributes.Contains(IsIDREFAttribute.Yes) || (SourceValue.ForceIDREF)) {
+                        PendingChanges.Add(new PendingChange {
+                            TargetObject = TargetObject,
                             TargetPropertyDescriptor = TargetDescriptor,
-                            SourceObjectIdentity = id,
+                            SourceObjectIdentity = S,
                             IsAssignment = true
                             });
                         return;
                         }
                     }
-                TargetDescriptor.SetValue(TargetObject,value);
+                TargetDescriptor.SetValue(TargetObject,SourceValue.SourceValue);
+                }
+            else
+                {
+                TargetDescriptor.SetValue(TargetObject,Converter.ConvertFrom(SourceValue.SourceValue));
                 }
             }
         #endregion
@@ -338,6 +434,44 @@ namespace BinaryStudio.Modeling.MetadataInterchange
         /// <returns>A string that represents the current object.</returns>
         public override String ToString() {
             return $"XMIPackage";
+            }
+        #endregion
+        #region M:GetListTypeElementType(Type):Type
+        private static Type GetListTypeElementType(Type ListType) {
+            if (ListType == null) { throw new ArgumentNullException(nameof(ListType)); }
+            if (ListType.IsGenericTypeDefinition) { throw new ArgumentOutOfRangeException(nameof(ListType)); }
+            if (ListType.IsConstructedGenericType) {
+                var IListType = typeof(IList<>);
+                var Interfaces = ListType.GetInterfaces();
+                foreach (var Interface in Interfaces) {
+                    var GenericType = Interface.GetGenericTypeDefinition();
+                    if (GenericType == IListType)
+                        {
+                        return ListType.GenericTypeArguments[0];
+                        }
+                    }
+                }
+            return typeof(Object);
+            }
+        #endregion
+        #region M:IsListType(Type):Boolean
+        private static Boolean IsListType(Type Type) {
+            if (Type == null) { throw new ArgumentNullException(nameof(Type)); }
+            var Interfaces = Type.GetInterfaces();
+            foreach (var Interface in Interfaces) {
+                if (Interface == typeof(IList))
+                    {
+                    return true;
+                    }
+                }
+            if (Type.IsConstructedGenericType) {
+                var GenericType = Type.GetGenericTypeDefinition();
+                if (GenericType == typeof(IList<>))
+                    {
+                    return true;
+                    }
+                }
+            return false;
             }
         #endregion
 

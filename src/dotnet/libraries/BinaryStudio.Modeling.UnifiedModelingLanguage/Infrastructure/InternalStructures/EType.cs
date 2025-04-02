@@ -2,12 +2,16 @@
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
-    internal class EType : EPackageableElement,Type
+    internal abstract class EType : EPackageableElement,Type
         {
         public Package Package { get;set; }
         public Boolean conformsTo(Type other)
             {
             throw new NotImplementedException();
+            }
+
+        protected EType()
+            {
             }
 
         #region M:ToString:String

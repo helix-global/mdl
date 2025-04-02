@@ -3,21 +3,17 @@ using System.Collections.Generic;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
-    internal class EClassifier : EType,Classifier
+    internal abstract class EClassifier : EType,Classifier
         {
         public Boolean IsLeaf { get;set; }
         public IList<RedefinableElement> RedefinedElement { get; }
         public IList<Classifier> RedefinitionContext { get; }
-        public Boolean isConsistentWith(RedefinableElement redefiningElement)
-            {
-            throw new NotImplementedException();
-            }
-
-        public Boolean isRedefinitionContextValid(RedefinableElement redefinedElement)
-            {
-            throw new NotImplementedException();
-            }
-
+        public IList<ElementImport> ElementImport { get; }
+        public IList<PackageableElement> ImportedMember { get; }
+        public IList<NamedElement> Member { get; }
+        public IList<NamedElement> OwnedMember { get; }
+        public IList<Constraint> OwnedRule { get; }
+        public IList<PackageImport> PackageImport { get; }
         public IList<Property> Attribute { get; }
         public IList<CollaborationUse> CollaborationUse { get; }
         public IList<Feature> Feature { get; }
@@ -34,6 +30,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         public IList<Substitution> Substitution { get; }
         public ClassifierTemplateParameter TemplateParameter { get;set; }
         public IList<UseCase> UseCase { get; }
+
+        protected EClassifier()
+            {
+            OwnedRule = new List<Constraint>();
+            Generalization = new List<Generalization>();
+            }
+
+        public Boolean isConsistentWith(RedefinableElement redefiningElement)
+            {
+            throw new NotImplementedException();
+            }
+
+        public Boolean isRedefinitionContextValid(RedefinableElement redefinedElement)
+            {
+            throw new NotImplementedException();
+            }
+
         public Property[] allAttributes()
             {
             throw new NotImplementedException();
@@ -136,12 +149,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             throw new NotImplementedException();
             }
 
-        public IList<ElementImport> ElementImport { get; }
-        public IList<PackageableElement> ImportedMember { get; }
-        public IList<NamedElement> Member { get; }
-        public IList<NamedElement> OwnedMember { get; }
-        public IList<Constraint> OwnedRule { get; }
-        public IList<PackageImport> PackageImport { get; }
         public PackageableElement[] excludeCollisions(PackageableElement[] imps)
             {
             throw new NotImplementedException();

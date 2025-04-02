@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryStudio.Modeling.MetadataInterchange;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
@@ -51,8 +52,8 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             throw new NotImplementedException();
             }
 
-        public Type Type { get; set; }
-        public Boolean IsReadOnly { get; set; }
+        [IsIDREF] public Type Type { get;set; }
+        public Boolean IsReadOnly { get;set; }
 
         #region M:ToString:String
         /// <summary>Returns a string that represents the current object.</summary>

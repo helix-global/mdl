@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
-    internal class ENamedElement : EElement,NamedElement
+    internal abstract class ENamedElement : EElement,NamedElement
         {
         public IList<Dependency> ClientDependency { get; }
         public String Name { get;set; }
@@ -11,6 +11,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         public Namespace Namespace { get; }
         public String QualifiedName { get; }
         public VisibilityKind? Visibility { get;set; }
+
+        protected ENamedElement()
+            {
+            }
 
         public Namespace[] allNamespaces()
             {

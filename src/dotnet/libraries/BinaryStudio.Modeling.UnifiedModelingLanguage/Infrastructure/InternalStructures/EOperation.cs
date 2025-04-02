@@ -1,25 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using BinaryStudio.Modeling.MetadataInterchange;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
     internal class EOperation : EBehavioralFeature, Operation
         {
-        public TemplateParameter OwningTemplateParameter { get; set; }
-        public Constraint BodyCondition { get; set; }
-        public Class Class { get; set; }
-        public DataType Datatype { get; set; }
-        public Interface Interface { get; set; }
+        public TemplateParameter OwningTemplateParameter { get;set; }
+        [IsIDREF] public Constraint BodyCondition { get;set; }
+        public Class Class { get;set; }
+        public DataType Datatype { get;set; }
+        public Interface Interface { get;set; }
         public Boolean IsOrdered { get; }
-        public Boolean IsQuery { get; set; }
+        public Boolean IsQuery { get;set; }
         public Boolean IsUnique { get; }
         public Int32? Lower { get; }
         public IList<Constraint> Postcondition { get; }
         public IList<Constraint> Precondition { get; }
         public IList<Operation> RedefinedOperation { get; }
-        public OperationTemplateParameter TemplateParameter { get; set; }
+        public OperationTemplateParameter TemplateParameter { get;set; }
         public Type Type { get; }
         public UnlimitedNatural? Upper { get; }
+        public TemplateSignature OwnedTemplateSignature { get; set; }
+        public IList<TemplateBinding> TemplateBinding { get; }
 
         public EOperation()
             {
@@ -74,8 +77,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             throw new NotImplementedException();
             }
 
-        public TemplateSignature OwnedTemplateSignature { get; set; }
-        public IList<TemplateBinding> TemplateBinding { get; }
         public Boolean isTemplate()
             {
             throw new NotImplementedException();
@@ -85,5 +86,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             {
             throw new NotImplementedException();
             }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return String.IsNullOrWhiteSpace(Name)
+                ? $"Operation"
+                : $"Operation{{{Name}}}";
+            }
+        #endregion
         }
     }

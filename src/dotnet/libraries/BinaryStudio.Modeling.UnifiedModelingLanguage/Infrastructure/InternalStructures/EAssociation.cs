@@ -11,14 +11,26 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         public IList<Property> MemberEnd { get; }
         public IList<Property> NavigableOwnedEnd { get; }
         public IList<Property> OwnedEnd { get; }
+
+        public EAssociation()
+            {
+            MemberEnd = new List<Property>();
+            OwnedEnd = new List<Property>();
+            }
+
         public Type[] endType()
             {
             throw new NotImplementedException();
             }
 
-        public EAssociation()
-            {
-            MemberEnd = new List<Property>();
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return String.IsNullOrWhiteSpace(Name)
+                ? $"Association"
+                : $"Association{{{Name}}}";
             }
+        #endregion
         }
     }
