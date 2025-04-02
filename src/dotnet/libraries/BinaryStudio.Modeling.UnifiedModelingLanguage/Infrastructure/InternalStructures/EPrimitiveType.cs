@@ -2,21 +2,15 @@
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
-    internal class EType : EPackageableElement,Type
+    internal class EPrimitiveType : EDataType,PrimitiveType
         {
-        public Package Package { get;set; }
-        public Boolean conformsTo(Type other)
-            {
-            throw new NotImplementedException();
-            }
-
         #region M:ToString:String
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         public override String ToString() {
             return String.IsNullOrWhiteSpace(Name)
-                ? $"Type"
-                : $"Type{{{Name}}}";
+                ? $"PrimitiveType"
+                : $"PrimitiveType{{{Name}}}";
             }
         #endregion
         }

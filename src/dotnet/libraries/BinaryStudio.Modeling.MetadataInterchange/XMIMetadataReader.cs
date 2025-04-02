@@ -10,11 +10,11 @@ namespace BinaryStudio.Modeling.MetadataInterchange
             {
             }
 
-        #region M:LoadFrom(IObjectFactory,XmlReader):Object
-        public Object LoadFrom(IObjectFactory factory,XmlReader reader) {
+        #region M:LoadFrom(IObjectFactory,IExternalPackageResolver,XmlReader):Object
+        public Object LoadFrom(IObjectFactory factory,IExternalPackageResolver ExternalPackageResolver,XmlReader reader) {
             if (factory == null) { throw new ArgumentNullException(nameof(factory)); }
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
-            var r = (IXmlSerializable)new XMIPackage(factory);
+            var r = (IXmlSerializable)new XMIPackage(factory,ExternalPackageResolver);
             r.ReadXml(reader);
             return r;
             }

@@ -7406,36 +7406,36 @@ endif)</body>
                   <ownedParameter xmi:type="uml:Parameter" xmi:id="State-redefinitionContext.1-result" name="result"
                                   direction="return" type="Classifier"/>
                </ownedOperation>
-               <ownedOperation xmi:type="uml:Operation" xmi:id="State-isConsistentWith" name="isConsistentWith" isQuery="true"
-                               bodyCondition="State-isConsistentWith-spec">
-                  <precondition xmi:idref="State-isConsistentWith-pre"/>
+               <ownedOperation xmi:type="uml:Operation" xmi:id="State-isConsistentWith_1" name="isConsistentWith" isQuery="true"
+                               bodyCondition="State-isConsistentWith-spec_1">
+                  <precondition xmi:idref="State-isConsistentWith-pre_1"/>
                   <redefinedOperation xmi:idref="RedefinableElement-isConsistentWith"/>
-                  <ownedComment xmi:type="uml:Comment" xmi:id="State-isConsistentWith-_ownedComment.0"
+                  <ownedComment xmi:type="uml:Comment" xmi:id="State-isConsistentWith-_ownedComment.0_1"
                                 body="The query isRedefinitionContextValid specifies that the redefinition context of a redefining Vertex is properly related to the redefinition context of the redefined Vertex if the owner of the redefining Vertex is a redefinition of the owner of the redefined Vertex. Note that the owner of a Vertex may be a Region, a StateMachine (for a connectionPoint Pseudostate), or a State (for a connectionPoint Pseudostate or a connection ConnectionPointReference), all of which are RedefinableElements.">
-                     <annotatedElement xmi:idref="State-isConsistentWith"/>
+                     <annotatedElement xmi:idref="State-isConsistentWith_1"/>
                   </ownedComment>
-                  <ownedRule xmi:type="uml:Constraint" xmi:id="State-isConsistentWith-pre" name="pre">
-                     <constrainedElement xmi:idref="State-isConsistentWith"/>
+                  <ownedRule xmi:type="uml:Constraint" xmi:id="State-isConsistentWith-pre_1" name="pre">
+                     <constrainedElement xmi:idref="State-isConsistentWith_1"/>
                      <specification xmi:type="uml:OpaqueExpression"
-                                    xmi:id="State-isConsistentWith-pre-_specification">
+                                    xmi:id="State-isConsistentWith-pre-_specification_1">
                         <body>redefiningElement.isRedefinitionContextValid(self)</body>
                         <language>OCL</language>
                      </specification>
                   </ownedRule>
-                  <ownedRule xmi:type="uml:Constraint" xmi:id="State-isConsistentWith-spec" name="spec">
-                     <constrainedElement xmi:idref="State-isConsistentWith"/>
+                  <ownedRule xmi:type="uml:Constraint" xmi:id="State-isConsistentWith-spec_1" name="spec">
+                     <constrainedElement xmi:idref="State-isConsistentWith_1"/>
                      <specification xmi:type="uml:OpaqueExpression"
-                                    xmi:id="State-isConsistentWith-spec-_specification">
+                                    xmi:id="State-isConsistentWith-spec-_specification_1">
                         <body>result = (redefinedElement.oclIsKindOf(Vertex) and
   owner.oclAsType(RedefinableElement).redefinedElement-&gt;includes(redefinedElement.owner))</body>
                         <language>OCL</language>
                      </specification>
                   </ownedRule>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="State-isConsistentWith-result" name="result"
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="State-isConsistentWith-result_1" name="result"
                                   direction="return">
                      <type href="http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean"/>
                   </ownedParameter>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="State-isConsistentWith-redefiningElement" name="redefiningElement" type="RedefinableElement"/>
+                  <ownedParameter xmi:type="uml:Parameter" xmi:id="State-isConsistentWith-redefiningElement_1" name="redefiningElement" type="RedefinableElement"/>
                </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Enumeration" xmi:id="PseudostateKind" name="PseudostateKind">

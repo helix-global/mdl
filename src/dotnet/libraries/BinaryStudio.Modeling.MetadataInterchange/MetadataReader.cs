@@ -7,8 +7,8 @@ namespace BinaryStudio.Modeling.MetadataInterchange
     {
     public abstract class MetadataReader
         {
-        #region M:LoadFrom(IObjectFactory,XmlReader):Object
-        public static Object LoadFrom(IObjectFactory factory,XmlReader reader) {
+        #region M:LoadFrom(IObjectFactory,IExternalPackageResolver,XmlReader):Object
+        public static Object LoadFrom(IObjectFactory factory,IExternalPackageResolver ExternalPackageResolver,XmlReader reader) {
             if (factory == null) { throw new ArgumentNullException(nameof(factory)); }
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             while (reader.Read()) {
@@ -18,7 +18,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                         if (reader.LocalName == "XMI") {
                             using (var r = reader.ReadSubtree()) {
                                 var o = new XMIMetadataReader();
-                                return o.LoadFrom(factory,reader);
+                                return o.LoadFrom(factory,ExternalPackageResolver,reader);
                                 }
                             }
                         throw new NotSupportedException();
@@ -28,8 +28,8 @@ namespace BinaryStudio.Modeling.MetadataInterchange
             return null;
             }
         #endregion
-        #region M:LoadFrom(IObjectFactory,Uri):Object
-        public static Object LoadFrom(IObjectFactory factory,Uri uri) {
+        #region M:LoadFrom(IObjectFactory,IExternalPackageResolver,Uri):Object
+        public static Object LoadFrom(IObjectFactory factory,IExternalPackageResolver ExternalPackageResolver,Uri uri) {
             if (factory == null) { throw new ArgumentNullException(nameof(factory)); }
             if (uri == null) { throw new ArgumentNullException(nameof(uri)); }
             switch (uri.Scheme) {
@@ -41,7 +41,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                             {
                             var o = XDocument.Load(uri.AbsolutePath);
                             using (var reader = o.CreateReader()) {
-                                return LoadFrom(factory,reader);
+                                return LoadFrom(factory,ExternalPackageResolver,reader);
                                 }
                             }
                         default: throw new NotSupportedException();

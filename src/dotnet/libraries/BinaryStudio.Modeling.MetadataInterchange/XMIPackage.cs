@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
@@ -24,21 +25,26 @@ namespace BinaryStudio.Modeling.MetadataInterchange
         public IObjectFactory Factory { get; }
         public String NamespaceURI { get;private set; }
         public XMIDocumentation Documentation { get;set; }
-        public Object Content { get;set; }
+        [XMIIsTargetList] public IList<Object> Content { get; }
         public IDictionary<String,String> NamespaceURIForPrefix { get; }
         public IDictionary<String,String> PrefixForNamespaceURI { get; }
         public IDictionary<String,Object> ObjectForID { get; }
+        public IDictionary<String,Object> ObjectForHREF { get; }
         public String NamespacePrefix { get;private set; }
         private IList<PendingChange> PendingChanges { get; }
+        public IExternalPackageResolver ExternalPackageResolver { get; }
 
-        public XMIPackage(IObjectFactory factory)
+        public XMIPackage(IObjectFactory factory,IExternalPackageResolver ExternalPackageResolver)
             {
             if (factory == null) { throw new ArgumentNullException(nameof(factory)); }
             Factory = factory;
             NamespaceURIForPrefix = new Dictionary<String,String>();
             PrefixForNamespaceURI = new Dictionary<String,String>();
             ObjectForID = new SortedDictionary<String,Object>();
+            ObjectForHREF = new Dictionary<String,Object>();
             PendingChanges = new List<PendingChange>();
+            this.ExternalPackageResolver = ExternalPackageResolver;
+            Content = new List<Object>();
             }
 
         #region M:IXmlSerializable.GetSchema:XmlSchema
@@ -66,7 +72,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                 reader.MoveToElement();
                 }
             NamespacePrefix = PrefixForNamespaceURI[NamespaceURI];
-            Apply(Factory,NamespaceURI,this,reader);
+            Apply(NamespaceURI,this,reader);
             }
         #endregion
         #region M:IXmlSerializable.WriteXml(XmlWriter)
@@ -77,8 +83,8 @@ namespace BinaryStudio.Modeling.MetadataInterchange
             throw new NotImplementedException();
             }
         #endregion
-        #region M:Apply(IObjectFactory,String,Object,XmlReader)
-        private void Apply(IObjectFactory factory,String xmi,Object target,XmlReader source) {
+        #region M:Apply(String,Object,XmlReader)
+        private void Apply(String xmi,Object target,XmlReader source) {
             if (target == null) { throw new ArgumentNullException(nameof(target)); }
             if (source == null) { throw new ArgumentNullException(nameof(source)); }
             source.MoveToContent();
@@ -102,7 +108,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                 }
             //var id = GetValueOrDefault(ControlAttributes,$"{NamespacePrefix}:id");
             foreach (var attribute in AssgnmtAttributes) {
-                if (!properties.TryGetValue(attribute.Key, out var pi)) { throw new MissingMemberException($@"Attempted to access a missing property ""{source.LocalName}""."); }
+                if (!properties.TryGetValue(attribute.Key, out var pi)) { throw new MissingMemberException($@"Attempted to access a missing property ""{attribute.Key}""."); }
                 SetValue(target,pi,attribute.Value);
                 }
             while (source.Read()) {
@@ -112,15 +118,17 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                         var type  = source.GetAttribute("type",xmi);
                         var idref = source.GetAttribute("idref",xmi);
                         var id    = source.GetAttribute("id",xmi);
+                        var href  = source.GetAttribute("href");
+
                         if (String.IsNullOrWhiteSpace(source.NamespaceURI)) {
                             if (properties.TryGetValue(source.LocalName,out var pi)) {
                                 if (!String.IsNullOrWhiteSpace(type)) {
                                     DecodeQualifiedName(type,out var TypeNamespaceURI,out var TypeLocalName);
-                                    var o = factory.CreateObject(TypeNamespaceURI,TypeLocalName);
+                                    var o = Factory.CreateObject(TypeNamespaceURI,TypeLocalName);
                                     if (!String.IsNullOrWhiteSpace(id)) { ObjectForID.Add(id,o); }
                                     using (var reader = source.ReadSubtree())
                                         {
-                                        Apply(factory,xmi,o,reader);
+                                        Apply(xmi,o,reader);
                                         }
                                     var value = pi.GetValue(target);
                                     if (value is IList L) {
@@ -133,6 +141,12 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                                     }
                                 else
                                     {
+                                    if (!String.IsNullOrWhiteSpace(href)) {
+                                        ResolveExternalObject(href,out var o);
+                                        SetValue(target,pi,o);
+                                        continue;
+                                        }
+
                                     if (CanReadFromContentString(pi.PropertyType))
                                         {
                                         SetValue(target,pi,source.ReadElementContentAsString());
@@ -181,7 +195,7 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                                         //if (pi.GetValue(target) is 
                                         var o = Activator.CreateInstance(pi.PropertyType);
                                         using (var reader = source.ReadSubtree()) {
-                                            Apply(factory,xmi,o,reader);
+                                            Apply(xmi,o,reader);
                                             }
                                         pi.SetValue(target,o);
                                         }
@@ -192,15 +206,21 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                             }
                         else
                             {
-                            var pi = TypeDescriptor.GetDefaultProperty(target);
-                            if (pi == null) { throw new MissingMemberException($@"Could not find a default property."); }
-                            var o = factory.CreateObject(source.NamespaceURI,source.LocalName);
-                            if (!String.IsNullOrWhiteSpace(id)) { ObjectForID.Add(id,o); }
-                            using (var reader = source.ReadSubtree())
-                                {
-                                Apply(factory,xmi,o,reader);
+                            if (Factory.IsSupportedNamespace(source.NamespaceURI)) {
+                                var pi = TypeDescriptor.GetDefaultProperty(target);
+                                if (pi == null) { throw new MissingMemberException($@"Could not find a default property."); }
+                                var o = Factory.CreateObject(source.NamespaceURI,source.LocalName);
+                                if (!String.IsNullOrWhiteSpace(id)) { ObjectForID.Add(id,o); }
+                                using (var reader = source.ReadSubtree())
+                                    {
+                                    Apply(xmi,o,reader);
+                                    }
+                                //if (target is XMIPackage pkg)
+                                //        {
+                                //        SetValue(target,pi,o);
+                                //        }
+                                pi.SetValue(target,o);
                                 }
-                            pi.SetValue(target,o);
                             }
                         }
                         break;
@@ -209,12 +229,28 @@ namespace BinaryStudio.Modeling.MetadataInterchange
             }
         #endregion
         #region M:SetValue(Object,PropertyDescriptor,Object)
-        private void SetValue(Object component,PropertyDescriptor descriptor,Object value) {
+        private void SetValue(Object TargetObject,PropertyDescriptor TargetDescriptor,Object value) {
+            if (TargetDescriptor == null) { throw new ArgumentNullException(nameof(TargetDescriptor)); }
+            if (TargetDescriptor.IsReadOnly) {
+                if (TargetDescriptor.Attributes.Contains(XMIIsTargetListAttribute.Yes)) {
+                    if (TargetDescriptor.GetValue(TargetObject) is IList TargetList) {
+                        TargetList.Add(value);
+                        return;
+                        }
+                    if (TargetDescriptor.PropertyType.IsConstructedGenericType) {
+                        var GenericType = TargetDescriptor.PropertyType.GetGenericTypeDefinition();
+                        if (GenericType == typeof(IList<>)) {
+                            throw new NullReferenceException($@"Unable connect to the target list property ""{TargetDescriptor.Name}"".");
+                            }
+                        }
+                    }
+                }
+
             var SourceType = value.GetType();
-            var TargetType = descriptor.PropertyType;
-            var converter = descriptor.Converter;
+            var TargetType = TargetDescriptor.PropertyType;
+            var converter = TargetDescriptor.Converter;
             if (converter.CanConvertFrom(SourceType)) {
-                descriptor.SetValue(component,converter.ConvertFrom(value));
+                TargetDescriptor.SetValue(TargetObject,converter.ConvertFrom(value));
                 }
             else
                 {
@@ -222,26 +258,24 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                     if (TargetType.IsClass || TargetType.IsInterface) {
                         var id = (String)value;
                         if (ObjectForID.TryGetValue(id,out var o)) {
-                            SetValue(component,descriptor,o);
+                            SetValue(TargetObject,TargetDescriptor,o);
                             return;
                             }
-                        else
-                            {
-                            PendingChanges.Add(new PendingChange{
-                                TargetObject = component,
-                                TargetPropertyDescriptor = descriptor,
-                                SourceObjectIdentity = id,
-                                IsAssignment = true
-                                });
-                            return;
-                            }
+                        PendingChanges.Add(new PendingChange{
+                            TargetObject = TargetObject,
+                            TargetPropertyDescriptor = TargetDescriptor,
+                            SourceObjectIdentity = id,
+                            IsAssignment = true
+                            });
+                        return;
                         }
                     }
-                descriptor.SetValue(component,value);
+                TargetDescriptor.SetValue(TargetObject,value);
                 }
             }
         #endregion
         #region M:DecodeQualifiedName(String,{out}String,{out}String)
+        [SuppressMessage("ReSharper","ParameterHidesMember")]
         private void DecodeQualifiedName(String Source,out String NamespaceURI,out String LocalName) {
             if (String.IsNullOrWhiteSpace(Source)) { throw new ArgumentOutOfRangeException(nameof(Source)); }
             var i = Source.IndexOf(':');
@@ -273,6 +307,37 @@ namespace BinaryStudio.Modeling.MetadataInterchange
                    (Type == typeof(UInt32)) ||
                    (Type == typeof(UInt64)) ||
                    (Type == typeof(UInt16));
+            }
+        #endregion
+        #region M:ResolveExternalObject(String,{out}Object)
+        private void ResolveExternalObject(String href,out Object o) {
+            o = null;
+            if (!ObjectForHREF.TryGetValue(href,out o)) {
+                if (ExternalPackageResolver != null) {
+                    var values = href.Split('#');
+                    var uri = href;
+                    String idref = null;
+                    if (values.Length > 1) {
+                        uri   = values[0];
+                        idref = values[1];
+                        }
+                    o = ExternalPackageResolver.Resolve(new Uri(uri));
+                    if (o is XMIPackage xmipkg) {
+                        if (!String.IsNullOrWhiteSpace(idref)) {
+                            o = xmipkg.ObjectForID[idref];
+                            ObjectForHREF[href]=o;
+                            }
+                        }
+                    }
+                }
+            }
+        #endregion
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return $"XMIPackage";
             }
         #endregion
 

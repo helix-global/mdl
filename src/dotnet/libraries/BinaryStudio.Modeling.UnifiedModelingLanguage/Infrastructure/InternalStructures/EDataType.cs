@@ -1,22 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
-    internal class EType : EPackageableElement,Type
+    internal class EDataType : EClassifier,DataType
         {
-        public Package Package { get;set; }
-        public Boolean conformsTo(Type other)
-            {
-            throw new NotImplementedException();
-            }
+        public IList<Property> OwnedAttribute { get; }
+        public IList<Operation> OwnedOperation { get; }
 
         #region M:ToString:String
         /// <summary>Returns a string that represents the current object.</summary>
         /// <returns>A string that represents the current object.</returns>
         public override String ToString() {
             return String.IsNullOrWhiteSpace(Name)
-                ? $"Type"
-                : $"Type{{{Name}}}";
+                ? $"DataType"
+                : $"DataType{{{Name}}}";
             }
         #endregion
         }

@@ -17,5 +17,15 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
             {
             throw new NotImplementedException();
             }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString() {
+            return String.IsNullOrWhiteSpace(Name)
+                ? $"RedefinableElement"
+                : $"RedefinableElement{{{Name}}}";
+            }
+        #endregion
         }
     }
