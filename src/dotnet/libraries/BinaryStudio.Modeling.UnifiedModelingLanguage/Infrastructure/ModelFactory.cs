@@ -11,6 +11,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
             switch (NamespaceURI) {
                 case "http://www.omg.org/spec/UML/20131001":
                 case "http://www.omg.org/spec/UML/20161101":
+                case "http://schema.omg.org/spec/UML/2.1.1":
                     return true;
                 }
             return false;
@@ -21,6 +22,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
             switch (NamespaceURI) {
                 case "http://www.omg.org/spec/UML/20131001":
                 case "http://www.omg.org/spec/UML/20161101":
+                case "http://schema.omg.org/spec/UML/2.1.1":
                     {
                     switch (TypeName) {
                         case "Package"                 : return new EPackage();
@@ -43,6 +45,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
                         case "Enumeration"             : return new EEnumeration();
                         case "EnumerationLiteral"      : return new EEnumerationLiteral();
                         case "Association"             : return new EAssociation();
+                        case "Model"                   : return new EModel();
                         default: throw new NotSupportedException();
                         }
                     }

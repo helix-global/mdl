@@ -14,7 +14,7 @@ namespace xmi
         private static void Main(String[] args)
             {
             var o = MetadataReader.LoadFrom(ObjectFactory,ExternalPackageResolver,
-                new Uri($"file://{Path.Combine(RootPath,@"mdl\docs\ptc-18-01-01.xmi")}"));
+                new Uri($"file://{Path.Combine(RootPath,@"mdl\docs\mfc50.xmi")}"));
             if (o != null)
                 {
                 Console.WriteLine("OK");
