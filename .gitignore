@@ -12,3 +12,7 @@
 /docs/.vs
 /src/dotnet/xmi/bin
 /src/dotnet/xmi/obj
+/docs/org.eclipse.datatools.modelbase.sql.source_1.0.5.v201110151330.jar
+/docs/org.eclipse.datatools.modelbase.sql_1.0.900.v20100224_1801.jar
+/src/dotnet/libraries/BinaryStudio.Modeling.Petal/bin
+/src/dotnet/libraries/BinaryStudio.Modeling.Petal/obj

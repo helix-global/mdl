@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Security.Authentication.ExtendedProtection;
 using BinaryStudio.Modeling.MetadataInterchange;
+using BinaryStudio.Modeling.Petal;
 using BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure;
 
 namespace xmi
@@ -13,12 +15,13 @@ namespace xmi
 
         private static void Main(String[] args)
             {
-            var o = MetadataReader.LoadFrom(ObjectFactory,ExternalPackageResolver,
-                new Uri($"file://{Path.Combine(RootPath,@"mdl\docs\mfc50.xmi")}"));
-            if (o != null)
-                {
-                Console.WriteLine("OK");
-                }
+            PetalReader.ReadFrom(new Uri($@"file://{Path.Combine(RootPath,@"mdl\docs\SQLModel{Merged}.mdl")}"),null,out var o);
+            //var o = MetadataReader.LoadFrom(ObjectFactory,ExternalPackageResolver,
+            //    new Uri($"file://{Path.Combine(RootPath,@"mdl\docs\mfc50.xmi")}"));
+            //if (o != null)
+            //    {
+            //    Console.WriteLine("OK");
+            //    }
             }
 
         private class EObjectFactory : IObjectFactory

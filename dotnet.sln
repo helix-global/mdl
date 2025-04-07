@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStudio.Modeling.Unifi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pre", "src\dotnet\pre\pre.csproj", "{442FE488-3E9F-433B-949A-37824C9873D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStudio.Modeling.MetadataInterchange", "src\dotnet\libraries\BinaryStudio.Modeling.MetadataInterchange\BinaryStudio.Modeling.MetadataInterchange.csproj", "{328E2FC4-F22D-4765-B764-3350E9F811AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStudio.Modeling.MetadataInterchange", "src\dotnet\libraries\BinaryStudio.Modeling.MetadataInterchange\BinaryStudio.Modeling.MetadataInterchange.csproj", "{328E2FC4-F22D-4765-B764-3350E9F811AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xmi", "src\dotnet\xmi\xmi.csproj", "{1F18C8BA-92D5-40C9-8C6D-9FDA9D61D7C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xmi", "src\dotnet\xmi\xmi.csproj", "{1F18C8BA-92D5-40C9-8C6D-9FDA9D61D7C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStudio.Modeling.Petal", "src\dotnet\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.csproj", "{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1F18C8BA-92D5-40C9-8C6D-9FDA9D61D7C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F18C8BA-92D5-40C9-8C6D-9FDA9D61D7C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F18C8BA-92D5-40C9-8C6D-9FDA9D61D7C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

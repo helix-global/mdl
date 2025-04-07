@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\libraries\BinaryStudio.Modeling.MetadataInterchange\BinaryStudio.Modeling.MetadataInterchange.csproj" />
+    <ProjectReference Include="..\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.csproj" />
     <ProjectReference Include="..\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage\BinaryStudio.Modeling.UnifiedModelingLanguage.csproj" />
   </ItemGroup>
 </Project>
