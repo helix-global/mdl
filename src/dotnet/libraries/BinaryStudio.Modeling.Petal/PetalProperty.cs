@@ -17,7 +17,7 @@ namespace BinaryStudio.Modeling.Petal
         /// <returns>A string that represents the current object.</returns>
         public override String ToString()
             {
-            return Name;
+            return $"{Name}={Value}";
             }
         #endregion
         }

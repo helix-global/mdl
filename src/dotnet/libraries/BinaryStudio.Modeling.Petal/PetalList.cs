@@ -13,5 +13,14 @@ namespace BinaryStudio.Modeling.Petal
             {
             Nodes = new List<PetalNode>();
             }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString()
+            {
+            return $"LIST:{{{Name}}}";
+            }
+        #endregion
         }
     }

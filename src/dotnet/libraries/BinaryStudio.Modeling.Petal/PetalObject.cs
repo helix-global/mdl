@@ -16,5 +16,14 @@ namespace BinaryStudio.Modeling.Petal
             PetalStrings = new List<String>();
             Properties = new List<PetalProperty>();
             }
+
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString()
+            {
+            return $"OBJECT:{{{Name}}}";
+            }
+        #endregion
         }
     }

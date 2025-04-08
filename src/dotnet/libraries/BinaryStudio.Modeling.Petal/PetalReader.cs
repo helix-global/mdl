@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -34,9 +35,13 @@ namespace BinaryStudio.Modeling.Petal
         private static Boolean ReadFrom(PetalTokenReader reader,PetalReaderOptions options,out PetalObject o) {
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             o = default;
+            var list = new List<PetalNode>();
             PetalNode r;
-            while ((r = ReadNextNode(reader,options)) != null)
-                {
+            if (reader.Read()) {
+                while ((r = ReadNextNode(reader,options)) != null)
+                    {
+                    list.Add(r);
+                    }
                 }
             return false;
             }
@@ -44,62 +49,80 @@ namespace BinaryStudio.Modeling.Petal
         #region M:ReadNextNode(PetalTokenReader,PetalReaderOptions):PetalNode
         private static PetalNode ReadNextNode(PetalTokenReader reader,PetalReaderOptions options) {
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
-            if (reader.Read()) {
-                SkipWhiteSpaces(reader);
-                switch (reader.TokenType) {
-                    #region OpenBracket
-                    case PetalTokenType.OpenBracket:
-                        {
-                        if (reader.Read()) {
-                            if (reader.TokenType == PetalTokenType.Identifer) {
-                                switch (reader.TokenValue.ToString()) {
-                                    case "object": return ReadNextObject(MoveNextToken(reader),options,new PetalObject());
-                                    case "list"  : return ReadNextList(MoveNextToken(reader),options,new PetalList());
-                                    case "value" : return ReadNextValue(MoveNextToken(reader),options,new PetalValue());
-                                    default: throw new NotSupportedException();
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    #endregion
-                    #region Integer
-                    case PetalTokenType.Integer:
-                        {
-                        var r = new PetalIntegerLiteral((Int64)reader.TokenValue);
-                        reader.Read();
-                        return r;
-                        }
-                    #endregion
-                    #region Float
-                    case PetalTokenType.Float:
-                        {
-                        var r = new PetalFloatLiteral((Double)reader.TokenValue);
-                        reader.Read();
-                        return r;
-                        }
-                    #endregion
-                    #region String
-                    case PetalTokenType.String:
-                        {
-                        var r = new PetalStringLiteral((String)reader.TokenValue);
-                        reader.Read();
-                        return r;
-                        }
-                    #endregion
-                    #region Boolean
-                    case PetalTokenType.Boolean:
-                        {
-                        var r = new PetalBooleanLiteral((Boolean)reader.TokenValue);
-                        reader.Read();
-                        return r;
-                        }
-                    #endregion
+            SkipWhiteSpaces(reader);
+            switch (reader.TokenType) {
+                #region OpenBracket
+                case PetalTokenType.OpenBracket:
+                    {
+                    return ReadNextCompositeObject(reader,options);
                     }
+                #endregion
+                #region Integer
+                case PetalTokenType.Integer:
+                    {
+                    var r = new PetalIntegerLiteral((Int64)reader.TokenValue);
+                    reader.Read();
+                    return r;
+                    }
+                #endregion
+                #region Float
+                case PetalTokenType.Float:
+                    {
+                    var r = new PetalFloatLiteral((Double)reader.TokenValue);
+                    reader.Read();
+                    return r;
+                    }
+                #endregion
+                #region String
+                case PetalTokenType.String:
+                    {
+                    var r = new PetalStringLiteral((String)reader.TokenValue);
+                    reader.Read();
+                    return r;
+                    }
+                #endregion
+                #region Boolean
+                case PetalTokenType.Boolean:
+                    {
+                    var r = new PetalBooleanLiteral((Boolean)reader.TokenValue);
+                    reader.Read();
+                    return r;
+                    }
+                #endregion
                 }
             throw new NotSupportedException();
             }
         #endregion
+        private static PetalNode ReadNextCompositeObject(PetalTokenReader reader,PetalReaderOptions options) {
+            if (reader.Read()) {
+                switch(reader.TokenType) {
+                    case PetalTokenType.Identifer:
+                        {
+                        switch (reader.TokenValue.ToString()) {
+                            case "object": return ReadNextObject(MoveNextToken(reader),options,new PetalObject());
+                            case "list"  : return ReadNextList(MoveNextToken(reader),options,new PetalList());
+                            case "value" : return ReadNextValue(MoveNextToken(reader),options,new PetalValue());
+                            default: throw new NotSupportedException();
+                            }
+                        }
+                    case PetalTokenType.Integer:
+                        {
+                        var o = new PetalLocation();
+                        o.X = (Int64)reader.TokenValue;
+                        reader.Read();
+                        SkipWhiteSpaces(reader);
+                        reader.Read();
+                        SkipWhiteSpaces(reader);
+                        o.Y = (Int64)reader.TokenValue;
+                        reader.Read();
+                        SkipWhiteSpaces(reader);
+                        reader.Read();
+                        return o;
+                        }
+                    }
+                }
+            throw new InvalidDataException();
+            }
         #region M:ReadNextObject(PetalTokenReader,PetalReaderOptions,PetalObject):PetalObject
         private static PetalObject ReadNextObject(PetalTokenReader reader,PetalReaderOptions options,PetalObject o) {
             o.Name = ReadNextIdentifer(reader);
@@ -115,6 +138,7 @@ namespace BinaryStudio.Modeling.Petal
                 }
             if (reader.TokenType == PetalTokenType.CloseBracket)
                 {
+                reader.Read();
                 return o;
                 }
             return o;
@@ -123,32 +147,27 @@ namespace BinaryStudio.Modeling.Petal
         #region M:ReadNextList(PetalTokenReader,PetalReaderOptions,PetalList):PetalList
         private static PetalList ReadNextList(PetalTokenReader reader,PetalReaderOptions options,PetalList o) {
             o.Name = ReadNextIdentifer(reader);
-            while (reader.Read()) {
-                switch (reader.TokenType) {
-                    case PetalTokenType.WhiteSpace: continue;
-                    case PetalTokenType.OpenBracket:
-                        if (reader.Read()) {
-                            if (reader.TokenType == PetalTokenType.Identifer) {
-                                switch (reader.TokenValue.ToString()) {
-                                    case "object": o.Nodes.Add(ReadNextObject(MoveNextToken(reader),options,new PetalObject())); break;
-                                    case "list"  : o.Nodes.Add(ReadNextList(MoveNextToken(reader),options,new PetalList())); break;
-                                    case "value" : o.Nodes.Add(ReadNextValue(MoveNextToken(reader),options,new PetalValue())); break;
-                                    default: throw new NotSupportedException();
-                                    }
-                                }
-                            }
-                        break;
-                    case PetalTokenType.CloseBracket:
-                        return o;
-                    default: throw new InvalidDataException();
+            PetalNode r;
+            while (true) {
+                SkipWhiteSpaces(reader);
+                if (reader.TokenType == PetalTokenType.CloseBracket) {
+                    reader.Read();
+                    break;
                     }
+                o.Nodes.Add(ReadNextNode(reader,options));
                 }
             return o;
             }
         #endregion
         #region M:ReadNextValue(PetalTokenReader,PetalReaderOptions,PetalValue):PetalValue
         private static PetalValue ReadNextValue(PetalTokenReader reader,PetalReaderOptions options,PetalValue o) {
-            throw new NotImplementedException();
+            o.Name = ReadNextIdentifer(reader);
+            o.PetalString = ReadNextString(reader);
+            if (reader.TokenType == PetalTokenType.CloseBracket)
+                {
+                reader.Read();
+                return o;
+                }
             return o;
             }
         #endregion
