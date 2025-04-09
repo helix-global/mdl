@@ -1,6 +1,6 @@
 ﻿namespace BinaryStudio.Modeling.Petal
     {
-    public class PetalToken
+    internal class PetalToken
         {
         public PetalTokenType Type { get; }
         public PetalToken(PetalTokenType type)

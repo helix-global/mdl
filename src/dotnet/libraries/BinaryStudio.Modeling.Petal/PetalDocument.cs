@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 
@@ -11,7 +11,6 @@ namespace BinaryStudio.Modeling.Petal
         public IList<PetalNode> Nodes { get; }
 
         private PetalDocument()
-            :base()
             {
             Nodes = new List<PetalNode>();
             }
@@ -52,8 +51,8 @@ namespace BinaryStudio.Modeling.Petal
         private static Boolean ReadFrom(PetalTokenReader reader,PetalReaderOptions options,out PetalDocument o) {
             if (reader == null) { throw new ArgumentNullException(nameof(reader)); }
             o = new PetalDocument();
-            PetalNode r;
             if (reader.Read()) {
+                PetalNode r;
                 while ((r = NextNOD(reader,options)) != null)
                     {
                     o.Nodes.Add(r);
@@ -99,7 +98,6 @@ namespace BinaryStudio.Modeling.Petal
         #region M:NextLST(PetalTokenReader,PetalReaderOptions,PetalList):PetalList
         private static PetalList NextLST(PetalTokenReader reader,PetalReaderOptions options,PetalList o) {
             o.Name = ProbeI(reader);
-            PetalNode r;
             while (true) {
                 if (reader.TokenType == PetalTokenType.CloseBracket) {
                     reader.Read();
@@ -188,6 +186,7 @@ namespace BinaryStudio.Modeling.Petal
             }
         #endregion
         #region M:NextT(PetalTokenReader):PetalTuple
+        [SuppressMessage("ReSharper", "PossibleInvalidCastException")]
         private static PetalTuple NextT(PetalTokenReader reader) {
             Validate(reader,'s');
             var r = new PetalTuple{
@@ -233,6 +232,7 @@ namespace BinaryStudio.Modeling.Petal
             }
         #endregion
 
+        [SuppressMessage("ReSharper", "ParameterOnlyUsedForPreconditionCheck.Local")]
         private static void Validate(PetalTokenReader reader,Int32 e) {
             if ((Int32)reader.TokenType != e)
                 {

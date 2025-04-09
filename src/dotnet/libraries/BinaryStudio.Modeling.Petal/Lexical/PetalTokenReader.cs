@@ -49,7 +49,6 @@ namespace BinaryStudio.Modeling.Petal
                     if (IsLetter(c))     { return ProcessIdentifier(); }
                     throw new NotImplementedException();
                 }
-            return false;
             }
 
         #region M:ProcessSingleCharacter(PetalTokenType):Boolean
@@ -77,7 +76,7 @@ namespace BinaryStudio.Modeling.Petal
                     var r = new StringBuilder();
                     c = reader.Peek();
                     while ((c != -1) && (c != '"')) {
-                        r.Append((Char)(c = reader.Read()));
+                        r.Append((Char)reader.Read());
                         c = reader.Peek();
                         }
                     if (c == '"') { reader.Read(); }
@@ -130,7 +129,7 @@ namespace BinaryStudio.Modeling.Petal
                 r.Append((Char)c);
                 c = reader.Peek();
                 while ((c != -1) && (c != '.') && IsDigit(c)) {
-                    r.Append((Char)(c = reader.Read()));
+                    r.Append((Char)(reader.Read()));
                     c = reader.Peek();
                     }
                 }
@@ -198,10 +197,10 @@ namespace BinaryStudio.Modeling.Petal
             var r = new StringBuilder();
             Int32 c;
 
-            if ((c = reader.Read()) == '@') {
+            if (reader.Read() == '@') {
                 c = reader.Peek();
                 while ((c != -1) && (c != '.') && IsDigit(c)) {
-                    r.Append((Char)(c = reader.Read()));
+                    r.Append((Char)reader.Read());
                     c = reader.Peek();
                     }
                 TokenType = PetalTokenType.Reference;

@@ -1,6 +1,6 @@
 ﻿namespace BinaryStudio.Modeling.Petal
     {
-    public enum PetalTokenType
+    internal enum PetalTokenType
         {
         Invalid,
         WhiteSpace   = 'w',
