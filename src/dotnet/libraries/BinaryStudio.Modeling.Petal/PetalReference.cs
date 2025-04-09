@@ -2,10 +2,10 @@
 
 namespace BinaryStudio.Modeling.Petal
     {
-    public class PetalTag : PetalLiteral
+    public class PetalReference : PetalLiteral
         {
         public Int64 Tag { get; }
-        public PetalTag(Int64 tag)
+        public PetalReference(Int64 tag)
             {
             Tag = tag;
             }

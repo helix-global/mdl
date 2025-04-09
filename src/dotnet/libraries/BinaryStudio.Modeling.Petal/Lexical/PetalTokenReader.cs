@@ -42,7 +42,10 @@ namespace BinaryStudio.Modeling.Petal
                 case '@': { return ProcessReference(); }
                 default:
                     if (IsDigit(c))      { return ProcessNumeric();    }
-                    if (IsWhiteSpace(c)) { return ProcessWhiteSpace(); }
+                    if (IsWhiteSpace(c)) {
+                        ProcessWhiteSpace();
+                        return Read();
+                        }
                     if (IsLetter(c))     { return ProcessIdentifier(); }
                     throw new NotImplementedException();
                 }

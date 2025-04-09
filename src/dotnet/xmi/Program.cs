@@ -15,7 +15,7 @@ namespace xmi
 
         private static void Main(String[] args)
             {
-            PetalReader.ReadFrom(new Uri($@"file://{Path.Combine(RootPath,@"mdl\docs\SQLModel{Merged}.mdl")}"),null,out var o);
+            PetalDocument.ReadFrom(new Uri($@"file://{Path.Combine(RootPath,@"mdl\docs\SQLModel{Merged}.mdl")}"),null,out var o);
             //var o = MetadataReader.LoadFrom(ObjectFactory,ExternalPackageResolver,
             //    new Uri($"file://{Path.Combine(RootPath,@"mdl\docs\mfc50.xmi")}"));
             //if (o != null)

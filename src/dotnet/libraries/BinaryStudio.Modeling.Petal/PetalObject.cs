@@ -7,7 +7,7 @@ namespace BinaryStudio.Modeling.Petal
         {
         public String Name { get;internal set; }
         public List<String> PetalStrings { get; }
-        public PetalTag Tag { get;internal set; }
+        public PetalReference Reference { get;internal set; }
         public IList<PetalProperty> Properties { get; }
 
         public PetalObject()
