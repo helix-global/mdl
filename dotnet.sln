@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStudio.Modeling.Metad
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xmi", "src\dotnet\xmi\xmi.csproj", "{1F18C8BA-92D5-40C9-8C6D-9FDA9D61D7C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStudio.Modeling.Petal", "src\dotnet\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.csproj", "{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryStudio.Modeling.Petal", "src\dotnet\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.csproj", "{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure", "src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.csproj", "{AEAFD8C8-EC75-4ACA-BF35-375805D7428C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A13B71D-DBEC-4AE4-9E6C-2ACFC821EFD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEAFD8C8-EC75-4ACA-BF35-375805D7428C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEAFD8C8-EC75-4ACA-BF35-375805D7428C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEAFD8C8-EC75-4ACA-BF35-375805D7428C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEAFD8C8-EC75-4ACA-BF35-375805D7428C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
