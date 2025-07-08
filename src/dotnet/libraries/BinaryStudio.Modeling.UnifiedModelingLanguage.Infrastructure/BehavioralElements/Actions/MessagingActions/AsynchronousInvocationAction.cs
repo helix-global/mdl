@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class AsynchronousInvocationAction : InvocationAction
+    public interface AsynchronousInvocationAction : InvocationAction
         {
         Boolean isRepliable { get; }
         }

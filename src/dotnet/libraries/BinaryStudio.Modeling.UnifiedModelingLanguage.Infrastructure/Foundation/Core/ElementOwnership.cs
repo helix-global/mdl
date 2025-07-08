@@ -6,5 +6,6 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
         {
         VisibilityKind visibility { get; }
         Boolean isSpecification { get; }
+        ModelElement Element { get; }
         }
     }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class DataFlow : ModelElement
+    public interface DataFlow : ModelElement
         {
         InputPin destination { get; }
         OutputPin source { get; }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class WriteAttributeAction : AttributeAction
+    public interface WriteAttributeAction : AttributeAction
         {
         InputPin value { get; }
         }

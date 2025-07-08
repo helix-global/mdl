@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class JumpAction : PrimitiveAction
+    public interface JumpAction : PrimitiveAction
         {
         Exception exception { get; }
         InputPin jumpOccurence { get; }

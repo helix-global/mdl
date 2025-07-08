@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class TestIdentityAction : PrimitiveAction
+    public interface TestIdentityAction : PrimitiveAction
         {
         InputPin first { get; }
         InputPin second { get; }

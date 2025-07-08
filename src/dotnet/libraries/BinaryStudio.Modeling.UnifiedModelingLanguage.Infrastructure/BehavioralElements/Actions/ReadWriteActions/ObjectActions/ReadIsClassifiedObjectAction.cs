@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class ReadIsClassifiedObjectAction : PrimitiveAction
+    public interface ReadIsClassifiedObjectAction : PrimitiveAction
         {
         Boolean isDirect { get; }
         Classifier classifier { get; }

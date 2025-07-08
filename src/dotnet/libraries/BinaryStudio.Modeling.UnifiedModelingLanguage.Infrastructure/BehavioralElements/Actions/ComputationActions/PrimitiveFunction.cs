@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class PrimitiveFunction : ModelElement
+    public interface PrimitiveFunction : ModelElement
         {
         String language { get; }
         String encoding { get; }

@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class CallOperationAction : ExplicitInvocationAction
+    public interface CallOperationAction : ExplicitInvocationAction
         {
         Boolean isAsynchronous { get; }
         OutputPin[] result { get; }

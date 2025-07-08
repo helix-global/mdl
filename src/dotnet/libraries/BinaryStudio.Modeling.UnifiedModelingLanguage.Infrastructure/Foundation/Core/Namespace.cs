@@ -1,7 +1,9 @@
+using System.Collections.Generic;
+
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class Namespace : ModelElement
+    public interface Namespace : ModelElement
         {
-        ModelElement[] ownedElement { get; }
+        List<ElementOwnership> ownedElement { get; }
         }
     }

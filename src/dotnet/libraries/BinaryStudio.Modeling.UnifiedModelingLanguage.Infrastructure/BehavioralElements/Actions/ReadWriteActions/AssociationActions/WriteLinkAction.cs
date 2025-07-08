@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class WriteLinkAction : LinkAction
+    public interface WriteLinkAction : LinkAction
         {
         }
     }

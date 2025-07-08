@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class OutputPin : Pin
+    public interface OutputPin : Pin
         {
         Action action { get; }
         DataFlow[] flow { get; }

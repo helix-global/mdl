@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class ReadSelfAction : PrimitiveAction
+    public interface ReadSelfAction : PrimitiveAction
         {
         OutputPin result { get; }
         }

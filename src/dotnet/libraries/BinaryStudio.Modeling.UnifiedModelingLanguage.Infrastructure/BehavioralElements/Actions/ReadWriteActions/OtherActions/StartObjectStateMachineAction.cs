@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class StartObjectStateMachineAction : PrimitiveAction
+    public interface StartObjectStateMachineAction : PrimitiveAction
         {
         InputPin input { get; }
         }

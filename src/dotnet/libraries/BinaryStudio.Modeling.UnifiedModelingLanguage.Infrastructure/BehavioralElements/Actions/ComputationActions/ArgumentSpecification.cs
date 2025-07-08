@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class ArgumentSpecification : ModelElement
+    public interface ArgumentSpecification : ModelElement
         {
         Multiplicity multiplicity { get; }
         OrderingKind ordering { get; }

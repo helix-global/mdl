@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class DestroyObjectAction : PrimitiveAction
+    public interface DestroyObjectAction : PrimitiveAction
         {
         InputPin input { get; }
         }

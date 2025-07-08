@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class IterateAction : CollectionAction
+    public interface IterateAction : CollectionAction
         {
         Boolean isUnordered { get; }
         OutputPin[] loopVariable { get; }

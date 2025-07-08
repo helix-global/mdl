@@ -1,7 +1,9 @@
+using System.Collections.Generic;
+
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class Package : Namespace,GeneralizableElement
+    public interface Package : Namespace,GeneralizableElement
         {
-        ElementImport[] elementImport { get; }
+        IList<ElementImport> elementImport { get; }
         }
     }

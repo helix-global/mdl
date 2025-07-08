@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class PrimitiveAction : Action
+    public interface PrimitiveAction : Action
         {
         }
     }

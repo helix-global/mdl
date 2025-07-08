@@ -4,6 +4,5 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
         {
         ModelElement defaultElement { get; }
         ModelElement parameter { get; }
-        ModelElement template { get; }
         }
     }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class Variable : ModelElement
+    public interface Variable : ModelElement
         {
         Multiplicity multiplicity { get; }
         OrderingKind ordering { get; }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class MarshalAction : PrimitiveAction
+    public interface MarshalAction : PrimitiveAction
         {
         InputPin[] argument { get; }
         OutputPin result { get; }

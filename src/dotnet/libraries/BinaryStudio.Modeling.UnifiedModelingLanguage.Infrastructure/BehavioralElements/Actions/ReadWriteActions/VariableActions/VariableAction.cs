@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class VariableAction : PrimitiveAction
+    public interface VariableAction : PrimitiveAction
         {
         Variable variable { get; }
         }

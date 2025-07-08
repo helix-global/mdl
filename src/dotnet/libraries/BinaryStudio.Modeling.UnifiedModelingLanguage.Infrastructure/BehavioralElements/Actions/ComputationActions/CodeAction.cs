@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class CodeAction : PrimitiveAction
+    public interface CodeAction : PrimitiveAction
         {
         String language { get; }
         String encoding { get; }

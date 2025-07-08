@@ -18,7 +18,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     ///   </tr>
     /// </table>
     /// </summary>
-    public abstract class Model : Package
+    public interface Model : Package
         {
         }
     }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class WriteVariableAction : VariableAction
+    public interface WriteVariableAction : VariableAction
         {
         InputPin value { get; }
         }

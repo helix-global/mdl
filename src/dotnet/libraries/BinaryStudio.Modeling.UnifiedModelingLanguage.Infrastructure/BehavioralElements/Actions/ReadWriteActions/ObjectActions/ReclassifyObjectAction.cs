@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public abstract class ReclassifyObjectAction : PrimitiveAction
+    public interface ReclassifyObjectAction : PrimitiveAction
         {
         Boolean isReplaceAll { get; }
         Classifier[] oldClassifier { get; }
