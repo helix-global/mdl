@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ExplicitInvocationAction : PrimitiveAction
+    public abstract class ExplicitInvocationAction : PrimitiveAction
         {
         InputPin[] argument { get; }
         }

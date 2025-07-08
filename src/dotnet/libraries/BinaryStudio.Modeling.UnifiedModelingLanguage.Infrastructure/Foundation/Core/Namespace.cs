@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface Namespace : ModelElement
+    public abstract class Namespace : ModelElement
         {
         ModelElement[] ownedElement { get; }
         }

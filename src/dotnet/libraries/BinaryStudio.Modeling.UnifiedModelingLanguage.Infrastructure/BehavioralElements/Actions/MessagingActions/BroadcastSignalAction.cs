@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface BroadcastSignalAction : ExplicitInvocationAction
+    public abstract class BroadcastSignalAction : ExplicitInvocationAction
         {
         Signal signal { get; }
         }

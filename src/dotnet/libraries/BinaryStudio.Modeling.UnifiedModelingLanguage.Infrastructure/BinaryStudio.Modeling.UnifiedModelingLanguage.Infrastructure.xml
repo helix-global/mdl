@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LoopAction.loopVariable">
+                    ordered
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Abstraction">
+            <summary>
+            <p>An abstraction is a <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Dependency"/> relationship that relates two elements or sets of elements that represent the same concept at different levels of abstraction or from different viewpoints.</p>
+            <p>In the metamodel, an <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Abstraction"/> is a <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Dependency"/> in which there is a mapping between the supplier and the client. Depending on the specific stereotype of <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Abstraction"/>, the mapping may be formal or informal, and it may be unidirectional or bidirectional.</p>
+            <p>If an <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Abstraction"/> element has more than one client element, the supplier element maps into the set of client elements as a group. For example, an analysis-level class might be split into several design-level classes. The situation is similar if there is more than one supplier element.</p>
+            <p>The UML standard stereotyped classes of <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Abstraction"/> are Derivation, Realization, Refinement, and Trace. (These are the names for the Abstraction class with the stereotypes "derive", "realize", "refine", and "trace", respectively.)</p>
+            <p>
+              <b>Stereotypes:</b>
+              <table>
+               <tr>
+                <td>"derive"</td>
+                <td>Class</td>
+                <td>(Name for the stereotyped class is Derivation.) Specifies a derivation relationship among model elements that are usually, but not necessarily, of the same type. A derived dependency specifies that the client may be computed from the supplier. The mapping specifies the computation. The client may be implemented for design reasons, such as efficiency, even though it is logically redundant.</td>
+               </tr>
+               <tr>
+                <td>"realize"</td>
+                <td>Class</td>
+                <td>(Name for the stereotyped class is Realization.) Specifies a realization relationship between a specification model element or elements (the supplier) and a model element or elements that implement it (the client). The implementation model element is required to support all of the operations or received signals that the specification model element declares. The implementation model element must make or inherit its own declarations of the operations and signal receptions. The mapping specifies the relationship between the two. The mapping may or may not be computable. Realization can be used to model stepwise refinement, optimizations, transformations, templates, model synthesis, framework composition, etc.</td>
+               </tr>
+               <tr>
+                <td>"refine"</td>
+                <td>Class</td>
+                <td>(Name for the stereotyped class is Refinement.) Specifies refinement relationship between model elements at different semantic levels, such as analysis and design. The mapping specifies the relationship between the two elements or sets of elements. The mapping may or may not be computable, and it may be unidirectional or bidirectional. Refinement can be used to model transformations from analysis to design and other such changes.</td>
+               </tr>
+               <tr>
+                <td>"trace"</td>
+                <td>Class</td>
+                <td>(Name for the stereotyped class is Trace.) Specifies a trace relationship between model elements or sets of model elements that represent the same concept in different models. Traces are mainly used for tracking requirements and changes across models. Since model changes can occur in both directions, the directionality of the dependency can often be ignored. The mapping specifies the relationship between the two, but it is rarely computable and is usually informal.</td>
+               </tr>
+              </table>
+            </p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Abstraction.mapping">
+            <summary>
+            A <see cref="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MappingExpression"/> that states the abstraction relationship between the supplier and the client. In some cases, such as Derivation, it is usually formal and unidirectional; in other cases, such as Trace, it is usually informal and bidirectional. The mapping attribute is optional and may be omitted if the precise relationship between the elements is not specified.
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Artifact">
+            <summary>
+            <p>An Artifact represents a physical piece of information that is used or produced by a software development process. Examples of Artifacts include models, source files, scripts, and binary executable files. An Artifact may constitute the implementation of a deployable component.</p>
+            <p>In the metamodel, an Artifact is a Classifier with an optional aggregation association to one or more Components. As a Classifier, Artifacts may have Features that represent properties of the Artifact (e.g., a “read-only” attribute or a “check in” operation).</p>
+            <p>It should be noted that sometimes Artifacts may need to be linked to Classifiers directly, without introducing a ‘Component.’ For instance, in the context of code generation, the resulting Artifacts (source code files) are never deployed as Components. In that case, a «derive» Dependency can be used between the Classifier(s) and the generated Artifact.</p>
+            <p>The standard stereotypes of Artifact are «file», the subclasses of «file» («executable», «source», «library», and «document»), and «table». These stereotypes can be further subclassed into implementation and platform specific stereotypes (e.g., «jarFile» for Java archives).</p>
+            <p>
+              <b>Stereotypes:</b>
+              <table>
+               <tr>
+                <td>"document"</td>
+                <td>Class</td>
+                <td>Denotes a generic file that is not a «source» file or «executable». Subclass of «file».</td>
+               </tr>
+               <tr>
+                <td>"executable"</td>
+                <td>Class</td>
+                <td>Denotes a program file that can be executed on a computer system. Subclass of «file».</td>
+               </tr>
+               <tr>
+                <td>"file"</td>
+                <td>Class</td>
+                <td>Denotes a physical file in the context of the system developed.</td>
+               </tr>
+               <tr>
+                <td>"library"</td>
+                <td>Class</td>
+                <td>Denotes a static or dynamic library file. Subclass of «file».</td>
+               </tr>
+               <tr>
+                <td>"source"</td>
+                <td>Class</td>
+                <td>Denotes a source file that can be compiled into an executable file. Subclass of «file».</td>
+               </tr>
+               <tr>
+                <td>"table"</td>
+                <td>Class</td>
+                <td> Denotes a database table.</td>
+               </tr>
+              </table>
+            </p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Artifact.implementationLocation">
+            <summary>
+            The deployable Component(s) that are implemented by this Artifact.
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Association">
+            <summary>
+            <p>An association defines a semantic relationship between classifiers. The instances of an association are a set of tuples relating instances of the classifiers. Each tuple value may appear at most once.</p>
+            <p>In the metamodel, an Association is a declaration of a semantic relationship between Classifiers, such as Classes. An Association has at least two AssociationEnds. Each end is connected to a Classifier - the same Classifier may be connected to more than one AssociationEnd in the same Association. The Association represents a set of connections among instances of the Classifiers. An instance of an Association is a Link, which is a tuple of Instances drawn from the corresponding Classifiers.</p>
+            <p>
+              <b>Stereotypes:</b>
+              <table>
+               <tr>
+                <td>"implicit"</td>
+                <td>The «implicit» stereotype is applied to an association, specifying that the association is not manifest, but rather is only conceptual.</td>
+               </tr>
+              </table>
+              <b>Standard Constraints:</b>
+              <table>
+               <tr>
+                <td>xor</td>
+                <td>Association</td>
+                <td>The {xor} constraint is applied to a set of associations, specifying that over that set, exactly one is manifest for each associated instance. Xor is an exclusive or (not inclusive or) constraint.</td>
+               </tr>
+              </table>
+              <b>Tagged Values:</b>
+              <table>
+               <tr>
+                <td>persistence</td>
+                <td>Association</td>
+                <td>Persistence denotes the permanence of the state of the association, marking it as transitory (its state is destroyed when the instance is destroyed) or persistent (its state is not destroyed when the instance is destroyed).</td>
+               </tr>
+              </table>
+            </p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Association.name">
+            <summary>
+            The name of the Association which, in combination with its associated Classifiers, must be unique within the enclosing namespace (usually a Package).
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Association.connection">
+            <summary>
+            An Association consists of at least two AssociationEnds, each of which represents a connection of the association to a Classifier. Each AssociationEnd specifies a set of properties that must be fulfilled for the relationship to be valid. The bulk of the structure of an Association is defined by its AssociationEnds. The classifiers belonging to the association are related to the AssociationEnds by the participant rolename association.
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationClass">
+            <summary>
+            An association class is an association that is also a class. It not only connects a set of classifiers but also defines a set of features that belong to the relationship itself and not any of the classifiers.
+            <p>
+              <b>Inherited Features</b>
+            </p>
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Model">
+            <summary>
+            <p>A model captures a view of a physical system. It is an abstraction of the physical system, with a certain purpose. This purpose determines what is to be included in the model and what is irrelevant. Thus the model completely describes those aspects of the physical system that are relevant to the purpose of the model, at the appropriate level of detail.</p>
+            <p>In the metamodel, Model is a subclass of Package. It contains a containment hierarchy of ModelElements that together describe the physical system. A Model also contains a set of ModelElements that represents the environment of the system, typically Actors, together with their interrelationships, such as Dependencies, Generalizations, and Constraints.</p>
+            <p>Different Models can be defined for the same physical system, where each model represents a view of the physical system defined by its purpose and abstraction level (for example, an analysis model, a design model, an implementation model). Typically different models are complementary and defined from the perspectives (viewpoints) of different system stakeholders. For example, a use-case model may be defined from the viewpoint of a business analyst stakeholder. Each Model is a complete description of the physical system. When Models are nested, the container Model represents the comprehensive view of the physical system given by the different views defined by the contained Models.</p>
+            <b>Stereotypes:</b>
+            <table>
+              <tr>
+                <td>"systemModel"</td>
+                <td>Class</td>
+                <td>A systemModel is a stereotyped model that contains a collection of models of the same physical system. A systemModel also contains all relationships and constraints between model elements contained in different models.</td>
+              </tr>
+              <tr>
+                <td>"metamodel"</td>
+                <td>Class</td>
+                <td>A metamodel is a stereotyped model denoting that the model is an abstraction of another model; that is, it is a model of a model. Hence, if M2 is a model of the model M1, then M2 is a metamodel of M1. It follows then that classes in M1 are instances of metaclasses in M2. The stereotype can be recursively applied, as in the case of a 4-layer metamodel architecture.</td>
+              </tr>
+            </table>
+            </summary>
+        </member>
+    </members>
+</doc>

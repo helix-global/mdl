@@ -6,4 +6,7 @@
     <DebugSymbols>true</DebugSymbols>
     <NoWarn>0618</NoWarn>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net45|AnyCPU'">
+    <DocumentationFile>C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml</DocumentationFile>
+  </PropertyGroup>
 </Project>

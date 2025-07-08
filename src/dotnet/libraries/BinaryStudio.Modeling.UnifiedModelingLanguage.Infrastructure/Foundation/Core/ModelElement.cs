@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ModelElement : Element
+    public abstract class ModelElement : Element
         {
         Boolean IsSpecification { get;set; }
         StateMachine[] behavior { get; }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface CollectionAction : Action
+    public abstract class CollectionAction : Action
         {
         Action subaction { get; }
         }

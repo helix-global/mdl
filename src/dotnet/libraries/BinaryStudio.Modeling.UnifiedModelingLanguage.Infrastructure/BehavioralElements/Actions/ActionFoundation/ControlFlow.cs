@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ControlFlow : ModelElement
+    public abstract class ControlFlow : ModelElement
         {
         Action predecessor { get; }
         Action successor { get; }

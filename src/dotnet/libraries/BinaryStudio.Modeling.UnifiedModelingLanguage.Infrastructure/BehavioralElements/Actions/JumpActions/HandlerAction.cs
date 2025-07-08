@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface HandlerAction : Action
+    public abstract class HandlerAction : Action
         {
         OutputPin[] handlerOutput { get; }
         Action body { get; }

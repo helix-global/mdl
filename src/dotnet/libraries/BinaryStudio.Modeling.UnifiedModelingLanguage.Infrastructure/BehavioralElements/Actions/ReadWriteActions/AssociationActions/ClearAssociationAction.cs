@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ClearAssociationAction : PrimitiveAction
+    public abstract class ClearAssociationAction : PrimitiveAction
         {
         Association association { get; }
         InputPin @object { get; }

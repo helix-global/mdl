@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2025.3.22.0" projectFile="C:\TFS\mdl\src\help\infra.shfbproj" started="08.07.2025 16:47:16">
+<buildStep step="Initializing">
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
+Locating components in the following folder(s):
+    C:\TFS\mdl\src\help
+    C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins
+    C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components
+Using framework reflection data for &#39;.NET Framework 4.7.2&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\.NETFramework&#39;
+Using presentation style &#39;VS2013&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
+Loading and initializing plug-ins...
+Lightweight Website Style Version 2025.3.22.0
+Copyright &#169; 2006-2025, Eric Woodruff, All Rights Reserved
+Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.dll
+    Found assembly &#39;C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.dll&#39;
+Source: C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml
+
+Copying XML comments files
+    C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml -&gt; C:\TFS\mdl\src\help\Help\Working\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+<plugIn name="Lightweight Website Style" behavior="After" priority="1000">
+</plugIn>    Last step completed in 00:00:00.0032
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe - GenerateRefInfo-ef0d1cf5-9333-4e73-a5c5-eac3a39bb7b7.proj]
+Build started 08.07.2025 16:47:16.
+Project &quot;C:\TFS\mdl\src\help\Help\Working\GenerateRefInfo-ef0d1cf5-9333-4e73-a5c5-eac3a39bb7b7.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateBindingRedirects:
+  No suggested binding redirects from ResolveAssemblyReferences.
+GenerateRefInfo:
+  Microsoft.Build (v16.11.2+f3225964253d565862806752e54a7608191a9035)
+  c Microsoft Corporation. All rights reserved.
+  No source code context base path specified.  Source context information is unavailable.
+  Loaded 1 assemblies for reflection and 1 dependency assemblies.
+  Wrote information on 2 namespaces, 195 types, and 499 members
+  Merging duplicate type and member information
+  Merged 0 duplicate type(s) and 0 duplicate member(s)
+Done Building Project &quot;C:\TFS\mdl\src\help\Help\Working\GenerateRefInfo-ef0d1cf5-9333-4e73-a5c5-eac3a39bb7b7.proj&quot; (default targets).
+    Last step completed in 00:00:00.7638
+</buildStep>
+<buildStep step="ApplyDocumentModel">
+Applying document model to reflection output...
+    Last step completed in 00:00:00.0797
+</buildStep>
+<buildStep step="AddApiTopicFilenames">
+Adding topic filenames to API members...
+    Last step completed in 00:00:00.0279
+</buildStep>
+<buildStep step="GenerateApiTopicManifest">
+Generating API topic manifest...
+    Last step completed in 00:00:00.0200
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.0140
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file for API content...
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.0294
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    Last step completed in 00:00:00.1421
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\TFS\mdl\src\help\Help\Working\BuildAssembler.config
+  Updating reference topic configurations.
+  No conceptual content.  Removing conceptual content components.
+    Last step completed in 00:00:00.0064
+</buildStep>
+<buildStep step="BuildTopics">
+Building help topics...
+Loading configuration...
+Processing topics...
+SHFB: Warning BE0066: ShowMissingComponent: [N:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.antecedent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.availableInput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.availableOutput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.consequent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.group] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.inputPin] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.isReadOnly] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.jumpHandler] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.outputPin] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Action.procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActionInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActionInstance.theInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActionState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActionState.dynamicArguments] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActionState.dynamicMultiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActionState.isDynamic] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActivityGraph] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ActivityGraph.partition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Actor] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AddAttributeValueAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AddAttributeValueAction.insertAt] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AddAttributeValueAction.isReplaceAll] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AddVariableValueAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AddVariableValueAction.insertAt] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AddVariableValueAction.isReplaceAll] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AggregationKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ApplyFunctionAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ApplyFunctionAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ApplyFunctionAction.function] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ApplyFunctionAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ArgListsExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ArgumentSpecification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ArgumentSpecification.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ArgumentSpecification.ordering] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ArgumentSpecification.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Association.associationRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Association.link] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.aggregation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.association] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.associationEndRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.changeability] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.isNavigable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.linkEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.ordering] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.participant] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.qualifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.specification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEnd.targetScope] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEndRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEndRole.availableQualifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEndRole.base] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationEndRole.collaborationMultiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationRole.base] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationRole.conformingLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationRole.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AssociationRole.nessage] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AsynchronousInvocationAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AsynchronousInvocationAction.isRepliable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attribute] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attribute.associationEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attribute.associationEndRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attribute.attributeLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attribute.initialValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeAction.attribute] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeAction.object] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeLink.attribute] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeLink.instance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeLink.linkEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AttributeLink.value] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BehavioralFeature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BehavioralFeature.isQuery] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BehavioralFeature.parameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BehavioralFeature.raisedSignal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Binding] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Binding.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BooleanExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BroadcastSignalAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.BroadcastSignalAction.signal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Call] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallConcurrencyKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallEvent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallEvent.operation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallOperationAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallOperationAction.isAsynchronous] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallOperationAction.operation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallOperationAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallOperationAction.target] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallProcedureAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallProcedureAction.calledProcedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallProcedureAction.input] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallProcedureAction.isSynchronous] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallProcedureAction.output] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CallState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ChangeableKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ChangeEvent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ChangeEvent.changeExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Class] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Class.isActive] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.association] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.classifierInState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.classifierRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.collaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.feature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.instance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.objectFlowState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.powertypeRange] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.specifiedEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.typedFeature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Classifier.typedParameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierInState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierInState.inState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierInState.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole.availableContents] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole.availableFeature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole.base] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole.conformingInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole.message] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClassifierRole.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause.bodyOutput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause.predecessorClause] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause.successorClause] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause.test] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Clause.testOutput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClearAssociationAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClearAssociationAction.association] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClearAssociationAction.object] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClearAttributeAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ClearVariableAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CodeAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CodeAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CodeAction.encoding] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CodeAction.language] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CodeAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.collaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.collaborationInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.constrainingElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.interaction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.representedClassifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.representedOperation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Collaboration.usedCollaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollaborationInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollaborationInstanceSet.collaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollaborationInstanceSet.constrainingElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollaborationInstanceSet.interactionInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollaborationInstanceSet.participatingInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollaborationInstanceSet.participatingLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollectionAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CollectionAction.subaction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Comment] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Comment.annotatedElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Comment.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.deploymentLocation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.implementation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.residentElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ComponentInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ComponentInstance.nodeInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ComponentInstance.resident] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CompositeState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CompositeState.isConcurrent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CompositeState.subvertex] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ConditionalAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ConditionalAction.clause] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ConditionalAction.isDeterminate] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Constraint] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Constraint.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Constraint.constrainedElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Constraint.constrainedStereotype] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ControlFlow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ControlFlow.predecessor] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ControlFlow.successor] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateLinkAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateLinkAction.endData] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateLinkObjectAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateLinkObjectAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateObjectAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateObjectAction.classifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.CreateObjectAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DataFlow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DataFlow.destination] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DataFlow.source] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DataType] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DataValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Dependency] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Dependency.client] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Dependency.supplier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DestroyLinkAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DestroyObjectAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DestroyObjectAction.input] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Element] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.alias] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.importedElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.isSpecification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.package] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.visibility] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership.isSpecification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership.visibility] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence.container] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence.resident] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence.visibility] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Enumeration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Enumeration.literal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.EnumerationLiteral] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.EnumerationLiteral.enumeration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Event] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Event.parameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Event.state] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Event.transition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Exception] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ExplicitInvocationAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ExplicitInvocationAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Expression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Expression.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Expression.language] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Expression.procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Extend] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Extend.base] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Extend.condition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Extend.extension] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Extend.extensionPoint] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ExtensionPoint] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ExtensionPoint.extend] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ExtensionPoint.location] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ExtensionPoint.useCase] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Feature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Feature.classifierRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Feature.owner] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Feature.ownerScope] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.FilterAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.FilterAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.FilterAction.subinput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.FilterAction.subtest] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.FinalState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Flow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Flow.source] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Flow.target] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.generalization] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isAbstract] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isLeaf] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isRoot] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.specialization] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization.child] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization.discriminator] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization.parent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization.powertype] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Geometry] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GroupAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GroupAction.mustIsolate] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GroupAction.subaction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GroupAction.variable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Guard] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Guard.expression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Guard.transition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.HandlerAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.HandlerAction.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.HandlerAction.handlerOutput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.HandlerAction.occurrence] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Include] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Include.addition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Include.base] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InputPin] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InputPin.action] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InputPin.flow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InputPin.procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.attributeLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.classifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.collaborationInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.componentInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.linkEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.ownedInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.ownedLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.owner] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.playedRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.slot] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Instance.stimulus] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Interaction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Interaction.context] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Interaction.interactionInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Interaction.message] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InteractionInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InteractionInstanceSet.context] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InteractionInstanceSet.interaction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InteractionInstanceSet.participatingStimulus] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Interface] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InvocationAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InvocationAction.request] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InvocationAction.target] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.collectionInput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.isUnordered] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.loopVariable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.loopVariableInput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.subinput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.IterateAction.suboutput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpAction.exception] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpAction.jumpOccurence] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpHandler] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpHandler.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpHandler.jumpType] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.JumpHandler.protectedAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link.association] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link.collaborationInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link.connection] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link.owner] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link.playedRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Link.stimulus] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkAction.endData] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEnd.associationEnd] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEnd.instance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEnd.link] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEnd.qualifierValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndCreationData] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndCreationData.insertAt] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndCreationData.isReplaceAll] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndData] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndData.end] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndData.qualifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkEndData.value] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LinkObject] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LiteralValueAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LiteralValueAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LiteralValueAction.value] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LocationReference] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LoopAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LoopAction.clause] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.LoopAction.loopVariable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MapAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MapAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MapAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MapAction.subinput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MapAction.suboutput] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Mapping] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Mapping.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MappingExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MarshalAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MarshalAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MarshalAction.marshalType] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MarshalAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.activator] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.communicationConnection] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.conformingStimulus] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.interaction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.message] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.predecessor] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.receiver] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.sender] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Message.successor] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method.procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method.specification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.behavior] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.classifierRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.clientDependency] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.collaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.collaborationInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.comment] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.constraint] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.defaultedParameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.elementImport] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.elementResidence] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.IsSpecification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.name] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.namespace] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.parameterTemplate] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.partition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.presentation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.referenceTag] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.sourceFlow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.stereotype] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.supplierDependency] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.taggedValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.targetFlow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.templateArgument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.templateParameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.visibility] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Multiplicity.range] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange.lower] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange.upper] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Name] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Name.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Name.theElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Namespace] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Namespace.ownedElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Node] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Node.deployedComponent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.NodeInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.NodeInstance.resident] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.NullAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Object] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ObjectFlowState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ObjectFlowState.available] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ObjectFlowState.isSynch] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ObjectFlowState.parameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ObjectFlowState.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.collaboration] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.concurrency] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.isAbstract] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.isLeaf] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.isRoot] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.method] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.occurrence] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Operation.specification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OperationDirectionKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OrderingKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OutputPin] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OutputPin.action] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OutputPin.flow] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OutputPin.loop] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.OutputPin.procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Package] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Package.elementImport] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter.behavioralFeature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter.defaultValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter.event] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter.kind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter.state] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Parameter.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ParameterDirectionKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Partition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Partition.activityGraph] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Partition.contents] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Permission] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Pin] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Pin.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Pin.ordering] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Pin.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PresentationElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PresentationElement.subject] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Primitive] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PrimitiveAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PrimitiveFunction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PrimitiveFunction.encoding] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PrimitiveFunction.inputSpec] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PrimitiveFunction.language] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PrimitiveFunction.outputSpec] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.action] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.body] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.expression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.isList] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.language] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.message] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.method] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.state] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.stimulus] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Procedure.transition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ProcedureExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ProgrammingLanguageDataType] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ProgrammingLanguageDataType.expression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Pseudostate] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Pseudostate.kind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.PseudostateKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.QualifierValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.QualifierValue.qualifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.QualifierValue.value] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadAttributeAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadAttributeAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadExtentAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadExtentAction.classifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadExtentAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadIsClassifiedObjectAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadIsClassifiedObjectAction.classifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadIsClassifiedObjectAction.input] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadIsClassifiedObjectAction.isDirect] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadIsClassifiedObjectAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectEndAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectEndAction.end] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectEndAction.object] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectEndAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectQualifierAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectQualifierAction.object] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectQualifierAction.qualifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadLinkObjectQualifierAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadSelfAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadSelfAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadVariableAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReadVariableAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Reception] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Reception.isAbstract] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Reception.isLeaf] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Reception.isRoot] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Reception.signal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Reception.specification] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReclassifyObjectAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReclassifyObjectAction.input] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReclassifyObjectAction.isReplaceAll] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReclassifyObjectAction.newClassifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReclassifyObjectAction.oldClassifier] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ReduceAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Relationship] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.RemoveAttributeValueAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.RemoveVariableValueAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ScopeKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SendSignalAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SendSignalAction.signal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SendSignalAction.target] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Signal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Signal.context] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Signal.occurrence] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Signal.reception] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SignalEvent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SignalEvent.signal] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SimpleState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StartObjectStateMachineAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StartObjectStateMachineAction.input] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.classifierInState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.deferrableEvent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.doActivity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.entry] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.exit] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.internalTransition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.State.stateMachine] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateMachine] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateMachine.context] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateMachine.submachineState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateMachine.top] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateMachine.transitions] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateVertex] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateVertex.container] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateVertex.incoming] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StateVertex.outgoing] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stereotype] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stereotype.baseClass] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stereotype.definedTag] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stereotype.extendedElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stereotype.icon] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stereotype.stereotypeConstraint] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.communicationLink] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.dispatchAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.interactionInstanceSet] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.playedRole] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.receiver] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Stimulus.sender] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StructuralFeature] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StructuralFeature.changeability] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StructuralFeature.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StructuralFeature.ordering] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StructuralFeature.targetScope] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StructuralFeature.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StubState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.StubState.referenceState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubactivityState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubactivityState.dynamicArguments] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubactivityState.dynamicMultiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubactivityState.isDynamic] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubmachineState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubmachineState.submachine] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Subsystem] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Subsystem.isInstantiable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SubsystemInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SynchronousInvocationAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SynchronousInvocationAction.reply] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SynchState] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.SynchState.bound] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TagDefinition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TagDefinition.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TagDefinition.owner] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TagDefinition.tagType] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TagDefinition.typedValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TaggedValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TaggedValue.dataValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TaggedValue.modelElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TaggedValue.referenceValue] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TaggedValue.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateArgument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateArgument.binding] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateArgument.modelElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter.defaultElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter.parameter] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter.template] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction.first] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction.second] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TimeEvent] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TimeEvent.when] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TimeExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.effect] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.guard] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.source] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.state] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.stateMachine] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.target] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Transition.trigger] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TypeExpression] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UnlimitedInteger] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UnmarshalAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UnmarshalAction.argument] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UnmarshalAction.result] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UnmarshalAction.unmarshalType] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Usage] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCase] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCase.extend] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCase.extender] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCase.extensionPoint] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCase.include] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCase.includer] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.UseCaseInstance] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Variable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Variable.multiplicity] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Variable.ordering] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Variable.scope] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Variable.type] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.VariableAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.VariableAction.variable] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.VisibilityKind] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.WriteAttributeAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.WriteAttributeAction.value] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.WriteLinkAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.WriteVariableAction] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.WriteVariableAction.value] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [N:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.AggregationAttribute] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.AggregationAttribute.#ctor(BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.AggregationKind)] Missing &lt;param name=&quot;Aggregation&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.AggregationAttribute.Aggregation] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.MultiplicityAttribute] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.MultiplicityAttribute.#ctor(System.String)] Missing &lt;param name=&quot;multiplicity&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.MultiplicityAttribute.Multiplicity] Missing &lt;summary&gt; documentation
+Processed 851 topic(s)
+659 warning(s)
+CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 2 of 15.
+CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
+SaveComponent: Waiting for the document writer task to finish (4 Help1 API file(s) remaining)...
+    Last step completed in 00:00:05.9018
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+Processing Help 1 files in C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1
+Processed 851 HTML files.  Sorting keywords and generating See Also indices.
+Saving HTML Help 1 keyword index to C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.hhk
+Saving HTML Help 1 table of contents to C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.hhc
+    Last step completed in 00:00:00.1535
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\AlertCaution.png -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\AlertCaution.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\AlertNote.png -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\AlertNote.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\AlertSecurity.png -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\AlertSecurity.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\CodeExample.png -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\CodeExample.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\favicon.ico -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privClass.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privClass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privDelegate.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privDelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privEnumeration.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privEnumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privEvent.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privEvent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privExtension.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privExtension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privField.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privField.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privInterface.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privInterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privMethod.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privMethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privProperty.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privProperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\privStructure.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\privStructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protClass.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protClass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protDelegate.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protDelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protEnumeration.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protEnumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protEvent.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protEvent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protExtension.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protExtension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protField.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protField.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protInterface.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protInterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protMethod.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protMethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protOperator.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protOperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protProperty.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protProperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\protStructure.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\protStructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubClass.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubClass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubDelegate.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubDelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubEnumeration.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubEnumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubEvent.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubEvent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubExtension.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubExtension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubField.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubField.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubInterface.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubInterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubMethod.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubMethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubOperator.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubOperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubProperty.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubProperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\pubStructure.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\pubStructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\SectionCollapsed.png -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\SectionCollapsed.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\SectionExpanded.png -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\SectionExpanded.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\icons\Static.gif -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\icons\Static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\scripts\branding.js -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\scripts\branding.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-cs-CZ.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-cs-CZ.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-de-DE.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-de-DE.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-en-US.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-en-US.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-es-ES.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-es-ES.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-fr-FR.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-fr-FR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-Help1.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-Help1.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-HelpViewer.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-HelpViewer.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-it-IT.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-it-IT.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-ja-JP.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-ja-JP.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-ko-KR.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-ko-KR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-pl-PL.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-pl-PL.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-pt-BR.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-pt-BR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-ru-RU.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-ru-RU.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-tr-TR.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-tr-TR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-Website.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-Website.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-zh-CN.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-zh-TW.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding.css
+    Last step completed in 00:00:00.1509
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Generating HTML Help 1 project file...
+    Last step completed in 00:00:00.0091
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Compiling HTML Help 1 file...
+[C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe - Build1xHelpFile.proj]
+  Microsoft HTML Help Compiler 4.74.8702
+  
+  
+  
+  Compiling c:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.chm
+  
+  
+  
+  
+  
+  Compile time: 0 minutes, 3 seconds
+  
+  853	Topics
+  
+  28,734	Local links
+  
+  0	Internet links
+  
+  0	Graphics
+  
+  
+  
+  
+  
+  Created c:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.chm, 971,133 bytes
+  
+  Compression decreased file by 6,960,368 bytes.
+  
+    Last step completed in 00:00:04.2923
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.2617
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 08.07.2025 16:47:28.  Total time: 00:00:12.2501
+
+</buildStep>
+</shfbBuild>

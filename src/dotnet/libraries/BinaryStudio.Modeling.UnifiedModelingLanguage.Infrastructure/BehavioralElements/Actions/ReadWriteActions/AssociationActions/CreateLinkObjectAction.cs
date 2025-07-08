@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface CreateLinkObjectAction : CreateLinkAction
+    public abstract class CreateLinkObjectAction : CreateLinkAction
         {
         OutputPin result { get; }
         }

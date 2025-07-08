@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface LoopAction : Action
+    public abstract class LoopAction : Action
         {
         Clause clause { get; }
 

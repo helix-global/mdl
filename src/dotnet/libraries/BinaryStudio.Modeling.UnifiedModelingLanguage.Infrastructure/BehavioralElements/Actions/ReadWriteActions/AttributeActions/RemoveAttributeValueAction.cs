@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface RemoveAttributeValueAction : WriteAttributeAction
+    public abstract class RemoveAttributeValueAction : WriteAttributeAction
         {
         }
     }

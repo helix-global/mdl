@@ -2,7 +2,7 @@ using System;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface Action : ModelElement
+    public abstract class Action : ModelElement
         {
         ControlFlow[] antecedent { get; }
         InputPin[] availableInput { get; }

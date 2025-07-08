@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface LinkAction : PrimitiveAction
+    public abstract class LinkAction : PrimitiveAction
         {
         LinkEndData[] endData { get; }
         }

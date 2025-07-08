@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ReadVariableAction : VariableAction
+    public abstract class ReadVariableAction : VariableAction
         {
         OutputPin result { get; }
         }

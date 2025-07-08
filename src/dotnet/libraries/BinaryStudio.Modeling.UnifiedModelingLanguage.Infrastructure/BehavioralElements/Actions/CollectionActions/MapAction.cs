@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface MapAction : CollectionAction
+    public abstract class MapAction : CollectionAction
         {
         OutputPin[] result { get; }
         InputPin[] argument { get; }

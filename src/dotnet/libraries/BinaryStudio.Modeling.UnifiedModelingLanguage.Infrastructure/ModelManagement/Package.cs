@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface Package : GeneralizableElement,Namespace
+    public abstract class Package : Namespace,GeneralizableElement
         {
         ElementImport[] elementImport { get; }
         }

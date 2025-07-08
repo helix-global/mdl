@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ReadLinkAction : LinkAction
+    public abstract class ReadLinkAction : LinkAction
         {
         OutputPin result { get; }
         }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ReadAttributeAction : AttributeAction
+    public abstract class ReadAttributeAction : AttributeAction
         {
         OutputPin result { get; }
         }

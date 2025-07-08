@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ReadLinkObjectEndAction : PrimitiveAction
+    public abstract class ReadLinkObjectEndAction : PrimitiveAction
         {
         OutputPin result { get; }
         InputPin @object { get; }

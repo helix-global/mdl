@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface CreateObjectAction : PrimitiveAction
+    public abstract class CreateObjectAction : PrimitiveAction
         {
         Classifier classifier { get; }
         OutputPin result { get; }

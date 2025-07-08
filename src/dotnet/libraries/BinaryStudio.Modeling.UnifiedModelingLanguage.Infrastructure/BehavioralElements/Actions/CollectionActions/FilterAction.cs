@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface FilterAction : CollectionAction
+    public abstract class FilterAction : CollectionAction
         {
         InputPin[] argument { get; }
         OutputPin[] subinput { get; }

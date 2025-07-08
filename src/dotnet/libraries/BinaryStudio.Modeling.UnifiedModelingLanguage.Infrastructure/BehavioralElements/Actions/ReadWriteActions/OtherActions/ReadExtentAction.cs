@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ReadExtentAction : PrimitiveAction
+    public abstract class ReadExtentAction : PrimitiveAction
         {
         OutputPin result { get; }
         Classifier classifier { get; }

@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface Pin : ModelElement
+    public abstract class Pin : ModelElement
         {
         Multiplicity multiplicity { get; }
         OrderingKind ordering { get; }

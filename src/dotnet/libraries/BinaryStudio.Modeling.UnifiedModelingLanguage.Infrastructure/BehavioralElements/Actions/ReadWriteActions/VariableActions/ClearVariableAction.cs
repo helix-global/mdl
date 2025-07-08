@@ -1,6 +1,6 @@
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
-    public interface ClearVariableAction : VariableAction
+    public abstract class ClearVariableAction : VariableAction
         {
         }
     }
