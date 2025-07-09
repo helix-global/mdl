@@ -10,7 +10,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
         String body { get; }
         Expression expression { get; }
         Boolean isList { get; }
-        Name language { get; }
+        String language { get; }
         Message[] message { get; }
         Method method { get; }
         InputPin[] result { get; }

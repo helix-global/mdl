@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2025.3.22.0" projectFile="C:\TFS\mdl\src\help\infra.shfbproj" started="08.07.2025 16:47:16">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2023.3.4.0" projectFile="C:\TFS\mdl\src\help\infra.shfbproj" started="09.07.2025 19:48:48">
 <buildStep step="Initializing">
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
 Locating components in the following folder(s):
@@ -11,8 +11,8 @@ Using presentation style &#39;VS2013&#39; located in &#39;C:\Program Files (x86)
 Searching for HTML Help 1 compiler...
 Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
 Loading and initializing plug-ins...
-Lightweight Website Style Version 2025.3.22.0
-Copyright &#169; 2006-2025, Eric Woodruff, All Rights Reserved
+Lightweight Website Style Version 2023.3.4.0
+Copyright &#169; 2006-2023, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
 </buildStep>
 <buildStep step="ValidatingDocumentationSources">
@@ -25,78 +25,78 @@ Copying XML comments files
     C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml -&gt; C:\TFS\mdl\src\help\Help\Working\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml
 </buildStep>
 <buildStep step="GenerateSharedContent">
-Generating shared content files (en-US, English (United States))...
+Generating shared content files (en-US, Английский (США))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00.0032
+</plugIn>    Last step completed in 00:00:00,0035
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00,0010
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
-[C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe - GenerateRefInfo-ef0d1cf5-9333-4e73-a5c5-eac3a39bb7b7.proj]
-Build started 08.07.2025 16:47:16.
-Project &quot;C:\TFS\mdl\src\help\Help\Working\GenerateRefInfo-ef0d1cf5-9333-4e73-a5c5-eac3a39bb7b7.proj&quot; on node 1 (default targets).
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo-132f9719-814b-47f0-b49c-ae31db555d06.proj]
+‘Ў&#174;аЄ&#160; &#173;&#160;з&#160;в&#160; 09.07.2025 19:48:49.
+Џа&#174;ҐЄв &quot;C:\TFS\mdl\src\help\Help\Working\GenerateRefInfo-132f9719-814b-47f0-b49c-ae31db555d06.proj&quot; ў г&#167;&#171;Ґ 1 (жҐ&#171;ҐўлҐ &#174;ЎкҐЄвл Ї&#174; г&#172;&#174;&#171;з&#160;&#173;Ёо).
 PrepareForBuild:
-  Creating directory &quot;obj\Debug\&quot;.
+  ‘&#174;&#167;&#164;&#160;&#173;ЁҐ Є&#160;в&#160;&#171;&#174;Ј&#160; &quot;obj\Debug\&quot;.
 GenerateBindingRedirects:
-  No suggested binding redirects from ResolveAssemblyReferences.
+  ЌҐв ЇаҐ&#164;&#171;&#160;Ј&#160;Ґ&#172;ле ЇҐаҐ&#173;&#160;Їа&#160;ў&#171;Ґ&#173;Ё&#169; ЇаЁўп&#167;ЄЁ &#174;в ResolveAssemblyReferences.
 GenerateRefInfo:
-  Microsoft.Build (v16.11.2+f3225964253d565862806752e54a7608191a9035)
+  Microsoft.Build (v15.9.21+g9802d43bc3)
   c Microsoft Corporation. All rights reserved.
   No source code context base path specified.  Source context information is unavailable.
   Loaded 1 assemblies for reflection and 1 dependency assemblies.
-  Wrote information on 2 namespaces, 195 types, and 499 members
+  Wrote information on 2 namespaces, 194 types, and 485 members
   Merging duplicate type and member information
   Merged 0 duplicate type(s) and 0 duplicate member(s)
-Done Building Project &quot;C:\TFS\mdl\src\help\Help\Working\GenerateRefInfo-ef0d1cf5-9333-4e73-a5c5-eac3a39bb7b7.proj&quot; (default targets).
-    Last step completed in 00:00:00.7638
+‘Ў&#174;аЄ&#160; Їа&#174;ҐЄв&#160; &quot;C:\TFS\mdl\src\help\Help\Working\GenerateRefInfo-132f9719-814b-47f0-b49c-ae31db555d06.proj&quot; &#167;&#160;ўҐаиҐ&#173;&#160; (жҐ&#171;ҐўлҐ &#174;ЎкҐЄвл Ї&#174; г&#172;&#174;&#171;з&#160;&#173;Ёо).
+    Last step completed in 00:00:00,7288
 </buildStep>
 <buildStep step="ApplyDocumentModel">
 Applying document model to reflection output...
-    Last step completed in 00:00:00.0797
+    Last step completed in 00:00:00,1107
 </buildStep>
 <buildStep step="AddApiTopicFilenames">
 Adding topic filenames to API members...
-    Last step completed in 00:00:00.0279
+    Last step completed in 00:00:00,0358
 </buildStep>
 <buildStep step="GenerateApiTopicManifest">
 Generating API topic manifest...
-    Last step completed in 00:00:00.0200
+    Last step completed in 00:00:00,0281
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0140
+    Last step completed in 00:00:00,0205
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00,0013
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00,0000
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file for API content...
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.0294
+    Last step completed in 00:00:00,0863
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
-    Last step completed in 00:00:00.1421
+    Last step completed in 00:00:00,1554
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00,0030
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\TFS\mdl\src\help\Help\Working\BuildAssembler.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00.0064
+    Last step completed in 00:00:00,0060
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
@@ -268,7 +268,7 @@ SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.deploymentLocation] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.implementation] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.residentElement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Component.resident] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ComponentInstance] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ComponentInstance.nodeInstance] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ComponentInstance.resident] Missing &lt;summary&gt; documentation
@@ -303,7 +303,6 @@ SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DestroyLinkAction] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DestroyObjectAction] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.DestroyObjectAction.input] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Element] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.alias] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.importedElement] Missing &lt;summary&gt; documentation
@@ -311,10 +310,10 @@ SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.package] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementImport.visibility] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership.Element] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership.isSpecification] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementOwnership.visibility] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence.container] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence.resident] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ElementResidence.visibility] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Enumeration] Missing &lt;summary&gt; documentation
@@ -353,12 +352,6 @@ SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Flow] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Flow.source] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Flow.target] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.generalization] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isAbstract] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isLeaf] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isRoot] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.specialization] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization.child] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Generalization.discriminator] Missing &lt;summary&gt; documentation
@@ -478,43 +471,17 @@ SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method.body] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method.procedure] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Method.specification] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.behavior] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.classifierRole] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.clientDependency] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.collaboration] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.collaborationInstanceSet] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.comment] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.constraint] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.defaultedParameter] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.elementImport] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.elementResidence] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.IsSpecification] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.name] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.namespace] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.parameterTemplate] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.partition] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.presentation] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.referenceTag] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.sourceFlow] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.stereotype] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.supplierDependency] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.taggedValue] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.targetFlow] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.templateArgument] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.templateParameter] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.visibility] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.template] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Multiplicity] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Multiplicity.range] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange.lower] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange.multiplicity] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.MultiplicityRange.upper] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Name] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Name.body] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Name.theElement] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Namespace] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Namespace.ownedElement] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Node] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Node.deployedComponent] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.NodeInstance] Missing &lt;summary&gt; documentation
@@ -711,7 +678,6 @@ SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter.defaultElement] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter.parameter] Missing &lt;summary&gt; documentation
-SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TemplateParameter.template] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction.first] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.TestIdentityAction.result] Missing &lt;summary&gt; documentation
@@ -761,21 +727,20 @@ SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedMode
 SHFB: Warning BE0066: ShowMissingComponent: [T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.MultiplicityAttribute] Missing &lt;summary&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [M:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.MultiplicityAttribute.#ctor(System.String)] Missing &lt;param name=&quot;multiplicity&quot;/&gt; documentation
 SHFB: Warning BE0066: ShowMissingComponent: [P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Attributes.MultiplicityAttribute.Multiplicity] Missing &lt;summary&gt; documentation
-Processed 851 topic(s)
-659 warning(s)
-CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 2 of 15.
+Processed 835 topic(s)
+625 warning(s)
+CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 3 of 15.
 CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
-SaveComponent: Waiting for the document writer task to finish (4 Help1 API file(s) remaining)...
-    Last step completed in 00:00:05.9018
+    Last step completed in 00:00:08,3327
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 Processing Help 1 files in C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1
-Processed 851 HTML files.  Sorting keywords and generating See Also indices.
+Processed 835 HTML files.  Sorting keywords and generating See Also indices.
 Saving HTML Help 1 keyword index to C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.hhk
 Saving HTML Help 1 table of contents to C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.hhc
-    Last step completed in 00:00:00.1535
+    Last step completed in 00:00:00,2125
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -838,15 +803,15 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-zh-CN.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding-zh-TW.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\VS2013\styles\branding.css -&gt; C:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\styles\branding.css
-    Last step completed in 00:00:00.1509
+    Last step completed in 00:00:00,1042
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Generating HTML Help 1 project file...
-    Last step completed in 00:00:00.0091
+    Last step completed in 00:00:00,0098
 </buildStep>
 <buildStep step="CompilingHelpFile">
 Compiling HTML Help 1 file...
-[C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe - Build1xHelpFile.proj]
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe - Build1xHelpFile.proj]
   Microsoft HTML Help Compiler 4.74.8702
   
   
@@ -857,11 +822,11 @@ Compiling HTML Help 1 file...
   
   
   
-  Compile time: 0 minutes, 3 seconds
+  Compile time: 0 minutes, 4 seconds
   
-  853	Topics
+  837	Topics
   
-  28,734	Local links
+  21,953	Local links
   
   0	Internet links
   
@@ -871,19 +836,19 @@ Compiling HTML Help 1 file...
   
   
   
-  Created c:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.chm, 971,133 bytes
+  Created c:\TFS\mdl\src\help\Help\Working\Output\HtmlHelp1\Documentation.chm, 1,189,351 bytes
   
-  Compression decreased file by 6,960,368 bytes.
+  Compression decreased file by 6,755,841 bytes.
   
-    Last step completed in 00:00:04.2923
+    Last step completed in 00:00:05,1394
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.2617
+    Last step completed in 00:00:00,2476
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 08.07.2025 16:47:28.  Total time: 00:00:12.2501
+Build completed successfully at 09.07.2025 19:49:04.  Total time: 00:00:15,6407
 
 </buildStep>
 </shfbBuild>

@@ -4,7 +4,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
     {
     public interface Expression
         {
-        Name language { get; }
+        String language { get; }
         String body { get; }
         Procedure procedure { get; }
         }

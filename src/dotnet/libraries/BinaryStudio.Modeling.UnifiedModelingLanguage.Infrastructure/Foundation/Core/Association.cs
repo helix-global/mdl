@@ -37,7 +37,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
         /// <summary>
         /// The name of the Association which, in combination with its associated Classifiers, must be unique within the enclosing namespace (usually a Package).
         /// </summary>
-        Name name { get; }
+        String name { get; }
         AssociationRole[] associationRole { get; }
         /// <summary>
         /// An Association consists of at least two AssociationEnds, each of which represents a connection of the association to a Classifier. Each AssociationEnd specifies a set of properties that must be fulfilled for the relationship to be valid. The bulk of the structure of an Association is defined by its AssociationEnds. The classifiers belonging to the association are related to the AssociationEnds by the participant rolename association.

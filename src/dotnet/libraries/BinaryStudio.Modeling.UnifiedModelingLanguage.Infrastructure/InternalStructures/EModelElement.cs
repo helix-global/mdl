@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
@@ -7,7 +8,7 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         IList<StateMachine> ModelElement.behavior { get; }
         IList<Dependency> ModelElement.clientDependency { get; }
         IList<Constraint> ModelElement.constraint { get; }
-        public Name name { get; }
+        public String name { get;set; }
         public Namespace @namespace { get; }
         IList<PresentationElement> ModelElement.presentation { get; }
         IList<TaggedValue> ModelElement.referenceTag { get; }

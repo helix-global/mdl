@@ -5,11 +5,11 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
     {
     internal class EPackage : ENamespace,Package
         {
-        public Boolean isRoot { get; }
-        public Boolean isLeaf { get; }
-        public Boolean isAbstract { get; }
-        public Generalization[] generalization { get; }
-        public Generalization[] specialization { get; }
+        public Boolean isRoot { get;set; }
+        public Boolean isLeaf { get;set; }
+        public Boolean isAbstract { get;set; }
+        public IList<Generalization> generalization { get; }
+        public IList<Generalization> specialization { get; }
         public IList<ElementImport> elementImport { get; }
         }
     }

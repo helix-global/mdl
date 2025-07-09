@@ -142,6 +142,115 @@
             </p>
             </summary>
         </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Element">
+            <summary>
+            <p>An element is an atomic constituent of a model.</p>
+            <p>In the metamodel, an Element is the top metaclass in the metaclass hierarchy. It has two subclasses: ModelElement and PresentationElement. Element is an abstract metaclass.</p>
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement">
+            <summary>
+            <p>A generalizable element is a model element that may participate in a generalization relationship.</p>
+            <p>In the metamodel, a GeneralizableElement can be a generalization of other GeneralizableElements (i.e., all Features defined in and all ModelElements contained in the ancestors are also present in the GeneralizableElement). GeneralizableElement is an abstract metaclass.</p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isRoot">
+            <summary>
+            Specifies whether the GeneralizableElement is a root GeneralizableElement with no ancestors. True indicates that it may not have ancestors, false indicates that it may have ancestors (whether or not it actually has any ancestors at the moment).
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isLeaf">
+            <summary>
+            Specifies whether the GeneralizableElement is a GeneralizableElement with no descendents. True indicates that it may not have descendents, false indicates that it may have descendents (whether or not it actually has any descendents at the moment).
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.isAbstract">
+            <summary>
+            Specifies whether the GeneralizableElement may not have a direct instance. True indicates that an instance of the GeneralizableElement must be an instance of a child of the GeneralizableElement. False indicates that there may be an instance of the GeneralizableElement that is not an instance of a child. An abstract GeneralizableElement is not instantiable since it does not contain all necessary information. That is, it may not have a direct instance. It may have an indirect instance, and a model at a higher level of abstraction may include instances of an abstract type, with the understanding that in a fully expanded concrete snapshot, such instances would have concrete types that are descendants of the abstract types.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.generalization">
+            <summary>
+            Designates a Generalization whose parent GeneralizableElement is the immediate ancestor of the current GeneralizableElement.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.GeneralizableElement.specialization">
+            <summary>
+            Designates a Generalization whose child GeneralizableElement is the immediate descendent of the current GeneralizableElement.
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement">
+            <summary>
+            <p>A model element is an element that is an abstraction drawn from the system being modeled. Contrast with view element, which is an element whose purpose is to provide a presentation of information for human comprehension.</p>
+            <p>In the metamodel, a ModelElement is a named entity in a Model. It is the base for all modeling metaclasses in the UML (even though it is not displayed explicitly as such on diagrams for ElementOwnership, ElementResidence, ElementImport, TemplateParameter, TemplateArgument, and Argument). All other modeling metaclasses are either direct or indirect subclasses of ModelElement.</p>
+            <p>Each ModelElement can be regarded as a template. A template has a set of templateParameters that denotes which of the parts of a ModelElement are the template parameters. A ModelElement is a template when there is at least one template parameter. If it is not a template, a ModelElement cannot have template parameters. However, such embedded parameters are not usually complete and need not satisfy well-formedness rules. It is the arguments supplied when the template is instantiated that must be well formed.</p>
+            <p>Partially instantiated templates are allowed. This is the case when there are arguments provided for some, but not all templateParameters. A partially instantiated template is still a template, since it still has parameters.</p>
+            </summary>
+            <summary>
+            Any model element may have arbitrary tagged values and constraints (subject to these making sense). A model element may also have one or more stereotypes. In the latter case, the base class of the stereotype must match the metaclass of that model element (such as Class, Association, Dependency) or one of its subclasses. The presence of a stereotype may impose implicit constraints on the modeling element and may require the presence of specific tagged values.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.clientDependency">
+            <summary>
+            Inverse of client. Designates a set of Dependency in which the ModelElement is a client.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.name">
+            <summary>
+            An identifier for the ModelElement within its containing Namespace.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.namespace">
+            <summary>
+            <p>Designates the Namespace that contains the ModelElement.</p>
+            <p>Every ModelElement except a root element must belong to exactly one Namespace or else be a composite part of another ModelElement (which is a kind of virtual namespace). The pathname of Namespace or ModelElement names starting from the root package provides a unique designation for every ModelElement. The association attribute visibility specifies the visibility of the element outside its namespace (see ElementOwnership).</p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.presentation">
+            <summary>
+            A set of PresentationElements that present a view of the ModelElement.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.supplierDependency">
+            <summary>
+            Inverse of supplier. Designates a set of Dependency in which the ModelElement is a supplier.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.templateParameter">
+            <summary>
+            <p>(association class TemplateParameter) A composite aggregation ordered list of parameters. Each parameter is a dummy ModelElement designated as a placeholder for a real ModelElement to be substituted during a binding of the template (see Binding). The real model element must be of the same kind (or a descendant kind) as the dummy ModelElement. The properties of the dummy ModelElement are ignored, except the name of the dummy element is used as the name of the template parameter. The association class TemplateParameter may be associated with a default ModelElement of the same kind as the dummy ModelElement. In the case of a Binding that does not supply an argument corresponding to the parameter, the value of the default ModelElement is used. If a Binding lacks an argument and there is no default ModelElement, the construct is invalid.</p>
+            <p>Note that the template parameter element lacks structure. For example, a parameter that is a Class lacks Features; they are found in the actual argument.</p>
+            <p>Note that if a ModelElement has at least one templateParameter, then it is a template, otherwise it is an ordinary element.</p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.constraint">
+            <summary>
+            A set of Constraints affecting the element.
+            A constraint that must be satisfied by the model element. A model element may have a set of constraints. The constraint is to be evaluated when the system is stable; that is, not in the middle of an atomic operation.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.stereotype">
+            <summary>
+            Designates the stereotypes that further qualify the UML metaclass (the base class or one of its subclasses) of the modeling element. The stereotype does not conflict with or contradict the standard semantics of the metaclass to which it applies, but may specify additional constraints and tag definitions. All constraints and tag definitions on a stereotype apply to the model elements that are branded by the stereotype. The stereotype acts as a virtual metaclass describing the model element.
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.ModelElement.taggedValue">
+            <summary>
+            An arbitrary property attached to the model element based on an associated tag 
+            </summary>
+        </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Namespace">
+            <summary>
+            <p>A namespace is a part of a model that contains a set of ModelElements each of whose names designates a unique element within the namespace.</p>
+            <p>In the metamodel, a Namespace is a ModelElement that can own other ModelElements, like Associations and Classifiers. The name of each owned ModelElement must be unique within the Namespace. Moreover, each contained ModelElement is owned by at most one Namespace. The concrete subclasses of Namespace have additional constraints on which kind of elements may be contained. Namespace is an abstract metaclass.</p>
+            <p>Note that explicit parts of a model element, such as the features of a Classifier, are not modeled as owned elements in a namespace. A namespace is used for unstructured contents such as the contents of a package or a class declared inside the scope of another class.</p>
+            </summary>
+        </member>
+        <member name="P:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Namespace.ownedElement">
+            <summary>
+            (association class ElementOwnership) A set of ModelElements owned by the Namespace. Its visibility attribute states whether the element is visible outside the namespace.
+            </summary>
+        </member>
         <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Model">
             <summary>
             <p>A model captures a view of a physical system. It is an abstraction of the physical system, with a certain purpose. This purpose determines what is to be included in the model and what is irrelevant. Thus the model completely describes those aspects of the physical system that are relevant to the purpose of the model, at the appropriate level of detail.</p>
