@@ -3,6 +3,6 @@
     <TargetFrameworks>net5.0;net45</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BinaryStudio.DirectoryServices\BinaryStudio.DirectoryServices.csproj" />
+    <PackageReference Include="SharpCompress" Version="0.24.0" />
   </ItemGroup>
 </Project>

@@ -18,3 +18,7 @@
 /src/dotnet/libraries/BinaryStudio.Modeling.Petal/obj
 /src/dotnet/libraries/BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure/bin/Debug/net45
 /src/dotnet/libraries/BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure/obj
+/src/dotnet/libraries/BinaryStudio.DirectoryServices/bin/Debug
+/src/dotnet/libraries/BinaryStudio.DirectoryServices/obj
+/src/dotnet/mdl/bin/Debug/net452
+/src/dotnet/mdl/obj

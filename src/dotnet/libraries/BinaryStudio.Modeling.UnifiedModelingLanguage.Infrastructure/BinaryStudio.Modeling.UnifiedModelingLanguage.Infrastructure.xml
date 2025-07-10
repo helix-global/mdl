@@ -271,5 +271,10 @@
             </table>
             </summary>
         </member>
+        <member name="T:BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.Package">
+            <summary>
+            
+            </summary>
+        </member>
     </members>
 </doc>

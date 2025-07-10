@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Text;
+using BinaryStudio.DirectoryServices;
 
 namespace BinaryStudio.Modeling.Petal
     {
@@ -15,27 +18,32 @@ namespace BinaryStudio.Modeling.Petal
             Nodes = new List<PetalNode>();
             }
 
-        #region M:ToString:String
-        /// <summary>Returns a string that represents the current object.</summary>
-        /// <returns>A string that represents the current object.</returns>
-        public override String ToString()
-            {
-            return $"PetalDocument,Count={Nodes.Count}";
-            }
-        #endregion
-
         #region M:ReadFrom(Uri,PetalReaderOptions,{out}PetalDocument):Boolean
         public static Boolean ReadFrom(Uri uri,PetalReaderOptions options,out PetalDocument o) {
+            if (uri == null) { throw new ArgumentNullException(nameof(uri)); }
             o = default;
             switch (uri.Scheme) {
                 case "file":
                     {
-                    using (var reader = new StreamReader(uri.LocalPath,Encoding.UTF8)) {
-                        return ReadFrom(reader,options,out o);
-                        }
+                    if (uri.LocalPath.Contains("*")) { throw new ArgumentOutOfRangeException(nameof(uri)); }
+                    if (uri.LocalPath.Contains("?")) { throw new ArgumentOutOfRangeException(nameof(uri)); }
+                    DirectoryService.GetService(uri,out IFile file);
+                    if (file == null) { throw new FileNotFoundException(); }
+                    return ReadFrom(file,options,out o);
                     }
                 }
             return false;
+            }
+        #endregion
+        #region M:ReadFrom(IFileService,PetalReaderOptions,{out}PetalDocument):Boolean
+        public static Boolean ReadFrom(IFile service,PetalReaderOptions options,out PetalDocument o) {
+            if (service == null) { throw new ArgumentNullException(nameof(service)); }
+            o = default;
+            using (var stream = service.OpenRead()) {
+                using (var reader = new StreamReader(stream,Encoding.UTF8)) {
+                    return ReadFrom(reader,options,out o);
+                    }
+                }
             }
         #endregion
         #region M:ReadFrom(TextReader,PetalReaderOptions,{out}PetalDocument):Boolean
@@ -229,6 +237,14 @@ namespace BinaryStudio.Modeling.Petal
                     }
                 }
             throw new InvalidDataException();
+            }
+        #endregion
+        #region M:ToString:String
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        public override String ToString()
+            {
+            return $"PetalDocument,Count={Nodes.Count}";
             }
         #endregion
 
