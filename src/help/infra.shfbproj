@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- Import the common properties to support NuGet restore -->
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -32,7 +32,8 @@
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.dll" />
-<DocumentationSource sourceFile="..\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="..\dotnet\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure\bin\Debug\net45\BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.xml" />
+    </DocumentationSources>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
