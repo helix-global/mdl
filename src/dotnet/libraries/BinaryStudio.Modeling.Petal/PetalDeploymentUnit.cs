@@ -1,6 +1,6 @@
 ﻿namespace BinaryStudio.Modeling.Petal
     {
-    public class PetalControllableUnit
+    public class PetalDeploymentUnit : PetalControllableUnit
         {
         }
     }
