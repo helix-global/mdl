@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFrameworks>net5.0;net45</TargetFrameworks>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+    <DocumentationFile>C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\BinaryStudio.DirectoryServices\BinaryStudio.DirectoryServices.csproj" />
   </ItemGroup>

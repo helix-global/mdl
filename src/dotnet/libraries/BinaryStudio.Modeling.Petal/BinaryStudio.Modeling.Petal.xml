@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BinaryStudio.Modeling.Petal</name>
+    </assembly>
+    <members>
+        <member name="T:RationalRose.IREICOMApplication">
+            <summary>
+            Use the application class to:
+            <list type="bullet">
+              <item>Create a new model</item>
+              <item>Select an existing model as the current model</item>
+              <item>Determine the characteristics of the Rational Rose application being controlled by your script.</item>
+            </list>
+            Here are a few of the application characteristics you can control with application class properties and methods:
+            <list type="bullet">
+              <item>How (and if) the Rational Rose application appears on the computer screen while the script is running</item>
+              <item>The size and position of the Rational Rose application window</item>
+              <item>Whether to write errors to the error log</item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.Visible">
+            <summary>
+            Controls whether the Rose application is visible on the computer screen.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.Top">
+            <summary>
+            Specifies the distance between the top of the main window and top of the screen.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.Left">
+            <summary>
+            Specifies the distance between the left side of the main window and the left side of the screen.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.Height">
+            <summary>
+            Specifies the height of the main window.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.Width">
+            <summary>
+            Specifies the width of the main window.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.CurrentModel">
+            <summary>
+            Specifies the model that is currently open in Rose.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.PathMap">
+            <summary>
+            Returns the path map defined for the current Rose application.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.Version">
+            <summary>
+            Returns the version of the currently active Rose application.  Corresponds to the information provided when you select About from the Help menu in Rose.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.ProductName">
+            <summary>
+            Returns the product name for the currently active Rose application.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.ApplicationPath">
+            <summary>
+            Specifies the path to the Rose application to execute.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.AddInManager">
+            <summary>
+            Specifies the Rational Rose add-in manager belonging to the currently active Rational Rose executable.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.CommandLine">
+            <summary>
+            This property contains the command line option string that is passed when the Rose executable is run.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMApplication.IsInitialized">
+            <summary>
+            This property indicates whether the specified Rose application is fully initialized.
+            </summary>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.OpenModel(System.String)">
+            <summary>This method opens a Rational Rose model and returns it as a model object.</summary>
+            <param name="ModelName">Name of the model being opened including path.</param>
+            <returns>Contains the model being opened.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.NewModel">
+            <summary>This function creates a new Rational Rose model and returns it as a model object.</summary>
+            <returns>Contains the newly created Rational Rose model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.Exit">
+            <summary>
+            This subroutine exits the Rational Rose application.
+            </summary>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.WriteErrorLog(System.String)">
+            <summary>This subroutine writes an error message to a log window.</summary>
+            <param name="Message">Message text to write to the error log window.</param>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.Save(System.Boolean)">
+            <summary>This subroutine saves the current Rational Rose model.</summary>
+            <param name="SaveUnits">Indicates whether the current model is comprised of controlled units.</param>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.SaveAs(System.String,System.Boolean)">
+            <summary>
+            This subroutine names and saves the current Rational Rose model.
+            </summary>
+            <param name="FileName">Name of the model being saved.</param>
+            <param name="SaveUnits">Indicates whether the current model is comprised of controlled units.</param>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.CompileScriptFile(System.String,System.String,System.Boolean)">
+            <summary>This subroutine compiles the script contained in the specified file.</summary>
+            <param name="FileName">Name of the file that contains the script being compiled; include the .ebs file extension.</param>
+            <param name="BinaryName">Name of the binary file in which to save the compiled script; use the .ebx file extension.</param>
+            <param name="Debug">Set to True to embed the script’s source code in the compiled file. This allows the script debugger to display the source code when it enters external modules.</param>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.OpenModelAsTemplate(System.String)">
+            <summary>This function retrieves an existing model to be used as a template from which to create a new model.</summary>
+            <param name="FileName">Name of the file that contains the model being returned.</param>
+            <returns>Returns the model contained in the specified file.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.GetLicensedApplication(System.String)">
+            <summary>This function retrieves an instance of the licensed application given the application’s licensing key.</summary>
+            <param name="Key">Licensing key for the application being retrieved.</param>
+            <returns>Returns the instance of the licensed application.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.ExecuteScript(System.String)">
+            <summary>This subroutine executes the source or compiled image of a script contained the specified file. You can specify the file without its extension. If the script is currently open in the script editor, Rational Rose will execute the open script. Otherwise, Rational Rose will search for the source script (.ebs) and execute it, if found. If not found, Rational Rose will search for and execute the compiled script (.ebx file).</summary>
+            <param name="FileName">Name of the file that contains the script to execute.</param>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.OpenURL(System.String)">
+            <summary>This function opens a URL, given the URL string.</summary>
+            <param name="URL">URL that contains the external document.</param>
+            <returns>Returns a value of true when the specified URL is successfully opened.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.OpenExternalDocument(System.String)">
+            <summary>This function opens an external document, given a fully qualified name of the file that contains the document.</summary>
+            <param name="FileName">Fully qualified file name or the URL that contains the external document.</param>
+            <returns>Returns a value of true when the specified document is successfully opened.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.GetProfileString(System.String,System.String,System.String)">
+            <summary>This function retrieves a profile string entry in the Rose.ini file, given a section, entry, and default value.</summary>
+            <param name="Section">Name of the Rose.ini file section from which the profile string is being retrieved. For example: [PathMap].</param>
+            <param name="Entry">The name of the Rose.ini file entry whose profile string is being retrieved  For example: $SCRIPT_PATH.</param>
+            <param name="Default">Default value of the entry being retrieved. In the [PathMap] $SCRIPT_PATH example, the default value is the path to the folder that contains the scripts being called by the application.</param>
+            <returns>Returns the profile string that corresponds to the given section, entry, and default value.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.WriteProfileString(System.String,System.String,System.String)">
+            <summary>This function retrieves a profile string entry in the Rose.ini file, given a section, entry, and default value.</summary>
+            <param name="Section">Name of the Rose.ini file section to which the profile string is being written. For example: [PathMap].</param>
+            <param name="Entry">The name of the Rose.ini file entry whose profile string is being written. For example: $SCRIPT_PATH.</param>
+            <param name="Value">Value of the entry being written. In the [PathMap] $SCRIPT_PATH example, the value is the actual path to the folder that contains the scripts being called by the application.</param>
+            <returns>Returns a value of true when the specified ProfileString is successfully written to the Rose.ini file.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.OpenRoseModel(System.String,System.Boolean)">
+            <summary>This method opens a Rational Rose model with or without prompting the user whether or not to open all of its subunits.</summary>
+            <param name="ModelPath">Path and filename of an existing Rational Rose model to be loaded.</param>
+            <param name="PromptSubUnits">
+            Set this argument to TRUE to load the Model and, if it has subunits, display the "Load Subunits" prompt. This gives the user a choice as to whether or not to load the subunits.
+            Set this argument to FALSE to load the model and all of its subunits without prompting the user.
+            </param>
+            <returns>Returns the model contained in the specified path and file.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.GetRoseIniPath">
+            <summary>This method retrieves the path to the Rose.ini file for the current user.</summary>
+            <returns>Returns a string containing the path to and filename of the Rose.ini file for the current user.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.SaveModel(System.Boolean)">
+            <summary>This method saves the currently open model and returns a value to indicate whether the save was successful.</summary>
+            <param name="SaveUnits">Set to Yes to include the model’s controlled units in the save.</param>
+            <returns>Returns a value of 0 if the model was saved with no errors.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.EnableUserEditOfItem(RationalRose.IREICOMItem)">
+            <summary>
+            When you add a model element or relationship to a model through the user interface, the item name defaults to a placeholder and is immediately placed into edit mode so you can start typing a desired name. However, when you add a RoseItem object to a model through a script or add-in, the browser does not display the item name in edit mode. This method allows your script or add-in to place a RoseItem object name in the browser into edit mode. This is helpful if your script or add-in interacts with users in real-time and you want to prompt your users to edit the item name.<br/>
+            Note: Rose Script syntax is slightly different from Rose Automation syntax because the Rose Script implementation of this method needs information about the inheritance hierarchy. Rose Script is expecting only RoseItem objects, not children objects. Therefore, for children objects, such as Class objects, you must use the TypeCast method in your Rose Script syntax of EnableUserEditOfDiagram to convert child objects, such as Class objects, to RoseItem objects.
+            </summary>
+            <param name="Item">RoseItem object whose name is to be made editable.</param>
+            <returns>
+            Returns TRUE if the RoseItem name is in edit mode in the browser.
+            Returns FALSE if the RoseItem name cannot be placed into edit mode in the browser. For example, if the RoseItem does not exist, this method returns FALSE.
+            </returns>
+        </member>
+        <member name="M:RationalRose.IREICOMApplication.EnableUserEditOfDiagram(RationalRose.IREICOMDiagram)">
+            <summary>
+            When you add a diagram to a model through the user interface, the diagram name defaults to a placeholder and is immediately placed into edit mode so you can start typing a desired name. However, when you add a Diagram object to a model through a script or add-in, the browser does not display the diagram name in edit mode. This method allows your script or add-in to place diagram names in the browser into edit mode. This is helpful if your script or add-in interacts with users in real-time and you want to prompt your users to edit the diagram name.<br/>
+            Note: Rose Script syntax is slightly different from Rose Automation syntax because the Rose Script implementation of this method needs information about the inheritance hierarchy. Rose Script is expecting only Diagram objects, not children objects. Therefore, for children objects, such as ClassDiagram objects, you must use the TypeCast method in your Rose Script syntax of EnableUserEditOfDiagram to convert child objects, such as ClassDiagram objects, to Diagram objects.
+            </summary>
+            <param name="Diagram">RoseDiagram object whose name is to be made editable.</param>
+            <returns>Returns TRUE if the RoseDiagram name is in edit mode in the browser.
+            Returns FALSE if the RoseDiagram name cannot be placed into edit mode in the browser. For example, if the RoseDiagram does not exist, this method returns FALSE.
+            </returns>
+        </member>
+        <member name="T:RationalRose.IREICOMLineVertex">
+            <summary>
+            The <see cref="T:RationalRose.IREICOMLineVertex"/> class defines objects that are the points where one line segment of an association or relation view ends and the next line segment begins.
+            </summary>
+        </member>
+        <member name="M:RationalRose.IREICOMLineVertex.GetXPosition">
+            <summary>This method returns the X coordinate of the point where an association or relation view line segment begins or ends.</summary>
+            <returns>X coordinate of the specified <see cref="T:RationalRose.IREICOMLineVertex"/> in Logical Units relative to the upper left hand corner of the image rendered by the Diagram <see cref="M:RationalRose.IREICOMDiagram.RenderToClipboard"/> method.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMLineVertex.GetYPosition">
+            <summary>This method returns the Y coordinate of the point where an association or relation view line segment begins or ends.</summary>
+            <returns>Y coordinate of the specified <see cref="T:RationalRose.IREICOMLineVertex"/> in Logical Units relative to the upper left hand corner of the image rendered by the Diagram <see cref="M:RationalRose.IREICOMDiagram.RenderToClipboard"/> method.</returns>
+        </member>
+        <member name="T:RationalRose.IREICOMObject">
+            <summary>
+            Most elements in a Rose model derive, either directly or indirectly, from the <see cref="T:RationalRose.IREICOMObject"/> class. When you retrieve a model element as an object, you may not know what type of object you have retrieved.<br/>
+            Using RoseObject class methods, you can:
+            <list type="bullet">
+              <item>Retrieve an object as a Rose object</item>
+              <item>Determine the type of the object</item>
+              <item>Convert the object back into its original type</item>
+            </list>
+            Predetermining the type of an object can be particularly useful in avoiding runtime errors in Rose Script.
+            </summary>
+            <remarks>
+            <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAp0AAADZCAIAAADt4Rw6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABhQSURBVHhe7dzNrtQ2G8Dxc3lHLxS4FBazBVpB7+IsuAS+DkfqZjYsu6u6p7u2qlRaFUFpKa/jx06cxOPxOB9jx/+fIk7i2E782OOHOaK9+AIAALaCvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ11GF/X7/DKdTcTMRBFAI8jqqoFKUOcMpiBtQHPI6qkB+SkPcgOKQ11GFyPx0/+mbe09e33tyo/682/x5c/fbm3v6UJdyqDqmdgXI60BxyOuoQmR+uvv49U+//BU+7jy+NrUrQF4HikNeRxUi89NXX7/6+fcP4ePON69M7QqQ14HikNdRhfi8/tuff4cP8jqAnJHXUYX4vP7u/afwMcrr+92F6/LqrbkxxdurS9OfsrP/sZmUtpdCCud57BB5HSgOeR1ViM/r7z/+Gz78eV3S6kwpVv6mYNK3m8sDeX1QGKRbRL0leR0oDnkdVYjN649efvrnc/i4/eilqW04eT0hx46N+ugeMEf3thfyOrBN5HVUITI/3X74/PPn/8LHrYcvTG1j9H29zbvyvVuYQqmhuU00bx+N9gkmI1/aJrqF22DU26Bwt3cu3DoHkNeB4pDXUYX4vH7rwbNbD57/70F3Ioc+VyXPVB1T23Czt5Mo3XQrVXZ7+1NXUHQdaTPI3aG8LjflXJW2DXy9ddV0T5qn6BDyOlAc8jqqEJ/XB/9Kbnz483qTJSVrm3zZZlvN1NnrwoaTml02O7cNtUFeN/fsRf+ny9+bKSOvA9tEXkcVVsnr5lSyaD+hOnW69Lu78iTdYUula9y7ZS+GP/VNy1coZeR1YJvI66hCfF6POUxtw8nZbsp0M6pbpWGrXem/B9gb+yt7oosH6bs7l4u2UltBSga99QvF8HUOI68DxSGvoworfV9vM69cSk4VTi4Wkql7RU6qNf1oXbFbqsiNNq8r3t6cQvNQ24/zQD/yOlAc8jqqsGRePzc3r8+NvA4Uh7yOKkTmp/tP36i0HT5UHVM7E/rr+NFv3mnI60BxyOuowkbzk/19+jJf1hXyOlAc8jqqQH5KQ9yA4pDXUQXyUxriBhSHvI4qkJ/SEDegOOR1VIH8lIa4AcUhr6MK19fXKkXl4Ndff725uTEX2VNxMxEEUAjyOrCqH3/88eXLl8+fZ/YfwQPYCvI6sJ4PHz5899137969e/HixR9//GFKAWA+5HVgPerL+g8//KBOvv/+e76yA1gCeR1YiXxZ//jxozpXf/KVHcASyOvAStov64Kv7ACWQF4H1uB+WRd8ZQewBPI6sIbBl3XBV3YAsyOvA4sbf1kXfGUHMDvyOrA475d1wVd2APMirwOLU5nb/P/bfMjrAGZEXgfWpnK5OQOAuZHXgbWR1wEsh7wOrI28DmA55HVgbeR1AMshrwNrI68DWA55HVgbeR3AcsjrwNrI6wCWQ14H1kZeB7Ac8jqwNvI6gOWQ14G1kdcBLIe8DqyNvA5gOeR1YG3kdQDLIa8DayOvA1gOeR1YG3kdwHLI68DayOsAlkNeB9ZGXgewHPI6sDbyOoDlkNeBtZHXASyHvA6sjbwOYDnkdWBt5HUAyyGvA2sjrwNYDnkdWBt5HcByyOvA2sjrAJZDXgfWRl4HsBzyeor9fq+2ZgDYMLXRmS0PRSGvp1Ar3pxVLPMg5Px6la+fOodf4qgrX6jlIq+nYLkrmQch59erfP3UOfwSR135Qi0XeT0Fy13JPAg5v17l66fO4Zc46soXarnI6ylY7krmQcj59SpfP3UOv8RRV75Qy0VeT8FyVzIPQs6vV/n6qXP4JY668oVaLvJ6Cpa7knkQcn69ytdPncMvcdSVL9RykddTsNyVzIOQ8+tVvn7qHH6Jo658oZaLvJ6C5a5kHoScX6/y9VPn8EscdeULtVzk9RQsdyXzIOT8epWvnzqHX+KoK1+o5SKvp2C5K5kHIefXq3z91Dn8Ekdd+UItF3k9BctdyTwIOb9e5eunzuGXOOrKF2q5yOspWO5K5kHI+fUqXz91Dr/EUVe+UMtFXk/BclcyD0LOr1f5+qlz+CWOuvKFWi7yegqWu5J5EHJ+vcrXT53DL3HUlS/UcpHXU7DclcyDkPPrVb5+6hx+iaOufKGWi7yeguWuZB6EnF+v8vVT5/BLHHXlC7Vc5PUULHcl8yDk/HqVr586h1/iqCtfqOUir6dguSuZByHn16t8/dQ5/BJHXflCLRd5PQXLXck8CDm/XuXrp87hlzjqyhdqucjrKVjuSuZByPn1Kl8/dQ6/xFFXvlDLRV5PwXJXMg9Czq9X+fqpc/gljrryhVou8noKlruSeRByfr3K10+dwy9x1JUv1HKR11Ow3JXMg5Dz61W+fuocfomjrnyhlou8noLlrmQehJxfr/L1U+fwSxx15Qu1XOT1FCx3JfMg5Px6la+fOodf4qgrX6jlWjyv7/d7tThQCjVfZuaOUZXNmQ/zHoikumvOgohhcaZPusK81yCwVKZbPK+rAZgzlCB+vsI1mfdABCKDQwyLM33SFea9BovOMnkdPXPtPsx7IAKRwSGGxZk+6QrzXoNFZzmXvH7/6Zt7T17fe3Kj/rzb/Hlz99ube/pQl3KoOqY2FjPX7sO8ByIQGZyYanxwsjJ90hXmvQbx6yHBhfm5mMi3v/v49U+//BU+7jy+NrWxmLl2H+Y9EIHI4MRU44OTlemTrjDvNYhfDwlyyetfff3q598/hI8737wytbGYuXYf5j0QgcjgxFTjg5OV6ZOuMO81iF8PCTLK67/9+Xf4YJmuYK7dh3kPRCAyODHV+OBkZfqkK8x7DeLXQ4KM8vq795/Ch3+Z7ncXnd2C/+lAiH2Jy6u3psRfNoHubqa+AubafZac996UNzF5e3WpTs41+QcEIhAZnJhq8wTQlK+lm6/+m2Q3hyebPunKYvPej/cK8z7pgzlYG/O8rryR0b6Y9z2lcLEoxa+HBBnl9fcf/w0f42U6iPzbq6tTV5DuIWXq+g3bJdh15SmaRPdn+0p+7aPm2n2WnPdeKBqyDlbJCfGRD0QgMjgx1eYJ4AFLLbNuvnpvIh+ZBZ43yUlBmD7pylLzLvG1H5P91fKBnvTBdNaG9DN5ZfQC4L6b9z1Pf3ndYoalMl02ef3Ry0//fA4ftx+9NLXF6XEfkS4S1sugoSzBS2dWmxJdMH01CmeVp7/2cXPtPgvOey8U2gwrIdIJkQ9EIDI4MdXmCaDfYsusm6/Bm6w3kdFOC8L0SVcWmvczBHfSI8c73rR3H/XRPWCe0EgvMyyV6XLJ67cfPv/8+b/wcevhC1NbC82FnjFDapiY60zbUKVSZPTWjyYl0pN7vtuPG+o7u6um3Km62zV/mp6VUee+tzJtTYXuvD0bPX3Q7bDPy92u133YXLvPcvPeD5AmQ3YnWjNVYgJyvNWBBXNYIAKRwYmpNksA9bUpkHPfIj8WJVXkCZoiXQrdTqo1N/1vYqbFbeebqWEH7fnwNVaacWX6pCtLzbuN53Ag41D0Cw9OhydiXXGnKXYb64e4bc389OZht3em1hY1t5Xxm7jPdJto3j4a7RPknrNgmhZug1Fvg0L/5yUofj0kyCiv33rw7NaD5/970J3Ioc9VyTNVx9TW3LD3uDdkBahzKXTma3hqG8qFZ005d4cNpbpTxVw7vfg7d7rpTt1W3fmoL6eZFJsa+2GfOhROk6C5dp/l5t0MtNVOrj3pRaONQiAgca2Gp8cEIhAZnJhq8wTQjCu4yJ1bwyjpLto67h3bWJMid76cnkR3pzuz79s2dDt1O2jPnWpy6vTYlUqr4VgCpxGmT7qy2LybwQgJ7dFQGFJyeDq6U6emnNonae3d/r2ueVdDHiOcV2nvK/ZN2jcydB1p0w7KbWcM7slNOVelbQNfb1013ZPmKQqIXw8JMsrrg3/0MT4Gy7QN+0C/3E6EW9qtgt5MyIXLdNLe6Kas19D0qGrr4surK3PZrYIDnUupPKZ9K6eVc+6Wdk/3dKt/ayB9dvX67QPm2n2Wm3fPUGwYPdHoB9kbkKOtpKpTejyMSiACkcGJqTZPAJU2Cl15b7DHo9RWGgatvdBUf1214Zu01/2OTbH8lbV9WsPtwNdYTqXC4L6rqes+Uld1Ss0Tjpo+6cpi827I4NzhuVSpGwnRL7GB9EWsV7N3YR+rDNo2xn3aEtPQTEG/nakjC6Ohb0gdlyoePlBpn9C7Zy/6P13+3kyZec+j4tdDgoLzupnufmiVfsTt1LmlXcPeTPimSpMbjfZmr6Hpse1Q/z6nuWrXzaHO3dL2rZxWzrlb2j3d061T1NXrtw+Ya/dZcN7HQ7FD9kRDORaQo62kqj53OzgiEIHI4MRUmyeAioys0UaiN9jjURpc2qCZjptC+9yu2uBNhoG2HZtq8+b1Xj+KWzp8ke4Vw6ZPurLYvHfCoRgX9ktsa1/EejXthfzUpb62mrnRfCeSaLfv2HWuTvvtnDrmGYr71cZx6Imqce+WvRj+1DctX6GUydscF78eEmSU12MOU9uS6W4Daf49vBvydupGhXLurIthd/bfi9qWTiul11Cu9C2p7end27n3rZxCOdWNeg/sLsbd+pv32x821+6z5LyPhtIOeRwN9+6hgBxrZSro89GzDwpEIDI4MdUGgTp0mNrGeBB2tM5IlV49uRWI0uDSdtV10ka/q+Z5guls1FVTS2rY+g2nWtu9v9B9WL+fuWZcmT7pykLz/vZqZ0cxHN4wFP3Cxig4zU1vxJy+5b46b1uYInXqthXSUDHP7Ro5zQ68iWGr6V+YtjfMoJx3bLj9yLlctJXaClIy6K1fKIavExS/HhKU/H1dMzNimCkzQRfuzMl5O3NteTsbbsOmyNzWd825eUavoW524EHdPA87P/hWbUXzz0raR7R9uU8fdOv0KafSqN/+oLl2nyXn3R2w0v8b9SAaqiQmIMFW5q6cS3lEKAMRiAxOTLU5Amj+vZAekRmejHU42HCUBpdt0Gwn3Wruqg3fpBdU92b7CKfQfY7SfVic15BT6VfXtI9wO5cy78u35V3LkOmTriw073YcwhnNOBT9QhN7t5obmVHEuooyJaqwfbZnDbRMO/sK+tJemA7kcvQmo4J+UTuofhC6YrdUkRvuG3p7cwrNQ20/zgMPil8PCYrP65jXXLsP8x6IQGRwYqrxwcnK9ElXqp13nRZjcuIq3Ly+gPj1kCCXvH7/6Ru1CsOHqmNqYzFz7T7MeyACkcGJqcYHJyvTJ12pdd7199/F8ujJ9Oss97eM+PWQ4ML8XMyib4/ZzbX7MO+BCEQGhxgWZ/qkKxXOu/mVdi7f1e3v05f8S8ais0xeR89cuw/zHohAZHCIYXGmT7rCvNdg0Vkmr6Nnrt2HeQ9EIDI4xLA40yddYd5rsOgsk9fRM9fuw7wHIhAZHGJYnOmTrjDvNVh0lsnr6Jlr92HeAxGIDA4xLM70SVeY9xosOsuL5/Xr62s1AJRCzZeZuWNUZXPmw7wHIqnumrMgYlic6ZOuMO81CCyV6RbP69gqtTTNGU5E6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXkdSRin0pG6CrEpGM15HUkYp9KRugqxKRjNeR1JGKfSkboKsSkYzXk9TPb7/fqA494KmImdqcgzvHSIiyIc9GmTD3yQV4/M/VZMmeIkxYx4hxvSqyIc9GYvm0gr58ZH6RTpUWMOMebEiviXDSmbxvI62cW+UG6//TNvSev7z25UX/ebf68ufvtzT19qEs5VB1Te9PSth7iHG/K5h7TliBna8rUIx8X5ifOJPKDdPfx659++St83Hl8bWpvWtrWQ5zjTdncY9oS5GxNmXrkg7x+ZpEfpK++fvXz7x/Cx51vXpnam5a29RDneFM295i2BDlbU6Ye+SCvn1l8vvntz7/DB3k9gDjHm7K5x7QlyNmaMvXIB3n9zOLzzbv3n8LHaCvc7y4uLi6v3prLL1/eXl0OSo4YNTi5h/mlbT2Lx7kzV3RMt/7uZCJ2/f8qqSscTf0ppmzuMW2rCbJ9Z7eOrywfU6Ye+SCvn1l8vnn/8d/wEZvXB/tUkLRo+xhcHqXrz7yDpW09K8X51AAF2ATg7807lV3haOpPMWVzj2lbTZA9vYcfeHZTph75IK+fWWy+efTy0z+fw8ftRy9NbePovhOhv4ee2OOMG3AnbetZK87eVJBCd7rbHQr41JQTMmVzj2lbTZClwqWqb2s1JbogeXKWNWXqkQ/y+plFfpBuP3z++fN/4ePWwxemtjHad9otSU5kg2nYrUvKNdvO3dv6HY4ru91e7nbt7UEFTZXo7swtOR9soV5pW89KcXajpciohCkcRW0cxoZuqZo4fStOXU336SscvdJ4rg+bsrnHtK0myNL/VXNPqklB7+8RusjQZYGuDNPU+55uaa+e+VReNSWHTZl65IO8fmbx+ebWg2e3Hjz/34PuRA59rkqeqTqmtuHsO0I+4erzbz7qzjaiTvWZVHdbto3GpcPKUtVsMErXd3vVb2L7dm4dlbb1LB5nwxmEHVxzLlV2e/tTV1A8MdHl+kJXc4qdDuW0OfcWjlvpc+c0ZMrmHtO2miCbB+iSpsBcO+067SP8XVmDaoNX0mdSv3tId/u4KVOPfJDXzyw+3wz+YdH48G+F7q7g2xSkljo3H3+H2QlsZf3TdOev7HbbkOuIJor7nkFpW88qcZZQ9sZrg2Hq7Nsg6Bv+mNg5cTR99jq0F97C3tS7NaRfU/ugKZt7TNtqgqzP1Im+e3l1ZS6ddprzIqrU39WwmozR3LFN5KerqeB2eMyUqUc+yOtntkq+sdpPuG/vOPzx13fk9+q2N3/lYalcmzahJg3fk33Stp6V4uxsxP3xOnWcIetf0R6IST/U6qrXob3wFnoeJzWc1wuYsrnHtK0myPqsOdG39W/Cve16pb6uxtUCed0UtvylflOmHvkgr59ZfL6JOUxtw9k/RPsJdz/qdu8wJ7b+/qprKNWdm7bVoPJoB+m9gaeJbdC+Q4S0rWetOMuI9MUoyHboiq2mv8L1Y+J2obXXTpSkrDn3FrrPk1LnNcz5YVM295i2g2AeOkxtw42gE6HR6Lq4tdXOFmR95raSC6ddd9q+gK8rTzV7q+tcnUuhdK1aH/hUBkyZeuSDvH5m8flm8IVmfPi3wo7z93nf3jFsYXeHhil3i3yVxzuI2XJsy14T8w/r9C1TL2bzSdt6Fo+zjY0ZiVy649VjGxWMwzgOhZQ097q68s+gBn12hbpM3kFaS3dS1enaa8rmHtO2miDrMykcVTBDMS9iu1Wl3q7G1ezNhvOeTqmp1nv0MVOmHvkgr5/Zkvlmm9K2HuIcb8rmHtOWIM9MZ27zF4Vppkw98kFeP7PID9L9p2/UThc+VB1Te9PSth7iHG/K5h7TliDPSr6Pz5LWJ0098nFhfuJM+CCdKi1ixDnelFgR57WMf+E+A6ZvG8jrZ8YH6VRpESPO8abEijgXjenbBvL6mfFBOlVaxIhzvCmxIs5FY/q2gbx+ZnyQTpUWMeIcb0qsiHPRmL5tIK+f2fX1tfosIZ6KmIndKYhzvLQIC+JctClTj3yQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsB3kdAIDtIK8DALAd5HUAALaDvA4AwHaQ1wEA2A7yOgAA20FeBwBgO8jrAABsxZcv/wdr9QZWfnWNLgAAAABJRU5ErkJggg=="/>
+            </remarks>
+        </member>
+        <member name="M:RationalRose.IREICOMObject.IdentifyClass">
+            <summary>This function identifies the class of a Rose object.</summary>
+            <returns>Returns the RoseObject’s class name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMObject.IsClass(System.String)">
+            <summary>This function determines whether an object is a specified class.</summary>
+            <param name="theClassName">Name of the class for which the <see cref="T:RationalRose.IREICOMObject"/> is being checked.</param>
+            <returns>Returns a value of <see langword="true"/> if its class matches the specified class name.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Read">
+            <summary>Reads the next character from the text reader and advances the character position by one character.</summary>
+            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextReader"/> is closed.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <returns>The next character from the text reader, or -1 if no more characters are available. The default implementation returns -1.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Peek">
+            <summary>Reads the next character without changing the state of the reader or the character source. Returns the next available character without actually reading it from the reader.</summary>
+            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextReader"/> is closed.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <returns>An integer representing the next character to be read, or -1 if no more characters are available or the reader does not support seeking.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Dispose(System.Boolean)">
+            <summary>Releases the unmanaged resources used by the <see cref="T:System.IO.TextReader"/> and optionally releases the managed resources.</summary>
+            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalDocument.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalList.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalLiteral`1.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalLocation.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalObject.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalProperty.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalStringLiteral.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalValue.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+    </members>
+</doc>
