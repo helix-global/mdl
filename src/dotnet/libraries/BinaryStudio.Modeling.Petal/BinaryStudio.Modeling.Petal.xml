@@ -4,6 +4,58 @@
         <name>BinaryStudio.Modeling.Petal</name>
     </assembly>
     <members>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Read">
+            <summary>Reads the next character from the text reader and advances the character position by one character.</summary>
+            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextReader"/> is closed.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <returns>The next character from the text reader, or -1 if no more characters are available. The default implementation returns -1.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Peek">
+            <summary>Reads the next character without changing the state of the reader or the character source. Returns the next available character without actually reading it from the reader.</summary>
+            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextReader"/> is closed.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <returns>An integer representing the next character to be read, or -1 if no more characters are available or the reader does not support seeking.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Dispose(System.Boolean)">
+            <summary>Releases the unmanaged resources used by the <see cref="T:System.IO.TextReader"/> and optionally releases the managed resources.</summary>
+            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalDocument.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalList.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalLiteral`1.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalLocation.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalObject.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalProperty.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalStringLiteral.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="M:BinaryStudio.Modeling.Petal.PetalValue.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
         <member name="T:RationalRose.IREICOMApplication">
             <summary>
             Use the application class to:
@@ -233,58 +285,6 @@
             <summary>This function determines whether an object is a specified class.</summary>
             <param name="theClassName">Name of the class for which the <see cref="T:RationalRose.IREICOMObject"/> is being checked.</param>
             <returns>Returns a value of <see langword="true"/> if its class matches the specified class name.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Read">
-            <summary>Reads the next character from the text reader and advances the character position by one character.</summary>
-            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextReader"/> is closed.</exception>
-            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
-            <returns>The next character from the text reader, or -1 if no more characters are available. The default implementation returns -1.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Peek">
-            <summary>Reads the next character without changing the state of the reader or the character source. Returns the next available character without actually reading it from the reader.</summary>
-            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextReader"/> is closed.</exception>
-            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
-            <returns>An integer representing the next character to be read, or -1 if no more characters are available or the reader does not support seeking.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.LocalReader.Dispose(System.Boolean)">
-            <summary>Releases the unmanaged resources used by the <see cref="T:System.IO.TextReader"/> and optionally releases the managed resources.</summary>
-            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalDocument.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalList.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalLiteral`1.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalLocation.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalObject.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalProperty.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalStringLiteral.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
-        </member>
-        <member name="M:BinaryStudio.Modeling.Petal.PetalValue.ToString">
-            <summary>Returns a string that represents the current object.</summary>
-            <returns>A string that represents the current object.</returns>
         </member>
     </members>
 </doc>

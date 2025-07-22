@@ -22,3 +22,4 @@
 /src/dotnet/libraries/BinaryStudio.DirectoryServices/obj
 /src/dotnet/mdl/bin/Debug/net452
 /src/dotnet/mdl/obj
+*.md~
