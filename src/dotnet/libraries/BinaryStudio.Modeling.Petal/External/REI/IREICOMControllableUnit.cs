@@ -17,6 +17,9 @@ namespace RationalRose
         [MethodImpl(MethodImplOptions.PreserveSig | MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         Boolean IsControlled();
 
+        /// <summary>This method associates a controllable unit with a filename, so that it can be passed to a configuration management application.</summary>
+        /// <param name="Path">Fully qualified path and file name that contain the unit.</param>
+        /// <returns>Returns a value of True when the unit is successfully controlled.</returns>
         [DispId(12434)]
         [MethodImpl(MethodImplOptions.PreserveSig | MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         Boolean Control([MarshalAs(UnmanagedType.BStr)] String Path);
