@@ -1,11 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net5.0;net45</TargetFrameworks>
+    <NoWarn>1701;1702;CS1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
     <DocumentationFile>C:\TFS\mdl\src\dotnet\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.xml</DocumentationFile>
     <WarningsAsErrors>;NU1605;</WarningsAsErrors>
-    <NoWarn>1701;1702;CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+    <DefineConstants>$(DefineConstants);UseWPF</DefineConstants>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\BinaryStudio.DirectoryServices\BinaryStudio.DirectoryServices.csproj" />

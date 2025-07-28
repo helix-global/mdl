@@ -33,6 +33,8 @@ namespace mdl
             //PetalDocument.ReadFrom(new Uri($@"file://{System.IO.Path.Combine(RootPath,@"mdl\docs\org.eclipse.emf.ecore.source_2.36.0.v20240203-0859.jar\model\Ecore.mdl")}"),null,out var o);
             //PetalModel.ReadFrom(o,out var r);
             var o = REIModel.ReadFrom(System.IO.Path.Combine(RootPath,@"mdl\docs\atl30.mdl"));
+            ItemsHost.ItemsSource = new[] { o };
+            return;
             }
         }
     }

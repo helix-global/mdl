@@ -4,10 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mdl"
+        xmlns:u="http://schemas.helix.global"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Loaded="OnLoad">
   <Grid>
-
+    <Grid.Resources>
+      <HierarchicalDataTemplate DataType="{x:Type u:REIModel}" ItemsSource="{Binding NestedUnits,Mode=OneWay}">
+        <TextBlock Text="{Binding Name,Mode=OneWay}"/>
+      </HierarchicalDataTemplate>
+    </Grid.Resources>
+    <TreeView x:Name="ItemsHost">
+      <!--<TreeView.Resources>
+        <HierarchicalDataTemplate DataType="u:REIModel" ItemsSource="{Binding NestedUnits,Mode=OneWay}">
+          <TextBlock Text="{Binding Name,Mode=OneWay}"/>
+        </HierarchicalDataTemplate>
+      </TreeView.Resources>-->
+    </TreeView>
   </Grid>
 </Window>

@@ -1,14 +1,15 @@
-﻿using RationalRose;
+﻿using System;
+using RationalRose;
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REIPackage : REIControllableUnit
+    public class REIPackage<T> : REIControllableUnit<T>
+        where T: IREICOMPackage
         {
-        internal REIPackage(IREICOMPackage source)
+        public Boolean IsRootPackage { get { return Source.IsRootPackage(); }}
+        internal REIPackage(T source)
+            :base(source)
             {
-            this.source = source;
             }
-
-        private readonly IREICOMPackage source;
         }
     }

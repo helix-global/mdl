@@ -82,7 +82,12 @@
 	quid       	"38AC7CFD02F0"
 	exportControl 	"Public"
 	global     	TRUE
-	logical_models 	(list unit_reference_list)
+	logical_models 	(list unit_reference_list
+	    (object Class_Category "NewPackage1"
+		quid       	"6887B77B0218"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
 		quid       	"38AC7CFF008F"
@@ -20088,7 +20093,11 @@
 		class      	"Logical View::ATL 3.0::COM SDK Base Classes::IUnknown"
 		quidu      	"38B47F3B01F6"
 		class      	"Logical View::ATL 3.0::COM SDK Base Classes::ISupportErrorInfo"
-		quidu      	"38BAC2E801CD"))
+		quidu      	"38BAC2E801CD")
+	    (object SubSystem "NewPackage2"
+		quid       	"6887B78002DD"
+		physical_models 	(list unit_reference_list)
+		physical_presentations 	(list unit_reference_list)))
 	physical_presentations 	(list unit_reference_list
 	    (object Module_Diagram "Main"
 		quid       	"38AC7CFF008E"

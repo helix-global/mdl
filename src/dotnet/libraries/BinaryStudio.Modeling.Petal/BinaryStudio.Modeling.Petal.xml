@@ -4,6 +4,10 @@
         <name>BinaryStudio.Modeling.Petal</name>
     </assembly>
     <members>
+        <member name="M:BinaryStudio.Modeling.Petal.External.REIElement`1.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
         <member name="M:BinaryStudio.Modeling.Petal.PetalTokenReader.ToString">
             <summary>Returns a string that represents the current object.</summary>
             <returns>A string that represents the current object.</returns>
@@ -249,6 +253,228 @@
             Returns FALSE if the RoseDiagram name cannot be placed into edit mode in the browser. For example, if the RoseDiagram does not exist, this method returns FALSE.
             </returns>
         </member>
+        <member name="T:RationalRose.IREICOMControllableUnit">
+            <summary>
+            The <see cref="T:RationalRose.IREICOMControllableUnit"/> class is an abstract class that exposes Rose’s controllable unit functionality in the extensibility interface.<br/>
+            For example, you can:
+            <list type="bullet">
+              <item>Load and unload units.</item>
+              <item>Determine whether a unit is modifiable or has been modified.</item>
+              <item>Determine whether or not a unit is controlled.</item>
+              <item>Get the file name associated with a unit.</item>
+              <item>Save a unit to a file.</item>
+            </list><br/>
+            </summary>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.IsControlled">
+            <summary>This function checks whether a given controllable unit has an associated file.</summary>
+            <returns>Returns a value of True if the given controllable unit has an associated file.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Control(System.String)">
+            <summary>This method associates a controllable unit with a filename, so that it can be passed to a configuration management application.</summary>
+            <param name="Path">Fully qualified path and file name that contain the unit.</param>
+            <returns>Returns a value of True when the unit is successfully controlled.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.IsLoaded">
+            <summary>This function checks whether a given controllable unit is loaded in the current model.</summary>
+            <returns>Returns a value of True if the given controllable unit is loaded in the current model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Load">
+            <summary>This function loads a controllable unit in the current model.</summary>
+            <returns>Returns a value of True when the controllable unit is loaded in the current model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.IsModifiable">
+            <summary>This function checks whether a given controllable unit is flagged as modifiable.</summary>
+            <returns>Returns a value of True if the unit is flagged as modifiable.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Unload">
+            <summary>This function unloads a controllable unit from the current model.</summary>
+            <returns>Returns a value of True when the controllable unit is unloaded from the current model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Modifiable(System.Boolean)">
+            <summary>
+            This function sets a controllable unit as modifiable or not modifiable:
+            <list type="bullet">
+              <item>If you pass a parameter of True on this method, the controllable unit will be modifiable.</item>
+              <item>If you pass a parameter of False on this method, the controllable unit will not be modifiable.</item>
+            </list>
+            </summary>
+            <param name="Modifiable">If True, controllable unit is modifiable; if False, controllable unit is not modifiable.</param>
+            <returns>Returns a value of True when the controllable unit’s modifiable status has been successfully set.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.GetFileName">
+            <summary>This function retrieves the name of the file that contains the controllable unit.</summary>
+            <returns>Returns the name of the file that contains the controllable unit.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Save">
+            <summary>This function saves a controllable unit.</summary>
+            <returns>Returns a value of True when the controllable unit is successfully saved.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.SaveAs(System.String)">
+            <summary>This function saves a controllable unit to a different file.</summary>
+            <param name="Path">Fully qualified path and file name in which to save the controllable unit.</param>
+            <returns>Returns a value of True when the controllable unit is successfully saved.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.IsModified">
+            <summary>This function checks whether a given controllable unit has been modified since the last time it was checked out of source control.</summary>
+            <returns>Returns a value of True if the unit has been modified since the last time it was checked out of source control.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Uncontrol">
+            <summary>This function uncontrols a controllable unit.</summary>
+            <returns>Returns a value of True when the controllable unit is uncontrolled.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Refresh">
+            <summary>This method updates a loaded controllable unit. Use Refresh to update a controllable unit that has changed since it was loaded. To determine whether or not a loaded controllable unit needs updating, use the NeedsRefreshing method.</summary>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.GetSubUnitItems">
+            <summary>This method retrieves the immediate subunits of the specified controllable unit. This method is not recursive. If the subunits of the specified controllable unit have subunits, GetSubUnitItems does not include those subunits in the returned collection. </summary>
+            <returns>Returns the collection of controllable units that are immediate subunits of the specified controllable unit.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.IsLocked">
+            <summary>This method checks whether or not a given controllable unit is locked by another process.</summary>
+            <returns>
+            Returns a value of True if the controllable unit is locked and is therefore in use by another process and cannot be modified.<br/>
+            Returns a value of False if the controllable unit is locked by the calling process which can, therefore, modify the controllable unit.
+            </returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.NeedsRefreshing">
+            <summary>This method checks whether or not the specified controllable unit needs to be updated. That is, this method checks whether or not the controllable unit has changed since it was loaded. After determining that the controllable unit needs to be updated, use the Refresh method to update the controllable unit.</summary>
+            <returns>Returns a value of True when the controllable unit has changed and needs to be updated.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.GetAllSubUnitItems">
+            <summary>This method recursively retrieves all subunits of the specified controllable unit. It retrieves the immediate subunits of the specified controllable unit plus all subunits of the immediate subunits and so on.</summary>
+            <returns>Recursively returns the collection of controllable units that are subunits of the specified controllable unit.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Lock">
+            <summary>This method attempts to lock a controllable unit. For the lock to be successful, the controllable unit must not be locked by another process. To determine whether or not the controllable unit is locked by another process, use IsLocked.</summary>
+        </member>
+        <member name="M:RationalRose.IREICOMControllableUnit.Unlock">
+            <summary>This method attempts to unlock a controllable unit. For the unlock to be successful, the calling process must own the lock on the controllable unit. To determine whether or not the controllable unit is locked by another process, use IsLocked.</summary>
+        </member>
+        <member name="P:RationalRose.IREICOMElement.Name">
+            <summary>
+            Name of a model element.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMElement.Application">
+            <summary>Name of a model element.</summary>
+        </member>
+        <member name="P:RationalRose.IREICOMElement.Model">
+            <summary>Name of a model element.</summary>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetUniqueID">
+            <summary>This function retrieves the unique ID for a model element. Each element in a model has a unique ID, which is set internally. You cannot set this value, but you can retrieve it.</summary>
+            <returns>Returns the string value of the element’s unique ID.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetCurrentPropertySetName(System.String)">
+            <summary>This function returns the name of the currently active property set given the element and a tool name.</summary>
+            <param name="ToolName">Name of the tool to which the property set belongs.</param>
+            <returns>Returns the name of the currently active property set.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.OverrideProperty(System.String,System.String,System.String)">
+            <summary>This function overrides the default value of a element’s property. If the given property does not exist in the default set, a new string type property is created for this element only.</summary>
+            <param name="ToolName">Name of the tool to which the property applies.</param>
+            <param name="PropName">Name of the property whose default value is being overridden.</param>
+            <param name="Value">Value being set in place of the default value.</param>
+            <returns>Returns a value of True when the property value is successfully overridden.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.InheritProperty(System.String,System.String)">
+            <summary>This function removes the overridden value from an element’s property so that the default value is used . If there is no default value, then a call to the GetPropertyValue method on the inherited property returns an empty string.</summary>
+            <param name="ToolName">Name of the tool to which the property applies.</param>
+            <param name="PropName">Name of the property whose value is being inherited.</param>
+            <returns>Returns a value of True when the property is returned to its inherited (default) value.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetPropertyValue(System.String,System.String)">
+            <summary>This function retrieves the current value of a property of an element, given a property and tool name.</summary>
+            <param name="ToolName">Name of the tool for which a property value is being retrieved.</param>
+            <param name="PropName">Name of the property whose value is being retrieved.</param>
+            <returns>Returns the current value for the given tool and property.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetDefaultPropertyValue(System.String,System.String)">
+            <summary>This function retrieves the default property value given a tool name and property name.</summary>
+            <param name="ToolName">Name of the tool to which the property applies.</param>
+            <param name="PropName">Name of the property being retrieved.</param>
+            <returns>Returns the default property value for the specified tool name and property name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.FindProperty(System.String,System.String)">
+            <summary>Returns the default property given its name and associated tool name.</summary>
+            <param name="ToolName">Name of the tool to which the overridden or default property applies.</param>
+            <param name="PropName">Name of the overridden or default property being retrieved.</param>
+            <returns>Returns the overridden or default property given its name and its associated tool name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetAllProperties">
+            <summary>This function returns the collection of properties belonging to the specified element.</summary>
+            <returns>Returns the collection of properties belonging to the specified element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetToolProperties(System.String)">
+            <summary>This function retrieves the properties for the given element and tool name.</summary>
+            <param name="ToolName">Name of the tool for which a properties value is being retrieved.</param>
+            <returns>Returns the collection of properties defined for the specified tool name and element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.IsOverriddenProperty(System.String,System.String)">
+            <summary>This function indicates whether the default value of a property is currently overridden by a different value.</summary>
+            <param name="ToolName">Tool name to which the property applies.</param>
+            <param name="PropName">Name of the property whose overridden status is being checked.</param>
+            <returns>Returns a value of True if the default value of a property is currently overridden.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.IsDefaultProperty(System.String,System.String)">
+            <summary>This function indicates whether the current value of a property is set to its default value.</summary>
+            <param name="ToolName">Tool name to which the property applies.</param>
+            <param name="PropName">Name of the property whose default status is being checked.</param>
+            <returns>Returns a value of True if the current value of the property is set to its default value.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.FindDefaultProperty(System.String,System.String)">
+            <summary>This method returns the default property, regardless of whether or not it has been overridden. To retrieve the overridden property, use FindProperty.</summary>
+            <param name="ToolName">Name of the tool to which the default property applies.</param>
+            <param name="PropName">Name of the default property being retrieved.</param>
+            <returns>Returns the default property given its name and associated tool name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.CreateProperty(System.String,System.String,System.String,System.String)">
+            <summary>This function creates a new property for a given model element and tool.</summary>
+            <param name="ToolName">Name of the tool to which the property applies.</param>
+            <param name="PropName">Name of the property being created.</param>
+            <param name="Value">Default value of the new property.</param>
+            <param name="Type">Property type of the property.</param>
+            <returns>Returns a value of True when the property is created for the element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetPropertyClassName">
+            <summary>This function retrieves the class name of a given element.</summary>
+            <returns>Returns the class name for the given element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetDefaultSetNames(System.String)">
+            <summary>This function retrieves the names of the default property sets defined for the specified element and tool.</summary>
+            <param name="ToolName">Name of the tool whose default set names are being retrieved.</param>
+            <returns>Returns the names of the default property sets defined for the given element and tool name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetToolNames">
+            <summary>This function retrieves the names of the tools defined for the specified element.</summary>
+            <returns>Returns the names of the tools for the given element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.SetCurrentPropertySetName(System.String,System.String)">
+            <summary>This function specifies a given property set as the current property set for the element.</summary>
+            <param name="ToolName">Name of the tool to which the property set applies.</param>
+            <param name="SetName">Name of the property set to become the current set.</param>
+            <returns>Returns a value of True when the given property set is set to the current property set for the element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetQualifiedName">
+            <summary>
+            This function retrieves the qualified name of a model element.<br/>
+            The qualified name includes the names of the packages to which the element belongs. This allows the name to resolve to a specific class, since Rational Rose allows multiple classes of the same name to exist in a model, as long as they are in different packages.
+            </summary>
+            <returns>Returns the qualified name of the element.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.RenderIconToClipboard">
+            <summary>This method renders the browser icon of the specified element to the Clipboard.</summary>
+            <returns>
+            Returns the outcome of the rendering.<br/>
+            If the icon is successfully rendered to the clipboard, this value is TRUE.<br/>
+            If the icon is not successfully rendered to the clipboard, this value is FALSE.
+            </returns>
+        </member>
+        <member name="M:RationalRose.IREICOMElement.GetIconIndex">
+            <summary>This method retrieves the index of the bitmap, in Rose’s predefined set of browser icons, for the specified element.</summary>
+            <returns>Index of the specified element’s browser icon.</returns>
+        </member>
         <member name="T:RationalRose.IREICOMLineVertex">
             <summary>
             The <see cref="T:RationalRose.IREICOMLineVertex"/> class defines objects that are the points where one line segment of an association or relation view ends and the next line segment begins.
@@ -261,6 +487,209 @@
         <member name="M:RationalRose.IREICOMLineVertex.GetYPosition">
             <summary>This method returns the Y coordinate of the point where an association or relation view line segment begins or ends.</summary>
             <returns>Y coordinate of the specified <see cref="T:RationalRose.IREICOMLineVertex"/> in Logical Units relative to the upper left hand corner of the image rendered by the Diagram <see cref="M:RationalRose.IREICOMDiagram.RenderToClipboard"/> method.</returns>
+        </member>
+        <member name="T:RationalRose.IREICOMModel">
+            <summary>
+            Once you use the application class methods to set the current model, the model class provides properties and methods that allow you to work with the objects in that model.<br/>
+            For example, you can:
+            <list type="bullet">
+              <item>Add objects (classes, categories, relationships, processors, devices, diagrams, etc.) to the model.</item>
+              <item>Retrieve objects from the model.</item>
+              <item>Delete objects from the model.</item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.RootCategory">
+            <summary>
+            Category named "Top Level" in Rose. RootCategory corresponds to the model’s logical view.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.RootSubsystem">
+            <summary>
+            Subsystem named "Top Level" in Rose. RootSubsystem corresponds to the model’s component view.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.DeploymentDiagram">
+            <summary>
+            Specifies a deployment diagram belonging to the model.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.UseCases">
+            <summary>
+            Specifies the collection that contains the use cases that belong to the model.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.RootUseCaseCategory">
+            <summary>
+            Root category to which the use cases belong. RootUseCaseCategory corresponds to the model’s UseCase view.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.DefaultProperties">
+            <summary>
+            Collection of default properties belonging to the model.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.DeploymentUnit">
+            <summary>
+            This property corresponds to the controllable unit form of the Deployment Diagram. This allows you to control, uncontrol, load, or unload the Deployment Diagram.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.DefaultLanguage">
+            <summary>
+            This property is any valid string to be assigned as the default language to all subsequently created classes and components until the default language is set to something else.
+            </summary>
+        </member>
+        <member name="P:RationalRose.IREICOMModel.Notation">
+            <summary>This property specifies the Notation used by the model (e.g., Booch).</summary>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.AddProcessor(System.String)">
+            <summary>This function creates a new processor and adds it to a model.</summary>
+            <param name="Name">Name of the Processor being added to the model.</param>
+            <returns>Returns the processor being added to the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.DeleteProcessor(RationalRose.IREICOMProcessor)">
+            <summary>This function deletes a processor from a model.</summary>
+            <param name="Processor">Instance of the processor being deleted.</param>
+            <returns>Returns a value of True when the processor is deleted from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.AddDevice(System.String)">
+            <summary>This function creates a new device and adds it to a model.</summary>
+            <param name="Name">Name of the device being added to the model.</param>
+            <returns>Returns the newly created device.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.DeleteDevice(RationalRose.IREICOMDevice)">
+            <summary>This function deletes a device from a model.</summary>
+            <param name="Device">Instance of the device being deleted.</param>
+            <returns>Returns a value of True when the device is deleted.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedClasses">
+            <summary>This function returns all classes selected in the current model.</summary>
+            <returns>Returns the collection of classes currently selected in the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedCategories">
+            <summary>This function returns all categories selected in the current model.</summary>
+            <returns>Returns the collection of categories currently selected in the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedModules">
+            <summary>This function returns all modules selected in the current model.</summary>
+            <returns>Contains the collection of modules currently selected in the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedSubsystems">
+            <summary>This function returns all subsystems selected in the current model.</summary>
+            <returns>Returns the collection of subsystems currently selected in the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllClasses">
+            <summary>This method returns all classes belonging to all categories in the model.</summary>
+            <returns>Returns the collection of classes retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllCategories">
+            <summary>This function returns all categories belonging to the model.</summary>
+            <returns>Returns the collection of categories retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllModules">
+            <summary>This function returns all modules belonging to the model.</summary>
+            <returns>Returns the collection of modules retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllSubsystems">
+            <summary>This function returns all subsystems belonging to the model.</summary>
+            <returns>Returns the collection of subsystems retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllProcessors">
+            <summary>This function returns all processors belonging to the model.</summary>
+            <returns>Returns the collection of processors retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllDevices">
+            <summary>This function returns all devices belonging to the model.</summary>
+            <returns>Returns the collection of devices retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedUseCases">
+            <summary>This function returns all use cases selected in the current model.</summary>
+            <returns>Returns the collection of use cases currently selected in the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllUseCases">
+            <summary>This function returns all use cases belonging to the model.</summary>
+            <returns>Returns the collection of use cases retrieved from the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindItems(System.String)">
+            <summary>This function returns a collection of items belonging to the model.</summary>
+            <param name="ItemName">Name of the item for which to search the model.</param>
+            <returns>Returns a collection of items that match the given item name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindItemWithID(System.String)">
+            <summary>This function returns a specific item given the item’s unique ID.</summary>
+            <param name="UniqueID">UniqueID of the item for which to search.</param>
+            <returns>Returns the item that corresponds to the given UniqueID.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindClasses(System.String)">
+            <summary>This function returns a collection of classes belonging to the model.</summary>
+            <param name="ClassName">Name of the class for which to search the model.</param>
+            <returns>Returns a collection of classes that match the given class name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindClassWithID(System.String)">
+            <summary>This function returns a specific class given the class’s unique ID.</summary>
+            <param name="UniqueID">UniqueID of the Class for which to search.</param>
+            <returns>Returns the Class that corresponds to the given UniqueID.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindCategories(System.String)">
+            <summary>This function returns a collection of categories belonging to the model.</summary>
+            <param name="CategoryName">Name of the category for which to search the model.</param>
+            <returns>Returns a collection of categories that match the given category name.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindCategoryWithID(System.String)">
+            <summary>This function returns a specific category given the category’s unique ID.</summary>
+            <param name="UniqueID">UniqueID of the category for which to search.</param>
+            <returns>Returns the category that corresponds to the given UniqueID.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetActiveDiagram">
+            <summary>This function returns the currently active diagram from the current model. The active diagram is the window in Rose which currently has the focus.</summary>
+            <returns>
+            Returns the currently active Rose diagram from the model.<br/>
+            Returns nothing if a window that is not a diagram, such as a script window or the Browser, has the focus.
+            </returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedItems">
+            <summary>This method returns the collection of all RoseItems selected in the current model. These items may be classes, components, packages, etc. GetSelectedItems returns all selected RoseItem objects regardless of whether they are selected in the browser or the currently active diagram. This method gives you the flexibility to work with different types of selected items (e.g., packages and classes) at the same time. This is instead of having to separate different types of items and then work with each type (e.g., GetSelectedClasses and work with the classes, then GetSelectedCategories and work with the packages).</summary>
+            <returns>Returns the collection of RoseItems currently selected in the model. Please note that the only items returned are those that inherit from RoseItem. For example, External Documents do not inherit from RoseItem and, therefore, are not returned by this method.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.ResolveReferences">
+            <summary>This method fixes unresolved references in the current model provided all the necessary model elements are loaded in the model. This method iterates through all the items in the model and resolves any previously unresolved associations and relations.</summary>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedExternalDocuments">
+            <summary>This method retrieves all external documents selected in the current model.</summary>
+            <returns>Returns the collection of external documents currently selected in the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.FindDiagramWithID(System.String)">
+            <summary>This method retrieves the diagram given its unique internal Rose identification.</summary>
+            <param name="UniqueID">Unique ID of the diagram to retrieve.</param>
+            <returns>Returns the diagram that corresponds to the given unique ID.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.LoadControlledUnits(RationalRose.IREICOMControllableUnitCollection)">
+            <summary>This method loads specified unloaded controlled units into a model.</summary>
+            <param name="ControlledUnits">Collection of controlled units to be loaded.</param>
+            <returns>Returns TRUE if the controlled units are successfully loaded into the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetSelectedDiagrams">
+            <summary>This method returns all diagrams selected in the browser.</summary>
+            <returns>Collection of diagrams currently selected in the browser.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.Import(System.String)">
+            <summary>This method imports packages (REI Category class) and subsystems into the current model.</summary>
+            <param name="Name">Name of the package or subsystem to be imported.</param>
+            <returns>Returns TRUE if the package or subsystem is successfully imported into the model.</returns>
+        </member>
+        <member name="M:RationalRose.IREICOMModel.GetAllClassesEx(System.Boolean,System.Boolean)">
+            <summary>
+            The GetAllClassesEx method gives you more control than the GetAllClasses method. The GetAllClassesEx method allows you to specify which classes are to be returned in the resulting collection. You can retrieve a combination of child and nested classes for a Model object depending on how you set the blnRecursive and blnNested arguments.
+            </summary>
+            <param name="Recursive">
+            Set to TRUE to retrieve all classes in each child package (Category object) of the Use Case and Logical Views in addition to the classes in the Use Case and Logical Views.<br/>
+            Set to FALSE to retrieve only the classes whose context is the Use Case or Logical View.
+            </param>
+            <param name="Nested">
+            Set to TRUE to retrieve all nested classes and all their sub-nested classes.<br/>
+            Set to FALSE to retrieve only the non-nested classes.
+            </param>
+            <returns>The collection of classes retrieved from the model.</returns>
         </member>
         <member name="T:RationalRose.IREICOMObject">
             <summary>
@@ -285,6 +714,16 @@
             <summary>This function determines whether an object is a specified class.</summary>
             <param name="theClassName">Name of the class for which the <see cref="T:RationalRose.IREICOMObject"/> is being checked.</param>
             <returns>Returns a value of <see langword="true"/> if its class matches the specified class name.</returns>
+        </member>
+        <member name="T:RationalRose.IREICOMPackage">
+            <summary>
+            The Package Class is a container for the model elements that correspond to the UML Package concept.<br/>
+            Package class methods allow you to determine whether a package is the root package in a model, as well as to obtain the OLE object associated with the package.
+            </summary>
+        </member>
+        <member name="M:RationalRose.IREICOMPackage.IsRootPackage">
+            <summary>This function finds out if the specified package is the root package (category) of the model.</summary>
+            <returns>Returns a value of True if the package is the root package (category) of the model.</returns>
         </member>
     </members>
 </doc>

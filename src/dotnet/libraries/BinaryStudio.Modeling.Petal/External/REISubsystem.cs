@@ -2,10 +2,10 @@
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REICategory<T> : REIPackage<T>
-        where T: IREICOMCategory
+    public class REISubsystem<T> : REIPackage<T>
+        where T:IREICOMSubsystem
         {
-        internal REICategory(T source)
+        internal REISubsystem(T source)
             : base(source)
             {
             }
