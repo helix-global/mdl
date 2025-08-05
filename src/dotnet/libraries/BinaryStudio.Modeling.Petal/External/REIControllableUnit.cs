@@ -4,12 +4,20 @@ using RationalRose;
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public interface REIControllableUnit
+    public interface IREIControllableUnit : IREIItem
         {
-
+        IList<IREIControllableUnit> NestedUnits { get; }
         }
 
-    public class REIControllableUnit<T> : REIItem<T>,REIControllableUnit
+    public class REIControllableUnit : REIControllableUnit<IREICOMControllableUnit>
+        {
+        internal REIControllableUnit(IREICOMControllableUnit source)
+            : base(source)
+            {
+            }
+        }
+
+    public abstract class REIControllableUnit<T> : REIItem<T>,IREIControllableUnit
         where T: IREICOMControllableUnit
         {
         public String FileName { get { return Source.GetFileName(); }}
@@ -20,17 +28,23 @@ namespace BinaryStudio.Modeling.Petal.External
         public Boolean IsModified   { get { return Source.IsModified();   }}
         public Boolean NeedsRefreshing { get { return Source.NeedsRefreshing(); }}
 
-        internal REIControllableUnit(T source)
+        protected REIControllableUnit(T source)
             :base(source)
             {
             }
 
-        public virtual IList<REIControllableUnit> NestedUnits { get {
+        public virtual IList<IREIControllableUnit> NestedUnits { get {
             var o = Source.GetSubUnitItems().ToArray();
-            var r = new List<REIControllableUnit>();
+            var r = new List<IREIControllableUnit>();
             foreach (var i in o) {
-                r.Add(new REIControllableUnit<IREICOMControllableUnit>(i));
+                r.Add(new REIControllableUnit(i));
                 }
+            return r;
+            }}
+
+        public virtual IList<IREIControllableUnit> PackagedElement { get {
+            var r = new List<IREIControllableUnit>();
+            r.AddRange(NestedUnits);
             return r;
             }}
         }

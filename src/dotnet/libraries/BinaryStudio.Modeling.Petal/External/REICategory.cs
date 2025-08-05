@@ -2,10 +2,18 @@
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REICategory<T> : REIPackage<T>
+    public class REICategory : REICategory<IREICOMCategory>
+        {
+        internal REICategory(IREICOMCategory source)
+            : base(source)
+            {
+            }
+        }
+
+    public abstract class REICategory<T> : REIPackage<T>
         where T: IREICOMCategory
         {
-        internal REICategory(T source)
+        protected REICategory(T source)
             : base(source)
             {
             }

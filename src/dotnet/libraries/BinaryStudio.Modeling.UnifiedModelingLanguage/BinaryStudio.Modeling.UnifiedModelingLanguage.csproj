@@ -5,11 +5,13 @@
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <NoWarn>0618</NoWarn>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\MetadataInterchange\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BinaryStudio.Modeling.MetadataInterchange\BinaryStudio.Modeling.MetadataInterchange.csproj" />
+    <ProjectReference Include="..\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.csproj" />
   </ItemGroup>
 </Project>

@@ -10,8 +10,38 @@
         Loaded="OnLoad">
   <Grid>
     <Grid.Resources>
-      <HierarchicalDataTemplate DataType="{x:Type u:REIModel}" ItemsSource="{Binding NestedUnits,Mode=OneWay}">
-        <TextBlock Text="{Binding Name,Mode=OneWay}"/>
+      <HierarchicalDataTemplate DataType="{x:Type u:EPackage}" ItemsSource="{Binding NestedPackage,Mode=OneWay}">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+          <Rectangle Grid.Column="0" Width="16" Height="12" x:Name="Picture" UseLayoutRounding="True">
+            <Rectangle.Fill>
+              <DrawingBrush>
+                <DrawingBrush.Drawing>
+                  <DrawingGroup>
+                    <DrawingGroup.Children>
+                      <GeometryDrawing Brush="#ffe6e7e8" Geometry="F1 M 16.000,12.000 L 9.000,12.000 L 9.000,2.000 L 16.000,2.000 L 16.000,12.000 Z"/>
+                      <GeometryDrawing Brush="#ffe6e7e8" Geometry="F1 M 9.000,12.000 L 0.000,12.000 L 0.000,0.000 L 9.000,0.000 L 9.000,12.000 Z"/>
+                      <GeometryDrawing Brush="#ffdeefdd" Geometry="F1 M 14.500,10.500 L 1.500,10.500 L 1.500,3.500 L 14.500,3.500 L 14.500,10.500 Z">
+                        <GeometryDrawing.Pen>
+                          <Pen Brush="#ff006738" Thickness="1"/>
+                        </GeometryDrawing.Pen>
+                      </GeometryDrawing>
+                      <GeometryDrawing Brush="#fffffeff" Geometry="F1 M 7.500,3.500 L 1.500,3.500 L 1.500,1.500 L 7.500,1.500 L 7.500,3.500 Z">
+                        <GeometryDrawing.Pen>
+                          <Pen Brush="#ff006738" Thickness="1"/>
+                        </GeometryDrawing.Pen>
+                      </GeometryDrawing>
+                    </DrawingGroup.Children>
+                  </DrawingGroup>
+                </DrawingBrush.Drawing>
+              </DrawingBrush>
+            </Rectangle.Fill>
+          </Rectangle>
+          <TextBlock Grid.Column="1" Margin="5,0,0,0" Text="{Binding Name,Mode=OneWay}"/>
+        </Grid>
       </HierarchicalDataTemplate>
     </Grid.Resources>
     <TreeView x:Name="ItemsHost">

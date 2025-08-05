@@ -2,11 +2,11 @@
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REIItem
+    public interface IREIItem : IREIElement
         {
         }
 
-    public class REIItem<T> : REIElement<T>
+    public class REIItem<T> : REIElement<T>,IREIItem
         where T: IREICOMItem
         {
         public REIItem(T source)

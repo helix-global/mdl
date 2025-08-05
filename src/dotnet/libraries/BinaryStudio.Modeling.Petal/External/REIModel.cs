@@ -4,7 +4,11 @@ using RationalRose;
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REIModel : REIPackage<IREICOMModel>
+    public interface IREIModel : IREIPackage
+        {
+        }
+
+    public class REIModel : REIPackage<IREICOMModel>,IREIModel
         {
         public REINotationTypes Notation { get { return Source.Notation; }}
         private REIModel(IREICOMModel source)
@@ -27,11 +31,11 @@ namespace BinaryStudio.Modeling.Petal.External
             }
         #endregion
 
-        public override IList<REIControllableUnit> NestedUnits { get {
+        public override IList<IREIControllableUnit> NestedUnits { get {
             if (m_units != null) { return m_units; }
-            var r = new List<REIControllableUnit>();
-            r.Add(new REICategory<IREICOMCategory>(Source.RootUseCaseCategory));
-            r.Add(new REICategory<IREICOMCategory>(Source.RootCategory));
+            var r = new List<IREIControllableUnit>();
+            r.Add(new REICategory(Source.RootUseCaseCategory));
+            r.Add(new REICategory(Source.RootCategory));
             r.Add(new REISubsystem<IREICOMSubsystem>(Source.RootSubsystem));
             m_units = r;
             return r;
@@ -42,6 +46,6 @@ namespace BinaryStudio.Modeling.Petal.External
             return "Model";
             }
 
-        private IList<REIControllableUnit> m_units;
+        private IList<IREIControllableUnit> m_units;
         }
     }

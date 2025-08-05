@@ -3,7 +3,12 @@ using RationalRose;
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REIElement<T> : REIObject<T>
+    public interface IREIElement : IREIObject
+        {
+        String Name { get; }
+        }
+
+    public class REIElement<T> : REIObject<T>,IREIElement
         where T: IREICOMElement
         {
         public String Name { get { return Source.Name; }}

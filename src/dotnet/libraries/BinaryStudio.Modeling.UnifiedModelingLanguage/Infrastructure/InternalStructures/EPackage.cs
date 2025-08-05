@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalStructures
     {
@@ -7,18 +8,22 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure.InternalS
         {
         public TemplateSignature OwnedTemplateSignature { get;set; }
         public IList<TemplateBinding> TemplateBinding { get; }
-        public IList<Package> NestedPackage { get; }
         public Package NestingPackage { get;set; }
         public IList<Stereotype> OwnedStereotype { get; }
         public IList<Type> OwnedType { get; }
-        public IList<PackageableElement> PackagedElement { get; }
+        public IList<PackageableElement> PackagedElement { get; } = new List<PackageableElement>();
         public IList<PackageMerge> PackageMerge { get; }
         public IList<ProfileApplication> ProfileApplication { get; }
+        #region P:NestedPackage:IList<Package>
+        public IList<Package> NestedPackage { get {
+            return PackagedElement.OfType<Package>().AsReadOnly();
+            }}
+        #endregion
+
         public String URI { get;set; }
 
         public EPackage()
             {
-            PackagedElement = new List<PackageableElement>();
             }
 
         public Boolean isTemplate()

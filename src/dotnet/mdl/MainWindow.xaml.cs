@@ -13,7 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BinaryStudio.Modeling.Petal;
+using BinaryStudio.Modeling.Petal.Controls.Internal;
 using BinaryStudio.Modeling.Petal.External;
+using BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure;
 
 namespace mdl
     {
@@ -32,7 +34,8 @@ namespace mdl
             {
             //PetalDocument.ReadFrom(new Uri($@"file://{System.IO.Path.Combine(RootPath,@"mdl\docs\org.eclipse.emf.ecore.source_2.36.0.v20240203-0859.jar\model\Ecore.mdl")}"),null,out var o);
             //PetalModel.ReadFrom(o,out var r);
-            var o = REIModel.ReadFrom(System.IO.Path.Combine(RootPath,@"mdl\docs\atl30.mdl"));
+            var o = (new REIModelImport()).ReadFrom(System.IO.Path.Combine(RootPath,@"mdl\docs\atl30.mdl"));
+            //var o = REIModel.ReadFrom(System.IO.Path.Combine(RootPath,@"mdl\docs\atl30.mdl"));
             ItemsHost.ItemsSource = new[] { o };
             return;
             }

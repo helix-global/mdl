@@ -3,7 +3,11 @@ using RationalRose;
 
 namespace BinaryStudio.Modeling.Petal.External
     {
-    public class REIPackage<T> : REIControllableUnit<T>
+    public interface IREIPackage : IREIControllableUnit
+        {
+        }
+
+    public class REIPackage<T> : REIControllableUnit<T>,IREIPackage
         where T: IREICOMPackage
         {
         public Boolean IsRootPackage { get { return Source.IsRootPackage(); }}
