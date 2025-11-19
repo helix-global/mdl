@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
@@ -12,14 +14,20 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         {
         #region P:{Horizontal,Vertical}Offset:Vector
         private static readonly DependencyPropertyKey OffsetPropertyKey = DependencyProperty.RegisterReadOnly(nameof(Offset), typeof(Vector), typeof(XYViewportPanel),new PropertyMetadata(default(Vector), OnOffsetChanged, OnOffsetCoerceValue));
-        private static Object OnOffsetCoerceValue(DependencyObject sender, Object basevalue) {
+        private static Object OnOffsetCoerceValue(DependencyObject sender,Object basevalue) {
             var r = DoubleUtil.Round((Vector)basevalue);
             //if (sender is XYViewportPanel source) {
             //    r.X = source.CanHorizontallyScrollComputed ? r.X : 0.0;
             //    r.Y = source.CanVerticallyScrollComputed   ? r.Y : 0.0;
-            //    if (r.X < 0) { r.X = 0.0; }
-            //    if (r.Y < 0) { r.Y = 0.0; }
             //    }
+            if (r.X < 0) { r.X = 0.0; }
+            if (r.Y < 0) { r.Y = 0.0; }
+            if (sender is IScrollInfo sci) {
+                var Extnt = new Vector(sci.ExtentWidth,sci.ExtentHeight);
+                var Vwprt = new Vector(sci.ViewportWidth,sci.ViewportHeight);
+                if (r.Y > Extnt.Y - Vwprt.Y) { r.Y = Math.Max(Extnt.Y - Vwprt.Y,0); }
+                if (r.X > Extnt.X - Vwprt.X) { r.X = Math.Max(Extnt.X - Vwprt.X,0); }
+                }
             return r;
             }
 
@@ -210,14 +218,14 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         /// <summary>Scrolls left within content by one logical unit.</summary>
         void IScrollInfo.LineLeft()
             {
-            ((IScrollInfo)this).SetVerticalOffset(Math.Round(Offset.Y - 25));
+            ((IScrollInfo)this).SetHorizontalOffset(Math.Round(Offset.X - 25));
             }
         #endregion
         #region M:IScrollInfo.LineRight
         /// <summary>Scrolls right within content by one logical unit.</summary>
         void IScrollInfo.LineRight()
             {
-            ((IScrollInfo)this).SetVerticalOffset(Math.Round(Offset.X + 25));
+            ((IScrollInfo)this).SetHorizontalOffset(Math.Round(Offset.X + 25));
             }
         #endregion
         #endregion
@@ -354,6 +362,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             rc.Union((Point)VisualOffset);
             rc = new Rect(rc.TopLeft, new Size(rc.Width,rc.Height));
             rc = DoubleUtil.Round(rc);
+            rc.Inflate(32,32);
             Extent   = new Vector(rc.Width, rc.Height);
             Viewport = new Vector(availableSize.Width,availableSize.Height);
             return rc.Size;
@@ -437,6 +446,34 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             return m_scrollowner != null;
             }
         #endregion
+        #region M:OnRender(DrawingContext)
+        /// <summary>Draws the content of a <see cref="T:System.Windows.Media.DrawingContext"/> object during the render pass of a <see cref="T:System.Windows.Controls.Panel"/> element.</summary>
+        /// <param name="context">The <see cref="T:System.Windows.Media.DrawingContext"/> object to draw.</param>
+        protected override void OnRender(DrawingContext context) {
+            var offset = this.Offset;
+            base.OnRender(context);
+            context.PushGuidelineSet(new GuidelineSet(
+                new []{0.1, 0.1, 0.5},
+                new []{0.1, 0.1, 0.5}));
+            var pen = new Pen(Clone(Brushes.Gray,0.2), 1.0);
+            var brush = Clone(Brushes.Gray,0.05);
+            context.DrawRectangle(brush, pen, new Rect(new Point(-offset.X - 1,-offset.Y - 1),Extent));
+            context.Pop();
+            context.DrawText(new Point( 5.0-offset.X,Extent.Y-offset.Y-15.0), $"Extent.Y:{{{Extent.Y}}}");
+            var r = new FormattedText($"Extent.X:{{{Extent.X}}}", CultureInfo.CurrentUICulture, FlowDirection.LeftToRight,new Typeface("Segoe UI"),10.0, Brushes.Gray);
+            context.PushTransform(new RotateTransform(-90.0,-offset.X + Extent.X - 15.0,-offset.Y + r.Width + 5.0));
+            context.DrawText(new Point(-offset.X + Extent.X - 15.0,-offset.Y + r.Width + 5.0), r);
+            context.Pop();
+            }
+        #endregion
+
+        private static T Clone<T>(T source, Double opacity)
+            where T: Brush
+            {
+            var r = (T)source.Clone();
+            r.Opacity = opacity;
+            return r;
+            }
 
         private ScrollViewer m_scrollowner;
         }

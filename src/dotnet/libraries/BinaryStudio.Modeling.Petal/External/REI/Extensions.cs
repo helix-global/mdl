@@ -30,6 +30,16 @@ namespace RationalRose
                 }
             }
         #endregion
+        #region M:AsEnumerable({this}IREICOMClassCollection):IEnumerable<IREICOMClass>
+        public static IEnumerable<IREICOMClass> AsEnumerable(this IREICOMClassCollection source) {
+            if (source != null) {
+                var c = source.Count;
+                for (Int16 i = 1; i <= c; i++) {
+                    yield return source.GetAt(i);
+                    }
+                }
+            }
+        #endregion
 
         #region M:ToArray(IREICOMCategoryCollection):IREICOMCategory[]
         public static IREICOMCategory[] ToArray(this IREICOMCategoryCollection source) {

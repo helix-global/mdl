@@ -86,7 +86,31 @@
 	    (object Class_Category "NewPackage1"
 		quid       	"6887B77B0218"
 		exportControl 	"Public"
-		logical_models 	(list unit_reference_list)
+		logical_models 	(list unit_reference_list
+		    (object Class "NewClass1"
+			attributes 	(list Attribute_Set)
+			quid       	"6893A3AE00EA"
+			language   	"Java")
+		    (object Parameterized_Class "NewClass2"
+			attributes 	(list Attribute_Set)
+			quid       	"6893A3B20162"
+			language   	"Java")
+		    (object Instantiated_Class "NewClass3"
+			quid       	"6893A3B60154"
+			language   	"Java")
+		    (object Class_Utility "NewClass4"
+			attributes 	(list Attribute_Set)
+			quid       	"6893A3B90169"
+			language   	"Java")
+		    (object Parameterized_Class_Utility "NewClass5"
+			quid       	"6893A3BC00AC"
+			language   	"Java")
+		    (object Instantiated_Class_Utility "NewClass6"
+			quid       	"6893A3BF03B8"
+			language   	"Java")
+		    (object Metaclass "NewClass7"
+			quid       	"6893A3C300EC"
+			language   	"Java"))
 		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"

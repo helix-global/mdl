@@ -39,6 +39,10 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
         private Package BuildFrom(IREICOMCategory source) {
             if (source == null) { throw new ArgumentNullException(nameof(source)); }
             var r = BuildFrom((IREICOMPackage)source);
+            foreach (var i in source.Classes.AsEnumerable())
+                {
+                r.PackagedElement.Add(BuildFrom(i));
+                }
             return r;
             }
         #endregion
@@ -63,8 +67,23 @@ namespace BinaryStudio.Modeling.UnifiedModelingLanguage.Infrastructure
                 Name = source.Name
                 };
             foreach (var i in source.GetSubUnitItems().AsEnumerable()) {
-                r.PackagedElement.Add(BuildFrom(i));
+                Package o = null;
+                switch (i.IdentifyClass()) {
+                    case "Category" : o = BuildFrom((IREICOMCategory)i);  break;
+                    case "Subsystem": o = BuildFrom((IREICOMSubsystem)i); break;
+                    default: throw new NotSupportedException($"{i.IdentifyClass()}");
+                    }
+                r.PackagedElement.Add(o);
                 }
+            return r;
+            }
+        #endregion
+        #region M:BuildFrom(IREICOMClass):Package
+        private Class BuildFrom(IREICOMClass source) {
+            if (source == null) { throw new ArgumentNullException(nameof(source)); }
+            var r = new EClass {
+                Name = source.Name
+                };
             return r;
             }
         #endregion

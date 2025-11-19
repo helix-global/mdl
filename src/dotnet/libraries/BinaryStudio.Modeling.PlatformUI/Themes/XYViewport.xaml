@@ -17,7 +17,12 @@
             <ScrollViewer Background="Transparent" CanContentScroll="True" Name="ScrollViewer"
                           HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                           AllowDrop="False">
-              <e:XYViewportPanel x:Name="ItemsHost" IsItemsHost="True"/>
+              <e:XYViewportPanel x:Name="ItemsHost" IsItemsHost="True">
+                <e:XYViewportPanel.LayoutTransform>
+                  <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Scale,Mode=OneWay}"
+                                  ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Scale,Mode=OneWay}"/>
+                </e:XYViewportPanel.LayoutTransform>
+              </e:XYViewportPanel>
             </ScrollViewer>
           </Border>
         </ControlTemplate>
@@ -26,7 +31,7 @@
   </Style>
   <Style TargetType="{x:Type e:XYViewportShape}">
     <Setter Property="SnapsToDevicePixels" Value="True"/>
-    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+    <Setter Property="Background"  Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Margin" Value="10"/>
