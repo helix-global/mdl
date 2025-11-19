@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:mdl"
         xmlns:u="http://schemas.helix.global"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="400" Width="400"
         Loaded="OnLoad">
   <Grid>
     <Grid.Resources>
@@ -51,6 +51,11 @@
         </HierarchicalDataTemplate>
       </TreeView.Resources>--><!--
     </TreeView>-->
-    <u:XYViewport Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"></u:XYViewport>
+    <u:XYViewport Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+      <u:XYViewportShape Offset=" 50, 50" Width="50" Height="50"/>
+      <u:XYViewportShape Offset="150,150" Width="50" Height="50"/>
+      <u:XYViewportShape Offset=" 50,550" Width="50" Height="50"/>
+      <u:XYViewportShape Offset="550, 50" Width="50" Height="50"/>
+    </u:XYViewport>
   </Grid>
 </Window>

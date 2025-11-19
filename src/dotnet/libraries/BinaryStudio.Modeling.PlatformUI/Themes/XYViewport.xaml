@@ -15,6 +15,7 @@
                   BorderThickness="{TemplateBinding BorderThickness}"
                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
             <ScrollViewer Background="Transparent" CanContentScroll="True" Name="ScrollViewer"
+                          HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
                           AllowDrop="False">
               <e:XYViewportPanel x:Name="ItemsHost" IsItemsHost="True"/>
             </ScrollViewer>
@@ -23,4 +24,22 @@
       </Setter.Value>
     </Setter>
   </Style>
-</ResourceDictionary>
+  <Style TargetType="{x:Type e:XYViewportShape}">
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Margin" Value="10"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type e:XYViewportShape}">
+          <Border Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+            <ContentPresenter Content="{TemplateBinding Content}"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style></ResourceDictionary>
