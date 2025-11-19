@@ -193,53 +193,61 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
 
         #region M:IScrollInfo.Line{Up,Down,Left,Right}
         #region M:IScrollInfo.LineUp
+        /// <summary>Scrolls up within content by one logical unit. </summary>
         void IScrollInfo.LineUp()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetVerticalOffset(Offset.Y - 25);
             }
         #endregion
         #region M:IScrollInfo.LineDown
+        /// <summary>Scrolls down within content by one logical unit. </summary>
         void IScrollInfo.LineDown()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetVerticalOffset(Math.Round(Offset.Y + 25));
             }
         #endregion
         #region M:IScrollInfo.LineLeft
+        /// <summary>Scrolls left within content by one logical unit.</summary>
         void IScrollInfo.LineLeft()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetVerticalOffset(Math.Round(Offset.Y - 25));
             }
         #endregion
         #region M:IScrollInfo.LineRight
+        /// <summary>Scrolls right within content by one logical unit.</summary>
         void IScrollInfo.LineRight()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetVerticalOffset(Math.Round(Offset.X + 25));
             }
         #endregion
         #endregion
         #region M:IScrollInfo.Page{Up,Down,Left,Right}
         #region M:IScrollInfo.PageUp
+        /// <summary>Scrolls up within content by one page.</summary>
         void IScrollInfo.PageUp()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetVerticalOffset(Offset.Y - Viewport.Y);
             }
         #endregion
         #region M:IScrollInfo.PageDown
+        /// <summary>Scrolls down within content by one page.</summary>
         void IScrollInfo.PageDown()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetVerticalOffset(Offset.Y + Viewport.Y);
             }
         #endregion
         #region M:IScrollInfo.PageLeft
+        /// <summary>Scrolls left within content by one page.</summary>
         void IScrollInfo.PageLeft()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetHorizontalOffset(Offset.X - Viewport.X);
             }
         #endregion
         #region M:IScrollInfo.PageRight
+        /// <summary>Scrolls right within content by one page.</summary>
         void IScrollInfo.PageRight()
             {
-            throw new NotImplementedException();
+            ((IScrollInfo)this).SetHorizontalOffset(Offset.X + Viewport.X);
             }
         #endregion
         #endregion
