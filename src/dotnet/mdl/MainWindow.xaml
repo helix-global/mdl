@@ -10,7 +10,7 @@
         Loaded="OnLoad">
   <Grid>
     <Grid.Resources>
-      <HierarchicalDataTemplate DataType="{x:Type u:EPackage}" ItemsSource="{Binding NestedPackage,Mode=OneWay}">
+      <!--<HierarchicalDataTemplate DataType="{x:Type u:EPackage}" ItemsSource="{Binding NestedPackage,Mode=OneWay}">
         <Grid>
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -42,14 +42,15 @@
           </Rectangle>
           <TextBlock Grid.Column="1" Margin="5,0,0,0" Text="{Binding Name,Mode=OneWay}"/>
         </Grid>
-      </HierarchicalDataTemplate>
+      </HierarchicalDataTemplate>-->
     </Grid.Resources>
-    <TreeView x:Name="ItemsHost">
-      <!--<TreeView.Resources>
+    <!--<TreeView x:Name="ItemsHost">
+      --><!--<TreeView.Resources>
         <HierarchicalDataTemplate DataType="u:REIModel" ItemsSource="{Binding NestedUnits,Mode=OneWay}">
           <TextBlock Text="{Binding Name,Mode=OneWay}"/>
         </HierarchicalDataTemplate>
-      </TreeView.Resources>-->
-    </TreeView>
+      </TreeView.Resources>--><!--
+    </TreeView>-->
+    <u:XYViewport Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"></u:XYViewport>
   </Grid>
 </Window>

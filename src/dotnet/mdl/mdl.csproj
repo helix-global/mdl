@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\libraries\BinaryStudio.Modeling.Petal\BinaryStudio.Modeling.Petal.csproj" />
+    <ProjectReference Include="..\libraries\BinaryStudio.Modeling.PlatformUI\BinaryStudio.Modeling.PlatformUI.csproj" />
     <ProjectReference Include="..\libraries\BinaryStudio.Modeling.UnifiedModelingLanguage\BinaryStudio.Modeling.UnifiedModelingLanguage.csproj" />
   </ItemGroup>
 </Project>

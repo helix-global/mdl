@@ -1,0 +1,8 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:BinaryStudio.Modeling.PlatformUI">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="/BinaryStudio.Modeling.PlatformUI;component/Themes/XYViewport.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
