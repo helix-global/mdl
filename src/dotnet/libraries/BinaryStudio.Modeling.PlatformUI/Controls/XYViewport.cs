@@ -28,7 +28,28 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             }
         #endregion
         #region P:Scale:Double
-        public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(nameof(Scale),typeof(Double),typeof(XYViewport), new PropertyMetadata(1.0));
+        public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(nameof(Scale),typeof(Double),typeof(XYViewport),new PropertyMetadata(1.0,OnScaleChanged,ScaleCoerceValue));
+        private static Object ScaleCoerceValue(DependencyObject sender,Object basevalue) {
+            if (basevalue is Double value) {
+                if (value > 0) {
+                    var o = ((Int32)(value*100))/10;
+                    o = Math.Max(1,o);
+                    o = Math.Min(o,50);
+                    value = ((Double)o)*0.1;
+                    }
+                else
+                    {
+                    value = 0.1;
+                    }
+                return value;
+                }
+            return 1.0;
+            }
+
+        private static void OnScaleChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e)
+            {
+            }
+
         public Double Scale
             {
             get { return (Double)GetValue(ScaleProperty); }
@@ -52,15 +73,14 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         protected override void OnPreviewMouseWheel(MouseWheelEventArgs e) {
             if (e.Delta != 0) {
                 if (Keyboard.IsKeyDown(Key.LeftCtrl)) {
-                    var i = e.Delta > 0 ? 1.1 : 0.9;
-                    Scale = Scale*i;
+                    var i = e.Delta > 0 ? +1 : -1;
+                    var o = ((Int32)(Scale*100))/10;
+                    o = Math.Max(1,o);
+                    o = Math.Min(o,50);
+                    o += i;
+                    Scale = o*0.1;
                     e.Handled = true;
                     ItemsHost?.InvalidateVisual();
-                    //if (ViewportSurface != null)
-                    //    {
-                    //    ViewportSurface.Scale = Scale;
-                    //    }
-                    //ViewportSurface?.InvalidateVisual();
                     return;
                     }
                 }

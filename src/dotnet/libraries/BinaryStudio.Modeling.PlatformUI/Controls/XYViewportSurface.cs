@@ -33,8 +33,16 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         /// <param name="context">The drawing instructions for a specific element. This context is provided to the layout system.</param>
         protected override void OnRender(DrawingContext context) {
             base.OnRender(context);
-            var offset = Offset*Scale;
-            var GridSize = new Size(10*Scale,10*Scale);
+            var scale  = Scale;
+            var offset = Offset*scale;
+            var szG = 10*scale;
+            while (szG < 10) {
+                szG*=2;
+                }
+            while (szG > 10) {
+                szG/=2;
+                }
+            var GridSize = new Size(szG,szG);
             var GridPenXT = new Pen(Brushes.Gray.Clone(0.5),0.125);
             var GridPenYT = new Pen(Brushes.Gray.Clone(0.5),0.125);
             var GridPenXB = new Pen(Brushes.Gray.Clone(),0.25);
@@ -46,21 +54,25 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                     new []{0.1, 0.1, 0.5}));
                 var x = GridSize.Width  - (offset.X % GridSize.Width);
                 var y = GridSize.Height - (offset.Y % GridSize.Height);
+                var xI = 1;
+                var yI = 1;
                 do  {
                     if ((x > 0) && (x < Size.Width)) {
-                        var GridPenX = (((Int32)x % 50)==0)
+                        var GridPenX = (((Int32)xI % 5)==0)
                             ? GridPenXB
                             : GridPenXT;
                         context.DrawLine(GridPenX,new Point(x,0),new Point(x, Size.Height));
                         }
                     if ((y > 0) && (y < Size.Height)) {
-                        var GridPenY = (((Int32)y % 50)==0)
+                        var GridPenY = (((Int32)yI % 5)==0)
                             ? GridPenYB
                             : GridPenYT;
                         context.DrawLine(GridPenY,new Point(0,y),new Point(Size.Width,y));
                         }
                     x += GridSize.Width;
                     y += GridSize.Height;
+                    xI++;
+                    yI++;
                     }
                 while ((x < Size.Width) || (y < Size.Height));
                 context.Pop();
