@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
@@ -55,11 +56,26 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                     Scale = Scale*i;
                     e.Handled = true;
                     ItemsHost?.InvalidateVisual();
+                    //if (ViewportSurface != null)
+                    //    {
+                    //    ViewportSurface.Scale = Scale;
+                    //    }
+                    //ViewportSurface?.InvalidateVisual();
                     return;
                     }
                 }
             base.OnPreviewMouseWheel(e);
             }
         #endregion
+        #region M:OnApplyTemplate
+        /// <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.</summary>
+        public override void OnApplyTemplate() {
+            base.OnApplyTemplate();
+            ViewportSurface = GetTemplateChild("ViewportSurface") as XYViewportSurface;
+            ViewportSurface?.SetBinding(XYViewportSurface.ScaleProperty,this,ScaleProperty,BindingMode.OneWay);
+            }
+        #endregion
+
+        private XYViewportSurface ViewportSurface;
         }
     }

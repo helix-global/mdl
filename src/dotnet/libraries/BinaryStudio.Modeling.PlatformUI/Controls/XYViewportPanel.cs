@@ -362,7 +362,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             rc.Union((Point)VisualOffset);
             rc = new Rect(rc.TopLeft, new Size(rc.Width,rc.Height));
             rc = DoubleUtil.Round(rc);
-            rc.Inflate(32,32);
+            //rc.Inflate(32,32);
             Extent   = new Vector(rc.Width, rc.Height);
             Viewport = new Vector(availableSize.Width,availableSize.Height);
             return rc.Size;
@@ -455,8 +455,8 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             context.PushGuidelineSet(new GuidelineSet(
                 new []{0.1, 0.1, 0.5},
                 new []{0.1, 0.1, 0.5}));
-            var pen = new Pen(Clone(Brushes.Gray,0.2), 1.0);
-            var brush = Clone(Brushes.Gray,0.05);
+            var pen = new Pen(Brushes.Gray.Clone(0.2), 0.5);
+            var brush = Brushes.Gray.Clone(0.05);
             context.DrawRectangle(brush, pen, new Rect(new Point(-offset.X - 1,-offset.Y - 1),Extent));
             context.Pop();
             context.DrawText(new Point( 5.0-offset.X,Extent.Y-offset.Y-15.0), $"Extent.Y:{{{Extent.Y}}}");
@@ -464,16 +464,56 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             context.PushTransform(new RotateTransform(-90.0,-offset.X + Extent.X - 15.0,-offset.Y + r.Width + 5.0));
             context.DrawText(new Point(-offset.X + Extent.X - 15.0,-offset.Y + r.Width + 5.0), r);
             context.Pop();
+            ////if (GridStrokeThickness > 0) {
+            //    var GridSize = new Size(10,10);
+            //    var GridPenX = new Pen(Brushes.Gray.Clone(),1);
+            //    var GridPenY = new Pen(Brushes.Gray.Clone(),1);
+            //    var Size = RenderSize;
+            //    if ((GridSize.Width > 1) || (GridSize.Height > 0)) {
+            //        var x = GridSize.Width  - (Offset.X % GridSize.Width);
+            //        var y = GridSize.Height - (Offset.Y % GridSize.Height);
+            //        //switch (GridStrokeStyle) {
+            //        //    case XYViewportGridStrokeStyle.Line:
+            //                context.PushGuidelineSet(new GuidelineSet(
+            //                    new []{0.1, 0.1, 0.5},
+            //                    new []{0.1, 0.1, 0.5}));
+            //                do  {
+            //                    if ((x > 0) && (x < Size.Width)) {
+            //                        context.DrawLine(GridPenX,new Point(x,0),new Point(x, Size.Height));
+            //                        }
+            //                    if ((y > 0) && (y < Size.Height)) {
+            //                        context.DrawLine(GridPenX,new Point(0,y),new Point(Size.Width,y));
+            //                        }
+            //                    x += GridSize.Width;
+            //                    y += GridSize.Height;
+            //                    }
+            //                while ((x < Size.Width) || (y < Size.Height));
+            //                context.Pop();
+            //                //break;
+            //            //case XYViewportGridStrokeStyle.Dot:
+            //            //    GridPenX.DashStyle = new DashStyle(new []{0.0,GridSize.Height},0);
+            //            //    context.PushGuidelineSet(new GuidelineSet(
+            //            //        new []{0.1, 0.1, 0.5},
+            //            //        new []{0.1, 0.1, 0.5}));
+            //            //    var o = new Vector(x,y);
+            //            //    do  {
+            //            //        if ((x > 0) && (x < Size.Width)) {
+            //            //            context.DrawLine(GridPenX,new Point(x,o.Y),new Point(x, Size.Height));
+            //            //            }
+            //            //        if ((y > 0) && (y < Size.Height)) {
+            //            //            //context.DrawLine(GridPen,new Point(0,y),new Point(Size.Width,y));
+            //            //            }
+            //            //        x += GridSize.Width;
+            //            //        y += GridSize.Height;
+            //            //        }
+            //            //    while ((x < Size.Width) || (y < Size.Height));
+            //            //    context.Pop();
+            //            //    break;
+            //            //}
+            //        }
+            //    //}
             }
         #endregion
-
-        private static T Clone<T>(T source, Double opacity)
-            where T: Brush
-            {
-            var r = (T)source.Clone();
-            r.Opacity = opacity;
-            return r;
-            }
 
         private ScrollViewer m_scrollowner;
         }
