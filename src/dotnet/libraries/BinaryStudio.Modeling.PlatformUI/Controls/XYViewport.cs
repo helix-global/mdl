@@ -1,9 +1,14 @@
-﻿using System;
+﻿using BinaryStudio.Modeling.PlatformUI.Controls.Primitives;
+using System;
+using System.Collections;
+using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
@@ -67,6 +72,39 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             }}
         #endregion
 
+        #region M:OnApplyTemplate
+        /// <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.</summary>
+        public override void OnApplyTemplate() {
+            base.OnApplyTemplate();
+            ViewportSurface = GetTemplateChild("ViewportSurface") as XYViewportSurface;
+            ViewportSurface?.SetBinding(XYViewportSurface.ScaleProperty,this,ScaleProperty,BindingMode.OneWay);
+            }
+        #endregion
+        #region M:OnDraggingScrollHitTest(Object,DraggingScrollHitTestEventArgs)
+        private void OnDraggingScrollHitTest(Object sender, DraggingScrollHitTestEventArgs e)
+            {
+            }
+        #endregion
+        #region M:OnDragCompleted(Object,DragCompletedEventArgs)
+        private void OnDragCompleted(Object sender, DragCompletedEventArgs e) {
+            }
+        #endregion
+        #region M:OnDragDelta(Object,DragDeltaEventArgs)
+        private void OnDragDelta(Object sender, DragDeltaEventArgs e) {
+            }
+        #endregion
+        #region M:OnDragStarted(Object,DragStartedEventArgs)
+        private void OnDragStarted(Object sender, DragStartedEventArgs e) {
+            }
+        #endregion
+        #region M:OnMouseLeftButtonDown(MouseButtonEventArgs)
+        /// <summary>Invoked when an unhandled <see cref="E:System.Windows.UIElement.MouseLeftButtonDown"/> routed event is raised on this element. Implement this method to add class handling for this event.</summary>
+        /// <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> that contains the event data. The event data reports that the left mouse button was pressed.</param>
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+            {
+            base.OnMouseLeftButtonDown(e);
+            }
+        #endregion
         #region M:OnPreviewMouseWheel(MouseWheelEventArgs)
         /// <summary>Invoked when an unhandled <see cref="E:System.Windows.Input.Mouse.PreviewMouseWheel"/> attached event reaches an element in its route that is derived from this class. Implement this method to add class handling for this event.</summary>
         /// <param name="e">The <see cref="T:System.Windows.Input.MouseWheelEventArgs"/> that contains the event data.</param>
@@ -87,15 +125,201 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             base.OnPreviewMouseWheel(e);
             }
         #endregion
-        #region M:OnApplyTemplate
-        /// <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.</summary>
-        public override void OnApplyTemplate() {
-            base.OnApplyTemplate();
-            ViewportSurface = GetTemplateChild("ViewportSurface") as XYViewportSurface;
-            ViewportSurface?.SetBinding(XYViewportSurface.ScaleProperty,this,ScaleProperty,BindingMode.OneWay);
+        #region M:OnSelectionChanged(SelectionChangedEventArgs)
+        /// <summary>Called when the selection changes.</summary>
+        /// <param name="e">The event data.</param>
+        protected override void OnSelectionChanged(SelectionChangedEventArgs e) {
+            base.OnSelectionChanged(e);
+            if (EnsureViewportPanel(out var panel)) {
+                panel.OnSelectionChanged(e,SelectedItems);
+                SelectionGroup = new LocalSelectionGroup(SelectedItems,this);
+                UpdateSizeAdornerPosition();
+                }
+            //EnsureItemsPanel();
+            //if (ItemsPanel != null) {
+            //    ItemsPanel.OnSelectionChanged(e,SelectedItems);
+            //    SelectionGroup = new LocalSelectionGroup(SelectedItems,this);
+            //    UpdateSizeAdornerPosition();
+            //    }
+            }
+        #endregion
+        #region M:EnsureSizeAdorner
+        private void EnsureSizeAdorner() {
+            if ((SizeAdorner == null) && (SelectionGroup != null)) {
+                var layer = AdornerLayer.GetAdornerLayer(this);
+                if (layer != null) {
+                    layer.Add(SizeAdorner = new XYViewportShapeSizeAdorner(this));
+                    SizeAdorner.DragDelta     += OnDragDelta;
+                    SizeAdorner.DragCompleted += OnDragCompleted;
+                    SizeAdorner.DragStarted   += OnDragStarted;
+                    SizeAdorner.DraggingScrollHitTest += OnDraggingScrollHitTest;
+                    }
+                }
+            }
+        #endregion
+        #region M:EnsureViewportPanel({out}XYViewportPanel):Boolean
+        private Boolean EnsureViewportPanel(out XYViewportPanel o) {
+            o = default;
+            if (ViewportPanel == null) { ViewportPanel = ItemsHost as XYViewportPanel; }
+            if (ViewportPanel != null) {
+                //ItemsPanel.LayoutUpdated += OnItemsPanelLayoutUpdated;
+                }
+            o = ViewportPanel;
+            return o != null;
+            }
+        #endregion
+        #region M:UpdateSizeAdornerPosition
+        private void UpdateSizeAdornerPosition() {
+            if (SelectionGroup != null) {
+                EnsureSizeAdorner();
+                if (EnsureViewportPanel(out var panel)) {
+                    SizeAdorner.Visibility = SelectionGroup.Visibility;
+                    if (SizeAdorner.Visibility == Visibility.Visible) {
+                        var α = panel.FromLogical(SelectionGroup.Bound);
+                        var update = new Action(()=>
+                            {
+                            SizeAdorner.Offset = (Vector)α.Location;
+                            SizeAdorner.Size = α.Size;
+                            SizeAdorner.InvalidateArrange();
+                            SizeAdorner.InvalidateVisual();
+                            });
+                        if (!SizeAdorner.IsLoaded) {
+                            SizeAdorner.DoAfterLoaded(update);
+                            }
+                        else
+                            {
+                            update();
+                            }
+                        }
+                    }
+                }
+            }
+        #endregion
+        #region M:{Get,Set}Size
+        internal static Size GetSize(DependencyObject e) {
+            var W = (Double)e.GetValue(WidthProperty);
+            var H = (Double)e.GetValue(HeightProperty);
+            W = Double.IsNaN(W) ? (Double)e.GetValue(ActualWidthProperty) : W;
+            H = Double.IsNaN(H) ? (Double)e.GetValue(ActualHeightProperty): H;
+            return new Size(W,H);
+            }
+
+        internal static void SetSize(DependencyObject e, Size value) {
+            if (value.IsEmpty) {
+                e.SetValue(WidthProperty,Double.NaN);
+                e.SetValue(HeightProperty,Double.NaN);
+                }
+            else
+                {
+                e.SetValue(WidthProperty,value.Height);
+                e.SetValue(HeightProperty,value.Height);
+                }
+            }
+        #endregion
+        #region M:{Get,Set}Bound
+        internal static Rect GetBound(DependencyObject e) {
+            var α = GetOffset(e);
+            var β = GetSize(e);
+            return (!β.IsEmpty)
+                ? new Rect((Point)α,β)
+                : Rect.Empty;
+            }
+
+        internal static void SetBound(DependencyObject e, Rect value) {
+            if (value.IsEmpty) {
+                SetOffset(e,new Vector(0,0));
+                SetSize(e,Size.Empty);
+                }
+            else
+                {
+                SetOffset(e,(Vector)value.TopLeft);
+                SetSize(e,value.Size);
+                }
+            }
+        #endregion
+        #region M:PrepareContainerForItemOverride(DependencyObject,Object)
+        /// <summary>Prepares the specified element to display the specified item.</summary>
+        /// <param name="element">The element that is used to display the specified item.</param>
+        /// <param name="item">The specified item to display.</param>
+        protected override void PrepareContainerForItemOverride(DependencyObject element, Object item) {
+            base.PrepareContainerForItemOverride(element, item);
+            if (element is XYViewportItem container) {
+                container.Owner = this;
+                }
+            }
+        #endregion
+        #region M:SelectItem(DependencyObject)
+        internal void SelectItem(DependencyObject item) {
+            if (!IsUpdatingSelectedItems) {
+                BeginUpdateSelectedItems();
+                SelectedItems.Add(item);
+                EndUpdateSelectedItems();
+                if (EnsureViewportPanel(out var panel))
+                    {
+                    panel.BringTop(item as UIElement);
+                    }
+                }
+            }
+        #endregion
+        #region M:UnselectItem(DependencyObject)
+        internal void UnselectItem(DependencyObject item) {
+            if (!IsUpdatingSelectedItems) {
+                BeginUpdateSelectedItems();
+                SelectedItems.Remove(item);
+                EndUpdateSelectedItems();
+                }
             }
         #endregion
 
+        private class LocalSelectionGroup
+            {
+            private readonly IList items;
+            private readonly XYViewport host;
+
+            public LocalSelectionGroup(IList items,XYViewport host)
+                {
+                this.items = items;
+                this.host = host;
+                }
+
+            public Visibility Visibility { get {
+                return (items.Count == 1)
+                        ? Visibility.Visible
+                        : Visibility.Hidden;
+                }}
+
+            #region P:Bound:Rect
+            public Rect Bound
+                {
+                get
+                    {
+                    var r = Rect.Empty;
+                    foreach (var item in items.OfType<DependencyObject>()) {
+                        r.Union(XYViewport.GetBound(item));
+                        }
+                    return r;
+                    }
+                set
+                    {
+                    var r = Bound;
+                    if (value != r) {
+                        var α = r;
+                        var β = value.Location - α.Location;
+                        foreach (var item in items.OfType<UIElement>()) {
+                            SetOffset(item, GetOffset(item) + β);
+                            item.InvalidateVisual();
+                            }
+                        host.UpdateSizeAdornerPosition();
+                        }
+                    }
+                }
+            #endregion
+
+            }
+
         private XYViewportSurface ViewportSurface;
+        private XYViewportShapeSizeAdorner SizeAdorner;
+        private XYViewportPanel ViewportPanel;
+        private LocalSelectionGroup SelectionGroup;
         }
     }

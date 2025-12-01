@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -434,6 +435,16 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             return finalSize;
             }
         #endregion
+        #region M:EnsureOwner({out}XYViewport):Boolean
+        private Boolean EnsureOwner(out XYViewport o) {
+            o = default;
+            if (m_owner == null) {
+                m_owner = this.Ancestors<XYViewport>().FirstOrDefault();
+                }
+            o = m_owner;
+            return o != null;
+            }
+        #endregion
         #region M:EnsureScrollOwner({out}ScrollViewer):Boolean
         private Boolean EnsureScrollOwner(out ScrollViewer ScrollViewer) {
             ScrollViewer = default;
@@ -444,6 +455,16 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 }
             ScrollViewer = m_scrollowner;
             return m_scrollowner != null;
+            }
+        #endregion
+        #region M:OnMouseLeftButtonDown(MouseButtonEventArgs)
+        /// <summary>Invoked when an unhandled <see cref="E:System.Windows.UIElement.MouseLeftButtonDown"/> routed event is raised on this element. Implement this method to add class handling for this event.</summary>
+        /// <param name="e">The <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> that contains the event data. The event data reports that the left mouse button was pressed.</param>
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e) {
+            base.OnMouseLeftButtonDown(e);
+            if (EnsureOwner(out var owner)) {
+                owner.UnselectAll();
+                }
             }
         #endregion
         #region M:OnRender(DrawingContext)
@@ -514,7 +535,39 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             //    //}
             }
         #endregion
+        #region M:OnSelectionChanged(SelectionChangedEventArgs)
+        /// <summary>Called when the selection changes.</summary>
+        /// <param name="e">The event data.</param>
+        /// <param name="selectedItems">Actual selected items.</param>
+        protected internal virtual void OnSelectionChanged(SelectionChangedEventArgs e,IList selectedItems) {
+            if (e == null) { throw new ArgumentNullException(nameof(e)); }
+            }
+        #endregion
+        #region M:FromLogical(Rect):Rect
+        internal Rect FromLogical(Rect value) {
+            return new Rect(FromLogical(value.TopLeft),value.Size);
+            }
+        #endregion
+        #region M:FromLogical(Point):Point
+        internal Point FromLogical(Point value) {
+            return (Point)FromLogical((Vector)value);
+            }
+        #endregion
+        #region M:FromLogical(Vector):Vector
+        internal Vector FromLogical(Vector value) {
+            return value - Offset;
+            }
+        #endregion
+        #region M:BringTop(UIElement)
+        public void BringTop(UIElement element) {
+            if (element != null) {
+                var n = InternalChildren.OfType<UIElement>().Max(GetZIndex);
+                SetZIndex(element, n + 1);
+                }
+            }
+        #endregion
 
         private ScrollViewer m_scrollowner;
+        private XYViewport m_owner;
         }
     }

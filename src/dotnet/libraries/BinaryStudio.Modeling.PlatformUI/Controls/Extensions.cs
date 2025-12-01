@@ -60,5 +60,17 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             return SetBinding(target,targetProperty,source,sourceProperty,mode,null);
             }
         #endregion
+        #region M:DoAfterLoaded({this}FrameworkElement,Action)
+        public static void DoAfterLoaded(this FrameworkElement source,Action predicate) {
+            if (predicate == null) { throw new ArgumentNullException(nameof(predicate)); }
+            if (source != null) {
+                void Handler(Object sender, RoutedEventArgs e) {
+                    predicate.Invoke();
+                    source.Loaded -= Handler;
+                    }
+                source.Loaded += Handler;
+                }
+            }
+        #endregion
         }
     }

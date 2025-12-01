@@ -3,4 +3,24 @@
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Bottom.cur" />
+    <None Remove="Resources\Left.cur" />
+    <None Remove="Resources\LeftBottom.cur" />
+    <None Remove="Resources\LeftTop.cur" />
+    <None Remove="Resources\Right.cur" />
+    <None Remove="Resources\RightBottom.cur" />
+    <None Remove="Resources\RightTop.cur" />
+    <None Remove="Resources\Top.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bottom.cur" />
+    <Resource Include="Resources\Left.cur" />
+    <Resource Include="Resources\LeftBottom.cur" />
+    <Resource Include="Resources\LeftTop.cur" />
+    <Resource Include="Resources\Right.cur" />
+    <Resource Include="Resources\RightBottom.cur" />
+    <Resource Include="Resources\RightTop.cur" />
+    <Resource Include="Resources\Top.cur" />
+  </ItemGroup>
 </Project>

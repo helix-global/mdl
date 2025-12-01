@@ -5,4 +5,6 @@
   <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="/BinaryStudio.Modeling.PlatformUI;component/Themes/XYViewport.xaml"/>
   </ResourceDictionary.MergedDictionaries>
+
+    
 </ResourceDictionary>
