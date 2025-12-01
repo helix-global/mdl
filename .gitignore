@@ -26,3 +26,4 @@
 /src/dotnet/libraries/BinaryStudio.Modeling.PlatformUI/obj
 /src/dotnet/libraries/BinaryStudio.Modeling.PlatformUI/bin
 *.user
+/.vs/ProjectEvaluation
