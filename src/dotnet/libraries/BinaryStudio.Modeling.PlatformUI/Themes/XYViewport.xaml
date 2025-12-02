@@ -14,19 +14,23 @@
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}"
                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-            <ScrollViewer Background="Transparent" CanContentScroll="True" Name="ScrollViewer"
-                          HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
-                          AllowDrop="False">
-              <Grid>
-                <e:XYViewportSurface Offset="{Binding ElementName=ItemsHost,Path=Offset,Mode=OneWay}" x:Name="ViewportSurface"/>
-                <e:XYViewportPanel x:Name="ItemsHost" IsItemsHost="True">
-                  <e:XYViewportPanel.LayoutTransform>
-                    <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Scale,Mode=OneWay}"
+            <Grid>
+              <ScrollViewer Background="Transparent" CanContentScroll="True" x:Name="ScrollViewer"
+                            HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                            AllowDrop="False">
+                <Grid>
+                  <e:XYViewportSurface Offset="{Binding ElementName=ItemsHost,Path=Offset,Mode=OneWay}" x:Name="ViewportSurface"/>
+                  <e:XYViewportPanel x:Name="ItemsHost" IsItemsHost="True">
+                    <e:XYViewportPanel.LayoutTransform>
+                      <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Scale,Mode=OneWay}"
                                     ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Scale,Mode=OneWay}"/>
-                  </e:XYViewportPanel.LayoutTransform>
-                </e:XYViewportPanel>
-              </Grid>
-            </ScrollViewer>
+                    </e:XYViewportPanel.LayoutTransform>
+                  </e:XYViewportPanel>
+                </Grid>
+              </ScrollViewer>
+              <e:BridgeReference Source="{Binding ElementName=ScrollViewer,Path=HorizontalOffset,Mode=OneWay}" Target="{Binding RelativeSource={RelativeSource TemplatedParent},Path=HorizontalOffset,Mode=OneWayToSource}"/>
+              <e:BridgeReference Source="{Binding ElementName=ScrollViewer,Path=VerticalOffset,Mode=OneWay}" Target="{Binding RelativeSource={RelativeSource TemplatedParent},Path=VerticalOffset,Mode=OneWayToSource}"/>
+            </Grid>
           </Border>
         </ControlTemplate>
       </Setter.Value>
@@ -58,15 +62,15 @@
           <Border Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}">
-            <Grid Margin="-5,-5,-7,-7">
+            <Grid Margin="-7,-7,-9,-9">
               <Grid.Resources>
                 <Style TargetType="{x:Type e:Thumb}">
                   <Setter Property="BorderThickness" Value="0"/>
                   <Setter Property="BorderBrush" Value="{x:Null}"/>
-                  <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+                  <Setter Property="Background"  Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
                   <Setter Property="SnapsToDevicePixels" Value="True"/>
-                  <Setter Property="Width" Value="5"/>
-                  <Setter Property="Height" Value="5"/>
+                  <Setter Property="Width"  Value="7"/>
+                  <Setter Property="Height" Value="7"/>
                   <Setter Property="Template">
                     <Setter.Value>
                       <ControlTemplate TargetType="{x:Type e:Thumb}">
@@ -93,10 +97,9 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
-              <Rectangle Fill="Transparent" Margin="2" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="5"
+              <Rectangle Fill="Transparent" Margin="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="5"
                          Stroke="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"
-                         StrokeThickness="1"
-                         StrokeDashArray="4 1"/>
+                         StrokeThickness="1" StrokeDashArray="4 2"/>
               <e:Thumb Grid.Row="0" Grid.Column="0" Cursor="SizeNWSE" x:Name="ThumbLeftTop"/>
               <e:Thumb Grid.Row="0" Grid.Column="4" Cursor="SizeNESW" x:Name="ThumbRightTop"/>
               <e:Thumb Grid.Row="4" Grid.Column="0" Cursor="SizeNESW" x:Name="ThumbLeftBottom"/>

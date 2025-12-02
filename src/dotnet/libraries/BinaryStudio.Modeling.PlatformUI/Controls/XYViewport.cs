@@ -72,12 +72,43 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             }}
         #endregion
 
+        #region P:VerticalOffset:Double
+        internal static readonly DependencyProperty VerticalOffsetProperty = DependencyProperty.Register(nameof(VerticalOffset),typeof(Double),typeof(XYViewport),new PropertyMetadata(default(Double),OnVerticalOffsetChanged));
+        private static void OnVerticalOffsetChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e) {
+            if (sender is XYViewport source) {
+
+                }
+            }
+        internal Double VerticalOffset
+            {
+            get { return (Double)GetValue(VerticalOffsetProperty); }
+            set { SetValue(VerticalOffsetProperty,value); }
+            }
+        #endregion
+        #region P:HorizontalOffset:Double
+        internal static readonly DependencyProperty HorizontalOffsetProperty = DependencyProperty.Register(nameof(HorizontalOffset),typeof(Double),typeof(XYViewport),new PropertyMetadata(default(Double),OnHorizontalOffsetChanged));
+        private static void OnHorizontalOffsetChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e) {
+            if (sender is XYViewport source) {
+
+                }
+            }
+        internal Double HorizontalOffset
+            {
+            get { return (Double)GetValue(HorizontalOffsetProperty); }
+            set { SetValue(HorizontalOffsetProperty,value); }
+            }
+        #endregion
+
         #region M:OnApplyTemplate
         /// <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.</summary>
         public override void OnApplyTemplate() {
             base.OnApplyTemplate();
             ViewportSurface = GetTemplateChild("ViewportSurface") as XYViewportSurface;
+            ScrollViewer = GetTemplateChild("ScrollViewer") as ScrollViewer;
             ViewportSurface?.SetBinding(XYViewportSurface.ScaleProperty,this,ScaleProperty,BindingMode.OneWay);
+            if (ScrollViewer != null) {
+                ScrollViewer.ScrollChanged += OnScrollChanged;
+                }
             }
         #endregion
         #region M:OnDraggingScrollHitTest(Object,DraggingScrollHitTestEventArgs)
@@ -95,6 +126,12 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         #endregion
         #region M:OnDragStarted(Object,DragStartedEventArgs)
         private void OnDragStarted(Object sender, DragStartedEventArgs e) {
+            }
+        #endregion
+        #region M:OnOffsetChanged(Object,OffsetChangedEventArgs)
+        private void OnOffsetChanged(Object sender,OffsetChangedEventArgs e)
+            {
+            
             }
         #endregion
         #region M:OnMouseLeftButtonDown(MouseButtonEventArgs)
@@ -123,6 +160,12 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                     }
                 }
             base.OnPreviewMouseWheel(e);
+            }
+        #endregion
+        #region M:OnScrollChanged(Object,ScrollChangedEventArgs)
+        private void OnScrollChanged(Object sender,ScrollChangedEventArgs e)
+            {
+            UpdateSizeAdornerPosition();
             }
         #endregion
         #region M:OnSelectionChanged(SelectionChangedEventArgs)
@@ -162,7 +205,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             o = default;
             if (ViewportPanel == null) { ViewportPanel = ItemsHost as XYViewportPanel; }
             if (ViewportPanel != null) {
-                //ItemsPanel.LayoutUpdated += OnItemsPanelLayoutUpdated;
+                ViewportPanel.OffsetChanged += OnOffsetChanged;
                 }
             o = ViewportPanel;
             return o != null;
@@ -175,10 +218,11 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 if (EnsureViewportPanel(out var panel)) {
                     SizeAdorner.Visibility = SelectionGroup.Visibility;
                     if (SizeAdorner.Visibility == Visibility.Visible) {
-                        var α = panel.FromLogical(SelectionGroup.Bound);
+                        var α = panel.FromLogical(SelectionGroup.Bound).Scale(Scale);
+                        var β = (Vector)α.Location-(new Vector(HorizontalOffset,VerticalOffset));
                         var update = new Action(()=>
                             {
-                            SizeAdorner.Offset = (Vector)α.Location;
+                            SizeAdorner.Offset = β;
                             SizeAdorner.Size = α.Size;
                             SizeAdorner.InvalidateArrange();
                             SizeAdorner.InvalidateVisual();
@@ -321,5 +365,6 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         private XYViewportShapeSizeAdorner SizeAdorner;
         private XYViewportPanel ViewportPanel;
         private LocalSelectionGroup SelectionGroup;
+        private ScrollViewer ScrollViewer;
         }
     }

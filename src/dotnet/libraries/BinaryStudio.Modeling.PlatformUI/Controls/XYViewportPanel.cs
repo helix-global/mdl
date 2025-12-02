@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BinaryStudio.Modeling.PlatformUI.Controls.Primitives;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,6 +14,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
     {
     public class XYViewportPanel : Panel,IScrollInfo
         {
+        public OffsetChangedEventHandler OffsetChanged;
         #region P:{Horizontal,Vertical}Offset:Vector
         private static readonly DependencyPropertyKey OffsetPropertyKey = DependencyProperty.RegisterReadOnly(nameof(Offset), typeof(Vector), typeof(XYViewportPanel),new PropertyMetadata(default(Vector), OnOffsetChanged, OnOffsetCoerceValue));
         private static Object OnOffsetCoerceValue(DependencyObject sender,Object basevalue) {
@@ -43,13 +45,14 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 //    source.LinkedScrollInfo.SetVerticalOffset(value.Y);
                 //    }
                 //Debug.Print("OnOffsetChanged:{{{0}}}->{{{1}}}",e.OldValue,e.NewValue);
-                source.OnOffsetChanged();
+                source.OnOffsetChanged(e);
                 }
             }
 
-        protected virtual void OnOffsetChanged() {
+        protected virtual void OnOffsetChanged(DependencyPropertyChangedEventArgs e) {
             InvalidateScrollInfo();
             InvalidateArrange();
+            OffsetChanged?.Invoke(this,new OffsetChangedEventArgs((Vector)e.OldValue,(Vector)e.NewValue));
             }
 
         /// <summary>
