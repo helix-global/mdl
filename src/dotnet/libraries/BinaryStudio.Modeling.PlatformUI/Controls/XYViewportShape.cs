@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using BinaryStudio.Modeling.PlatformUI.Controls.Primitives;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
     {
-    public class XYViewportShape : XYViewportItem
+    public class XYViewportShape : XYViewportObject,IXYViewportBoundObject
         {
         static XYViewportShape()
             {
@@ -37,6 +27,11 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             get { return (Vector)GetValue(OffsetProperty); }
             set { SetValue(OffsetProperty, value); }
             }
+        #endregion
+        #region P:Bound:Rect
+        public Rect Bound { get {
+            return XYViewport.GetBound(this);
+            }}
         #endregion
         }
     }

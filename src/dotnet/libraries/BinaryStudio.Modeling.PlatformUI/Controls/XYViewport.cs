@@ -98,6 +98,55 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             set { SetValue(HorizontalOffsetProperty,value); }
             }
         #endregion
+        #region P:DragBound:Rect
+        internal static readonly DependencyPropertyKey DragBoundPropertyKey = DependencyProperty.RegisterReadOnly(nameof(DragBound),typeof(Rect),typeof(XYViewport),new PropertyMetadata(Rect.Empty,OnDragBoundChanged,DragBoundCoerceValue));
+        internal static readonly DependencyProperty DragBoundProperty = DragBoundPropertyKey.DependencyProperty;
+
+        private static Object DragBoundCoerceValue(DependencyObject sender,Object baseValue) {
+            if (baseValue is Rect r) {
+                if (!r.IsEmpty) {
+                    var α = ((Int32)r.Left*10)/10;
+                    var β = ((Int32)r.Top *10)/10;
+                    α /= 10;
+                    β /= 10;
+                    α *= 10;
+                    β *= 10;
+                    r = new Rect(new Point(α,β),r.Size);
+                    }
+                return r;
+                }
+            return baseValue;
+            }
+
+        private static void OnDragBoundChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e) {
+            if (sender is XYViewport source) {
+                source.OnDragBoundChanged();
+                }
+            }
+
+        private void OnDragBoundChanged() {
+            Debug.Print($"DragBound:{DragBound}");
+            if (EnsureDraggingAdorner(out var adorner)) {
+                if (!DragBound.IsEmpty) {
+                    adorner.Visibility = Visibility.Visible;
+                    var r = DragBound;
+                    adorner.Width  = r.Width;
+                    adorner.Height = r.Height;
+                    adorner.Offset = (Vector)r.Location;
+                    }
+                else
+                    {
+                    adorner.Visibility = Visibility.Hidden;
+                    }
+                }
+            }
+
+        internal Rect DragBound
+            {
+            get { return (Rect)GetValue(DragBoundProperty); }
+            private set { SetValue(DragBoundPropertyKey,value); }
+            }
+        #endregion
 
         #region M:OnApplyTemplate
         /// <summary>When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.</summary>
@@ -117,15 +166,43 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             }
         #endregion
         #region M:OnDragCompleted(Object,DragCompletedEventArgs)
-        private void OnDragCompleted(Object sender, DragCompletedEventArgs e) {
+        private void OnDragCompleted(Object sender,DragCompletedEventArgs e) {
+            if (EnsureDraggingAdorner(out var adorner) &&
+                EnsureViewportPanel(out var panel))
+                {
+                if (SelectionGroup != null) {
+
+                    }
+                DragAdorner.Visibility = Visibility.Hidden;
+                }
             }
         #endregion
         #region M:OnDragDelta(Object,DragDeltaEventArgs)
-        private void OnDragDelta(Object sender, DragDeltaEventArgs e) {
+        private void OnDragDelta(Object sender,DragDeltaEventArgs e) {
+            var r = DragBound;
+            if (r != null) {
+                if (e is DragDeltaDirectedEventArgs E) {
+                    DragBound = new Rect(_dragPT + new Vector(E.HorizontalChange,E.VerticalChange),r.Size);
+                    }
+                }
             }
         #endregion
         #region M:OnDragStarted(Object,DragStartedEventArgs)
         private void OnDragStarted(Object sender, DragStartedEventArgs e) {
+            DragBound = BuildDragBound();
+            _dragPT = DragBound.Location;
+            //if (EnsureViewportPanel(out var panel)) {
+            //    if (EnsureDraggingAdorner(out var adorner)) {
+            //        if (SelectionGroup != null) {
+            //            var α = panel.FromLogical(SelectionGroup.Bound).Scale(Scale);
+            //            var β = (Vector)α.Location-(new Vector(HorizontalOffset,VerticalOffset));
+            //            adorner.Visibility = Visibility.Visible;
+            //            adorner.Width  = α.Width;
+            //            adorner.Height = α.Height;
+            //            adorner.Offset = β;
+            //            }
+            //        }
+            //    }
             }
         #endregion
         #region M:OnOffsetChanged(Object,OffsetChangedEventArgs)
@@ -211,6 +288,25 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             return o != null;
             }
         #endregion
+        #region M:EnsureDraggingAdorner({out}GeometrySelectionAdorner):Boolean
+        private Boolean EnsureDraggingAdorner(out GeometrySelectionAdorner o) {
+            o = default;
+            if (DragAdorner == null) {
+                var layer = AdornerLayer.GetAdornerLayer(this);
+                if (layer != null) {
+                    DragAdorner = new GeometrySelectionAdorner(this) {
+                        Visibility = Visibility.Hidden,
+                        Width  = 0,
+                        Height = 0,
+                        Offset = default
+                        };
+                    layer.Add(DragAdorner);
+                    }
+                }
+            return (o = DragAdorner) != null;
+            }
+        #endregion
+
         #region M:UpdateSizeAdornerPosition
         private void UpdateSizeAdornerPosition() {
             if (SelectionGroup != null) {
@@ -287,7 +383,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         /// <param name="item">The specified item to display.</param>
         protected override void PrepareContainerForItemOverride(DependencyObject element, Object item) {
             base.PrepareContainerForItemOverride(element, item);
-            if (element is XYViewportItem container) {
+            if (element is XYViewportObject container) {
                 container.Owner = this;
                 }
             }
@@ -312,6 +408,15 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 SelectedItems.Remove(item);
                 EndUpdateSelectedItems();
                 }
+            }
+        #endregion
+        #region M:BuildDragBound:Rect
+        private Rect BuildDragBound() {
+            var r = Rect.Empty;
+            foreach (var item in SelectedItems.OfType<IXYViewportBoundObject>()) {
+                r.Union(item.Bound);
+                }
+            return r;
             }
         #endregion
 
@@ -366,5 +471,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         private XYViewportPanel ViewportPanel;
         private LocalSelectionGroup SelectionGroup;
         private ScrollViewer ScrollViewer;
+        private GeometrySelectionAdorner DragAdorner;
+        private Point _dragPT;
         }
     }

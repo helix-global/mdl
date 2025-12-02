@@ -6,12 +6,12 @@ using System.Windows.Input;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
     {
-    public abstract class XYViewportItem : Control
+    public abstract class XYViewportObject : Control
         {
         #region P:IsSelected:Boolean
-        public static readonly DependencyProperty IsSelectedProperty = Selector.IsSelectedProperty.AddOwner(typeof(XYViewportItem),new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal, new PropertyChangedCallback(OnIsSelectedChanged)));
+        public static readonly DependencyProperty IsSelectedProperty = Selector.IsSelectedProperty.AddOwner(typeof(XYViewportObject),new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal, new PropertyChangedCallback(OnIsSelectedChanged)));
         private static void OnIsSelectedChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e) {
-            if (sender is XYViewportItem source) {
+            if (sender is XYViewportObject source) {
 
                 }
             }

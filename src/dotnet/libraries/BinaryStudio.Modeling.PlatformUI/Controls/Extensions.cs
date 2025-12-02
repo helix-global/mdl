@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -99,6 +101,12 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             return (source is Visual)
                 ? VisualTreeHelper.GetParent(source) ?? LogicalTreeHelper.GetParent(source)
                 : LogicalTreeHelper.GetParent(source);
+            }
+        #endregion
+        #region M:AsReadOnly<T>({this}IEnumerable<T>):IList<T>
+        public static IList<T> AsReadOnly<T>(this IEnumerable<T> source)
+            {
+            return new ReadOnlyCollection<T>(source.ToArray());
             }
         #endregion
         }
