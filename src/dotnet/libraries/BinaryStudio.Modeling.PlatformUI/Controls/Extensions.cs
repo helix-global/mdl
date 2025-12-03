@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
     {
@@ -107,6 +110,16 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         public static IList<T> AsReadOnly<T>(this IEnumerable<T> source)
             {
             return new ReadOnlyCollection<T>(source.ToArray());
+            }
+        #endregion
+        #region M:InvalidateMeasure({this}UIElement,CancellationToken):Task
+        public static async Task InvalidateMeasure(this UIElement element,CancellationToken cancellationToken) {
+            await element.Dispatcher.InvokeAsync(element.InvalidateMeasure,DispatcherPriority.Normal,cancellationToken);
+            }
+        #endregion
+        #region M:InvalidateVisual({this}UIElement,CancellationToken):Task
+        public static async Task InvalidateVisual(this UIElement element,CancellationToken cancellationToken) {
+            await element.Dispatcher.InvokeAsync(element.InvalidateVisual,DispatcherPriority.Normal,cancellationToken);
             }
         #endregion
         }

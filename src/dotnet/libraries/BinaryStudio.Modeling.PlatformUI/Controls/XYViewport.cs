@@ -4,6 +4,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
     {
+    using SizeI=System.Drawing.Size;
     public class XYViewport : MultiSelector
         {
         static XYViewport()
@@ -32,8 +34,36 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             return (Vector)e.GetValue(OffsetProperty);
             }
         #endregion
+        #region P:GridSize:Size
+        public static readonly DependencyProperty GridSizeProperty = DependencyProperty.Register(nameof(GridSize),typeof(Size),typeof(XYViewport),new PropertyMetadata(new Size(10,20),OnGridSizeChanged,GridSizeCoerceValue));
+        #region M:GridSizeCoerceValue(DependencyObject,Object):Object
+        private static Object GridSizeCoerceValue(DependencyObject sender,Object baseValue) {
+            return (baseValue is Size value)
+                ? new Size((Int32)value.Width,(Int32)value.Height)
+                : new Size(10,10);
+            }
+        #endregion
+        #region M:OnGridSizeChanged(DependencyObject,DependencyPropertyChangedEventArgs)
+        private static void OnGridSizeChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e) {
+            if (sender is XYViewport source) {
+                source.OnGridSizeChanged();
+                }
+            }
+        #endregion
+        #region M:OnGridSizeChanged
+        private void OnGridSizeChanged()
+            {
+            }
+        #endregion
+        public Size GridSize
+            {
+            get { return (Size)GetValue(GridSizeProperty); }
+            set { SetValue(GridSizeProperty,value); }
+            }
+        #endregion
         #region P:Scale:Double
         public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(nameof(Scale),typeof(Double),typeof(XYViewport),new PropertyMetadata(1.0,OnScaleChanged,ScaleCoerceValue));
+        #region M:ScaleCoerceValue(DependencyObject,Object):Object
         private static Object ScaleCoerceValue(DependencyObject sender,Object basevalue) {
             if (basevalue is Double value) {
                 if (value > 0) {
@@ -50,10 +80,12 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 }
             return 1.0;
             }
-
+        #endregion
+        #region M:OnScaleChanged(DependencyObject,DependencyPropertyChangedEventArgs)
         private static void OnScaleChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e)
             {
             }
+        #endregion
 
         public Double Scale
             {
@@ -104,13 +136,14 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
 
         private static Object DragBoundCoerceValue(DependencyObject sender,Object baseValue) {
             if (baseValue is Rect r) {
+                var gz = ((XYViewport)sender).GridSize;
                 if (!r.IsEmpty) {
-                    var α = ((Int32)r.Left*10)/10;
-                    var β = ((Int32)r.Top *10)/10;
-                    α /= 10;
-                    β /= 10;
-                    α *= 10;
-                    β *= 10;
+                    var α = ((Int32)r.Left*(Int32)gz.Width)/(Int32)gz.Width;
+                    var β = ((Int32)r.Top *(Int32)gz.Height)/(Int32)gz.Height;
+                    α /= (Int32)gz.Width;
+                    β /= (Int32)gz.Height;
+                    α *= (Int32)gz.Width;
+                    β *= (Int32)gz.Height;
                     r = new Rect(new Point(α,β),r.Size);
                     }
                 return r;
@@ -130,9 +163,9 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 if (!DragBound.IsEmpty) {
                     adorner.Visibility = Visibility.Visible;
                     var r = DragBound;
-                    adorner.Width  = r.Width;
-                    adorner.Height = r.Height;
-                    adorner.Offset = (Vector)r.Location;
+                    adorner.Width  = r.Width*Scale;
+                    adorner.Height = r.Height*Scale;
+                    adorner.Offset = (Vector)r.Location - (new Vector(HorizontalOffset,VerticalOffset));
                     }
                 else
                     {
@@ -155,6 +188,7 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             ViewportSurface = GetTemplateChild("ViewportSurface") as XYViewportSurface;
             ScrollViewer = GetTemplateChild("ScrollViewer") as ScrollViewer;
             ViewportSurface?.SetBinding(XYViewportSurface.ScaleProperty,this,ScaleProperty,BindingMode.OneWay);
+            ViewportSurface?.SetBinding(XYViewportSurface.GridSizeProperty,this,GridSizeProperty,BindingMode.OneWay);
             if (ScrollViewer != null) {
                 ScrollViewer.ScrollChanged += OnScrollChanged;
                 }
@@ -166,14 +200,21 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             }
         #endregion
         #region M:OnDragCompleted(Object,DragCompletedEventArgs)
-        private void OnDragCompleted(Object sender,DragCompletedEventArgs e) {
+        private async void OnDragCompleted(Object sender,DragCompletedEventArgs e) {
             if (EnsureDraggingAdorner(out var adorner) &&
                 EnsureViewportPanel(out var panel))
                 {
-                if (SelectionGroup != null) {
-
+                var β = DragBound;
+                var δ = β.Location - dragsp;
+                foreach (var item in SelectedItems.OfType<UIElement>()) {
+                    SetOffset(item,GetOffset(item)+δ);
                     }
-                DragAdorner.Visibility = Visibility.Hidden;
+                DragBound = Rect.Empty;
+                adorner.Visibility = Visibility.Hidden;
+                await panel.InvalidateMeasure(CancellationToken.None);
+                await panel.InvalidateVisual(CancellationToken.None);
+                SelectionGroup = new LocalSelectionGroup(SelectedItems,this);
+                UpdateSizeAdornerPosition();
                 }
             }
         #endregion
@@ -181,16 +222,22 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         private void OnDragDelta(Object sender,DragDeltaEventArgs e) {
             var r = DragBound;
             if (r != null) {
-                if (e is DragDeltaDirectedEventArgs E) {
-                    DragBound = new Rect(_dragPT + new Vector(E.HorizontalChange,E.VerticalChange),r.Size);
-                    }
+                DragBound = new Rect(dragsp + new Vector(e.HorizontalChange,e.VerticalChange),r.Size);
                 }
             }
         #endregion
         #region M:OnDragStarted(Object,DragStartedEventArgs)
-        private void OnDragStarted(Object sender, DragStartedEventArgs e) {
-            DragBound = BuildDragBound();
-            _dragPT = DragBound.Location;
+        private void OnDragStarted(Object sender,DragStartedEventArgs e) {
+            if (EnsureViewportPanel(out var panel)) {
+                var dragbound = BuildDragBound();
+                dragsp    = dragbound.Location;
+                DragBound = dragbound;
+                //var dragbound = BuildDragBound();
+                //var α = panel.FromLogical(dragbound).Scale(Scale);
+                //var β = (Vector)α.Location-(new Vector(HorizontalOffset,VerticalOffset));
+                //dragsp = (Point)β;
+                //DragBound = α;
+                }
             //if (EnsureViewportPanel(out var panel)) {
             //    if (EnsureDraggingAdorner(out var adorner)) {
             //        if (SelectionGroup != null) {
@@ -472,6 +519,6 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
         private LocalSelectionGroup SelectionGroup;
         private ScrollViewer ScrollViewer;
         private GeometrySelectionAdorner DragAdorner;
-        private Point _dragPT;
+        private Point dragsp;
         }
     }

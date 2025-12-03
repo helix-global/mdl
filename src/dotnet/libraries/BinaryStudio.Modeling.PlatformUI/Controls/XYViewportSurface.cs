@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace BinaryStudio.Modeling.PlatformUI.Controls
     {
@@ -28,6 +29,29 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             set { SetValue(ScaleProperty, value); }
             }
         #endregion
+        #region P:GridSize:Size
+        public static readonly DependencyProperty GridSizeProperty = DependencyProperty.Register(nameof(GridSize),typeof(Size),typeof(XYViewportSurface),new PropertyMetadata(new Size(10,10),OnGridSizeChanged,GridSizeCoerceValue));
+        #region M:GridSizeCoerceValue(DependencyObject,Object):Object
+        private static Object GridSizeCoerceValue(DependencyObject sender,Object baseValue) {
+            var r = (baseValue is Size value)
+                ? new Size((Int32)value.Width,(Int32)value.Height)
+                : new Size(10,10);
+            return r;
+            }
+        #endregion
+        #region M:OnGridSizeChanged(DependencyObject,DependencyPropertyChangedEventArgs)
+        private static void OnGridSizeChanged(DependencyObject sender,DependencyPropertyChangedEventArgs e)
+            {
+            return;
+            }
+        #endregion
+        public Size GridSize
+            {
+            get { return (Size)GetValue(GridSizeProperty); }
+            set { SetValue(GridSizeProperty,value); }
+            }
+        #endregion
+
         #region M:OnRender(DrawingContext)
         /// <summary>When overridden in a derived class, participates in rendering operations that are directed by the layout system. The rendering instructions for this element are not used directly when this method is invoked, and are instead preserved for later asynchronous use by layout and drawing.</summary>
         /// <param name="context">The drawing instructions for a specific element. This context is provided to the layout system.</param>
@@ -35,14 +59,9 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
             base.OnRender(context);
             var scale  = Scale;
             var offset = Offset*scale;
-            var szG = 10*scale;
-            while (szG < 10) {
-                szG*=2;
-                }
-            while (szG > 10) {
-                szG/=2;
-                }
-            var GridSize = new Size(szG,szG);
+            var szGX = CorrectValue(this.GridSize.Width);
+            var szGY = CorrectValue(this.GridSize.Height);
+            var GridSize = new Size(szGX,szGY);
             var GridPenXT = new Pen(Brushes.Gray.Clone(0.5),0.125);
             var GridPenYT = new Pen(Brushes.Gray.Clone(0.5),0.125);
             var GridPenXB = new Pen(Brushes.Gray.Clone(),0.25);
@@ -77,6 +96,14 @@ namespace BinaryStudio.Modeling.PlatformUI.Controls
                 while ((x < Size.Width) || (y < Size.Height));
                 context.Pop();
                 }
+            }
+        #endregion
+        #region M:CorrectValue(Double):Double
+        private Double CorrectValue(Double value) {
+            var r = value*Scale;
+            while (r < value) { r*=2; }
+            while (r > value) { r/=2; }
+            return r;
             }
         #endregion
         }
